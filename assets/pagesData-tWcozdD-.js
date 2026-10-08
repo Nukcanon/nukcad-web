@@ -6608,16 +6608,17 @@ desktop: true
 1. 관리자나 멘토가 인터넷이 되는 PC에서 NukCAD 설치 프로그램을 받아 둡니다.
 2. PowerShell에서 \`tools\\make-offline-bundle.ps1 -Installer <설치 프로그램 경로>\`를 실행합니다. 모델을 받는 데 시간이 걸리고, 끊겨도 다시 실행하면 이어서 받습니다.
 3. 만들어진 NukCAD-학교용 폴더를 통째로 USB나 공유 폴더에 복사합니다. 설치 프로그램과 NukCAD-models 폴더는 같은 폴더에 둡니다.
-4. 각 PC에서 관리자 계정으로 그 폴더의 설치 프로그램을 실행합니다. 설치가 끝날 때 AI 모델 파일을 함께 복사합니다. 조용한 설치(/S)도 같습니다.
-5. NukCAD를 처음 켜면 모델 파일이 원본과 같은지 화면 뒤에서 한 번 확인합니다. 확인이 끝나면 {c:settings} → {t:set.general} 탭의 {t:ai.set.label}에서 모델이 {t:bigai.installed}으로 표시됩니다.
+4. 각 PC에서 관리자 계정으로 그 폴더의 설치 프로그램을 실행합니다. 설치가 끝날 때 AI 모델 파일을 NukCAD 설치 폴더의 NukCAD-models(보통 \`C:\\Program Files\\NukCAD\\NukCAD-models\`)로 복사하고, 각 파일이 원본과 같은지(SHA-256) 그 자리에서 한 번 확인합니다. 조용한 설치(/S)도 같습니다.
+5. NukCAD를 켜면 설치 때 확인한 모델을 바로 씁니다. AI 방식을 고른 적이 없는 사용자는 내 컴퓨터 AI가 저절로 켜지고 짧은 안내가 한 번 나옵니다. {c:settings} → {t:set.general} 탭의 {t:ai.set.label}에서 모델이 {t:bigai.installed}으로 표시됩니다.
 6. 이미 NukCAD가 설치된 PC에서는 {t:ai.set.label}에서 {t:ai.set.local}과 {t:bigai.engine.cpu}을 선택하고 {t:bundle.import}를 누릅니다. {t:bundle.import.find}로 USB의 NukCAD-models 폴더를 찾은 뒤 {t:bundle.import.start}를 누릅니다.
 
 ## 팁
 
 - 모델을 고르려면 \`-Models e4b,e2b\`처럼 씁니다. 가벼운 e2b, 보통 e4b, 고성능 12b가 있습니다. 기본은 e4b입니다.
 - 설치 프로그램으로 넣은 모델은 NukCAD 설치 폴더에 들어가 그 PC의 모든 사용자가 함께 씁니다. 사용자마다 다시 받지 않습니다.
-- 확인은 사용자마다 처음 한 번만 하고, 프로세서를 적게 쓰도록 낮은 우선순위로 진행합니다.
-- 파일이 원본과 다르면 NukCAD가 그 파일을 쓰지 않고 알려 줍니다. 묶음을 다시 만들어 설치하거나 {t:bundle.import}로 넣습니다.
+- 확인은 설치할 때 한 번만 합니다. 확인 결과(verified.json)는 관리자만 바꿀 수 있는 설치 폴더에 있어서, 재부팅 때 사용자 자료를 되돌리는 PC에서도 다시 확인하지 않습니다. 예전 설치처럼 확인 결과가 없을 때만 사용자마다 처음 한 번 확인합니다.
+- 묶음 없이 설치할 때는 첫 화면의 '카두 AI 모델 함께 받기'(기본으로 켜짐, 약 5.4 GB)를 켜 두면, 처음 켤 때 이 PC에 맞는 모델을 인터넷으로 받고 내 컴퓨터 AI를 켭니다. 인터넷이 없으면 다음에 켤 때 이어서 받습니다. 조용한 설치에서는 \`/AIMODEL=1\`을 붙입니다.
+- 원본과 다른 파일은 설치 프로그램이 지우고 알려 줍니다. 묶음을 다시 만들어 설치하거나 {t:bundle.import}로 넣습니다.
 - 자세한 설치 방법은 [AI 연결](help:more-ai-setup)과 묶음 폴더의 '읽어 보세요.txt'에 있습니다.
 
 ## 자주 하는 실수
@@ -7252,7 +7253,7 @@ title: 화면이 느릴 때
 분류: 문제 해결
 난이도: 중급
 workspace: 공통
-keywords: 느려, 느림, 버벅, 끊김, 렉, 랙, 멈춰, 무거워, 화면이 늦게, 그리기 품질, 표시 방식, 모서리 선, 물체가 많아, 층 숨기기, 성능, 빠르게, slow, lag, laggy, freezes, performance, draw quality
+keywords: 느려, 느림, 버벅, 끊김, 렉, 랙, 멈춰, 무거워, 화면이 늦게, 그리기 품질, 표시 방식, 모서리 선, 물체가 많아, 층 숨기기, 성능, 빠르게, 계산 엔진, slow, lag, laggy, freezes, performance, draw quality
 commands: settings, visual, upperLevels
 order: 50
 ---
@@ -7268,6 +7269,7 @@ order: 50
 3. {c:visual} 메뉴에서 {t:vis.shaded}처럼 모서리를 그리지 않는 방식을 선택합니다.
 4. 지금 쓰지 않는 물체는 숨깁니다. 3D 건설에서는 {c:upperLevels}로 위층을 흐리게 하거나 숨깁니다.
 5. 나사산이 있는 볼트, 잇수가 많은 기어처럼 면이 많은 물체는 다 만든 뒤 숨기거나 개수를 줄입니다.
+6. 물체가 많아 계산이 오래 걸리면 {c:settings} → {t:set.options} 탭의 {t:set.engines}을 {t:set.engines.auto}으로 둡니다. 엔진이 많으면 더 빨리 계산하지만 메모리를 더 씁니다.
 
 ## 팁
 
@@ -13928,16 +13930,17 @@ How to install NukCAD together with a big AI model on school PCs with no or slow
 1. An administrator or mentor downloads the NukCAD installer on a PC with internet.
 2. In PowerShell, run \`tools\\make-offline-bundle.ps1 -Installer <installer path>\`. Downloading the models takes a while; if it stops, run it again and it continues.
 3. Copy the whole NukCAD-학교용 folder to a USB stick or a shared folder. Keep the installer and the NukCAD-models folder in the same folder.
-4. On each PC, run the installer from that folder with an administrator account. At the end it copies the AI model files too. A silent install (/S) does the same.
-5. The first time NukCAD starts, it checks once in the background that the model files match the originals. Then {c:settings} → {t:set.general} tab → {t:ai.set.label} shows the model as {t:bigai.installed}.
+4. On each PC, run the installer from that folder with an administrator account. At the end it copies the AI model files to NukCAD-models in the install folder (usually \`C:\\Program Files\\NukCAD\\NukCAD-models\`) and checks once, right there, that each file matches the original (SHA-256). A silent install (/S) does the same.
+5. NukCAD uses the models checked at install time right away. For a user who never chose an AI mode, AI on this computer turns on by itself and a short message says so once. {c:settings} → {t:set.general} tab → {t:ai.set.label} shows the model as {t:bigai.installed}.
 6. On a PC that already has NukCAD, choose {t:ai.set.local} and {t:bigai.engine.cpu} under {t:ai.set.label}, then press {t:bundle.import}. Use {t:bundle.import.find} to find the NukCAD-models folder on the USB stick and press {t:bundle.import.start}.
 
 ## Tips
 
 - To choose models, add \`-Models e4b,e2b\`. There are e2b (light), e4b (normal) and 12b (smart); the default is e4b.
 - Models put in by the installer go into NukCAD's install folder and every user of the PC shares them; no user downloads them again.
-- The check runs once per user, at a low priority so it uses little of the processor.
-- A file that differs from the original is not used and NukCAD says so. Make the bundle again, or add the model with {t:bundle.import}.
+- The check runs once, at install time. Its result (verified.json) is in the install folder, which only administrators can change, so even a PC that resets user data at each restart never checks again. Only without that result (an older install) does each user's app check once.
+- Without a bundle, keep 'Also download the Cadoo AI model' (on by default, about 5.4 GB) on the installer's first page: at the first start NukCAD downloads the model that suits the PC and turns on AI on this computer. Without internet it continues at the next start. For a silent install, add \`/AIMODEL=1\`.
+- A file that differs from the original is deleted by the installer, which says so. Make the bundle again, or add the model with {t:bundle.import}.
 - More about installing is in [AI setup](help:more-ai-setup) and in the bundle folder's '읽어 보세요.txt'.
 
 ## Common mistakes
@@ -14572,7 +14575,7 @@ title: Slow screen
 분류: 문제 해결
 난이도: 중급
 workspace: 공통
-keywords: slow, lag, laggy, stutter, freezes, heavy, performance, draw quality, display style, edges, many objects, hide levels, faster
+keywords: slow, lag, laggy, stutter, freezes, heavy, performance, draw quality, geometry engines, display style, edges, many objects, hide levels, faster
 commands: settings, visual, upperLevels
 order: 50
 ---
@@ -14588,6 +14591,7 @@ This page covers a view that stutters while you turn it or move objects. Check t
 3. In the {c:visual} menu, select a style without edges such as {t:vis.shaded}.
 4. Hide objects you are not using. In 3D Building, dim or hide the upper levels with {c:upperLevels}.
 5. Objects with many faces, such as threaded bolts or gears with many teeth, can be hidden or reduced in number once they are finished.
+6. If many objects take long to compute, set {t:set.engines} in {c:settings} → {t:set.options} to {t:set.engines.auto}. More engines compute faster but use more memory.
 
 ## Tips
 
