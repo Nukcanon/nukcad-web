@@ -1,1 +1,0 @@
-import{Hn as e,jt as t}from"./sketchTools-tsTlf-9z.js";var n=e();function r(){return(0,n.jsx)(`p`,{className:`hint pen-hint`,"data-tip":t(`dragclick.penShortTip`),children:t(`dragclick.penShort`)})}export{r as t};
