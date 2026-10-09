@@ -47,7 +47,7 @@ title: 내보내기·3D 프린팅
 분류: 시작하기
 난이도: 기초
 workspace: 공통
-keywords: 3d 프린트, 3d 프린터, 프린트, 프린터, 출력하, 뽑, stl, 3mf, 내보내, 슬라이서, print, 3d print, export, slicer, 내보내기, 출력, 3D 출력, 큐라, cura, 뱀부, step, obj, dxf, svg, 레이저 커팅, 레이저, 도면 파일, 다른 CAD, 프린터 판, 축척, 배율, 크게 출력, 작게 출력, 1:50, 2:1, 프린터 크기, 3D 프린팅
+keywords: 3d 프린트, 3d 프린터, 프린트, 프린터, 출력하, 뽑, stl, 3mf, 내보내, 슬라이서, print, 3d print, export, slicer, 내보내기, 출력, 3D 출력, 큐라, cura, 뱀부, step, obj, dxf, svg, 레이저 커팅, 레이저, 도면 파일, 다른 CAD, 프린터 판, 축척, 배율, 크게 출력, 작게 출력, 1:50, 2:1, 프린터 크기, 3D 프린팅, 배치, 판 위 배치, 화면에서 선택, 일부만 내보내기
 commands: exportStl, export3mf, exportStep, exportObj, exportDxf3d, exportSvg, exportDxf, print3d
 howto: stl
 context: exportStl, export3mf, exportStep, exportObj, exportDxf3d, exportSvg, exportDxf, print3d
@@ -67,6 +67,8 @@ order: 60
 ## 팁
 
 - 저장할 곳을 묻기 전에 내보내기 창이 먼저 뜹니다. {t:ex.what} 칸에서 {t:ex.picked}이나 {t:ex.all} 가운데 하나를 선택하고, 창 아래의 내보내기 단추(Enter)를 누릅니다. 물체를 선택한 채 열면 {t:ex.picked} 상태로 시작합니다.
+- 미리 선택하지 않았으면 {t:ex.what} 줄의 {t:ex.pickView} 단추를 누릅니다. 3D 화면에서 물체를 클릭하거나 상자로 선택하고 Enter를 누르면 창으로 돌아와 {t:ex.picked}이 그 물체로 정해집니다. Esc를 누르면 바꾸지 않고 돌아옵니다. 창의 다른 설정은 그대로 남습니다.
+- 3D 건설에서는 클릭한 부재가 속한 건물 전체가 선택됩니다. 부재 하나만 선택하려면 {t:ex.unitPart}로 바꿉니다.
 - {t:ex.quality} 설정은 곡면을 삼각형으로 나누는 정도입니다. {t:ex.q.medium}이 3D 프린팅에 알맞고, {t:ex.q.fine} 쪽은 곡면이 매끈하지만 파일이 커집니다.
 - 형식별 쓰임:
 
@@ -100,8 +102,18 @@ order: 60
 | \`2\` (숫자만) | 그 배수 (2배) |
 
 - 입력한 뒤 Enter를 누르면 적용되고, ↑ ↓ 키로 다음 표준 축척으로 바꿉니다. 칸 아래에 "1:50 · 50분의 1로 줄임"처럼 뜻과 {t:sc.outSize}가 나옵니다.
-- STL·OBJ·3MF 창에는 {t:sc.bed}(가로·세로·높이)도 있습니다. {t:sc.fit} 단추는 프린터에 들어가는 가장 큰 축척으로 바꾸고, 프린터보다 크거나 0.8 mm보다 얇은 부분이 있으면 빨간 글씨로 알려 줍니다.
+- STL·OBJ·3MF 창에는 {t:sc.bed}(가로·세로·높이)도 있습니다. {t:sc.fit} 단추는 프린터에 들어가는 가장 큰 축척으로 바꾸고, 프린터보다 크거나 0.8 mm보다 얇은 부분이 있으면 빨간 글씨로 알려 줍니다. 프린터보다 커도 파일은 저장됩니다.
 - 3D 건설에서 STL·OBJ·3MF를 내보낼 때는 프린터에 들어가는 가장 큰 표준 축척이 먼저 선택됩니다. 모형 아래에 판을 붙이려면 {t:sc.base}를 정합니다.
+
+### 배치 (프린터 판 위에 놓기)
+
+- STL·OBJ·3MF 창의 {t:ex.arrange} 단추를 누르면 3D 화면에 프린터 판이 나타나고, 내보낼 물체만 보입니다.
+- 물체를 클릭하면 상자 모서리 표시와 내보낼 크기가 나옵니다. 이동·회전 손잡이로 이동하고 회전합니다. 이동 간격과 회전 간격은 평소와 같고, 물체는 늘 판 위에 놓입니다.
+- 작은 창에서 {t:sc.label}을 바꿀 수 있고, {t:ex.arrangeAll}와 {t:ex.arrangeSel}를 봅니다. 판을 벗어나면 {t:ex.arrangeAll} 줄이 빨간 글씨가 됩니다.
+- Ctrl+Z는 배치 안의 이동·회전만 되돌립니다. 배치 중에는 다른 도구와 삭제를 쓸 수 없습니다.
+- Enter({t:btn.apply})를 누르면 창으로 돌아와 그 배치대로 내보냅니다. Esc({t:btn.cancel})는 배치를 바꾸지 않고 돌아옵니다. 처음 위치로 되돌리려면 {t:ex.arrangeReset}를 누릅니다.
+- 문서의 물체 위치는 바뀌지 않습니다. 배치는 프로그램을 닫을 때까지만 기억하고 저장 파일에는 들어가지 않습니다.
+- 3D 건설에서는 건물 하나가 한 덩어리로 움직입니다. 땅 위의 시설은 하나씩 움직입니다.
 
 ## 자주 하는 실수
 
@@ -614,7 +626,7 @@ order: 90
 
 ## 팁
 
-- 보기 도구 줄에는 {t:view.ortho} | {t:view.persp} 전환, {c:pan}, {c:orbit}, {c:zoomMode}, {t:nav.zoomTitle}(%), {c:fit}, {c:fitSel}, {c:faceView}, {c:visual}, {t:vis.menu}, {c:grid}, {c:dimInfo}, {c:screenshot} 단추가 있습니다.
+- 보기 도구 줄에는 {t:view.ortho} | {t:view.persp} 전환, {c:pan}, {c:orbit}, {c:zoomMode}, {t:nav.zoomTitle}(%), {c:fit}, {c:fitSel}, {c:faceView}, {c:visual}, {t:vis.menu}, {c:grid}, {c:dimInfo}, {c:screenshot} 단추가 있습니다. 3D 건설에서는 {c:contours}과 {c:cutAway} 단추가 더 있고, 고급 메뉴에서는 {c:terrainView} 단추도 보입니다.
 - 회전 중심: 커서 아래에 아무것도 없으면 선택한 것의 가운데, 그다음 보이는 모델의 가운데를 중심으로 돕니다. 선택한 것의 가운데를 늘 중심으로 쓰려면 {c:settings} → {t:set.options} → {t:ux.set.pivot}에서 {t:ux.set.pivot.selection}을 선택합니다.
 - {c:faceView}는 면을 선택하지 않았으면 볼 면을 클릭하게 합니다. 평면과 곡면 모두 됩니다.
 - {c:pan}·{c:orbit}·{c:zoomMode} 단추를 켜 두면 왼쪽 단추로 끌어서 그 동작을 합니다. Esc를 누르면 꺼집니다.
@@ -981,7 +993,7 @@ order: 420
 
 ### 그릴 물체와 양식
 
-- {t:dp.targets}에서 {t:dp.targetAll} 대신 {t:dp.targetPicked}를 선택하면 목록에서 그릴 물체를 체크합니다. {t:dp.useSelection}을 누르면 3D 화면에서 선택한 물체만 그립니다.
+- 그릴 물체는 {t:dp.targets}의 {t:dp.pick3d}을 눌러 3D 화면에서 선택합니다. 물체를 클릭하면 더하거나 빼고, 상자로 끌면 여러 개를 한꺼번에 선택합니다. Enter나 {t:btn.apply}을 누르면 도면으로 돌아오고, Esc를 누르면 바꾸지 않고 돌아옵니다. 다시 모두 그리려면 {t:dp.targetAll}를 누릅니다.
 - {t:dsh.show}에서 {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre}, {t:dsh.axes}을 하나씩 켜고 끕니다.
 
 ### 표제란
@@ -1004,6 +1016,7 @@ order: 420
 ### 내보내기
 
 - {t:dv.print}: 모든 페이지를 차례로 인쇄합니다. PDF는 인쇄 창에서 PDF로 저장을 선택합니다.
+- {t:dv.printPage}: 페이지가 여러 장일 때 나오며, 지금 보이는 페이지만 인쇄합니다.
 - {t:dv.dxf}, SVG, PNG: 지금 보이는 페이지를 저장합니다. DXF는 VISIBLE·HIDDEN·CENTER·DIM·TEXT·BORDER 같은 레이어로 나뉩니다.
 - {t:dp.dxfAll}: 페이지가 여러 장일 때 모든 페이지를 한 파일에 나란히 놓습니다.
 - {t:dv.viewDxf}: 선택한 투상도 하나만 1:1 축척 DXF로 저장합니다.
@@ -1072,7 +1085,7 @@ order: 410
 - {t:dv.section} 단추를 누르면 {t:dp.setupSection}이 나옵니다. {t:dp.cutAt}는 {t:dp.byPlane}(XY·XZ·YZ 평면과 {t:dv.offset}, 비우면 물체 가운데), {t:dp.byFace}(3D 화면에서 평평한 면 클릭), {t:dp.byLine}(다른 투상도 위에 두 점 클릭) 가운데에서 선택한 뒤 {t:btn.cancel} 옆의 단추를 누릅니다. {t:dp.byPlane}이면 그 단추가 {t:dp.add}입니다.
 - 단면도에는 A-A처럼 기호가 붙고, 절단면이 선으로 보이는 투상도에 절단선이 그려집니다. 기호는 단면도를 클릭한 뒤 {t:dp.letter} 칸에서 바꿉니다. 잘린 면에는 빗금이 그려집니다.
 - {t:dv.custom}는 비스듬한 면을 정면에서 본 모습을 그립니다. {t:dp.auxFrom}은 {t:dp.byIncline}(3D에서 면 클릭), {t:dp.byEdge}(투상도에서 경사진 모서리 클릭), {t:dp.byPlane} 가운데에서 선택합니다.
-- 단면도와 보조 투상도는 {t:dv.flip}로 보는 방향을 뒤집고, {t:dp.includes}로 그릴 물체를 따로 선택할 수 있습니다.
+- 단면도와 보조 투상도는 {t:dv.flip}로 보는 방향을 뒤집습니다. 투상도를 클릭한 뒤 {t:dp.includes}의 {t:dp.pick3d}을 누르면 그 투상도에 그릴 물체를 3D 화면에서 따로 선택합니다.
 
 ### 그 밖에
 
@@ -3978,7 +3991,7 @@ title: 작업 범위
 난이도: 중급
 workspace: 3D 건설
 keywords: 작업 범위, 범위, 작업 위치, 경로, 지금 층, 작업 층, 현재 층, 대지 고르기, 건물 고르기, 층 고르기, 상태 표시줄, 흐리게, 흐리게 끄기, 모든 층, 더블클릭, Esc, 범위 위로, 선택이 안 됨, 다른 건물, 붙은 건물, work scope, scope, path, current level, working level, fade, double-click, scope up
-commands: levelPanel, buildFlow, buildingEasy, buildingNew
+commands: levelPanel, buildFlow, buildingEasy, buildingOutline
 order: 80
 ---
 
@@ -3996,12 +4009,12 @@ order: 80
 
 ## 팁
 
-- 같은 경로가 {c:buildFlow} 창의 맨 위에도 있습니다. {c:levelPanel} 창의 목록에도 같은 범위가 강조되어 보입니다. 목록의 행을 클릭하면 선택만 하고, 두 번 클릭하면 범위가 그곳으로 이동됩니다: [건물 이름·색·전체 목록](help:build-names-tree).
+- 같은 경로가 {c:buildFlow} 창의 맨 위에도 있습니다. {c:levelPanel} 창의 목록에도 같은 범위가 강조되어 보입니다. 목록의 층 행은 한 번 클릭하면 범위가 그 층으로 이동되고, 두 번 클릭하면 그 층의 부재도 선택됩니다. 대지·건물 행은 클릭하면 선택만 하고, 두 번 클릭하면 범위가 그곳으로 이동됩니다: [건물 이름·색·전체 목록](help:build-names-tree).
 - 상태 표시줄의 경로 옆에는 지금 층의 바닥 높이와 층고, {t:ab.allLevels}, {t:bo.fade} 스위치가 있습니다. 경로 앞의 층 단추를 누르면 {c:levelPanel} 창이 앞으로 나옵니다.
 - {t:bo.fade} 스위치를 켜 두면(처음에 켜짐) 벽·바닥판·문 같은 건물 도구를 쓰는 동안에만 위층과 작업 범위 밖이 흐리게 보입니다. 보기만 할 때는 모두 또렷하고, 끄면 도구를 쓸 때도 흐리게 하지 않습니다.
 - {t:ab.allLevels}을 켜면 상자 선택이 지금 층을 넘어 건물의 모든 층에 미칩니다.
 - 한 대지에 건물이 여럿이면 건물 단계의 목록에 건물마다 한 줄씩 나옵니다. 외곽선이 맞닿은 건물도 하나씩 따로 선택합니다: [붙은 건물](help:build-shared-levels).
-- 건물이 없는 곳을 선택하면 경로에 {t:so.noBuilding}이 보이고, {c:buildFlow} 창에 {c:buildingEasy}와 {c:buildingNew} 단추가 나옵니다. 경로에서 선택만 해서는 대화 창이 열리지 않습니다.
+- 건물이 없는 곳을 선택하면 경로에 {t:so.noBuilding}이 보이고, {c:buildFlow} 창에 {c:buildingEasy}와 {c:buildingOutline} 단추가 나옵니다. 경로에서 선택만 해서는 대화 창이 열리지 않습니다.
 - 벽·바닥판·기둥·문·창처럼 한 층에서 쓰는 도구는 범위의 층에 있는 부품만, 지붕·계단은 범위 건물의 모든 층의 부품만 선택하고 스냅합니다. 도로·댐 같은 토목 구조물은 스냅만 되고 건물 도구로 선택할 수는 없습니다.
 - 대지·토목 도구의 창 첫 줄에는 그 도구가 작업하는 대지가 나옵니다. [평탄화](help:site-grade)·물·[건물 외곽선](help:build-outline) 도구 창의 {t:so.target}을 바꾸면 작업 범위도 함께 이동됩니다.
 - 다른 건물의 부품을 더블클릭하면 범위가 그 건물과 층으로 이동되고 알림이 뜹니다.
@@ -4044,6 +4057,7 @@ order: 20
 
 - 땅에 높이가 처음 들어오면 {c:terrainView} 창이 저절로 열립니다. 보기 단추 줄의 {c:terrainView} 단추는 고급 메뉴에서 보이고, {c:contours} 단추는 일반·고급 모두에서 보입니다.
 - {t:tv.opacity}를 0 %로 두면 땅이 숨겨집니다.
+- 지하층만 보려면 땅 전체를 투명하게 하지 않아도 됩니다. 지하층에서 작업하거나 상태 표시줄의 {t:bv.toggle}를 켜면 지하 자리의 땅만 잘려 지하층과 흙 단면이 보입니다. 화면만 바뀌고 땅 자료와 토공량은 그대로입니다: [층 만들기](help:arch-levels).
 - {t:tv.aerial}, {t:tv.base}, {t:tv.cadastral}는 모두 브이월드에서 받아 오므로 인증키와 인터넷이 있어야 합니다. 브이월드 이용약관에 따라 파일에는 저장되지 않으며, 파일을 열 때 다시 받습니다. 받지 못하면 사진 없이 흙·풀 색 땅으로 보입니다.
 - 브이월드 지도가 보이는 동안에는 화면 구석에 "© 국토교통부 브이월드" 출처가 표시되고, 화면 저장 그림에도 함께 들어갑니다.
 - {t:tv.cadastral}의 용도지역 색과 지번 경계는 참고용이며 법적 효력이 없습니다.
@@ -4066,9 +4080,9 @@ title: 천장·천장 보기·위 잘라 보기
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: 천장, 천장 달기, 반자, 반자 속, 반자 속 깊이, 천장 높이, 층고 따라, 모든 층에 천장, 천장 넣기, 석고보드, 텍스, 천장 보기, 천장도, 반사 천장도, 천장 평면도, 천정, 천장 조명, 올려다보기, 아래에서 보기, 좌우 반전, 위 잘라 보기, 잘라 보기, 자르는 높이, 방 안 보기, 방 들여다보기, rcp, ceiling, ceiling view, reflected ceiling plan, cut away, cut height, plenum
-commands: ceiling, ceilingAll, ceilingView, cutAway, lighting, lightPlace
-context: ceilingView, cutAway, ceiling, ceilingAll
+keywords: 천장, 천장 달기, 반자, 반자 속, 반자 속 깊이, 천장 높이, 층고 따라, 천장 넣기, 석고보드, 텍스, 천장 보기, 천장도, 반사 천장도, 천장 평면도, 천정, 천장 조명, 올려다보기, 아래에서 보기, 좌우 반전, 위 잘라 보기, 잘라 보기, 자르는 높이, 방 안 보기, 방 들여다보기, rcp, ceiling, ceiling view, reflected ceiling plan, cut away, cut height, plenum
+commands: ceiling, ceilingView, cutAway, lighting, lightPlace
+context: ceilingView, cutAway, ceiling
 order: 180
 ---
 
@@ -4084,19 +4098,20 @@ order: 180
 4. 천장을 확인하려면 {m:ceilingView} 단추를 누르거나 {k:ceilingView} 키를 누릅니다. 화면이 아래에서 올려다보는 방향으로 바뀌고 땅·다른 층·다른 건물은 숨겨집니다.
 5. 3D 화면 위의 작은 창에서 {t:lt.cutHeight}를 정하고, 평면도와 같은 방향으로 보려면 {t:ceil.flip}을 켭니다.
 6. 다 보았으면 작은 창의 × 단추나 Esc를 누르거나 {k:ceilingView} 키를 다시 눌러 원래 화면으로 돌아갑니다.
-7. 방 안을 위에서 들여다보려면 {m:cutAway} 단추를 누르고 작은 창의 {t:lt.cutHeight}로 자를 높이를 정합니다.
+7. 방 안을 위에서 들여다보려면 뷰 큐브 아래 보기 도구 줄의 {c:cutAway} 단추를 누릅니다. 켜져 있는 동안 3D 화면 위에 작은 창이 뜨고, {t:lt.cutHeight}로 자를 높이를 정합니다. 단추를 다시 누르면 꺼집니다.
 
 ## 팁
 
 - {t:ceil.rule}가 켜져 있으면(처음에 켜짐) 천장 높이는 위 바닥판이나 지붕 밑면에서 {t:ceil.plenum}(처음 0.4 m)만큼 내려온 곳입니다. 층고 3 m, 바닥판 두께 0.2 m이면 천장은 2.4 m입니다. 끄면 {t:ceil.height}에 넣은 높이를 지킵니다.
 - 천장 두께는 처음 20 mm입니다. 경사 지붕 아래에서는 {t:ceil.kind}에서 {t:ceil.kind.flat}이나 {t:ceil.kind.roof}를 선택합니다.
 - {t:ceil.how.level}로 단 천장은 층 외곽선과 중정을 따르고, 외곽선을 고치면 함께 바뀝니다.
-- {c:ceilingAll}은 천장이 없는 층마다 외곽선을 따라 천장을 한 번에 답니다. 필로티 층과 이미 천장이 있는 층은 빼고, 알림에 단 수와 뺀 수가 나옵니다. {m:ceilingAll} 단추, {c:ceiling} 도구 창, {c:levelPanel}의 건물 행 오른쪽 클릭 메뉴에 있습니다.
-- [건물 세우기](help:build-overview)의 {t:ceil.build} 스위치는 처음부터 켜져 있어, 세울 때 필로티 층을 뺀 모든 층에 천장이 함께 생깁니다.
+- 천장을 넣는 곳은 두 곳입니다. [건물 세우기](help:build-overview)의 {t:ceil.build} 스위치는 처음부터 켜져 있어, 세울 때 필로티 층을 뺀 모든 층에 천장이 함께 생깁니다. 나중에 한 층씩 더하려면 {c:ceiling} 도구를 씁니다.
 - 천장을 선택하면 속성 창에서 높이·두께와 {t:ceil.finish}({t:ceil.finish.gypsum}·{t:ceil.finish.tex}·{t:ceil.finish.wood})를 바꿉니다. 천장 조명은 천장에 붙어 천장 높이가 바뀌면 함께 움직입니다: [조명·시간·밤](help:arch-lighting).
 - {t:lt.cutHeight}의 처음 값은 1.2 m입니다. {c:ceilingView}에서는 0.1 m부터 층고나 가장 낮은 천장보다 0.1 m 낮은 높이까지 정할 수 있어, 단 천장이 늘 보입니다.
 - {c:levelPanel}에서 층 행을 오른쪽 클릭해 {c:ceilingView}를 선택하면 작업 범위가 그 층으로 이동된 뒤 천장 보기가 켜집니다.
 - {c:planView}, {c:archSection}, {c:ceilingView}, {c:cutAway}는 한 번에 하나만 켜집니다. 하나를 켜면 다른 보기는 꺼집니다.
+- {c:cutAway}를 켠 채 작업 층을 바꾸면 새 작업 층의 바닥에서 {t:lt.cutHeight}만큼 위를 기준으로 다시 자릅니다. 땅은 자르지 않습니다.
+- 지하층에서 켜면 지하층 드러내 보기와 함께 동작합니다. 작업 층 위의 층은 숨겨지고, 지하 자리의 땅만 잘려 보이며, 작업 층은 {t:lt.cutHeight}에서 잘립니다: [층 만들기](help:arch-levels).
 
 ## 자주 하는 실수
 
@@ -4251,7 +4266,7 @@ order: 190
 
 1. {m:archDrawing} 단추를 누릅니다.
 2. {t:ad.makeTitle}에서 {t:ad.all}, 용지, 축척을 선택하고 {t:ad.make}를 누릅니다.
-3. 모두 인쇄 / PDF 단추로 인쇄하거나 PDF로 저장합니다.
+3. {t:dv.print}로 모든 도면을 인쇄하거나 PDF로 저장합니다.
 
 ## 팁
 
@@ -4266,7 +4281,7 @@ order: 190
 - 같은 종류의 도면을 다시 만들면 전에 만든 도면은 새것으로 바뀝니다. 평면 보기나 단면 보기에서 만든 도면은 {t:ad.new}로 다시 만들어도 남습니다.
 - 층이나 건물을 삭제하면 그 층·건물을 그린 도면도 함께 삭제되고, 알림에 삭제한 장 수가 나옵니다.
 - {t:ad.sheet}에서 다른 도면으로 바꿔 보고, 필요 없는 도면은 {t:ad.deleteSheet}로 삭제합니다.
-- 지금 보는 도면 한 장은 {t:dv.print}로 인쇄하고, {t:dv.dxf}·SVG·PNG로도 내보냅니다. PDF는 인쇄 창에서 PDF로 저장을 선택하면 만들어집니다.
+- {t:dv.print}는 모든 도면을 차례로 인쇄합니다. 지금 보는 한 장만 인쇄하려면 {t:dv.printPage}를 누릅니다. {t:dv.dxf}·SVG·PNG는 지금 보는 한 장을 내보냅니다. PDF는 인쇄 창에서 PDF로 저장을 선택하면 만들어집니다.
 - {t:dp.titleSetup}에서 표제란의 {t:ks.author}·{t:ks.school}·{t:ks.number}를 쓰면 모든 건물 도면에 한꺼번에 들어갑니다. 용지와 표제란은 [도면 용지·표제란](help:obj-drawing-sheet)에 자세히 있습니다.
 - 건물이 여러 개이면 층 이름 앞에 건물 이름이 붙고, 건물마다 평면도가 따로 만들어집니다.
 - 도면 화면에서 {t:dv.back3d}를 누르면 3D 화면으로 돌아갑니다.
@@ -4278,14 +4293,14 @@ order: 190
 - 평면 보기의 {c:archDrawing} 단추를 눌렀는데 도면이 생기지 않고 알림만 나옵니다. 그 층에 외곽선도 부재도 없는 경우입니다.
 - 평면도에 위층이 보이지 않습니다. 평면도는 그 층 바닥에서 1.2 m 높이로 자른 그림이라 위층은 그리지 않습니다.
 - 평면도에 문 열림이 그려지지 않는 문이 있습니다. 벽에 끼워지지 않고 바닥에 놓인 문입니다. 문을 삭제하고 벽 면 위를 클릭해 다시 끼웁니다.
-- 모두 인쇄 / PDF가 아닌 {t:dv.print}를 누르면 지금 보는 한 장만 인쇄됩니다.
+- 한 장만 인쇄하려 했는데 모든 도면이 인쇄됩니다. {t:dv.print}는 모든 도면을 인쇄합니다. 한 장만 인쇄하려면 {t:dv.printPage}를 누릅니다.
 `,Je=`---
 id: arch-face-paint
 title: 면 칠하기
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: 면 칠하기, 벽 색, 벽 칠, 페인트, 색칠, 외벽 색, 한 면만, paint, face colour, face color, wall colour, 칠하기, 벽 색칠, 내벽 색, 안쪽 벽, 바깥 벽, 바닥 색, 면 색, 도색, 지우개, 색 지우기, 면칠하기, 벽색, wall color, paint faces, eraser
+keywords: 면 칠하기, 벽 색, 벽 칠, 페인트, 색칠, 외벽 색, 한 면만, paint, face colour, face color, wall colour, 칠하기, 벽 색칠, 내벽 색, 안쪽 벽, 바깥 벽, 바닥 색, 면 색, 도색, 지우개, 색 지우기, 면칠하기, 끌어서 칠하기, 여러 면 칠하기, 바깥 면 모두, 외벽 한꺼번에, 벽색, wall color, paint faces, eraser
 commands: facePaint, material
 howto: facePaint
 context: facePaint
@@ -4294,19 +4309,22 @@ order: 160
 
 ## 무엇
 
-물체 전체가 아니라 면을 하나씩 클릭해 색을 칠하는 도구입니다. 같은 벽이라도 안쪽 면과 바깥쪽 면을 다른 색으로 칠할 수 있습니다.
+물체 전체가 아니라 면마다 색을 칠하는 도구입니다. 같은 벽이라도 안쪽 면과 바깥쪽 면을 다른 색으로 칠할 수 있습니다. 면을 하나씩 클릭하거나, 누른 채 끌어 여러 면을 한 번에 칠하거나, 건물의 바깥 면을 모두 한 번에 칠합니다.
 
 ## 하는 순서
 
 1. {m:facePaint} 단추를 누릅니다.
-2. 색을 선택하고 칠할 면을 하나씩 클릭합니다.
-3. Esc로 끝냅니다.
+2. 색을 선택하고 칠할 면을 클릭합니다. 여러 면은 면 위에서 누른 채 끌면 지나간 면이 모두 칠해집니다.
+3. 건물 전체의 바깥 면은 {t:opt.paintOuter}를 누르면 한 번에 칠해집니다.
+4. Esc로 끝냅니다.
 
 ## 팁
 
 - 창의 {t:opt.paintColor}에는 벽·바닥에 흔히 쓰는 색 12가지가 있습니다. 다른 색은 {t:opt.paintPick} 칸에서 선택합니다.
-- {t:opt.eraser}를 켜고 면을 클릭하면 그 면의 색이 삭제되고 물체 원래 색으로 돌아갑니다. 색 칸을 다시 누르면 지우개가 꺼집니다.
-- 면 하나를 칠할 때마다 되돌리기(Ctrl+Z) 한 단계가 됩니다.
+- 끄는 동안 지나간 면이 강조되고, 손을 떼면 한꺼번에 칠해집니다.
+- {t:opt.paintOuter}는 작업 중인 건물의 벽·기둥·바닥판·지붕에서 바깥쪽 면만 칠합니다. 벽의 바깥쪽 면과 중정 쪽 면, 바닥판 옆면, 위가 트인 지붕 윗면이 들어가고, 안쪽 벽면과 바닥 윗면, 아랫면은 들어가지 않습니다. 작업 범위가 건물에 있을 때 씁니다.
+- {t:opt.eraser}를 켜고 면을 클릭하거나 끌면 그 면의 색이 삭제되고 물체 원래 색으로 돌아갑니다. 지우개가 켜진 채 {t:opt.paintOuter}를 누르면 바깥 면의 색을 모두 삭제합니다. 색 칸을 다시 누르면 지우개가 꺼집니다.
+- 면 하나를 클릭하거나, 한 번 끌거나, {t:opt.paintOuter}를 한 번 누를 때마다 되돌리기(Ctrl+Z) 한 단계가 됩니다.
 - 칠한 벽 면에 나중에 문·창을 끼워도 칠한 색은 그대로 남습니다.
 - 마지막에 쓴 색은 다음에 도구를 열 때도 선택되어 있습니다.
 - 물체 전체의 색과 재질은 {m:material}로 바꿉니다. 자세한 내용은 [색·재질](help:obj-material)에 있습니다.
@@ -4314,7 +4332,8 @@ order: 160
 
 ## 자주 하는 실수
 
-- 빈 곳을 클릭하면 아무 일도 일어나지 않습니다. 물체의 면 위를 클릭합니다.
+- 빈 곳을 클릭하면 아무 일도 일어나지 않습니다. 물체의 면 위를 클릭합니다. 끌어서 칠할 때도 면 위에서 누르기 시작합니다.
+- {t:opt.paintOuter}가 흐리게 나옵니다. 작업 범위가 건물이 아닙니다. 건물 안을 더블클릭해 범위를 건물로 이동합니다.
 - {t:opt.eraser}가 켜져 있으면 클릭한 면의 색이 삭제됩니다. 색을 칠하려면 색 칸을 먼저 누릅니다.
 - 벽 한쪽 면만 칠하려 했는데 반대쪽이 그대로입니다. 벽의 안쪽과 바깥쪽은 서로 다른 면이므로 각각 클릭합니다.
 `,Ye=`---
@@ -4359,7 +4378,7 @@ order: 150
 
 - 문·창·천창은 영역을 채우지 않습니다. 책상·차·나무처럼 바닥에 서는 물체를 선택합니다.
 - 영역을 그린 뒤 화면을 클릭해도 아무 일도 일어나지 않습니다. Enter로 놓거나 {t:fa.redraw}를 누릅니다.
-- 영역을 그린 채 Esc를 누르면 그 영역을 채운 뒤 도구가 끝납니다. 채우지 않고 끝내려면 먼저 {t:fa.redraw}를 누릅니다.
+- 영역을 그린 채 Esc를 눌렀더니 아무것도 놓이지 않았습니다. Esc는 취소입니다. 물체는 Enter(또는 오른쪽 클릭)를 눌러야 놓입니다.
 - 생각보다 적게 놓입니다. 경계·벽에서 띄우는 거리, 겹치는 자리 건너뛰기, {t:fa.max}을 확인합니다.
 - 너무 작은 영역은 만들어지지 않습니다. 더 크게 그립니다.
 - 물체는 지금 작업 중인 층 바닥에 놓입니다. 다른 층을 채우려면 층을 먼저 바꿉니다.
@@ -4370,7 +4389,7 @@ title: 건설 진행 상황
 난이도: 기초
 workspace: 3D 건설
 keywords: 건설 진행 상황, 진행 상황, 진행, 건물 만들기 순서, 건물 순서, 순서, 단계, 12단계, 다음 단계, 할 일, 안내, 처음, 시작, 건물 만들기, 건물 짓기, 집 짓기, 체크리스트, 뭐부터, 무엇부터, 앞 단계 먼저, build progress, building steps, steps, workflow, progress, checklist, where to start
-commands: buildFlow, buildingEasy, buildingNew, siteArea, grade, buildingOutline, levelOutline, wall, slab, column, door, window, stair, roof
+commands: buildFlow, buildingEasy, siteArea, grade, buildingOutline, levelOutline, wall, slab, column, door, window, stair, roof
 context: buildFlow
 order: 10
 ---
@@ -4382,11 +4401,11 @@ order: 10
 ## 하는 순서
 
 1. 메뉴 줄의 {t:win.menu} 메뉴 옆에 있는 {c:buildFlow} 단추를 누릅니다. 창은 처음에 왼쪽에 열려 있고, 단추의 숫자는 끝난 단계 수입니다 ({t:fl.state.optional} 단계도 끝난 것으로 셉니다).
-2. 창 맨 위의 경로(대지 › 건물 › 층)에서 단계를 볼 건물이 맞는지 확인합니다. 건물이 없는 대지에서는 {c:buildingEasy}와 {c:buildingNew} 단추가 나오고, 건물이 있는 대지에서는 그 대지의 건물마다 {t:fl.enter} 단추가 나옵니다. Esc로 작업 범위를 대지로 올렸을 때도 같습니다.
+2. 창 맨 위의 경로(대지 › 건물 › 층)에서 단계를 볼 건물이 맞는지 확인합니다. 건물이 없는 대지에서는 {c:buildingEasy}와 {c:buildingOutline} 단추가 나오고, 건물이 있는 대지에서는 그 대지의 건물마다 {t:fl.enter} 단추가 나옵니다. Esc로 작업 범위를 대지로 올렸을 때도 같습니다.
 3. {t:fl.next} 표시가 붙은 단계를 찾습니다.
 4. 그 단계 아래의 단추를 눌러 도구를 열고 작업합니다.
 5. 작업을 마치면 그 단계의 표시가 {t:fl.state.done}으로 바뀌고 다음 단계가 강조됩니다.
-6. 12단계를 모두 마치면 창 아래에 {c:areaTable}, {c:archDrawing}, {c:facePaint}, {c:buildingNew} 단추가 나타납니다.
+6. 12단계를 모두 마치면 창 아래에 {c:areaTable}, {c:archDrawing}, {c:facePaint}, {c:buildingOutline} 단추가 나타납니다.
 
 ## 팁
 
@@ -4399,9 +4418,9 @@ order: 10
 | 3 {t:fl.step.grade} | 건물 외곽선 아래 땅을 평평하게 만듭니다. 하지 않아도 되는 {t:fl.state.optional} 단계라 뒤 단계를 막지 않습니다. | {c:grade}, {t:fl.gradeSkip} |
 | 4 {t:fl.step.base} | 1층 바닥을 둘 높이를 정합니다. | {t:base.button} |
 | 5 {t:fl.step.levels} | {t:ab.build}: {t:ab.easy}는 층 수와 층고로 건물 전체를, {t:ab.detailed}는 층마다 외곽선과 종류를 정합니다. | {t:ab.easy}, {t:ab.detailed} |
-| 6 {t:fl.step.outlines} | 층마다 바깥 모양을 그립니다. {t:ca.outlinesFromShape}은 모든 층에 건물 외곽선을 그대로 씁니다. | {c:levelOutline}, {t:ca.outlinesFromShape} |
-| 7 {t:fl.step.walls} | 외곽선을 따라 바깥벽을 세우거나 벽을 직접 그립니다: [외벽 세우기](help:build-outer-walls). | {c:outerWalls}, {c:wall} |
-| 8 {t:fl.step.slabs} | 외곽선이 있는 층은 바닥판이 저절로 생깁니다. | {t:ca.slabsFromOutline}, {c:slab} |
+| 6 {t:fl.step.outlines} | 층마다 바깥 모양을 그립니다. 같은 모양은 외곽선 도구의 {t:ol.sameBelow}나 {t:ol.toAll}로 복사합니다. | {c:levelOutline} |
+| 7 {t:fl.step.walls} | 외곽선의 변에 바깥벽을 세우거나({c:outerWalls}), 안쪽 벽을 직접 그립니다({c:wall}): [외벽 세우기](help:build-outer-walls). | {c:outerWalls}, {c:wall} |
+| 8 {t:fl.step.slabs} | 외곽선이 있는 층은 바닥판이 저절로 생깁니다. {c:slab} 도구에서 {t:slab.way.draw}, {t:slab.way.walls}, {t:slab.way.outline} 가운데 방식을 선택합니다. | {c:slab} |
 | 9 {t:fl.step.columns} | 필요할 때 기둥을 세웁니다. 이 단계는 {t:fl.state.optional}입니다. | {c:column} |
 | 10 {t:fl.step.openings} | 벽에 문과 창을 끼웁니다. | {c:door}, {c:window} |
 | 11 {t:fl.step.stairs} | 맨 위 층을 뺀 층마다 위층으로 오르는 계단을 놓습니다. | {c:stair} |
@@ -4409,10 +4428,12 @@ order: 10
 
 - 단계 이름 옆에는 {t:fl.state.done}, {t:fl.state.todo}, {t:fl.state.optional}, {t:fl.state.wait} 가운데 하나가 보입니다. 대지·건물 외곽선·1층 바닥 높이·건물 세우기 단계 가운데 끝나지 않은 단계가 있으면 그 뒤의 남은 단계는 {t:fl.state.wait}로 보이고 단추가 꺼져 있습니다. 꺼진 단계 아래에는 먼저 할 단계가 적혀 있습니다.
 - 층마다 하는 단계(외곽선·벽·바닥판·계단)는 \`2/3\`처럼 끝난 층 수와 전체 층 수가 보이고, 아직 남은 층 이름도 함께 나옵니다.
-- 5단계에서 건물 세우기로 세우면 6~8단계와 12단계가 한 번에 끝납니다: [건물 세우기](help:build-overview). 손으로 벽을 그린 건물은 5단계가 처음부터 {t:ab.detailed}로 열리고, 맨 위의 층 수 칸과 {t:fl.planApply} 단추로 층만 정합니다.
+- 5단계에서 건물 세우기로 세우면 6~8단계와 12단계가 한 번에 끝납니다: [건물 세우기](help:build-overview). {t:ab.easy} 카드에는 층 수·층고 칸과 세우기 단추가 있고, 지형이 있으면 {t:bo.grade} 단추도 있습니다. {t:ab.easy}와 {t:ab.detailed} 모두 바깥벽을 외곽선의 모든 변에 세웁니다. 필요 없는 벽은 세운 뒤에 클릭해 선택하고 삭제합니다. 손으로 벽을 그린 건물은 5단계가 처음부터 {t:ab.detailed}로 열립니다. {t:ab.detailed}에는 층 수 칸이 없고, 층은 {c:levelPanel}에서 더하거나 삭제합니다.
+- {m:buildingEasy}를 누르면 세울 건물로 작업 범위가 이동하고 이 창이 5단계의 {t:ab.easy}로 열립니다: [건물 바로 세우기](help:build-easy).
+- 건물 세우기로 지은 건물에서는 층마다 외곽선·벽·바닥판·지붕 가운데 저절로 끝난 단계가 {t:fl.autoDone} 한 줄로 접혀 보입니다. 그 줄을 누르면 펼쳐집니다.
 - 4단계의 {t:base.button} 단추를 누르면 묻는 창이 열립니다. ‘평탄화 높이 사용’, {t:base.high}, {t:base.keep}, {t:base.typed} 가운데 하나를 선택하고 {t:base.ok} 단추를 누릅니다. 1층 바닥을 이동하면 그 건물의 모든 층과 부품이 함께 움직입니다.
 - 1층 바닥 높이를 정하지 않은 채 지형 위에 부품을 놓으면, 놓기 전에 같은 창이 먼저 열립니다. 지형이 없는 땅에서는 1층 바닥이 0 m이고 4단계는 끝난 것으로 봅니다.
-- 7단계의 바깥벽 단추는 외곽선 안쪽에 두께 0.2 m 벽을 위층 바닥까지 세웁니다. 남은 층이 여럿이면 모든 층에 한꺼번에 세우는 단추가 함께 나옵니다. 지하층에는 두께 0.3 m 지하 외벽이 서고, 벽이 이미 있는 층은 건너뜁니다.
+- 7단계의 {c:outerWalls} 단추는 외벽 세우기 창을 엽니다. {t:ow.mode.all}는 외곽선의 모든 변에, {t:ow.mode.pick}은 고른 변이나 그 일부에 벽을 세웁니다. 처음 값은 두께 0.2 m 벽을 위층 바닥까지 세우는 것이고, 지하층에는 두께 0.3 m 지하 외벽이 섭니다. 창에서 {t:ec.allLevels}을 고르면 같은 변이 있는 모든 층에 한 번에 세웁니다. 벽이 이미 있는 변이나 구간은 건너뜁니다.
 - 12단계의 {t:fl.roofTop} 단추는 맨 위 외곽선을 선택한 상태로 [지붕](help:arch-roof) 도구를 엽니다. 처마 높이는 맨 위 층 바닥 + 층고입니다. 모양을 확인한 뒤 Enter를 눌러 지붕을 만듭니다.
 - 창을 닫았으면 메뉴 줄의 {c:buildFlow} 단추를 다시 누릅니다. 창이 앞에 있을 때 누르면 창이 숨겨집니다.
 
@@ -4471,8 +4492,8 @@ title: 층 만들기
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: 층, 층 추가, 2층, 3층, 위층, 아래층, 지하, 지하층, 층고, 층 높이, level, floor, storey, story, basement, 층 목록, 프로젝트, 층 복사, 층 삭제, 층 지우기, 층 이름, 바닥 높이, 지하1층, B1층, 레벨, 층수, 몇 층, 위층 보기, 위층 숨기기, 흐리게, 이 층만 보기, 작업 층, 층 바꾸기, levels, copy level, delete level, storey height, upper levels
-commands: levelAdd, levelPanel, levelCopy, upperLevels, buildingNew, levelOutline
+keywords: 층, 층 추가, 2층, 3층, 위층, 아래층, 지하, 지하층, 층고, 층 높이, level, floor, storey, story, basement, 층 목록, 프로젝트, 층 복사, 층 삭제, 층 지우기, 층 이름, 바닥 높이, 지하1층, B1층, 레벨, 층수, 몇 층, 위층 보기, 위층 숨기기, 흐리게, 이 층만 보기, 지하 보기, 지하층 보기, 지하 드러내기, 터파기 보기, 작업 층, 층 바꾸기, levels, copy level, delete level, storey height, upper levels
+commands: levelAdd, levelPanel, levelCopy, upperLevels, buildingOutline, levelOutline
 howto: levels
 context: levelAdd, levelCopy, levelPanel, upperLevels
 order: 20
@@ -4490,7 +4511,7 @@ order: 20
 
 ## 팁
 
-- {c:levelPanel} 창은 땅 › 대지 › 건물 › 층 순서의 목록이며, 건물 아래에 층이 위층부터 보입니다. 층 행을 누르면 그 층에서 작업하고, 작업 중인 층은 강조됩니다: [건물 이름·색·전체 목록](help:build-names-tree).
+- {c:levelPanel} 창은 땅 › 대지 › 건물 › 층 순서의 목록이며, 건물 아래에 층이 위층부터 보입니다. 층 행을 한 번 누르면 그 층에서 작업하고, 두 번 누르면 그 층의 부재도 선택됩니다. 작업 중인 층은 강조됩니다. [건설 진행 상황](help:arch-flow)의 {t:ab.detailed} 층 이름도 한 번 누르면 그 층에서 작업합니다: [건물 이름·색·전체 목록](help:build-names-tree).
 - 층 이름 칸을 눌러 바로 고칩니다. Enter는 확정, Esc는 되돌리기입니다. 직접 고친 이름은 그대로 남고, 기본 이름(1층, 2층, B1층)은 층을 더하거나 삭제하면 자리에 맞게 다시 매겨집니다.
 - 층 행의 {t:levels.height} 칸에서 층고를 바꾸면 그 위의 층과 부품이 함께 올라가거나 내려갑니다. 지하층의 층고를 바꾸면 그 지하층의 바닥과 그 아래 지하층이 움직입니다. 층고는 1~20 m로 정합니다.
 - 바닥 높이(예: \`+3\`)는 1층 바닥에서 층고를 쌓아 계산되므로 직접 고치지 않습니다. 1층 바닥 높이는 건물 행의 1층 바닥 단추나 [건설 진행 상황](help:arch-flow) 4단계에서 다시 정합니다.
@@ -4500,6 +4521,10 @@ order: 20
 - 층 행 오른쪽에는 층 외곽선 단추([층 외곽선](help:arch-outline) 도구를 엽니다), 보기 단추(누를 때마다 보이기 → 흐리게 → 숨기기), {t:lt.isolate}, {t:lt.view} 단추가 있습니다.
 - 아래층을 그릴 때 위층이 가리면 창 아래 {t:levels.upper} 칸에서 {t:upper.fade}나 {t:upper.hide}를 선택합니다. 명령줄에 \`upperlevels\`를 입력해도 {c:upperLevels}가 보이기 → 흐리게 → 숨기기 순서로 바뀝니다. 층 보기 상태는 파일에 저장되지 않습니다.
 - {t:upper.fade}는 벽·바닥판 같은 건물 도구를 쓰는 동안에만 흐리게 보이고, 보기만 할 때는 또렷합니다. 상태 표시줄의 {t:bo.fade} 스위치를 끄면 도구를 쓸 때도 흐리게 하지 않습니다: [작업 범위](help:site-scope).
+- 지하층에서 작업하면 그 건물에서 작업 층보다 위에 있는 층이 모두 숨겨지고, 지하 자리의 땅이 가장 깊은 지하층 바닥 아래까지 잘려 지하층과 흙 단면이 보입니다. B2층에서는 B1층과 지상층이, B1층에서는 지상층이 숨겨지고 작업 층과 그 아래 지하층은 보입니다. 다른 건물은 그대로입니다. 작업 층을 지상층으로 바꾸면 원래 보기 상태로 돌아옵니다.
+- 지상층에서 작업하면서 지하를 보려면 상태 표시줄의 {t:bv.toggle} 스위치를 켭니다. 지하층이 있는 모든 건물의 지상층이 숨겨지고 지하층이 모두 보입니다. 이 스위치는 지하층이 있을 때만 보입니다.
+- 지하를 드러내 보는 것은 화면만 바꿉니다. 땅 높이, 토공량, 면적표, 도면, 내보내기는 그대로이고 파일에 저장되지 않습니다.
+- 지하를 보는 동안 층의 보기 단추로 층 보기를 직접 바꾸면 그때부터는 바꾼 상태를 그대로 둡니다. 지상층으로 돌아와도 되돌리지 않습니다. 그 전에 직접 숨겨 둔 층도 숨겨진 채로 남습니다.
 - 상태 표시줄에 지금 작업 위치의 경로와 층의 바닥 높이·층고가 늘 보입니다. 경로 앞의 층 단추를 누르면 {c:levelPanel} 창이 앞으로 나옵니다.
 - 한 건물의 층은 지상과 지하를 합쳐 60개까지입니다. 지상·지하 층 수를 한 번에 정하려면 [건설 진행 상황](help:arch-flow)의 {t:fl.step.levels} 단계를 씁니다.
 - 위층이 있으면 벽·기둥·계단은 기본으로 위층 바닥까지 올라가고, 층고를 바꾸면 함께 늘고 줄어듭니다 ([벽 위쪽 맞추기](help:arch-wall-top)). 그래서 층을 먼저 만들고 부품을 그리면 편합니다.
@@ -4509,7 +4534,7 @@ order: 20
 - 엉뚱한 층에 벽이 그려집니다. 그리기 전에 상태 표시줄의 경로나 {c:levelPanel} 창에서 작업할 층을 확인합니다. 도구 창의 {t:lv.pickLevel} 칸에서 바꿀 수도 있습니다.
 - {t:levels.delete} 단추가 눌리지 않습니다. 건물에 지상층이 하나뿐이면 삭제할 수 없습니다.
 - 물체가 있는 층을 삭제하면 물체를 함께 삭제할지, 바로 아래층(맨 아래 층이면 위층)에 남길지 묻습니다. 잘못 삭제했으면 {k:undo}로 되돌립니다.
-- 위층이 보이지 않습니다. {t:levels.upper} 칸이 {t:upper.hide}로 되어 있거나 그 층의 보기 단추가 숨기기 상태인지 확인합니다.
+- 위층이 보이지 않습니다. {t:levels.upper} 칸이 {t:upper.hide}로 되어 있거나 그 층의 보기 단추가 숨기기 상태인지 확인합니다. 작업 층이 지하층이거나 {t:bv.toggle} 스위치가 켜져 있어도 위층이 숨겨집니다.
 - 층고를 바꿨는데 벽 높이가 그대로입니다. 그 벽의 {t:flow.top}이 높이 입력으로 되어 있는 경우입니다. 속성 창에서 위층에 묶습니다.
 `,$e=`---
 id: arch-lighting
@@ -4607,18 +4632,17 @@ title: 새 건물
 난이도: 중급
 workspace: 3D 건설
 keywords: 새 건물, 건물 추가, 건물 하나 더, 건물 더 만들기, 여러 건물, 건물 여러 개, 두 번째 건물, 별동, 동, 대지, 건물 외곽선, 건축 면적, 1층 바닥 높이, 층 수, 층고, 지하, 지하층, 건물 이름, 건물 삭제, 새건물, 건물 B, new building, add building, another building, several buildings, buildings, storey height, levels, basement
-commands: buildingNew, buildingOutline, buildingEasy, levelPanel
-context: buildingNew
+commands: buildingOutline, buildingEasy, levelPanel
 order: 210
 ---
 
 ## 무엇
 
-건물을 하나 더 만듭니다. {c:buildingNew}은 [건물 외곽선](help:build-outline) 도구를 열고, 외곽선을 다 그리면 그 자리에 1층 하나짜리 새 건물이 생깁니다. 층·벽·지붕은 그다음 건물 세우기로 만듭니다. 층·벽·지붕까지 한 번에 만들려면 [건물 바로 세우기](help:build-easy)를 씁니다.
+건물을 하나 더 만듭니다. {c:buildingOutline}은 [건물 외곽선](help:build-outline) 도구를 열고, 외곽선을 다 그리면 그 자리에 1층 하나짜리 새 건물이 생깁니다. 층·벽·지붕은 그다음 건물 세우기로 만듭니다. 층·벽·지붕까지 한 번에 만들려면 [건물 바로 세우기](help:build-easy)를 씁니다.
 
 ## 하는 순서
 
-1. {m:buildingOutline} 단추를 누르거나 명령줄에 \`buildingnew\`를 입력합니다. 지금 작업 범위의 대지에서 건물 외곽선 도구가 열립니다.
+1. {m:buildingOutline} 단추를 누르거나 명령줄에 \`buildingoutline\`을 입력합니다. 지금 작업 범위의 대지에서 건물 외곽선 도구가 열립니다.
 2. 창의 {t:so.target} 목록에서 건물이 설 대지를 확인합니다. 대지 없이 지으려면 {t:bld.wholeLand}를 선택합니다.
 3. {t:opt.areaRect}이나 {t:opt.areaPoly}을 선택하고 건물이 차지할 자리를 그립니다.
 4. 다 그리면 건물 B 같은 이름의 새 건물이 생기고, 그 건물의 1층에서 작업이 이어집니다.
@@ -4631,7 +4655,7 @@ order: 210
 - 층 수는 지하 0~10개, 지상 1~50개, 층고는 1~20 m로 정합니다.
 - 새 외곽선은 다른 건물의 외곽선과 겹칠 수 없습니다. 맞닿게 그리면 두 건물이 서로 바닥과 지붕을 덮고 받칩니다: [붙은 건물](help:build-shared-levels).
 - 한 문서에 건물은 30개까지 만듭니다.
-- {c:levelPanel}에는 대지마다 건물과 층이 나옵니다. 대지 행의 **+** 단추도 건물 외곽선 도구를 엽니다. 이름 변경와 삭제는 건물 행을 오른쪽 클릭해서 합니다. 그 창 아래와 {c:buildFlow} 창에도 {c:buildingNew} 단추가 있습니다.
+- {c:levelPanel}에는 대지마다 건물과 층이 나옵니다. 대지 행의 **+** 단추도 건물 외곽선 도구를 엽니다. 이름 변경와 삭제는 건물 행을 오른쪽 클릭해서 합니다. 그 창 아래와 {c:buildFlow} 창에도 {c:buildingOutline} 단추가 있습니다.
 
 ## 자주 하는 실수
 
@@ -4659,30 +4683,31 @@ order: 30
 
 1. 외곽선을 그릴 층을 작업 층으로 선택합니다.
 2. {m:levelOutline} 단추를 누릅니다.
-3. 점선으로 보이는 기준 모양을 그대로 쓰려면 창의 그대로 쓰기 단추를 누릅니다.
+3. 점선으로 보이는 기준 모양을 그대로 쓰려면 창의 {t:ol.sameBelow} 단추를 누릅니다. 지하층은 {t:ol.sameAbove}, 처음 그리는 1층은 {t:ol.sameShape}입니다.
 4. 새로 그리려면 {t:ol.mode.draw}에서 {t:ol.shape.poly} 또는 {t:ol.shape.rect} 단추를 누르고 바닥에 점을 찍습니다. 다각형은 첫 점을 다시 누르거나 Enter를 누르면 닫힙니다.
 5. 모양을 고치려면 {t:ol.mode.edit}에서 꼭짓점을 누르고 새 자리를 누릅니다. 변 위를 누르면 그 자리에 점이 생깁니다.
 6. 모든 변을 한꺼번에 이동하려면 {t:ol.offset} 칸에 거리를 넣고 {t:ol.grow} 또는 {t:ol.shrink} 단추를 누릅니다.
-7. 다 됐으면 Esc를 눌러 도구를 닫습니다.
+7. 다 됐으면 Esc를 눌러 도구를 닫습니다. 벽·기둥·지붕은 이때 한 번에 다시 만들어집니다.
 
 ## 팁
 
 - 점선 기준 모양: 처음 그리는 1층은 건물 외곽선, 위층은 외곽선이 있는 가장 가까운 아래층, 지하층은 외곽선이 있는 가장 가까운 위층의 모양이 깔립니다.
-- 한 층을 그린 뒤 창에 나오는 외곽선 없는 층 모두에 쓰기 단추를 누르면, 외곽선이 없는 같은 건물의 다른 층에 같은 모양이 한 번에 들어갑니다. 다음 층 단추는 외곽선이 없는 다음 층으로 작업 층을 이동합니다.
-- [건설 진행 상황](help:arch-flow)의 {t:ca.outlinesFromShape} 단추는 건물 외곽선(곡선 포함)을 이 건물 모든 층의 외곽선으로 정합니다. 이미 있던 외곽선도 바뀌며, 한 번에 되돌릴 수 있습니다.
+- 한 층을 그린 뒤 창의 {t:ol.toAll} 단추를 누르면, 외곽선이 없는 같은 건물의 다른 층에 같은 모양이 한 번에 들어갑니다. 외곽선 복사 단추는 이 두 개뿐입니다.
+- 점을 고치는 동안에는 바닥판만 따라오고 벽·기둥·지붕은 그대로입니다. 도구를 닫을 때 바뀐 층과 그 아래층의 벽·기둥·지붕이 한 번에 다시 만들어지므로, 중간 모양 때문에 문·창이 삭제되지 않습니다. 어디서 도구를 열어도 같습니다.
 - {t:ol.offset}의 처음 값은 0.5 m입니다. 위층만 사방으로 1 m 크게 하려면 기준 모양을 그대로 쓴 뒤 \`1\`을 넣고 {t:ol.grow} 단추를 누릅니다. 건물 외곽선 밖으로 나가는 부분은 잘립니다.
 - 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 변이 됩니다. 곡선 외곽선은 {c:pathEdit}으로 점과 핸들을 고칩니다 ([곡선 편집](help:obj-curve-edit)).
 - 창에 외곽선의 {t:ol.area}와 {t:ol.perimeter}가 보입니다.
 - {t:ol.autoSlab} 스위치는 처음부터 켜져 있습니다. 바닥판 윗면은 층 바닥 높이에 맞고 두께는 아래로 생깁니다.
 - 지하층에서는 {t:ol.retain} 스위치를 켜면 외곽선 안쪽을 따라 두께 0.3 m 벽이 위층 바닥까지 섭니다.
-- 외곽선을 정한 뒤 {m:outerWalls}의 {t:ow.mode.all}로 외곽선을 따라 바깥벽을 한 번에 세웁니다: [외벽 세우기](help:build-outer-walls).
+- 건물 세우기로 만든 건물은 층 외곽선의 모든 변에 바깥벽이 저절로 섭니다: [층마다](help:build-detailed). 그 밖의 건물은 외곽선을 정한 뒤 {m:outerWalls}의 {t:ow.mode.all}로 외곽선을 따라 바깥벽을 한 번에 세웁니다: [외벽 세우기](help:build-outer-walls).
 - {c:levelPanel} 창의 층 줄마다 있는 외곽선 단추로도 그 층의 외곽선 도구가 열립니다.
 - 층 외곽선(지하층 포함)은 건물 외곽선 안에만 둡니다. 밖으로 나가면 건물 외곽선에 맞춰 잘리고 알림이 나옵니다. 완전히 밖에 있거나 잘려서 여러 조각이 되면 정해지지 않습니다: [건물 외곽선](help:build-outline).
 
 ## 자주 하는 실수
 
-- 외곽선을 고쳐도 이미 세운 벽은 움직이지 않습니다. 외곽선을 따르는 것은 자동 바닥판과 지하 외벽뿐입니다. 벽은 따로 고치거나 삭제하고 다시 세웁니다.
-- 자동 바닥판을 삭제하면 {t:ol.autoSlab} 스위치가 꺼져 다시 생기지 않습니다. 스위치를 다시 켜거나 [건설 진행 상황](help:arch-flow)의 {t:ca.slabsFromOutline} 단추를 누릅니다.
+- 외곽선을 고쳐도 손으로 세운 벽과 {m:outerWalls}로 세운 벽은 움직이지 않습니다. 그 벽은 따로 고치거나 삭제하고 다시 세웁니다. 건물 세우기로 만든 바깥벽은 외곽선을 따라 다시 만들어집니다.
+- 자동 바닥판을 삭제하면 {t:ol.autoSlab} 스위치가 꺼지고 그렇다는 알림이 나옵니다. 다시 만들려면 스위치를 켜거나 {c:slab} 도구의 {t:slab.way.outline}을 씁니다.
+- 외곽선 바닥판이 있는 층에 {c:slab} 도구로 겹치는 바닥판을 만들면 만들지 않고 알림이 나옵니다. 바닥판은 한 자리에 한 장만 둡니다.
 - 줄이는 거리가 너무 크면 모양이 뒤집히므로 바뀌지 않고 알림이 나옵니다. 거리를 줄여 다시 누릅니다.
 - 점이 3개보다 적거나 너무 작은 외곽선은 정해지지 않습니다.
 - {t:ol.clear} 단추를 누르면 그 층의 자동 바닥판도 함께 삭제됩니다.
@@ -4701,17 +4726,16 @@ order: 110
 
 ## 무엇
 
-점을 차례로 찍거나, 모서리·선을 따라가거나, 계단 옆을 따라 난간을 세웁니다. 높이가 다른 점을 이으면 난간이 경사를 따라 오릅니다.
+점을 차례로 찍거나, 모서리·선을 따라가며 난간을 세웁니다. 높이가 다른 점을 이으면 난간이 경사를 따라 오릅니다.
 
 ## 하는 순서
 
 1. {m:railing} 단추를 누릅니다.
-2. 창에서 {t:stairs.railHow.points}, {t:stairs.railHow.edge}, {t:stairs.railHow.stair} 가운데 하나를 누릅니다.
+2. 창에서 {t:stairs.railHow.points}, {t:stairs.railHow.edge} 가운데 하나를 누릅니다.
 3. {t:param.h}와 {t:opt.postSpacing}을 정합니다.
 4. {t:stairs.railHow.points}: 점을 차례로 찍고 더블클릭이나 Enter로 끝냅니다.
 5. {t:stairs.railHow.edge}: 따라갈 모서리나 스케치 선을 차례로 클릭하고 Enter로 끝냅니다.
-6. {t:stairs.railHow.stair}: 계단의 한쪽 옆을 클릭하면 그쪽 가장자리를 따라 난간이 생깁니다.
-7. 다 세웠으면 Esc를 누릅니다.
+6. 다 세웠으면 Esc를 누릅니다.
 
 ## 팁
 
@@ -4720,15 +4744,13 @@ order: 110
 - {t:stairs.railHow.points}에서 첫 점을 다시 누르면 난간이 한 바퀴 닫힙니다. 발코니나 옥상 둘레에 씁니다.
 - {t:stairs.railHow.points}에서 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 난간이 됩니다.
 - {t:stairs.railHow.edge}에서 끝이 이어지는 모서리와 선은 한 난간으로 이어집니다. 이어지지 않는 것을 클릭하면 앞의 난간이 끝나고 새 난간이 시작됩니다.
-- {t:stairs.railHow.stair}는 계단 경사와 계단참을 따라갑니다. 클릭한 곳에서 가까운 쪽 옆에 생깁니다.
 - 도구는 Esc를 누를 때까지 열려 있어 난간 여러 개를 이어서 세울 수 있습니다. 그리는 도중 {k:undo}는 마지막 점을 삭제합니다.
 - 그린 난간을 선택하면 속성 창에서 {t:param.h}와 {t:opt.postSpacing}을 바꾸고, {c:pathEdit}으로 점과 곡선을 고칩니다.
-- 계단을 만들 때 계단의 {t:stairs.rails} 칸을 쓰면 계단과 한 몸인 난간이 함께 생깁니다 ([계단](help:arch-stair)).
+- 계단 옆 난간은 이 도구가 아니라 계단 속성의 {t:stairs.rails} 칸으로 만듭니다. 계단과 한 몸이라 계단을 고치면 따라 바뀝니다 ([계단](help:arch-stair)).
 
 ## 자주 하는 실수
 
-- {t:stairs.railHow.stair}로 만든 난간은 나중에 계단을 고쳐도 따라 바뀌지 않습니다. 계단을 바꾼 뒤에는 난간을 삭제하고 다시 만들거나, 계단 속성의 {t:stairs.rails} 칸을 씁니다.
-- 나선 계단에는 {t:stairs.railHow.stair}를 쓸 수 없습니다.
+- 점을 찍어 계단 옆에 세운 난간은 나중에 계단을 고쳐도 따라 바뀌지 않습니다. 계단을 바꾼 뒤에는 난간을 삭제하고 다시 만들거나, 계단 속성의 {t:stairs.rails} 칸을 씁니다.
 - 난간이 경사를 따르지 않고 바닥에 평평하게 그려집니다. 점이 바닥에 찍히고 물체에 맞춰지지 않은 것입니다. 계단 모서리 끝이나 꼭짓점에 점을 맞춰 찍습니다. 객체 스냅({k:osnap})이 켜져 있으면 맞추기 쉽습니다 ([객체 스냅](help:snap-osnap)).`,it=`---
 id: arch-roof-edit
 title: 지붕 변 선택
@@ -4742,7 +4764,7 @@ order: 130
 
 ## 무엇
 
-지붕 아래 모양을 선택한 뒤, 어느 변에서 지붕이 경사지게 올라갈지 변마다 켜고 끄는 방법입니다. 켜진 변에서 지붕이 경사지게 올라가고, 꺼진 변은 박공(세운 면)이 됩니다. 이미 만든 지붕도 속성 창에서 같은 방법으로 고칩니다.
+지붕 아래 모양을 선택한 뒤, 어느 변에서 지붕이 경사지게 올라갈지 변마다 켜고 끄는 방법입니다. 켜진 변에서 지붕이 경사지게 올라가고, 꺼진 변은 박공(세운 면)이 됩니다. 이미 만든 지붕도 속성 창의 {t:roof.sides.btn}으로 같은 방법으로 고칩니다.
 
 ## 하는 순서
 
@@ -4751,11 +4773,12 @@ order: 130
 3. 여러 변을 한꺼번에 바꾸려면 마우스를 누른 채 끌어 상자로 감쌉니다. 상자 안에 들어온 변이 모두 켜지고, 이미 모두 켜져 있었으면 모두 꺼집니다.
 4. 모든 변을 한 번에 바꾸려면 창의 {t:ca.allOn} 또는 {t:ca.allOff}를 누릅니다.
 5. {t:opt.roofPitch}와 {t:opt.overhang}를 확인하고 적용 (Enter)을 누릅니다.
-6. 만든 지붕을 고치려면 지붕을 선택하고 속성 창의 변 번호 단추를 눌러 변을 켜고 끕니다.
+6. 만든 지붕을 고치려면 지붕을 선택하고 속성 창의 {t:roof.sides.btn}을 누릅니다. 만들 때처럼 화면에서 변을 클릭하거나 상자로 감싸 켜고 끕니다. 바꿀 때마다 되돌리기 한 번이고, Esc로 끝냅니다.
 
 ## 팁
 
-- 곡선 변은 잘게 나뉘어 있어도 한 변으로 셉니다. 클릭 한 번이나 상자 한 번으로 곡선 변 전체가 함께 켜지거나 꺼지고, 속성 창의 변 번호 단추에는 \`~\`가 붙습니다.
+- 곡선 변은 잘게 나뉘어 있어도 한 변으로 셉니다. 클릭 한 번이나 상자 한 번으로 곡선 변 전체가 함께 켜지거나 꺼집니다.
+- {t:roof.sides.btn} 중에는 화면에 변 번호가 보입니다. 속성 창의 {t:archedit.roofSlopes} 칸 번호와 같습니다.
 - 창에는 켜진 경사 변 수와 전체 변 수가 함께 보입니다.
 - 지붕 모양 단추({t:opt.roofGable}, {t:opt.roofHip} 등)를 누르면 그 모양에 맞게 경사 변이 다시 정해집니다. 모양을 먼저 선택한 뒤 필요한 변만 하나씩 고치면 빠릅니다.
 - 속성 창의 {t:archedit.roofSlopes}에서 켜진 변마다 경사를 따로 정합니다. 경사를 다르게 하면 용마루와 추녀 점이 이동됩니다. {t:archedit.sameSlope}를 누르면 모든 변이 다시 같은 경사가 됩니다.
@@ -4810,37 +4833,38 @@ order: 120
 - 경사 지붕을 선택했는데 평지붕으로 만든다는 안내가 나옵니다. 모양이 너무 복잡한 경우이므로 경사 변을 줄이거나 외곽선을 단순하게 합니다.
 - 다른 건물의 벽이나 바닥판은 선택할 수 없습니다. {c:levelPanel}에서 그 건물을 눌러 작업할 건물을 바꾼 뒤 다시 클릭합니다.
 - 지붕이 벽 위에 떠 있거나 벽에 묻힙니다. {t:flow.roofBase}과 {t:flow.offset}을 확인합니다.
-- 지붕 아래 모양을 선택한 뒤 Esc를 누르면 그때까지 정한 지붕이 만들어지고 도구가 끝납니다. 만들지 않고 끝내려면 먼저 Ctrl+Z로 선택한 모양을 취소합니다.
+- 지붕 아래 모양을 선택한 뒤 Esc를 눌렀더니 지붕이 생기지 않았습니다. Esc는 취소입니다. 지붕은 적용 (Enter)을 눌러야 만들어집니다.
 `,ot=`---
 id: arch-slab
 title: 바닥판 깔기
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: 바닥판, 바닥 깔기, 슬래브, 천장, 마루, 방바닥, slab, floor slab, ceiling, 바닥, 바닥 만들기, 벽으로 바닥판, 자동 바닥판, 바닥판 두께, 바닥 구멍, 계단 구멍, 슬라브, 바닥판 그리기, floor, slab from walls, slab thickness, slab hole, stair opening
-commands: slabAuto, slab, levelOutline, stair, pathEdit
+keywords: 바닥판, 바닥 깔기, 슬래브, 천장, 마루, 방바닥, slab, floor slab, ceiling, 바닥, 바닥 만들기, 벽으로 바닥판, 닫힌 벽, 자동 바닥판, 외곽선 바닥판, 바닥판 두께, 바닥 구멍, 계단 구멍, 슬라브, 바닥판 그리기, floor, slab from walls, slab thickness, slab hole, stair opening
+commands: slab, levelOutline, stair, pathEdit
 howto: slab
-context: slab, slabAuto
+context: slab
 order: 60
 ---
 
 ## 무엇
 
-바닥판은 층의 바닥이 되는 판입니다. 윗면이 층 바닥 높이에 맞고 두께는 아래로 생깁니다. 닫힌 벽 아래에 한 번에 깔거나, 사각형·다각형으로 직접 그리거나, 층 외곽선에서 저절로 만들 수 있습니다.
+바닥판은 층의 바닥이 되는 판입니다. 윗면이 층 바닥 높이에 맞고 두께는 아래로 생깁니다. {c:slab} 도구 하나에서 만드는 방식을 선택합니다. {t:slab.way.draw}는 사각형·다각형을 직접 그리고, {t:slab.way.walls}은 닫힌 벽 아래에 한 번에 깔고, {t:slab.way.outline}은 층 외곽선 모양으로 만듭니다.
 
 ## 하는 순서
 
-1. 벽을 첫 점까지 이어 닫힌 모양으로 그립니다.
-2. {m:slabAuto} 단추를 누르고 Enter를 누르면 벽 아래에 바닥판이 깔립니다.
-3. 직접 그리려면 {m:slab} 단추로 사각형이나 다각형을 그립니다.
+1. {m:slab} 단추를 누릅니다.
+2. 창 맨 위에서 {t:slab.way.draw}, {t:slab.way.walls}, {t:slab.way.outline} 가운데 하나를 선택합니다.
+3. {t:slab.way.draw}는 사각형이나 다각형을 그립니다. {t:slab.way.walls}과 {t:slab.way.outline}은 찾은 것을 확인하고 Enter를 누릅니다.
 
 ## 팁
 
-- {c:slabAuto} 도구는 지금 층에서 닫힌 벽을 모두 찾아 벽 바깥면까지 바닥판을 깝니다. 창의 {t:opt.closedWalls}에 찾은 수가 보이고, 끝이 서로 맞닿아 한 바퀴를 이루는 벽들도 닫힌 벽으로 봅니다.
-- {c:slab} 도구의 {t:opt.slabRect}은 두 모서리를 찍어 만듭니다. 창의 {t:opt.sideW}와 {t:opt.sideH} 칸에 크기를 넣으면 그 크기로 만들어집니다.
+- {t:slab.way.walls}은 지금 층에서 닫힌 벽을 모두 찾아 벽 바깥면까지 바닥판을 깝니다. 창의 {t:opt.closedWalls}에 찾은 수가 보이고, 끝이 서로 맞닿아 한 바퀴를 이루는 벽들도 닫힌 벽으로 봅니다.
+- {t:slab.way.draw}의 {t:opt.slabRect}은 두 모서리를 찍어 만듭니다. 창의 {t:opt.sideW}와 {t:opt.sideH} 칸에 크기를 넣으면 그 크기로 만들어집니다.
 - {t:opt.slabPoly}은 점을 차례로 찍고 첫 점을 다시 누르거나 Enter를 눌러 닫습니다. 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 변이 됩니다.
 - {t:opt.thickness}는 처음에 0.2 m이고 0.05~2 m로 정합니다. {t:flow.baseOffset} 칸에 값을 넣으면 바닥판 윗면이 그만큼 올라갑니다.
 - 층 외곽선이 있는 층은 바닥판이 저절로 생기고 외곽선을 따라 바뀝니다 ([층 외곽선](help:arch-outline)). 위층 외곽선을 더 크게 그리면 아래층 밖으로 내민 바닥판이 됩니다.
+- {t:slab.way.outline}은 이 건물에서 외곽선은 있는데 외곽선 바닥판이 꺼진 층을 찾아 다시 만듭니다. 그 자리에 이미 바닥판이 있는 층은 건너뛰고 알림이 나옵니다.
 - 바닥판의 구멍: 계단을 놓으면 그 위의 바닥판에 계단 크기만큼 구멍이 저절로 뚫립니다. 계단을 이동하면 구멍도 따라가고, 계단을 삭제하면 구멍이 막힙니다 ([계단](help:arch-stair)).
 - 그린 바닥판을 선택하면 속성 창에서 두께를 바꾸고, {c:pathEdit}으로 외곽 점과 곡선을 고칩니다.
 - 바닥판은 다른 층에도 놓을 수 있습니다. 창의 {t:lv.pickLevel} 칸에서 층을 선택합니다.
@@ -4848,7 +4872,8 @@ order: 60
 ## 자주 하는 실수
 
 - {t:opt.closedWalls} 값이 0입니다. 벽이 닫히지 않았거나 다른 층에 있습니다. 벽 끝이 정확히 맞닿게 고치거나 작업 층을 확인합니다.
-- 층 외곽선이 있는 층에 {c:slabAuto} 도구나 {c:slab} 도구를 또 쓰면 바닥판이 두 장 겹칩니다. 겹친 것 가운데 하나를 삭제합니다.
+- 바닥판이 만들어지지 않고 외곽선 바닥판이 있다는 알림이 나옵니다. 층 외곽선이 있는 층에는 바닥판이 이미 있으므로 겹치는 바닥판은 만들지 않습니다. 높이를 바꾸려면 {t:flow.baseOffset}을 정하거나 외곽선 바닥판을 선택해 고칩니다.
+- 외곽선 바닥판을 삭제하면 {t:ol.autoSlab} 스위치가 꺼지고 알림이 나옵니다. 다시 만들려면 {t:slab.way.outline}을 씁니다.
 - 바닥판 하나를 만들면 {c:slab} 도구는 닫힙니다. 다음 바닥판은 단추를 다시 누르거나 Enter를 눌러 도구를 다시 엽니다.
 - 바닥판이 바닥 위로 떠 보입니다. {t:flow.baseOffset} 값이 0인지 확인합니다.
 - 계단 위에 구멍이 나지 않습니다. 계단의 {t:stairs.slabCut} 스위치가 켜져 있는지, 바닥판 높이가 계단 꼭대기와 맞는지 확인합니다.
@@ -4948,7 +4973,7 @@ title: 벽 그리기
 난이도: 기초
 workspace: 3D 건설
 keywords: 벽, 벽 그리기, 벽 세우, 담, 칸막이, 방 만들, 방, wall, walls, room, 외벽, 내벽, 바깥벽, 안쪽 벽, 벽 두께, 벽 높이, 중심선, 기준선, 바깥면, 안쪽면, 벽 이음, 벽 잇기, 곡선 벽, 둥근 벽, 벽 그리는법, 벼, partition, exterior wall, interior wall, wall thickness, curved wall
-commands: wall, slabAuto, levelOutline, pathEdit
+commands: wall, slab, levelOutline, pathEdit
 howto: wall
 context: wall
 order: 40
@@ -4956,14 +4981,15 @@ order: 40
 
 ## 무엇
 
-바닥에 점을 차례로 찍어 벽을 세웁니다. 벽은 지금 층 바닥에서 시작하고, 위층이 있으면 위층 바닥까지 올라갑니다. 찍은 토막마다 벽이 하나씩 생기고, 벽끼리 만나는 곳은 저절로 깔끔하게 이어집니다.
+바닥에 점을 차례로 찍어 벽을 세웁니다. 바닥에 있는 선을 따라 세울 수도 있습니다. 벽은 지금 층 바닥에서 시작하고, 위층이 있으면 위층 바닥까지 올라갑니다. 찍은 토막마다 벽이 하나씩 생기고, 벽끼리 만나는 곳은 저절로 깔끔하게 이어집니다.
 
 ## 하는 순서
 
 1. {m:wall} 단추를 누릅니다.
-2. 점을 차례로 클릭해 벽을 세웁니다 (길이를 5처럼 입력해도 됩니다).
-3. 첫 점을 다시 누르면 닫히고, 더블클릭이나 Enter로 끝납니다.
-4. 두께와 높이는 창에서 정합니다.
+2. 창 위에서 {t:ws.how.points}와 {t:ws.how.line} 가운데 하나를 선택합니다.
+3. {t:ws.how.points}이면 점을 차례로 클릭해 벽을 세웁니다 (길이를 5처럼 입력해도 됩니다). 첫 점을 다시 누르면 닫히고, 더블클릭이나 Enter로 끝납니다.
+4. {t:ws.how.line}이면 스케치 선, 건물 외곽선, 대지선처럼 바닥에 있는 선을 클릭합니다. 누른 자리에서 벽이 시작합니다. 선을 따라 커서를 움직이면 벽이 선이 꺾이는 대로 따라가고, 끝낼 자리를 클릭하면 벽이 섭니다. 창의 {t:ws.lineLen} 칸이나 명령줄에 길이를 입력하고 Enter를 눌러도 됩니다.
+5. 두께와 높이는 창에서 정합니다.
 
 ## 팁
 
@@ -4973,7 +4999,11 @@ order: 40
 - 포인터는 같은 층 벽의 끝, 벽 모서리, 벽 선 위에 붙고 화면에 {t:flow.snap.end}, {t:flow.snap.corner}, {t:flow.snap.line} 표시가 나옵니다.
 - 창의 {t:opt.segLength}와 {t:opt.angle} 칸에 값을 넣으면 다음 벽의 길이와 방향이 정해집니다. 명령줄에 \`@5<90\`처럼 입력해도 됩니다 ([좌표·길이 입력](help:input-coords)).
 - 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 벽이 됩니다. 곡선이 들어간 벽은 한 벽으로 만들어집니다.
+- {t:ws.how.line}에서 시작점과 끝점은 선의 끝과 꺾인 점에 붙고, 그 밖에서는 격자 간격에 맞춰집니다. 닫힌 선은 한 바퀴까지 돌아갈 수 있고, 한 바퀴를 다 돌면 닫힌 벽이 됩니다. 선이 꺾인 곳마다 벽이 하나씩 생기고 서로 이어집니다.
+- 길이를 입력하면 커서를 마지막으로 움직인 쪽으로 그만큼 갑니다. 선을 선택한 뒤 Esc를 누르면 다른 선을 선택합니다.
 - {t:archedit.wallJoin} 스위치를 끄면 새 벽의 끝이 다른 벽과 이어지지 않습니다. 그린 뒤에는 속성 창의 {t:archedit.joins} 단추로 끝마다 잇거나 끊습니다.
+- 이미 있는 벽의 끝이나 두 벽이 만나는 꼭짓점에서 이어 그려도 어느 벽도 사라지지 않습니다. 이음을 깔끔하게 맞출 수 없는 곳은 벽 끝을 네모나게 두어 서로 겹치게 합니다.
+- 벽을 나누려면 {m:wallSplit}를 씁니다. 벽을 누르면 가까운 끝이 {t:ws.base}이 되고, 나눌 자리를 누르거나 {t:ws.base}에서 잰 {t:ws.dist}를 입력합니다: [벽 자동 나누기](help:build-wall-split).
 - 외곽선을 따라 바깥벽을 한 번에 세우거나, 변의 일부에만 세우거나, 벽의 일부만 삭제하려면 {m:outerWalls}를 씁니다: [외벽 세우기](help:build-outer-walls).
 - {t:flow.baseOffset} 칸에 값을 넣으면 층 바닥보다 그만큼 위(음수면 아래)에서 벽이 시작합니다.
 - 그린 벽을 선택하면 속성 창에서 두께·높이·그린 선의 위치를 바꾸고, {t:archedit.tops}으로 벽 위를 기울이고, {c:pathEdit}으로 선을 고칩니다.
@@ -4981,7 +5011,7 @@ order: 40
 
 ## 자주 하는 실수
 
-- 벽이 닫히지 않아 {c:slabAuto} 도구가 닫힌 벽을 찾지 못합니다. 마지막에 첫 점을 다시 누르거나 벽 끝이 서로 정확히 닿게 그립니다.
+- 벽이 닫히지 않아 {c:slab} 도구의 {t:slab.way.walls}이 닫힌 벽을 찾지 못합니다. 마지막에 첫 점을 다시 누르거나 벽 끝이 서로 정확히 닿게 그립니다.
 - 벽이 다른 층에 생깁니다. 도구 창의 {t:lv.pickLevel} 칸과 상태 표시줄의 층을 확인합니다.
 - 벽 높이가 2.8 m처럼 층고보다 조금 낮습니다. 벽이 위층 바닥판 아랫면에서 멈추기 때문이며 정상입니다 ([벽 위쪽 맞추기](help:arch-wall-top)).
 - 창에 높이 칸이 없습니다. {t:flow.top}이 {t:flow.top.toFloor}로 되어 있으면 높이는 위층에 맞춰 저절로 정해집니다. {t:flow.top.height} 단추를 누르면 칸이 나옵니다.
@@ -5023,8 +5053,8 @@ order: 40
 ## 자주 하는 실수
 
 - {t:aw.roofOffset}를 위층 행에서 찾는 경우가 많습니다. 옥상 높이는 옥상이 생긴 층(아래층)의 값입니다.
-- 위층 외곽선을 아래층과 조금 어긋나게 그리면 아주 좁은 옥상 조각이 생길 수 있습니다. 넓이 0.01 m² 미만이거나 평균 폭 20 mm 미만인 조각에는 지붕을 만들지 않고, 버린 넓이가 한 층에서 1 m²를 넘으면 {c:buildFlow} 창에 안내가 나옵니다. 모서리를 맞추려면 {t:aw.useBelow}으로 시작해 고칩니다.
-- 자동으로 생긴 지붕을 삭제해도 그 층을 다시 적용하면 다시 생깁니다. 옥상을 없애려면 위층 외곽선을 넓혀 그 부분을 덮습니다.
+- 위층 외곽선을 아래층과 조금 어긋나게 그리면 아주 좁은 옥상 조각이 생길 수 있습니다. 넓이 0.01 m² 미만이거나 평균 폭 20 mm 미만인 조각에는 지붕을 만들지 않고, 버린 넓이가 한 층에서 1 m²를 넘으면 {c:buildFlow} 창에 안내가 나옵니다. 모서리를 맞추려면 외곽선 도구의 {t:ol.sameBelow}로 시작해 고칩니다.
+- 자동으로 생긴 지붕을 삭제하면 그 층을 다시 적용해도 그 자리에 다시 생기지 않습니다. 되살리려면 {c:levelPanel}에서 그 층 행을 오른쪽 클릭해 {t:lt.reviveAuto}를 선택하거나, {t:ab.detailed}의 그 층 행에서 {t:lt.reviveAuto}를 누릅니다. 외곽선을 바꿔 그 자리가 달라지면 새 지붕은 저절로 생깁니다.
 - {m:roof}으로 직접 만든 지붕에는 {t:aw.roofOffset} 칸이 없습니다. 건물 세우기가 만든 지붕에만 나옵니다.
 `,dt=`---
 id: build-courtyard
@@ -5047,7 +5077,7 @@ order: 70
 2. 외곽선 도구에서 {t:ol.mode.draw}를 누릅니다.
 3. {t:aw.ring.outer}·{t:aw.ring.hole} 선택에서 {t:aw.ring.hole}을 선택합니다.
 4. 외곽선 안쪽에 중정 모양을 {t:ol.shape.poly}이나 {t:ol.shape.rect}으로 그립니다. 첫 모서리는 \`5,5\`처럼 좌표로 입력해도 됩니다.
-5. 다 그리면 바로 적용되어 중정 둘레에 안쪽 벽이 서고 바닥판에 구멍이 뚫립니다.
+5. 다 그리면 바닥판에 구멍이 뚫리고, 도구를 닫을 때 중정 둘레에 안쪽 벽이 섭니다.
 6. 위아래로 뚫린 중정이면 위층마다 같은 자리에 중정을 그립니다.
 
 ## 팁
@@ -5057,7 +5087,7 @@ order: 70
 - 중정 둘레의 옥상은 중정을 피해 여러 조각의 평지붕으로 생깁니다: [자동 옥상과 옥상 높이](help:build-auto-roof).
 - 층 전체에 단 천장도 중정을 피해 생깁니다.
 - 중정이 있는 층을 {t:ab.kind.piloti}로 바꾸면 중정 둘레에도 기둥이 섭니다: [필로티](help:build-piloti).
-- {t:aw.useBelow}은 바깥 외곽선만 받고 중정은 받지 않습니다. 중정은 층마다 따로 그립니다.
+- 외곽선 도구의 {t:ol.sameBelow}는 바깥 외곽선만 받고 중정은 받지 않습니다. 중정은 층마다 따로 그립니다.
 - 사방이 막힌 ㅁ자 건물은 중정 하나로, 한쪽이 트인 ㄷ자 건물은 건물 외곽선을 ㄷ자로 그려 만듭니다: [중정 주택](help:brec-courtyard-house), [ㄷ자 건물](help:brec-u-shape).
 - 벽 없이 바닥판에만 구멍을 내는 방법은 [여러 층이 트인 아트리움](help:brec-atrium)에 있습니다.
 
@@ -5074,47 +5104,48 @@ title: 층마다 건물 세우기
 분류: 건물 세우기
 난이도: 중급
 workspace: 3D 건설
-keywords: 층마다, 고급, 층마다 외곽선, 층 종류, 보통, 필로티, 옥탑, 아래층 모양, 위층 모양, 외곽선 그대로, 건물 외곽선, 세트백, 돌출, 외곽선 적용, 층별 모양, 세부, 이대로 정하기, 외벽 세우기, 외벽, 벽 세우기, 변 고르기
+keywords: 층마다, 고급, 층마다 외곽선, 층 종류, 보통, 필로티, 옥탑, 아래층 모양, 위층 모양, 외곽선 그대로, 건물 외곽선, 세트백, 돌출, 외곽선 적용, 층별 모양, 세부, 이대로 정하기, 외벽 세우기, 외벽, 벽 세우기, 변 선택
 commands: buildFlow, levelOutline, outerWalls, buildingEasy
 order: 30
 ---
 
 ## 무엇
 
-층마다 외곽선과 {t:ab.kind}({t:ab.kind.normal}·{t:ab.kind.piloti}·{t:ab.kind.rooftop})를 따로 정해 건물을 세우는 방법입니다. 외곽선을 끝내거나 종류를 바꾸면 그 층과 바로 아래층의 지붕·바닥판·필로티 기둥이 바로 다시 만들어집니다. {t:ab.detailed}는 벽을 스스로 만들지 않습니다. 벽은 {c:outerWalls}로 세웁니다. {t:ab.easy}로 세운 건물의 한 층만 바꿀 때도 씁니다.
+층마다 외곽선과 {t:ab.kind}({t:ab.kind.normal}·{t:ab.kind.piloti})를 따로 정해 건물을 세우는 방법입니다. 외곽선 도구를 닫거나 종류를 바꾸면 그 층과 바로 아래층의 지붕·바닥판·필로티 기둥이 다시 만들어집니다. 바깥벽은 층 외곽선의 모든 변에 저절로 서고, 외곽선을 고치면 따라옵니다. {t:ab.easy}로 세운 건물의 한 층만 바꿀 때도 씁니다.
 
 ## 하는 순서
 
 1. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.build} 옆의 {t:ab.detailed}를 선택합니다. 층은 위층부터 나옵니다.
 2. 바꿀 층의 이름을 눌러 그 층에서 작업합니다.
-3. 그 층의 외곽선 단추({t:aw.outlineDraw} 또는 넓이 m²)를 눌러 외곽선 도구를 열고, 외곽선을 새로 그리거나 점을 이동합니다. 외곽선을 끝내는 즉시 적용됩니다.
-4. 아래층과 같은 모양이면 외곽선 단추 옆의 {t:aw.useBelow}을 누릅니다. 아래에 외곽선 있는 층이 없으면 건물 외곽선을 그대로 쓰는 {t:aw.useShape}이 나옵니다.
-5. {t:ab.kind} 칸에서 {t:ab.kind.normal}, {t:ab.kind.piloti}, {t:ab.kind.rooftop} 가운데 하나를 선택합니다. 선택하는 즉시 적용됩니다.
-6. 벽을 세우려면 목록 위의 {t:cmd.outerWalls}를 누릅니다. 창 위에서 {t:ow.mode.all}, {t:ow.mode.pick}, {t:ow.mode.draw} 가운데 하나를 선택하고 창 아래의 {t:ew.build}를 누릅니다: [외벽 세우기](help:build-outer-walls).
+3. 그 층의 외곽선 단추({t:aw.outlineDraw} 또는 넓이 m²)를 눌러 외곽선 도구를 열고, 외곽선을 새로 그리거나 점을 이동합니다. 벽·기둥·지붕은 외곽선 도구를 닫을 때 한 번에 다시 만들어집니다.
+4. 아래층과 같은 모양이면 외곽선 도구의 {t:ol.sameBelow}를 누릅니다. 아래에 외곽선 있는 층이 없으면 {t:ol.sameShape}가 나옵니다. 이 외곽선을 외곽선 없는 다른 층에도 쓰려면 {t:ol.toAll}를 누릅니다.
+5. {t:ab.kind} 칸에서 {t:ab.kind.normal}, {t:ab.kind.piloti} 가운데 하나를 선택합니다. 선택하는 즉시 적용됩니다.
+6. 필요 없는 바깥벽은 클릭해 선택하고 Delete 키로 삭제합니다. 일부만 트려면 {m:outerWalls}의 {t:ow.mode.cut}로 그 구간만 삭제합니다: [외벽 세우기](help:build-outer-walls).
 7. 자동 지붕이 있는 층에는 {t:aw.roofOffset} 칸이, {t:ab.kind.piloti} 층에는 기둥 설정 칸이 그 층 행 아래에 나타납니다.
 
 ## 팁
 
-- {t:ab.kind.normal}은 바닥판이 있는 보통 층, {t:ab.kind.piloti}는 기둥만 세우는 층([필로티](help:build-piloti)), {t:ab.kind.rooftop}은 아래층보다 작은 맨 위층입니다. {t:ab.kind.rooftop}은 이름만 다르고 만들어지는 부재는 {t:ab.kind.normal}과 같습니다.
-- 지하층의 외곽선 단추 옆에는 {t:aw.useAbove}이 나옵니다.
+- {t:ab.kind.normal}은 바닥판이 있는 보통 층, {t:ab.kind.piloti}는 기둥만 세우는 층([필로티](help:build-piloti))입니다.
+- 지하층의 외곽선 도구에는 {t:ol.sameAbove}가 나옵니다.
 - 층 외곽선(지하층 포함)은 건물 외곽선 안에만 둡니다. 밖으로 나간 부분은 잘리고, 완전히 밖이거나 여러 조각이 되는 외곽선은 받아들이지 않습니다. 위층을 내밀려면 건물 외곽선을 가장 넓은 층에 맞춰 그리고 아래층을 줄입니다: [건물 외곽선](help:build-outline).
-- {t:cmd.outerWalls} 단추는 메뉴의 {m:outerWalls}와 같습니다. 선택한 변이나 구간마다 보통 벽이 하나씩 서고, 처음에는 벽의 바깥면이 외곽선 위에 맞으며 높이는 위층 바닥까지입니다. 한 번 세운 것이 되돌리기 한 번입니다.
-- {c:outerWalls}로 세운 벽은 손으로 그린 벽과 같아서 외곽선을 바꿔도 따라 움직이지 않습니다. {t:ab.easy}로 세운 건물의 바깥벽만 외곽선을 따라 다시 만들어집니다.
+- 삭제한 바깥벽 자리는 다시 적용하거나 층을 더해도 벽 없이 남습니다. 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다. 그 자리는 점선으로 보이고, 클릭하면 벽이 돌아오며 {t:aw.wallBack} 알림이 나옵니다.
+- 손으로 벽을 그린 층에는 자동 바깥벽을 만들지 않고, 그 층 행 아래에 {t:aw.handWalls} 안내가 나옵니다.
+- {c:outerWalls}로 세운 벽은 손으로 그린 벽과 같아서 외곽선을 바꿔도 따라 움직이지 않습니다.
 - 적용 한 번이 되돌리기 한 번입니다. 알림에 다시 만든 벽·기둥·지붕의 수가 나옵니다.
-- 목록 위의 {t:ceil.build} 스위치를 켜 두면 외곽선을 끝낸 층에 천장도 함께 생깁니다.
+- 목록 위의 {t:ceil.build} 스위치를 켜 두면 외곽선을 처음 정한 층에 천장도 함께 생깁니다.
 - 외곽선 도구의 {t:ol.mode.draw}에서 {t:aw.ring.hole}을 선택하면 외곽선 안에 빈 마당을 그립니다: [중정](help:build-courtyard).
-- 층 수와 층고는 맨 위 칸에서 정하고 {t:fl.planApply}을 누릅니다. 외곽선만 그린 새 건물은 1층 하나뿐이므로 여기서 층을 늘립니다. 새 층은 아래층 외곽선을, 새 지하층은 위층 외곽선을 저절로 받습니다.
+- 층을 더하거나 삭제하려면 맨 위의 {c:levelPanel} 단추로 {c:levelPanel} 창을 엽니다: [층 만들기](help:arch-levels). 외곽선만 그린 새 건물은 1층 하나뿐이므로 거기서 층을 늘립니다. 건물 세우기로 만든 건물에서는 새 층이 아래층 외곽선을, 새 지하층이 위층 외곽선을 저절로 받습니다.
 - 위아래 층 모양에 따른 지붕과 벽: [자동 옥상과 옥상 높이](help:build-auto-roof), [벽 자동 나누기](help:build-wall-split).
 - 건물에 문제가 있으면 {t:ab.build} 위에 한 줄씩 나옵니다. 다른 건물과 외곽선이 겹치거나 대지 밖으로 나갔으면 {t:cmd.outlineEdit} 단추가, 외곽선 밖에 벽·기둥이 있으면 {t:bo.issuePick} 단추가 함께 나옵니다.
 - 손으로 벽을 그린 건물은 {c:buildFlow} 창을 열면 처음부터 {t:ab.detailed}가 선택되어 있습니다.
 
 ## 자주 하는 실수
 
-- 외곽선을 정했는데 벽이 생기지 않습니다. {t:ab.detailed}는 벽을 스스로 만들지 않습니다. {c:outerWalls}로 세웁니다.
+- 외곽선을 정했는데 바깥벽이 생기지 않습니다. 그 층에 손으로 그린 벽이 있으면 자동 바깥벽을 만들지 않습니다. 벽이 없는 변에는 {m:outerWalls}의 {t:ow.mode.all}로 세웁니다.
 - 위층 외곽선을 넓혔는데 잘렸습니다. 층 외곽선은 건물 외곽선 밖으로 나갈 수 없습니다. 먼저 건물 외곽선을 {c:areaEdit}으로 넓힙니다.
-- {c:levelPanel}이나 메뉴에서 연 외곽선 도구는 건물 세우기로 만든 건물에서만 지붕을 바로 다시 만듭니다. 손으로 시작한 건물은 {t:ab.detailed}의 외곽선 단추로 엽니다.
-- {t:ab.easy}로 세운 건물에서 외곽선을 바꾸면 그 층의 자동 벽이 새로 만들어지므로, 새 벽이 옛 벽 자리에 서지 않으면 그 벽의 문·창이 삭제됩니다. 외곽선을 정한 뒤 문·창을 넣습니다.
-- 자동으로 만든 벽을 손으로 고친 뒤 그 층을 다시 적용하면 고친 벽이 새로 만든 벽으로 바뀔 수 있습니다. 그때는 {c:undo} ({k:undo})로 되돌립니다.
+- 점을 고치는 동안 벽과 지붕이 그대로입니다. 외곽선 도구는 어디서 열어도 닫을 때 한 번에 적용합니다. Esc나 {t:btn.close}로 닫습니다.
+- 외곽선을 바꾸면 그 층의 자동 벽이 새로 만들어지므로, 새 벽이 옛 벽 자리에 서지 않으면 그 벽의 문·창이 삭제됩니다. 외곽선을 정한 뒤 문·창을 넣습니다. 잘못 삭제됐으면 {c:undo} ({k:undo})로 되돌립니다.
+- 삭제하거나 손으로 고친 자동 지붕·기둥(바깥벽이 아닌 자동 벽 포함)은 다시 적용해도 그 자리에 새로 생기지 않습니다. 손으로 고친 부재는 내 부재로 남습니다. 자동 부재를 되살리려면 그 층 행의 {t:lt.reviveAuto}를 누르거나, {c:levelPanel}에서 층 행을 오른쪽 클릭해 {t:lt.reviveAuto}를 선택합니다.
 - {t:ab.kind.piloti}로 바꾸면 그 층의 바깥벽이 모두 삭제되고 기둥이 섭니다. 벽에 넣은 문·창도 함께 삭제됩니다.
 `,pt=`---
 id: build-easy
@@ -5122,7 +5153,7 @@ title: 건물 바로 세우기
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: 건물 바로 세우기, 일반, 빠른 건물, 한 번에 건물, 층 수, 층고, 지하층, 다시 세우기, 건물 자동, 바로세우기, 건물바로세우기, 퀵 빌딩, 대지 그리기, 외곽선 그리기, 건물 외곽선, 평탄화, 그대로 두기, 천장 넣기, 외벽, 벽 있음, 벽 없음, 일부, 변마다 벽, 벽 일부, 차고
+keywords: 건물 바로 세우기, 일반, 빠른 건물, 한 번에 건물, 층 수, 층고, 지하층, 다시 세우기, 건물 자동, 바로세우기, 건물바로세우기, 퀵 빌딩, 대지 그리기, 외곽선 그리기, 건물 외곽선, 평탄화, 그대로 두기, 천장 넣기, 외벽, 모든 변에 외벽, 필요 없는 벽 삭제
 commands: buildingEasy, buildFlow, buildingOutline, siteArea, grade, levelAdd
 context: buildingEasy
 order: 20
@@ -5130,39 +5161,31 @@ order: 20
 
 ## 무엇
 
-층 수와 층고만 정하면 건물 외곽선 위에 층, 층 외곽선, 바깥벽, 바닥판, 평지붕이 한 번에 생기는 방법입니다. 창이 ① {t:bo.step.site} ② {t:bo.step.outline} ③ {t:bo.step.grade} ④ {t:bo.step.build} 순서를 안내하고, 빠진 단계가 있으면 그 단계부터 하게 합니다. ③ {t:bo.step.grade}는 하지 않아도 되는 단계이며, 대지 전체를 먼저 평탄화하라고 묻지 않습니다. 모든 층의 외곽선은 건물 외곽선과 같은 모양이 되고, 바깥벽은 외곽선을 따라 섭니다. 변마다 벽 있음·벽 없음·일부를 선택할 수 있습니다. 세운 결과 전체가 되돌리기 한 번에 해당합니다.
+층 수와 층고만 정하면 건물 외곽선 위에 층, 층 외곽선, 바깥벽, 바닥판, 평지붕이 한 번에 생기는 방법입니다. 따로 창이 열리지 않고 [건설 진행 상황](help:arch-flow) 창의 {t:fl.step.levels} 단계에서 세웁니다. 평탄화는 하지 않아도 되며, 대지 전체를 먼저 평탄화하라고 묻지 않습니다. 모든 층의 외곽선은 건물 외곽선과 같은 모양이 되고, 바깥벽은 외곽선의 모든 변을 따라 섭니다. 필요 없는 벽은 세운 뒤에 클릭해 선택하고 삭제합니다. 세운 결과 전체가 되돌리기 한 번에 해당합니다.
 
 ## 하는 순서
 
 1. {m:buildingEasy} 단추를 누릅니다. 명령줄에 \`quickbuilding\`을 입력해도 됩니다.
-2. 대지가 있으면 {t:bo.site} 목록에서 대지를 선택합니다. 대지 없이 땅 전체에 지으려면 {t:bld.wholeLand}를 선택합니다. 대지가 하나도 없으면 이 단계는 저절로 땅 전체로 끝납니다.
-3. {t:bo.outlinePick} 목록에서 세울 건물을 선택합니다. 외곽선이 없으면 {t:aw.drawOutline}를 누르고 외곽선을 그립니다. 다 그리면 창이 다시 열립니다.
-4. 지형이 있는 땅이면 창 아래에 {t:bo.grade} 단추가 나옵니다. 누르면 건물 외곽선 아래 땅을 대상으로 평탄화 도구가 열리고, 도구를 닫으면 창이 다시 열립니다. 평탄화하지 않으려면 이 단계를 건너뜁니다.
-5. {t:bnew.above}(1~50), {t:bnew.below}(0~10), {t:bnew.height}(m)를 정합니다.
-6. {t:ec.title} 칸에서 벽이 필요 없는 변을 {t:ec.state.none}으로, 일부만 비울 변을 {t:ec.state.part}로 바꿉니다. 그대로 두면 사방에 벽이 섭니다.
-7. 창 아래 안내 문장에서 세울 자리를 확인하고 {t:aw.easyGo}를 누릅니다. 알림에 만든 층·벽·기둥·지붕의 수가 나오고, 작업 위치가 그 건물의 1층으로 이동됩니다.
+2. 세울 건물이 있으면 작업 범위가 그 건물로 이동하고 {c:buildFlow} 창이 열려 5단계 {t:fl.step.levels}의 {t:ab.easy}가 보입니다. 세울 건물은 외곽선만 그리고 아직 아무것도 세우지 않은 건물로, 화면에서 선택한 건물 외곽선을 먼저 쓰고 없으면 작업 범위의 건물을 씁니다.
+3. 세울 건물이 없으면 그 대지에서 건물 외곽선 도구가 열립니다. 대지가 없으면 땅 전체에서 열립니다. 외곽선을 다 그리면 그 건물의 {t:ab.easy}로 이동합니다.
+4. 지형이 있는 땅이면 카드에 {t:bo.grade} 단추가 있습니다. 누르면 건물 외곽선 아래 땅을 대상으로 평탄화 도구가 열립니다. 평탄화하지 않아도 됩니다.
+5. {t:bnew.above}(1~50), {t:bnew.below}(0~10), {t:bnew.height}(m)를 넣습니다.
+6. {t:aw.easyGo}를 누릅니다. 알림에 만든 층·벽·기둥·지붕의 수가 나오고, 작업 위치가 그 건물의 1층으로 이동됩니다.
 
 ## 팁
 
-- 창을 여는 곳: 메뉴 단추, {c:levelPanel} 창 아래의 {c:buildingEasy} 단추, 건물 외곽선의 옆 막대와 오른쪽 클릭 메뉴, 건물이 없는 범위의 {c:buildFlow} 창. 건물 외곽선을 선택해 두고 열면 그 건물이 선택되어 있습니다.
-- {t:bo.site}·{t:bo.outlinePick} 목록 대신 {t:bo.pickInView}을 누르고 화면에서 대지나 건물 외곽선을 클릭해도 됩니다. Esc를 누르면 창으로 돌아갑니다.
-- {t:bo.outlinePick} 목록에는 외곽선만 그리고 아직 세우지 않은 건물이 넓이와 함께 나옵니다. 새 외곽선을 그리려면 {t:bo.outlineNew}를 선택합니다.
-- {t:ec.title} 칸에는 외곽선의 변에 번호를 붙인 작은 평면과, 변 3 · 12.0 m처럼 변마다 한 줄씩 있는 목록이 있습니다. 줄마다 {t:ec.state.wall}, {t:ec.state.none}, {t:ec.state.part} 가운데 하나를 선택합니다. 평면의 변을 누르면 {t:ec.state.wall}과 {t:ec.state.none}이 바뀝니다. 평면과 목록은 [외벽 세우기](help:build-outer-walls)의 {t:ow.mode.pick}과 같습니다.
-- {t:ec.state.part}: 벽이 없는 구간을 {t:ec.start}(변의 첫 점에서 잰 거리)와 {t:ec.length}로 mm 단위로 정합니다. 평면에 보이는 구간 양 끝의 동그라미를 끌어도 됩니다. {t:ec.addGap}로 한 변에 구간을 여러 개 둘 수 있습니다. 예를 들어 앞쪽 20 m 변에 시작 8000, 길이 3000을 넣으면 가운데 3 m만 트입니다.
-- 세운 뒤에 {m:outerWalls}의 {t:ow.mode.cut}로 바깥벽의 일부를 삭제해도 같은 칸에 {t:ec.state.part}로 나타나고, 다시 세워도 그 자리에는 벽이 생기지 않습니다.
-- 층이 둘 이상이면 {t:ec.title} 칸의 층 목록에서 {t:ec.allLevels} 대신 한 층을 선택해 그 층의 벽만 바꿀 수 있습니다. 층 목록은 세우기 전에도 입력한 지상 층 수만큼 1층, 2층으로 나오고, 세울 때 실제 층에 그대로 적용됩니다. 예를 들어 지상 층 수를 2로 두고 1층을 선택해 앞쪽 변을 {t:ec.state.none}으로 바꾸면, 한 번에 1층이 트인 차고가 됩니다. 지하층은 층 목록에 나오지 않습니다.
-- 목록의 줄은 변 1 · 남쪽 · 12.0 m처럼 변이 바라보는 방위도 보여 줍니다. 작은 평면의 화살표가 북쪽입니다. 줄이나 평면의 변에 마우스를 올리면 3D 화면에서 그 변이 번호와 함께 강조됩니다.
-- {t:ec.start}과 {t:ec.length}는 mm로 입력하고, 칸 옆에 m 값이 함께 나옵니다.
-- {t:ec.allLevels}을 선택한 채 층마다 벽이 다른 변은 {t:ec.state.varies}으로 보입니다. 그 줄에서 {t:ec.state.wall}이나 {t:ec.state.none}을 선택하면 모든 층이 같아집니다.
-- 곡선 변도 {t:ec.state.part}를 선택할 수 있습니다. {t:ec.start}과 {t:ec.length}는 곡선을 따라 잰 길이입니다. {t:ab.kind.piloti} 층에는 원래 바깥벽이 없습니다.
-- {t:ec.state.none}으로 둔 변은 나중에 건물 외곽선을 고쳐 변이 길어져도 변 전체가 벽 없이 남습니다.
-- 세운 뒤에 건물 세우기가 만든 벽·지붕·기둥을 삭제하거나 고치면, 다시 세우거나 층을 더해도 그대로 남습니다. 삭제한 바깥벽은 {t:ec.title} 칸에 그 층의 {t:ec.state.none}이나 {t:ec.state.part}로 나타나고, 고친 부재는 손으로 그린 부재가 됩니다.
+- {c:buildingEasy}가 있는 곳: 메뉴 단추, {c:levelPanel} 창 아래의 {c:buildingEasy} 단추, 건물 외곽선의 옆 막대와 오른쪽 클릭 메뉴, 건물이 없는 범위의 {c:buildFlow} 창. 건물 외곽선을 선택해 두고 누르면 그 건물을 세웁니다.
+- 다른 대지에 지으려면 그 대지를 화면에서 선택한 뒤 {m:buildingEasy}를 누르거나 {c:buildingOutline}으로 외곽선을 그립니다. 건물이 설 대지를 바꾸려면 진행 상황 1단계 {t:fl.step.site}의 대지 목록을 씁니다.
+- 바깥벽은 늘 모든 변에 섭니다. 벽이 필요 없는 변은 세운 뒤에 그 벽을 클릭해 선택하고 Delete 키로 삭제하고, 일부만 트려면 {m:outerWalls}의 {t:ow.mode.cut}로 그 구간만 삭제합니다: [외벽 세우기](help:build-outer-walls). {t:ab.kind.piloti} 층에는 원래 바깥벽이 없습니다.
+- 세운 뒤에 건물 세우기가 만든 벽·지붕·기둥을 삭제하거나 고치면, 다시 세우거나 층을 더해도 그대로 남습니다. 삭제한 바깥벽 자리에는 다시 세워도 벽이 생기지 않고, 고친 부재는 손으로 그린 부재가 됩니다.
+- 삭제한 바깥벽 자리는 나중에 건물 외곽선을 고쳐 변이 길어져도 벽 없이 남습니다.
+- 삭제한 바깥벽을 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다. 그 자리는 점선으로 보이고, 가리키면 실선이 됩니다. 클릭하면 벽이 돌아오고 {t:aw.wallBack} 알림이 나옵니다. 되돌리기 한 번으로 취소됩니다.
 - 다시 세울 때 벽이 바뀌어 문·창이 들어갈 벽이 없어지면 문·창이 삭제되고, 알림에 그 수와 {t:cmd.undo} 단추가 나옵니다.
-- 창을 처음 열면 지상 3층, 지하 0층, 층고 3 m가 들어 있고, 그다음부터는 마지막에 쓴 값이 들어 있습니다. {c:buildFlow} 창의 {t:ab.easy}도 빈 건물에서는 같은 값으로 시작합니다. 대지나 외곽선을 그리고 돌아와도 넣은 값은 그대로입니다.
+- 빈 건물의 {t:ab.easy}에는 처음에 지상 3층, 지하 0층, 층고 3 m가 들어 있고, 그다음부터는 마지막에 쓴 값이 들어 있습니다.
 - {t:ceil.build} 스위치를 켜 두면(처음에 켜짐) 필로티 층을 뺀 모든 층에 천장이 함께 생깁니다.
 - 지하층에는 바깥벽 대신 외곽선을 따라 두께 0.3 m 지하 외벽이 생깁니다. 바닥판은 모든 층에 생기고, 평지붕은 맨 위층에 생깁니다.
 - 1층 바닥 높이는 그 자리에 평탄화가 있으면 그 높이를 따르고, 없으면 그 자리에서 가장 높은 땅의 높이를 씁니다 (지형이 없으면 0). 나중에 [건설 진행 상황](help:arch-flow)의 {t:fl.step.base} 단계에서 바꿉니다.
-- 이렇게 세운 건물은 {c:buildFlow} 창의 {t:fl.step.levels} 단계 {t:ab.easy}에서 층 수·층고와 변마다 벽을 바꾸고 {t:aw.easyAgain}를 누르면 다시 만들어집니다. 늘어난 층은 옆 층의 외곽선을 받습니다.
+- 이렇게 세운 건물은 {c:buildFlow} 창의 {t:fl.step.levels} 단계 {t:ab.easy}에서 층 수·층고를 바꾸고 {t:aw.easyAgain}를 누르면 다시 만들어집니다. 늘어난 층은 옆 층의 외곽선을 받습니다.
 - 건물 외곽선을 고치면 바깥벽도 새 외곽선을 따라 다시 만들어집니다: [건물 외곽선](help:build-outline).
 - {m:levelAdd}로 층을 더해도 새 층이 아래층 외곽선을 받아 벽과 지붕이 함께 생기고, 평지붕은 새 맨 위층으로 이동됩니다. {t:ceil.build}가 켜져 있으면 새 층에 천장도 생깁니다.
 - 한 층만 모양을 바꾸려면 [층마다](help:build-detailed)를 씁니다.
@@ -5172,17 +5195,17 @@ order: 20
 - 층고 칸은 m 단위입니다. \`3000\`이 아니라 \`3\`을 입력합니다.
 - {t:aw.easyAgain}로 층 수를 줄여도 손으로 넣은 물체가 있는 층은 삭제되지 않고 남습니다. 남긴 층 수는 알림에 나옵니다.
 - 벽이나 기둥을 손으로 그린 건물에서는 {t:ab.easy}에 {t:aw.easyGo} 대신 안내와 {c:buildingEasy} 단추가 나옵니다. 그 건물은 [층마다](help:build-detailed)에서 고치거나 새 건물을 세웁니다.
-- 건물 외곽선을 저절로 만들지는 않습니다. 세울 건물이 없으면 {t:bo.outlinePick} 목록이 {t:bo.outlineNew}로 되어 있고, 주 단추가 {t:aw.drawOutline}로 바뀝니다.
-- {t:ec.state.none}이나 {t:ec.state.part}로 바꾼 변에는 다시 세워도 그 자리에 벽이 생기지 않습니다. 벽이 필요하면 그 변을 {t:ec.state.wall}으로 바꾸고 {t:aw.easyAgain}를 누릅니다.
-- 구간 끝이 변의 끝에서 0.3 m보다 가까우면 그 사이의 짧은 벽은 만들지 않습니다.
+- 건물 외곽선을 저절로 만들지는 않습니다. 세울 건물이 없으면 건물 외곽선 도구가 열리니 외곽선을 그립니다.
+- 삭제한 바깥벽은 {t:aw.easyAgain}를 눌러도 다시 생기지 않습니다. 벽이 필요하면 그 층의 삭제한 자리를 클릭해 되살립니다.
+- 일부 삭제한 구간 끝이 변의 끝에서 0.3 m보다 가까우면 그 사이의 짧은 벽은 만들지 않습니다.
 `,mt=`---
 id: build-names-tree
 title: 건물 이름·색·전체 목록
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: 건물 이름, 건물 A, 건물 색, 전체 목록, 프로젝트 목록, 프로젝트 창, 트리, 층 목록, 땅, 대지, 토목, 지하층 이름, B1층, 이름 바꾸기, 건물 숨기기, 경로, 작업 위치, 모든 층, 오른쪽 클릭, 모든 층에 천장, 건물 옮기기, 다른 대지로, 끌어다 놓기
-commands: levelPanel, buildingEasy, buildingNew, buildingOutline, levelAdd, ceilingAll
+keywords: 건물 이름, 건물 A, 건물 색, 전체 목록, 프로젝트 목록, 프로젝트 창, 트리, 층 목록, 땅, 대지, 토목, 지하층 이름, B1층, 이름 바꾸기, 건물 숨기기, 경로, 작업 위치, 모든 층, 오른쪽 클릭, 건물 옮기기, 다른 대지로, 끌어다 놓기, 자동 부재 되살리기, 지운 지붕
+commands: levelPanel, buildingEasy, buildingOutline, levelAdd
 order: 90
 ---
 
@@ -5193,7 +5216,7 @@ order: 90
 ## 하는 순서
 
 1. 상태 표시줄의 경로 앞에 있는 층 단추를 눌러 {c:levelPanel} 창을 앞으로 꺼냅니다. 창은 처음에 화면 오른쪽에 붙어 있습니다.
-2. 행을 클릭하면 선택만 합니다. 대지 행은 그곳을, 건물·층 행은 그 안의 보이는 부재를 선택하고, 선택한 행이 표시됩니다. 행을 두 번 클릭하거나 Enter를 누르면 그 대지·건물·층으로 작업 위치가 이동됩니다. 이름 위를 두 번 클릭해도 같습니다. 도구가 열려 있을 때 층 행을 클릭하면 부재를 선택하지 않고 작업 층만 바뀝니다. {t:aw.land} 행은 클릭하면 땅 전체로 작업 위치가 이동됩니다.
+2. 대지·건물 행을 클릭하면 선택만 합니다. 대지 행은 그곳을, 건물 행은 그 안의 보이는 부재를 선택하고, 선택한 행이 표시됩니다. 행을 두 번 클릭하거나 Enter를 누르면 그 대지·건물로 작업 위치가 이동됩니다. 층 행은 한 번 클릭하면 그 층에서 작업하고, 두 번 클릭하면 그 층의 보이는 부재도 선택합니다. 도구가 열려 있으면 두 번 클릭해도 작업 층만 바뀝니다. {t:aw.land} 행은 클릭하면 땅 전체로 작업 위치가 이동됩니다.
 3. 행의 **+** 단추로 아래 항목을 더합니다. {t:aw.land} 행은 {t:aw.addSite}, 대지 행은 그 대지에 [건물 외곽선](help:build-outline)을 그리는 도구, 건물 행은 층 추가입니다.
 4. 대지와 건물 행의 눈 단추로 화면에서 숨기거나 다시 보입니다.
 5. 행을 오른쪽 클릭하면 {t:aw.rename}, {t:aw.delete} 같은 메뉴가 나옵니다. 삭제는 한 번 더 묻습니다. 행을 선택하고 F2를 눌러도 이름을 바꿀 수 있습니다. 이름은 바꿀 때만 입력 칸이 됩니다.
@@ -5201,7 +5224,8 @@ order: 90
 
 ## 팁
 
-- 오른쪽 클릭 메뉴: 층 행에는 {c:planView}, {c:ceilingView}, {c:archSection}, 건물 행에는 {c:archSection}, {t:aw.color}, {c:ceilingAll}이 더 있습니다. 보기를 선택하면 작업 범위가 그 층이나 건물로 먼저 이동됩니다.
+- 오른쪽 클릭 메뉴: 층 행에는 {c:planView}, {c:ceilingView}, {c:archSection}, 건물 행에는 {c:archSection}, {t:aw.color}이 더 있습니다. 보기를 선택하면 작업 범위가 그 층이나 건물로 먼저 이동됩니다.
+- 건물 세우기가 만든 지붕·기둥을 삭제하거나 고친 층은 오른쪽 클릭 메뉴에 {t:lt.reviveAuto}가 나옵니다. 누르면 그 자리에 자동 부재가 다시 생깁니다. 손으로 고친 부재는 그대로 남습니다.
 - 새 건물 이름은 프로젝트에서 아직 쓰지 않은 첫 글자를 씁니다. 건물 A가 있으면 다음은 건물 B입니다. 이름을 변경한 건물(예: 본관)은 글자를 차지하지 않습니다.
 - 건물이 둘 이상이면 층 이름 앞에 건물 이름이 붙어 건물 A · 2층처럼 나옵니다.
 - 새 지하층 이름은 B1층, B2층입니다. 직접 바꾼 층 이름은 그대로 둡니다.
@@ -5210,7 +5234,7 @@ order: 90
 - 건물은 서 있는 대지 행 아래에 나오고, 어느 대지에도 없는 건물은 {t:aw.land} 행 바로 아래에 나옵니다. 외곽선이 맞닿은 건물도 한 행씩 따로 나옵니다: [붙은 건물](help:build-shared-levels).
 - 건물 행을 다른 대지 행으로 끌어다 놓거나, 건물 행 오른쪽 클릭 메뉴의 {t:so.moveToSite}에서 대지를 고르면, 건물이 그 대지 밖에 있을 때 먼저 묻고 이동합니다. 건물은 그 대지 가운데로, 자리가 없으면 다른 건물과 1 m 떨어진 가장 가까운 빈자리로 이동되고, 선택되어 화면에 맞춰집니다. 들어갈 자리가 없으면 이동하지 않고 알림이 나옵니다. 물체 창에서도 같습니다.
 - 층 행에는 이름, {t:levels.height} 칸, 바닥 높이, 외곽선 단추, 보기 단추(누를 때마다 보이기 → 흐리게 → 숨기기), 이 층만 보기, 화면 맞추기 단추가 있습니다. 건물 행의 1층 바닥 단추로 1층 바닥 높이를 다시 정합니다.
-- 목록 아래에는 {t:levels.add}, {t:levels.addBasement}, {t:levels.copy}, {t:levels.delete}, {c:buildingEasy}, {c:buildingNew} 단추와 {t:levels.upper} 보기 칸이 있습니다: [층](help:arch-levels).
+- 목록 아래에는 {t:levels.add}, {t:levels.addBasement}, {t:levels.copy}, {t:levels.delete}, {c:buildingEasy}, {c:buildingOutline} 단추와 {t:levels.upper} 보기 칸이 있습니다: [층](help:arch-levels).
 - 목록 끝의 {t:aw.civil} 묶음에는 도로·교량·터널·제방 같은 토목 구조물이 종류 순서로, 각자의 이름(도로 1, 교량 1 …)으로 나오고, 누르면 그 구조물이 선택됩니다.
 - 새 부품과 구조물의 이름은 같은 이름의 가장 큰 번호 다음 번호를 받습니다. 도로 1과 도로 3이 있으면 새 도로는 도로 4이고, 이미 있는 이름은 바뀌지 않습니다.
 - 상태 표시줄의 경로(대지 1 › 건물 A › 3층)에서 한 단계를 누르면 같은 단계의 다른 곳으로 이동해 갈 수 있습니다: [작업 범위](help:site-scope).
@@ -5230,7 +5254,7 @@ title: 외벽 세우기
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: 외벽 세우기, 외벽, 바깥벽, 외곽선 따라 벽, 전체, 변 고르기, 직접 그리기, 일부 삭제, 벽 일부, 벽 일부 삭제, 구간, 변 일부, 벽 두께, 벽 높이, 바깥면, 중심선, 안쪽면, 모든 층, 벽 먼저, 벽으로 외곽선, outer walls, outerwalls, edgewall
+keywords: 외벽 세우기, 외벽, 바깥벽, 외곽선 따라 벽, 전체, 변 선택, 변 고르기, 상자 선택, 크게 보기, 일부 삭제, 벽 일부, 벽 일부 삭제, 구간, 변 일부, 벽 두께, 벽 높이, 바깥면, 중심선, 안쪽면, 모든 층, 벽 먼저, 벽으로 외곽선, outer walls, outerwalls, edgewall
 commands: outerWalls, wallCut, wall, buildingOutline
 howto: outerWalls
 context: outerWalls, wallCut
@@ -5239,37 +5263,40 @@ order: 35
 
 ## 무엇
 
-건물 외곽선을 따라 바깥벽을 만드는 창입니다. 창 위의 네 가지 방법은 같은 설정을 씁니다. {t:ow.mode.all}는 모든 변에, {t:ow.mode.pick}은 선택한 변이나 그 일부에 벽을 세웁니다. {t:ow.mode.draw}는 벽을 선으로 그리고, {t:ow.mode.cut}는 이미 있는 벽의 한 구간만 삭제합니다. 어느 방법으로 만들어도 보통 벽이 생기고, 나중에 같은 방법으로 고칩니다.
+건물 외곽선을 따라 바깥벽을 만드는 창입니다. 창 위의 세 가지 방법은 같은 설정을 씁니다. {t:ow.mode.all}는 모든 변에, {t:ow.mode.pick}은 선택한 변이나 그 일부에 벽을 세웁니다. 두 방법 모두 이미 벽이 서 있는 변이나 구간은 건너뛰고 벽이 없는 곳에만 세웁니다. {t:ow.mode.cut}는 이미 있는 벽의 한 구간만 삭제합니다. 만든 벽은 보통 벽입니다. 벽을 직접 그리려면 {m:wall}을 씁니다.
 
 ## 하는 순서
 
-1. {m:outerWalls} 단추를 누릅니다. [건설 진행 상황](help:arch-flow)의 {t:fl.step.walls} 단계나 {t:ab.detailed}의 {t:cmd.outerWalls} 단추도 같은 창을 엽니다.
-2. 창 위에서 {t:ow.mode.all}, {t:ow.mode.pick}, {t:ow.mode.draw}, {t:ow.mode.cut} 가운데 하나를 선택합니다.
+1. {m:outerWalls} 단추를 누릅니다. [건설 진행 상황](help:arch-flow)의 {t:fl.step.walls} 단계에서도 같은 창이 열립니다.
+2. 창 위에서 {t:ow.mode.all}, {t:ow.mode.pick}, {t:ow.mode.cut} 가운데 하나를 선택합니다.
 3. 설정을 정합니다. 순서는 늘 같습니다: {t:opt.wallJustify}({t:flow.justify.left}·{t:flow.justify.center}·{t:flow.justify.right}), {t:flow.top}, {t:opt.thickness}, {t:param.h}, {t:ew.thisLevel} 또는 {t:ec.allLevels}.
-4. {t:ow.mode.all}이면 창 아래의 {t:ew.build}를 누릅니다. 외곽선의 모든 변에 벽이 섭니다. 창 아래의 단추가 이 창의 하나뿐인 실행 단추이며, {t:ow.mode.cut}에서는 {t:ew.delete}로 바뀝니다.
-5. {t:ow.mode.pick}이면 화면에서 변을 클릭해 변 전체를 선택하거나, 변을 따라 끌어 그 구간만 선택합니다. 창의 목록에서 변마다 {t:ec.state.wall}, {t:ec.state.none}, {t:ec.state.part}를 선택해도 됩니다. 다 선택하면 {t:ew.build}를 누릅니다.
-6. {t:ow.mode.draw}이면 [벽](help:arch-wall) 도구가 같은 설정으로 열리고, 점을 차례로 클릭해 벽을 그립니다. {t:ow.mode.cut}이면 벽을 따라 끌어 삭제할 구간을 선택하고 Delete 키나 {t:ew.delete} 단추를 누릅니다.
+4. {t:ow.mode.all}이면 창 아래의 {t:ew.build}를 누릅니다. 외곽선에서 벽이 없는 변과 구간에 벽이 섭니다. 모든 변에 이미 벽이 있으면 {t:aa.wallsHave} 알림이 나옵니다. 창 아래의 단추가 이 창의 하나뿐인 실행 단추이며, {t:ow.mode.cut}에서는 {t:ew.delete}로 바뀝니다.
+5. {t:ow.mode.pick}이면 화면에서 변을 클릭해 변 전체를 선택하거나, 변을 따라 끌어 그 구간만 선택합니다. 빈 곳에서 끌면 상자 안의 변이 한 번에 선택됩니다. 창의 작은 평면에서도 같은 방법으로 선택합니다. 다 선택하면 {t:ew.build}를 누릅니다. 선택한 변에 모두 벽이 있으면 {t:ew.pickedHave} 알림이 나옵니다.
+6. {t:ow.mode.cut}이면 잴 끝 가까이에서 벽을 누릅니다. 그 끝이 {t:ws.base}이 되어 3D 화면에 표시됩니다. 삭제할 구간의 시작과 끝을 차례로 누르거나, 창의 {t:ws.cutStart}와 {t:ec.length}에 {t:ws.base}에서 잰 값을 입력합니다. 명령줄에 \`1,2\`처럼 시작 거리,길이를 지금 단위(처음 m)로 입력해도 됩니다. {t:ws.flip} 단추를 누르면 반대쪽 끝에서 잽니다. 벽을 따라 끌어 구간을 바로 선택해도 됩니다. 구간이 정해지면 Delete 키나 {t:ew.delete} 단추를 누릅니다.
 
 ## 팁
 
 - {t:opt.wallJustify}는 외곽선이 벽의 어느 면에 오는지 정합니다. 처음 값인 {t:flow.justify.left}이면 벽이 외곽선 안쪽에 섭니다.
 - {t:flow.top}에서 {t:flow.top.toFloor}를 선택하면 벽이 위층 바닥까지 서고 층고가 바뀌면 함께 바뀝니다. 위층이 없으면 {t:param.h}를 입력합니다.
-- {t:ec.allLevels}을 선택하면 같은 변이 있는 모든 층에 한 번에 세웁니다. {t:ow.mode.all}에서는 지하층에 0.3 m 지하 외벽이 서고, 벽이 이미 있는 층은 건너뜁니다.
+- {t:ec.allLevels}을 선택하면 같은 변이 있는 모든 층에 한 번에 세웁니다. {t:ow.mode.all}에서는 지하층에 0.3 m 지하 외벽이 서고, 벽이 이미 있는 변이나 구간은 건너뜁니다. 층에 벽이 하나 있다고 그 층 전체를 건너뛰지는 않습니다.
+- 지하층에서는 {t:ow.mode.pick}으로 아무것도 만들지 않고 {t:ew.basementPick} 알림이 나옵니다. 지하 외벽은 {t:ow.mode.all}로 세웁니다.
 - 창 이름은 어느 방법을 선택해도 {t:cmd.outerWalls}입니다. 지금 방법은 창 위의 단추에 표시됩니다.
 - 변을 따라 끌 때는 변의 양 끝과 가운데에 붙고, 그 밖에서는 격자 간격에 맞춰집니다. 끄는 동안 커서 옆에 시작과 길이가 mm로 보입니다.
 - 곡선 변과 곡선 벽도 일부만 선택하고 삭제할 수 있습니다. 시작과 길이는 곡선을 따라 잰 길이이고, 곡선의 양 끝과 곡선 길이의 가운데, 곡선을 따라 잰 격자 간격에 붙습니다. 선택한 구간은 곡선 위에 그대로 표시됩니다.
 - {t:ow.mode.pick}이나 {t:ow.mode.cut}로 구간을 선택하는 동안에는 위층과 이 층의 지붕·천장이 흐리게 보여 위에서 벽이 잘 보입니다. 다른 방법으로 바꾸거나 창을 닫으면 원래 보기로 돌아옵니다. {c:upperLevels} 설정은 바뀌지 않습니다.
-- 명령줄에 \`2000,3000\`처럼 시작,길이를 mm로 입력하면 마지막으로 가리킨 변에서 그 구간을 선택합니다. 숫자 하나만 입력하면 마지막 구간의 길이가 바뀝니다.
-- 창의 평면과 목록은 [건물 바로 세우기](help:build-easy)의 {t:ec.title} 칸과 같은 번호와 같은 이름을 씁니다. {t:ec.state.part}는 구간마다 {t:ec.start}과 {t:ec.length}를 mm로 정하고, 평면의 동그라미를 끌어도 됩니다.
+- 명령줄에 \`2,3\`처럼 시작,길이를 지금 단위로 입력하면 마지막으로 가리킨 변에서 그 구간을 선택합니다. 숫자 하나만 입력하면 마지막 구간의 길이가 바뀝니다.
+- 상자 선택은 앱의 상자 선택과 같습니다. 왼쪽에서 오른쪽으로 끌면 상자 안에 다 들어간 변만, 오른쪽에서 왼쪽으로 끌면 상자에 걸친 변까지 선택됩니다. 아무 키 없이 끌면 그 변들로 바뀌고, Shift를 누른 채 끌면 더하고, Ctrl을 누른 채 끌면 뺍니다. 변을 Shift+클릭하면 더하고 Ctrl+클릭하면 뺍니다.
+- 창의 작은 평면은 변마다 번호를 붙이고, 선택한 변은 실선, 아닌 변은 점선으로 보여 줍니다. 일부만 선택한 변은 구간 양 끝의 동그라미를 끌어 구간을 바꿉니다. 작은 평면의 변에 마우스를 올리면 3D 화면에서 그 변이 번호와 함께 강조됩니다.
+- 평면 구석의 {t:ec.zoom} 단추를 누르거나 작은 평면의 빈 곳을 두 번 클릭하면 {t:ec.bigTitle} 창이 크게 열립니다. 큰 평면은 번호가 서로 겹치지 않게 변 바깥에 놓이고, 클릭과 상자로 똑같이 선택합니다. Esc나 {t:btn.close}로 닫습니다.
 - {t:ow.mode.cut}는 벽을 오른쪽 클릭했을 때 나오는 {c:wallCut}와 같습니다. 구간 양쪽의 벽 조각은 남고, 구간 안에 다 들어간 문·창은 함께 삭제되며 알림에 그 수가 나옵니다. 곡선 벽은 곡선이 그 자리에서 나뉘고, 남은 조각은 같은 곡선 위에 같은 두께·위쪽·기준선으로 남습니다.
-- {t:ab.easy}로 세운 건물의 바깥벽을 일부 삭제하면 {t:ec.title} 칸의 그 변이 {t:ec.state.part}가 됩니다. 다시 세워도 그 구간에는 벽이 생기지 않습니다.
+- 건물 세우기로 만든 바깥벽을 일부 삭제하거나 삭제하면, 다시 세우거나 층을 더해도 그 구간에는 벽이 생기지 않습니다. 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다. 그 자리는 점선으로 보이고 가리키면 실선이 되며, 클릭하면 벽이 돌아오고 {t:aw.wallBack} 알림이 나옵니다.
 - 벽을 먼저 그려도 됩니다. 외곽선이 없는 건물에서 벽이 닫힌 고리가 되면 벽의 바깥면을 따라 건물 외곽선이 저절로 생기고, 알림에 {t:bo.fromWalls}가 나옵니다. 되돌리기 한 번에 벽과 외곽선이 함께 없어집니다. 알림의 {t:cmd.outlineEdit} 단추로 바로 외곽선을 고치거나 {t:cmd.undo} 단추로 되돌릴 수 있습니다. 넓이가 작거나 아주 가는 고리는 실수일 수 있어 저절로 만들지 않고, 알림의 {t:bo.fromWallsBtn} 단추로 묻습니다. 외곽선을 만든 벽을 나중에 고치면 {t:bo.refit} 단추가 있는 알림이 나옵니다.
 - 벽이 닫히지 않았으면 외곽선은 생기지 않고, [건설 진행 상황](help:arch-flow)의 {t:fl.step.shape} 단계에 {t:bo.fromWallsBtn} 단추가 나옵니다. 누르면 그린 벽을 모두 둘러싸는 외곽선이 생깁니다.
 - 세우기 한 번, 삭제 한 번이 되돌리기 한 번입니다.
 
 ## 자주 하는 실수
 
-- {t:ow.mode.pick}에서 {t:ew.build}가 꺼져 있습니다. 아직 선택한 변이 없습니다. 변을 클릭하거나 목록에서 {t:ec.state.wall}을 선택합니다.
+- {t:ow.mode.pick}에서 {t:ew.build}가 꺼져 있습니다. 아직 선택한 변이 없습니다. 변을 클릭하거나 상자로 선택합니다.
 - 문·창이 구간 끝에 걸렸다는 알림이 뜹니다. 문·창이 반쯤 걸친 구간은 삭제하지 않습니다. 구간을 문·창 밖으로 이동하거나 문·창까지 넣습니다.
 - 닫힌 벽, 높이가 바뀌는 벽, 연결 복사한 벽은 일부만 삭제할 수 없습니다. 닫힌 곡선 벽도 같습니다. 건물 세우기로 만든 바깥벽은 닫힌 벽이라도 일부를 삭제할 수 있습니다.
 - 100 mm보다 짧은 구간은 삭제할 수 없습니다. 끝에서 100 mm 안쪽까지 끌면 그 끝까지 삭제합니다.
@@ -5292,7 +5319,7 @@ order: 15
 
 ## 하는 순서
 
-1. {m:buildingOutline} 단추를 누릅니다. 새 건물을 만들 때 쓰는 {c:buildingNew}이나 전체 목록의 대지 행 **+** 단추도 같은 도구를 엽니다.
+1. {m:buildingOutline} 단추를 누릅니다. 건설 진행 상황·전체 목록 창의 {c:buildingOutline} 단추와 전체 목록의 대지 행 **+** 단추도 같은 도구를 엽니다.
 2. 대지가 있으면 창의 {t:so.target} 목록에서 건물이 설 대지를 선택합니다. 대지 없이 지으려면 {t:bld.wholeLand}를 선택합니다.
 3. {t:opt.areaRect}이나 {t:opt.areaPoly}을 선택하고 외곽선을 그립니다. 다각형에서 누른 채 0.5초 기다렸다가 끌면 곡선 변이 됩니다.
 4. 다 그리면 건물이 생기고, 알림에 건물 이름과 넓이(예: 건물 B를 만들었습니다 · 120.0 m²)가 나옵니다. 작업 위치는 그 건물의 1층으로 이동됩니다.
@@ -5309,7 +5336,7 @@ order: 15
 - {c:buildFlow} 창의 {t:fl.step.shape} 단계에 건물 외곽선 넓이와 건축면적·건폐율이 함께 보입니다.
 - 나중에 고치기: 도구 없이 외곽선 안의 빈 땅을 클릭하면 그 건물 외곽선이 선택됩니다. 옆 막대와 오른쪽 클릭 메뉴에서 {c:areaEdit}·{c:buildingEasy}·{c:areaDelete}를 할 수 있습니다. 외곽선 안을 더블클릭하면 작업 범위가 그 건물로 이동됩니다.
 - {c:areaEdit}으로 꼭짓점을 끌거나 곡선을 고치거나 다시 그리면 바로 적용됩니다. 옛 외곽선을 쓰던 층은 새 외곽선을 받고, 다른 층은 새 외곽선에 맞춰 잘립니다. 건물 세우기로 만든 벽과 지붕도 새 외곽선에 맞춰 다시 만들어지고, 맞닿은 옆 건물의 벽과 지붕도 함께 맞춰집니다. 밖에 남은 손으로 그린 벽은 그대로 두고 알림에 그 수가 나옵니다.
-- {t:ec.state.none}으로 둔 변이 길어지면 늘어난 부분까지 벽 없이 남습니다. {t:ec.state.part}의 구간은 변의 첫 점에서 잰 자리 그대로 남습니다.
+- 바깥벽을 통째로 삭제한 변이 길어지면 늘어난 부분까지 벽 없이 남습니다. 일부만 삭제한 구간은 변의 첫 점에서 잰 자리 그대로 남습니다.
 - {c:areaDelete}는 그 건물을 층과 부품까지 함께 삭제합니다. 건물이 하나뿐이면 삭제하는 대신 {t:lt.clearBuilding}를 권합니다. 건물 외곽선에 평탄화가 있으면 대지를 삭제할 때처럼 평탄화도 삭제할지 남길지 먼저 묻습니다.
 - 다른 대지로 이동: 전체 목록이나 물체 창에서 건물 행을 다른 대지 행으로 끌어다 놓습니다. 건물이 그 대지 가운데로, 자리가 없으면 가장 가까운 빈자리로 이동되고 알림이 나옵니다. {c:buildFlow} 창 ① 단계의 {t:so.bldSite} 목록이나 오른쪽 클릭 메뉴의 {t:so.moveToSite}으로 바꿔도 같고, 건물이 그 대지 밖에 있으면 먼저 묻습니다. 다른 건물과는 1 m 떨어진 자리를 찾고, 이동한 건물은 선택되어 화면에 맞춰집니다.
 
@@ -5333,20 +5360,20 @@ order: 10
 
 ## 무엇
 
-층, 층 외곽선, 바깥벽, 바닥판, 지붕을 하나씩 그리지 않고 한꺼번에 만드는 기능입니다. 모든 건물은 [건물 외곽선](help:build-outline)에서 시작합니다. {t:ab.easy}는 층 수와 층고만으로 바깥벽까지 건물 전체를 세우고, {t:ab.detailed}는 층마다 외곽선과 {t:ab.kind}를 따로 정하며 벽은 선택한 변에만 세웁니다. 두 방법은 같은 데이터를 만들므로 {t:ab.easy}로 세운 뒤 한 층만 {t:ab.detailed}에서 바꿀 수 있습니다.
+층, 층 외곽선, 바깥벽, 바닥판, 지붕을 하나씩 그리지 않고 한꺼번에 만드는 기능입니다. 모든 건물은 [건물 외곽선](help:build-outline)에서 시작합니다. {t:ab.easy}는 층 수와 층고만으로 바깥벽까지 건물 전체를 세우고, {t:ab.detailed}는 층마다 외곽선과 {t:ab.kind}를 따로 정합니다. 두 방법 모두 바깥벽을 외곽선의 모든 변에 저절로 세웁니다. 두 방법은 같은 데이터를 만들므로 {t:ab.easy}로 세운 뒤 한 층만 {t:ab.detailed}에서 바꿀 수 있습니다.
 
 ## 하는 순서
 
 1. {m:buildingEasy} 단추를 누릅니다.
-2. 창 위쪽의 순서 ① {t:bo.step.site} ② {t:bo.step.outline} ③ {t:bo.step.grade} ④ {t:bo.step.build}에서 지금 할 단계를 확인합니다. 아래쪽 주 단추가 그 단계의 일을 합니다.
-3. 건물 외곽선이 없으면 주 단추를 눌러 그립니다. 다 그리면 이 창이 다시 열립니다.
-4. {t:bnew.above}, {t:bnew.below}, {t:bnew.height}를 정하고 {t:aw.easyGo}를 누릅니다.
-5. 모양이 다른 층이 있으면 {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택하고, 그 층의 외곽선이나 {t:ab.kind}를 바꿉니다. 바꾼 내용은 바로 적용됩니다.
+2. 세울 건물 외곽선이 없으면 건물 외곽선 도구가 열립니다. 외곽선을 그립니다.
+3. {c:buildFlow} 창의 {t:fl.step.levels} 단계에 {t:ab.easy}가 보이면 {t:bnew.above}, {t:bnew.below}, {t:bnew.height}를 넣고 {t:aw.easyGo}를 누릅니다.
+4. 필요 없는 바깥벽은 클릭해 선택하고 Delete 키로 삭제합니다.
+5. 모양이 다른 층이 있으면 {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택하고, 그 층의 외곽선이나 {t:ab.kind}를 바꿉니다. {t:ab.kind}는 바로, 외곽선은 외곽선 도구를 닫을 때 적용됩니다.
 6. 결과가 마음에 들지 않으면 {c:undo} ({k:undo})를 누릅니다. 세우기와 적용은 각각 되돌리기 한 번입니다.
 
 ## 팁
 
-- {t:ab.easy}는 모든 층을 건물 외곽선과 같은 모양으로 만들고, 바깥벽을 두르고(변마다 끌 수 있음), 맨 위에 평지붕을 얹습니다: [건물 바로 세우기](help:build-easy).
+- {t:ab.easy}는 모든 층을 건물 외곽선과 같은 모양으로 만들고, 바깥벽을 두르고, 맨 위에 평지붕을 얹습니다: [건물 바로 세우기](help:build-easy).
 - 3층만 좁은 건물, 1층이 기둥만 있는 건물, 가운데가 빈 건물은 [층마다](help:build-detailed)에서 만듭니다.
 - 자동으로 정해지는 부분: [자동 옥상과 옥상 높이](help:build-auto-roof), [벽 자동 나누기](help:build-wall-split), [필로티](help:build-piloti), [중정](help:build-courtyard).
 - {t:ceil.build} 스위치는 처음부터 켜져 있어, 필로티 층을 뺀 모든 층에 층고를 따르는 천장이 함께 생깁니다: [천장](help:arch-ceiling).
@@ -5358,10 +5385,8 @@ order: 10
 
 - 자동으로 만든 벽·지붕을 하나씩 삭제하고 다시 그리는 경우가 많습니다. 모양을 바꿀 때는 그 층의 외곽선을 고치면 벽과 지붕이 함께 다시 만들어집니다.
 - 손으로 벽을 그린 층에는 바깥벽이 자동으로 생기지 않고 지붕만 생깁니다.
-- {t:ab.detailed}만으로 세운 건물에는 벽이 저절로 생기지 않습니다. {m:outerWalls}로 세웁니다: [외벽 세우기](help:build-outer-walls).
-- 외곽선을 바꾸면 그 층의 자동 벽이 다시 만들어집니다. 새 벽이 옛 벽 자리에 서지 않으면 그 벽에 넣은 문·창은 삭제되므로, 외곽선을 먼저 정하고 문·창을 넣습니다.
-- 지형이 있는 땅에서는 ② 단계에서 {t:bo.grade}나 {t:fl.gradeSkip} 가운데 하나를 선택해야 다음 단계로 넘어갑니다.
-`,vt=`---
+- 삭제한 바깥벽은 다시 세워도 생기지 않습니다. 되살리려면 그 층의 삭제한 자리를 클릭합니다: [건물 바로 세우기](help:build-easy).
+- 외곽선을 바꾸면 그 층의 자동 벽이 다시 만들어집니다. 새 벽이 옛 벽 자리에 서지 않으면 그 벽에 넣은 문·창은 삭제되므로, 외곽선을 먼저 정하고 문·창을 넣습니다.`,vt=`---
 id: build-piloti
 title: 필로티
 분류: 건물 세우기
@@ -5422,8 +5447,8 @@ order: 80
 
 1. {m:buildingOutline}으로 첫 건물의 외곽선을 그립니다. 건물 A가 생깁니다.
 2. 다시 {m:buildingOutline}을 누르고, 첫 건물 외곽선의 구석에서 시작해 맞닿는 외곽선을 그립니다. 건물 B가 생깁니다.
-3. {m:buildingEasy}를 누르고 {t:bo.outlinePick} 목록에서 건물 A를 선택해 층 수와 층고를 넣고 {t:aw.easyGo}를 누릅니다.
-4. 다시 {m:buildingEasy}를 열고 건물 B를 선택해 같은 층고로 세웁니다.
+3. 화면에서 건물 A의 외곽선을 클릭해 선택하고 {m:buildingEasy}를 누릅니다. {c:buildFlow} 창의 {t:ab.easy}에 층 수와 층고를 넣고 {t:aw.easyGo}를 누릅니다.
+4. 건물 B의 외곽선을 선택하고 다시 {m:buildingEasy}를 눌러 같은 층고로 세웁니다.
 5. {c:levelPanel}에서 두 건물이 같은 대지 아래에 한 행씩 따로 나오는지 확인합니다.
 
 ## 팁
@@ -5474,7 +5499,7 @@ order: 50
 - 0.3 m보다 짧은 조각은 따로 만들지 않고 옆 조각에 합칩니다.
 - 곡선 변은 곡선 벽 하나로 만들고, 경계에서 나뉘면 조각마다 매끄러운 곡선 벽이 됩니다.
 - 3층을 긴 방향의 가운데에만 두면 2층의 긴 변 벽은 옥상·3층·옥상 세 조각이 됩니다.
-- 손으로 그린 벽은 {m:wallSplit}로 누른 자리에서 둘로 나눈 뒤, 조각마다 위쪽을 따로 정합니다. 누를 때마다 그 자리에서 나뉘고 Esc로 마칩니다: [벽 위쪽 맞추기](help:arch-wall-top).
+- 손으로 그린 벽은 {m:wallSplit}로 둘로 나눈 뒤, 조각마다 위쪽을 따로 정합니다: [벽 위쪽 맞추기](help:arch-wall-top). 잴 끝 가까이에서 벽을 누르면 그 끝이 {t:ws.base}이 됩니다. 나눌 자리를 누르거나 {t:ws.base}에서 잰 {t:ws.dist}를 창이나 명령줄에 입력하고 Enter를 누릅니다. {t:ws.flip} 단추를 누르면 반대쪽 끝에서 잽니다. 한 번 나누면 다음 벽을 다시 고르고, Esc로 마칩니다.
 - {m:roof}으로 지붕을 직접 만들 때 {t:aw.splitWalls}를 켜 두면(처음에 켜져 있습니다) 지붕 경계에 걸친 벽을 경계에서 나누고 지붕 아래 조각만 지붕에 붙입니다.
 - 손으로 그린 벽이 건물 세우기가 만든 옥상 아래에 완전히 들어가 있으면 그 지붕에 자동으로 붙습니다.
 
@@ -5482,7 +5507,7 @@ order: 50
 
 - 손으로 그린 벽은 옥상 경계에 걸쳐도 자동으로 나뉘지 않습니다. 필요하면 {c:wallSplit}로 직접 나눕니다.
 - 손으로 벽을 그린 층에는 바깥벽이 자동으로 생기지 않고 지붕만 생깁니다.
-- 나뉜 자동 벽 가운데 하나를 삭제하면 다음에 그 층을 적용해도 그 자리에는 벽이 다시 생기지 않습니다. 다시 세우려면 [외벽 세우기](help:build-outer-walls)나 {m:wall}으로 그립니다.
+- 나뉜 자동 벽 가운데 하나를 삭제하면 다음에 그 층을 적용해도 그 자리에는 벽이 다시 생기지 않습니다. 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다: [건물 바로 세우기](help:build-easy).
 - 곡선 벽, 닫힌 벽, 높이가 바뀌는 벽, 연결 복사한 벽은 {c:wallSplit}로 나눌 수 없고, 벽 끝에서 0.1 m 안쪽은 나눌 수 없습니다.
 - {c:wallSplit}가 메뉴에 없습니다. 고급 메뉴에만 있으므로 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다: [일반·고급 메뉴](help:start-level).
 `,xt=`---
@@ -5492,38 +5517,39 @@ title: 여러 층이 트인 아트리움
 난이도: 심화
 workspace: 3D 건설
 keywords: 아트리움, 보이드, 오픈 천장, 여러 층 트인 공간, 바닥판 구멍, 바닥 구멍, 높은 벽, 세 층 높이 벽, 두 층 높이, 로비, 홀, 난간, 중정, 예제, 따라하기
-commands: buildingOutline, buildFlow, levelOutline, outerWalls, wall, railing
+commands: buildingEasy, buildFlow, levelOutline, wall, railing
 order: 70
 ---
 
 ## 무엇
 
-24 × 18 m 4층 건물의 2층과 3층 바닥판에 8 × 6 m 구멍을 뚫어, 1층부터 4층 바닥까지 세 층이 트인 아트리움을 만듭니다. 구멍 둘레에는 벽 대신 난간을 세우고, 아트리움 안에는 1층에서 4층 바닥까지 올라가는 높은 벽을 하나 세웁니다. {t:ab.easy}를 쓰지 않고 {t:ab.detailed}로 지으므로 벽이 저절로 생기지 않아, 구멍 둘레에 안쪽 벽이 서지 않습니다.
+24 × 18 m 4층 건물의 2층과 3층 바닥판에 8 × 6 m 구멍을 뚫어, 1층부터 4층 바닥까지 세 층이 트인 아트리움을 만듭니다. 구멍 둘레에 저절로 서는 안쪽 벽은 삭제하고 난간을 세우며, 아트리움 안에는 1층에서 4층 바닥까지 올라가는 높은 벽을 하나 세웁니다.
 
 ## 하는 순서
 
-1. {m:buildingOutline}으로 24 × 18 m 건물 외곽선을 그립니다 ({t:opt.areaRect}, 첫 구석을 찍고 \`@24,18\`). 건물이 생깁니다.
-2. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택하고, {t:aw.more}를 펼쳐 {t:bnew.above} \`4\`, {t:bnew.height} \`3\`을 넣은 뒤 {t:fl.planApply}을 누릅니다.
-3. {t:fl.step.outlines} 단계에서 {t:ca.outlinesFromShape}을 누릅니다. 이어서 {t:ab.detailed}의 {t:cmd.outerWalls}를 누르고 {t:ow.mode.all}와 {t:ec.allLevels}을 선택한 뒤 {t:ew.build}를 누릅니다.
-4. {c:levelPanel}에서 2층 행의 외곽선 단추를 누릅니다. 외곽선 도구에서 {t:ol.mode.draw}를 누르고 {t:aw.ring.hole}과 {t:ol.shape.rect}을 선택합니다.
-5. Ctrl 키를 누른 채 오른쪽 클릭해 {t:osnap.aid.from}를 선택하고, 건물 외곽선의 첫 구석과 같은 외곽선 모서리를 클릭한 뒤 \`@8,6\`, 이어서 \`@8,6\`을 입력합니다. 2층 바닥판에 8 × 6 m 구멍이 뚫립니다.
-6. 3층 행의 외곽선 단추를 누르고 4~5와 같은 방법으로 같은 자리에 구멍을 뚫습니다.
+1. {m:buildingEasy}를 누릅니다. 건물 외곽선 도구가 열리면 {t:opt.areaRect}으로 첫 구석을 찍고 \`@24,18\`을 입력합니다.
+2. {c:buildFlow} 창의 {t:ab.easy}에서 {t:ceil.build}를 끄고 {t:bnew.above} \`4\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣은 뒤 {t:aw.easyGo}를 누릅니다.
+3. {c:levelPanel}에서 2층 행의 외곽선 단추를 누릅니다. 외곽선 도구에서 {t:ol.mode.draw}를 누르고 {t:aw.ring.hole}과 {t:ol.shape.rect}을 선택합니다.
+4. Ctrl 키를 누른 채 오른쪽 클릭해 {t:osnap.aid.from}를 선택하고, 건물 외곽선의 첫 구석과 같은 외곽선 모서리를 클릭한 뒤 \`@8,6\`, 이어서 \`@8,6\`을 입력합니다. 2층 바닥판에 8 × 6 m 구멍이 뚫리고, 외곽선 도구를 닫거나 다른 층 외곽선 단추를 누르면 둘레에 안쪽 벽이 섭니다.
+5. 3층 행의 외곽선 단추를 누르고 3~4와 같은 방법으로 같은 자리에 구멍을 뚫습니다.
+6. 2층과 3층에서 구멍 둘레의 안쪽 벽을 하나씩 클릭해 선택하고 Delete 키로 삭제합니다.
 7. 2층에서 {m:railing}을 누르고 {t:stairs.railHow.edge}를 선택한 뒤 구멍의 네 모서리를 차례로 클릭하고 Enter를 누릅니다. 3층에서도 같은 방법으로 난간을 세웁니다.
 8. 1층에서 {m:wall}을 누르고 {t:flow.top}을 {t:flow.top.toFloor}, {t:flow.topLevel}을 4층으로 정합니다. {t:osnap.aid.from}로 같은 모서리에서 \`@9,9\`를 찍고 \`@6,0\`을 입력해 아트리움 가운데를 가로지르는 6 m 벽을 그리고 Enter로 마칩니다.
 
 ## 팁
 
 - 8의 벽은 1층 바닥에서 4층 바닥판 아랫면까지 8.8 m로 섭니다. 2층·3층 바닥판은 구멍이 뚫려 있어 벽을 막지 않습니다. 층고를 바꾸면 벽 높이도 따라 바뀝니다: [벽 위쪽 맞추기](help:arch-wall-top).
-- 3의 바깥벽은 {m:outerWalls}로 세운 보통 벽입니다. 바깥 면이 건물 외곽선 위에 맞고 위층 바닥까지 섭니다: [외벽 세우기](help:build-outer-walls).
-- {t:ab.easy}로 세운 건물에 그린 중정은 둘레에 안쪽 벽이 섭니다. 이 건물은 {t:ab.detailed}으로만 지었으므로 구멍만 뚫립니다: [중정](help:build-courtyard).
+- 바깥벽은 건물 세우기가 외곽선의 모든 변을 따라 세운 자동 벽입니다: [건물 바로 세우기](help:build-easy).
+- 6에서 삭제한 안쪽 벽은 층을 다시 세우거나 층을 더해도 생기지 않습니다: [중정](help:build-courtyard).
 - 2층·3층의 구멍은 1층과 4층이 덮으므로 건축면적은 24 × 18 m, 432 m² 그대로입니다.
-- 지붕은 {c:buildFlow} 창의 {t:fl.step.roof} 단계에서 {t:fl.roofTop}을 누르고 {t:opt.roofFlat}을 선택한 뒤 Enter를 누릅니다.
+- 맨 위의 평지붕은 2에서 4층 위에 함께 생깁니다.
 - 계단을 놓으면 위층 바닥판에 계단 크기만큼 구멍이 저절로 뚫립니다: [계단](help:arch-stair).
 - 기준점 입력은 [기준점에서](help:snap-from)를 봅니다.
 
 ## 자주 하는 실수
 
-- {t:ab.easy}로 세운 건물에서 구멍을 그리면 둘레에 안쪽 벽이 섭니다. 아트리움은 이 순서처럼 {t:ab.detailed}로 짓는 건물에서 만듭니다.
+- 구멍 둘레의 안쪽 벽을 남겨 두면 아트리움이 벽으로 막힙니다. 6처럼 삭제합니다.
+- 손으로 벽을 그린 층에는 자동 바깥벽을 만들지 않습니다. 8의 벽을 그린 뒤 1층을 다시 세우면 1층 바깥벽이 생기지 않으므로, 구멍과 외곽선 작업은 8보다 먼저 끝냅니다.
 - 2층과 3층의 구멍 자리가 다르면 아트리움이 이어지지 않습니다. 두 층 모두 같은 모서리에서 같은 간격으로 찍습니다.
 - 8에서 {t:flow.topLevel}을 2층으로 두면 벽이 한 층 높이로만 섭니다. 4층을 선택합니다.
 - 난간은 작업 층의 바닥판 모서리만 선택할 수 있습니다. 난간을 세울 층을 먼저 작업 층으로 선택합니다.
@@ -5544,12 +5570,12 @@ order: 40
 
 ## 하는 순서
 
-1. {m:buildingEasy} 창의 순서를 따라 {t:aw.drawOutline}를 누릅니다. {t:opt.areaRect}으로 첫 구석을 찍고 \`@18,18\`을 입력합니다.
-2. {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+1. {m:buildingEasy}를 누릅니다. 건물 외곽선 도구가 열리면 {t:opt.areaRect}으로 첫 구석을 찍고 \`@18,18\`을 입력합니다.
+2. {c:buildFlow} 창의 {t:ab.easy}에 {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
 3. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택하고, 1층 행의 외곽선 단추를 누릅니다.
 4. 외곽선 도구에서 {t:ol.mode.draw}를 누르고, {t:aw.ring.hole}과 {t:ol.shape.rect}을 선택합니다.
 5. 3D 화면에서 Ctrl 키를 누른 채 오른쪽 클릭해 {t:osnap.aid.from}를 선택하고, 건물 외곽선의 첫 구석과 같은 외곽선 모서리를 클릭한 뒤 \`@5,5\`를 입력합니다. 중정의 첫 구석이 찍힙니다.
-6. 명령줄에 \`@8,8\`을 입력합니다. 중정이 그려지고 바로 적용되어 안쪽 벽 네 개가 서고 1층 바닥판에 구멍이 뚫립니다.
+6. 명령줄에 \`@8,8\`을 입력합니다. 중정이 그려지고 1층 바닥판에 구멍이 뚫립니다. Esc로 도구를 닫으면 안쪽 벽 네 개가 섭니다.
 7. 2층 행의 외곽선 단추를 누르고 4~6과 같은 방법으로 같은 자리에 중정을 그립니다.
 8. {m:door}으로 중정 쪽 안쪽 벽에 문을 끼워 마당으로 나가는 길을 만듭니다.
 
@@ -5566,7 +5592,7 @@ order: 40
 ## 자주 하는 실수
 
 - 2층에 중정을 그리지 않으면 하늘이 보이지 않습니다. 위층마다 같은 자리에 그립니다.
-- {t:aw.useBelow}은 바깥 외곽선만 받고 중정은 받지 않습니다.
+- 외곽선 도구의 {t:ol.sameBelow}는 바깥 외곽선만 받고 중정은 받지 않습니다.
 - 중정이 외곽선에 닿거나 밖으로 나가면 외곽선 안쪽 부분만 중정이 됩니다. 사방에 벽이 설 자리를 남깁니다.
 - 중정을 그리기 전에 넣은 문·창은 외곽선을 고칠 때 자동 벽과 함께 삭제될 수 있습니다. 중정을 먼저 그립니다.
 `,Ct=`---
@@ -5586,11 +5612,11 @@ order: 80
 
 ## 하는 순서
 
-1. {m:buildingEasy} 단추를 누릅니다. 대지가 있으면 {t:bo.site} 목록에서 40 × 30 m 정도의 대지를 선택하고, 없으면 땅 전체에 짓습니다.
-2. {t:aw.drawOutline}를 누르고, 건물 외곽선 도구에서 {t:opt.areaPoly}을 선택합니다.
+1. 40 × 30 m 정도의 대지가 있으면 화면에서 그 대지를 선택한 뒤 {m:buildingEasy} 단추를 누릅니다. 대지가 없으면 그대로 눌러 땅 전체에 짓습니다. 건물 외곽선 도구가 열립니다.
+2. 건물 외곽선 도구에서 {t:opt.areaPoly}을 선택합니다.
 3. 빈 곳을 클릭해 첫 점을 찍고, 명령줄에 \`@18,0\`을 입력합니다.
 4. 두 점의 가운데 위쪽으로 약 8 m 떨어진 곳에서 마우스를 누른 채 0.5초 기다린 뒤 왼쪽으로 끌었다가 놓습니다. 부드러운 곡선 점이 생겨 아치 모양이 됩니다.
-5. 첫 점을 클릭해 닫습니다. 건물이 생기고 {c:buildingEasy} 창이 다시 열립니다.
+5. 첫 점을 클릭해 닫습니다. 건물이 생기고 {c:buildFlow} 창의 {t:ab.easy}로 이동합니다.
 6. {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
 7. 층마다 곧은 벽 하나와 아치를 따라가는 곡선 벽 하나, 곡선 모양 바닥판이 생기고, 맨 위에 같은 모양의 평지붕이 얹힙니다.
 
@@ -5625,10 +5651,10 @@ order: 30
 
 ## 하는 순서
 
-1. {m:buildingEasy} 창의 순서를 따라 {t:aw.drawOutline}를 누르고, 건물 외곽선 도구에서 {t:opt.areaRect}으로 첫 구석을 찍은 뒤 \`@23,13\`을 입력합니다.
-2. {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+1. {m:buildingEasy}를 누릅니다. 건물 외곽선 도구가 열리면 {t:opt.areaRect}으로 첫 구석을 찍은 뒤 \`@23,13\`을 입력합니다.
+2. {c:buildFlow} 창의 {t:ab.easy}에 {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
 3. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택합니다.
-4. 1층 행의 외곽선 단추를 눌러 외곽선 도구를 엽니다. {t:ol.offset}에 \`1.5\`를 넣고 {t:ol.shrink}를 누릅니다. 1층이 20 × 10 m가 되고 바로 적용됩니다.
+4. 1층 행의 외곽선 단추를 눌러 외곽선 도구를 엽니다. {t:ol.offset}에 \`1.5\`를 넣고 {t:ol.shrink}를 누릅니다. 1층이 20 × 10 m가 됩니다. Esc로 외곽선 도구를 닫으면 적용됩니다.
 5. 1층 행의 {t:ab.kind}에서 {t:ab.kind.piloti}를 선택합니다. 1층 바깥벽이 삭제되고 기둥 12개가 섭니다.
 6. 1층 행 아래의 {t:ab.columnSpacing}, {t:aw.pilotiSize}, {t:aw.square}·{t:aw.round} 선택으로 기둥을 다듬습니다.
 
@@ -5664,12 +5690,12 @@ order: 20
 
 ## 하는 순서
 
-1. {m:buildingEasy} 창의 순서를 따라 {t:aw.drawOutline}를 누릅니다. 건물 외곽선 도구에서 {t:opt.areaRect}으로 첫 구석을 찍고 \`@20,10\`을 입력합니다.
-2. 창이 다시 열리면 {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+1. {m:buildingEasy}를 누릅니다. 건물 외곽선 도구가 열리면 {t:opt.areaRect}으로 첫 구석을 찍고 \`@20,10\`을 입력합니다.
+2. {c:buildFlow} 창의 {t:ab.easy}가 보이면 {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
 3. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택하고, 3층 행의 외곽선 단추를 누릅니다.
 4. 외곽선 도구에서 {t:ol.mode.draw}를 누르고 {t:ol.shape.rect}을 선택합니다.
 5. 점선으로 보이는 2층 외곽선에서 건물 외곽선의 첫 구석과 같은 모서리를 누르고, 명령줄에 \`@12,10\`을 입력합니다.
-6. 사각형이 끝나면 바로 적용되어 2층 위에 8 × 10 m 옥상 지붕이 생기고, 2층의 긴 변 벽이 두 조각씩으로 나뉩니다.
+6. Esc를 눌러 외곽선 도구를 닫으면 적용되어 2층 위에 8 × 10 m 옥상 지붕이 생기고, 2층의 긴 변 벽이 두 조각씩으로 나뉩니다.
 7. 2층 행의 {t:aw.roofOffset}에 \`-0.1\`을 넣으면 옥상 윗면이 3층 바닥보다 0.1 m 낮아집니다.
 
 ## 팁
@@ -5685,8 +5711,8 @@ order: 20
 
 - 3층 외곽선을 2층 외곽선과 몇 mm 어긋나게 그리면 아주 좁은 옥상 조각이 생기거나 버려집니다. 첫 구석은 2층 외곽선의 모서리에 붙여 찍습니다.
 - {t:aw.roofOffset}는 3층 행이 아니라 옥상이 생긴 2층 행에 있습니다.
-- {t:ol.mode.edit}로 점을 하나씩 이동해도 되지만, 점을 이동할 때마다 바로 적용되어 중간 모양에서도 벽과 지붕이 다시 만들어집니다.
-- 3층에 문·창을 먼저 넣고 외곽선을 바꾸면 그 문·창은 3층의 자동 벽과 함께 삭제될 수 있습니다.
+- {t:ol.mode.edit}로 점을 하나씩 이동해도 됩니다. 벽과 지붕은 도구를 닫을 때 마지막 모양으로 한 번만 다시 만들어집니다.
+- 3층에 문·창을 먼저 넣고 외곽선을 바꾸면 새 벽이 옛 벽 자리에 서지 않는 곳의 문·창은 삭제될 수 있습니다. 그때는 {k:undo}로 되돌립니다.
 `,Et=`---
 id: brec-small-house
 title: 벽부터 그리는 작은 집
@@ -5694,7 +5720,7 @@ title: 벽부터 그리는 작은 집
 난이도: 기초
 workspace: 3D 건설
 keywords: 작은 집, 집 짓기, 벽부터, 벽 그리기, 단층집, 오두막, 박공지붕, 문 달기, 창 달기, 바닥판, 손으로 그리기, 예제, 따라하기, 집 만들기, 처음 건물
-commands: wall, slabAuto, door, window, roof
+commands: wall, slab, door, window, roof
 order: 100
 ---
 
@@ -5708,7 +5734,7 @@ order: 100
 2. {m:wall} 단추를 누르고, 바닥의 빈 곳을 클릭해 첫 점을 찍습니다.
 3. 명령줄에 \`@8,0\`, \`@0,6\`, \`@-8,0\`을 하나씩 입력하고 그때마다 Enter를 누릅니다.
 4. 첫 점을 다시 클릭해 벽 네 개를 닫고, Esc를 눌러 도구를 닫습니다.
-5. {m:slabAuto} 단추를 누르고 Enter를 누르면 닫힌 벽 아래에 바닥판이 깔립니다.
+5. {m:slab} 단추를 누르고 창 위의 {t:slab.way.walls}을 선택한 뒤 Enter를 누르면 닫힌 벽 아래에 바닥판이 깔립니다.
 6. {m:door} 단추를 누르고 {t:preset.door.single}을 선택한 뒤 8 m 벽의 가운데를 클릭합니다. Esc로 도구를 닫습니다.
 7. {m:window} 단추를 누르고 {t:preset.window.single}을 선택한 뒤 다른 벽들을 클릭해 창을 끼웁니다. Esc로 도구를 닫습니다.
 8. {m:roof} 단추를 누르고 벽을 클릭한 뒤 {t:opt.roofGable}을 선택하고 Enter를 누릅니다. 짧은 변의 벽은 지붕 아랫면을 따라 삼각형으로 올라갑니다.
@@ -5725,7 +5751,7 @@ order: 100
 
 ## 자주 하는 실수
 
-- 마지막에 첫 점을 정확히 누르지 않아 벽이 닫히지 않으면 {c:slabAuto} 도구가 닫힌 벽을 찾지 못합니다. 창의 {t:opt.closedWalls} 값이 0이면 벽 끝을 이어 다시 그립니다.
+- 마지막에 첫 점을 정확히 누르지 않아 벽이 닫히지 않으면 {c:slab} 도구의 {t:slab.way.walls}이 닫힌 벽을 찾지 못합니다. 창의 {t:opt.closedWalls} 값이 0이면 벽 끝을 이어 다시 그립니다.
 - 좌표에 mm 값을 넣는 실수가 많습니다. \`@8000,0\`이 아니라 \`@8,0\`입니다.
 - 닫히지 않은 벽 하나를 클릭해 지붕을 만들면 그 벽 하나의 둘레 사각형만 잡힙니다. 벽을 닫거나 바닥판을 클릭합니다.
 - 문·창을 바닥에 놓으면 벽에 구멍이 나지 않습니다. 벽 면 위를 클릭합니다.
@@ -5746,19 +5772,18 @@ order: 90
 
 ## 하는 순서
 
-1. {m:buildingEasy} 창의 순서를 따라 {t:aw.drawOutline}를 누르고, {t:opt.areaRect}으로 첫 구석을 찍은 뒤 \`@20,20\`을 입력해 건물 외곽선을 그립니다. {t:bnew.above} \`4\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`으로 세웁니다.
+1. {m:buildingEasy}를 누릅니다. 건물 외곽선 도구가 열리면 {t:opt.areaRect}으로 첫 구석을 찍은 뒤 \`@20,20\`을 입력해 건물 외곽선을 그립니다. {c:buildFlow} 창의 {t:ab.easy}에 {t:bnew.above} \`4\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
 2. {c:buildFlow} 창의 {t:fl.step.levels} 단계에서 {t:ab.detailed}를 선택합니다. 층은 4층부터 나옵니다.
 3. 4층 행의 외곽선 단추를 누르고, 외곽선 도구의 {t:ol.offset}에 \`6\`을 넣은 뒤 {t:ol.shrink}를 누릅니다. 4층이 8 × 8 m가 됩니다.
 4. 3층 행의 외곽선 단추를 누르고 {t:ol.offset}에 \`4\`를 넣은 뒤 {t:ol.shrink}를 누릅니다. 3층이 12 × 12 m가 됩니다.
 5. 2층 행의 외곽선 단추를 누르고 {t:ol.offset}에 \`2\`를 넣은 뒤 {t:ol.shrink}를 누릅니다. 2층이 16 × 16 m가 됩니다.
-6. 4층 행의 {t:ab.kind}에서 {t:ab.kind.rooftop}을 선택하고, Esc를 눌러 외곽선 도구를 닫습니다.
+6. Esc를 눌러 외곽선 도구를 닫습니다.
 7. 1층·2층·3층 위에 폭 2 m의 옥상 테두리가 여러 조각의 평지붕으로 생기고, 4층 위에 8 × 8 m 지붕이 얹힌 것을 확인합니다.
 
 ## 팁
 
 - 테라스 바닥을 조금 낮추려면 1층·2층·3층 행의 {t:aw.roofOffset}에 \`-0.1\`처럼 넣습니다: [자동 옥상과 옥상 높이](help:build-auto-roof).
 - 줄이는 거리를 층마다 다르게 하면 테라스 폭이 달라집니다. 한쪽으로만 물러나게 하려면 {t:ol.mode.draw}로 새 사각형을 그립니다: [3층만 좁게](help:brec-setback).
-- {t:ab.kind.rooftop}은 이름만 다르고 부재는 {t:ab.kind.normal}과 같습니다.
 - 테라스 가장자리에는 [난간](help:arch-railing)을 세웁니다.
 - 벽이 위층 아래와 옥상 아래에서 어떻게 나뉘는지는 [벽 자동 나누기](help:build-wall-split)를 봅니다.
 
@@ -5766,7 +5791,7 @@ order: 90
 
 - {t:ol.offset}는 외곽선 도구를 열 때마다 0.5 m로 돌아갑니다. 층마다 값을 다시 넣습니다.
 - 줄이기는 모든 변을 함께 이동하므로 2 m를 넣으면 가로·세로가 각각 4 m씩 줄어듭니다.
-- 위층에서 {t:aw.useBelow}을 누르면 아래층 모양으로 되돌아갑니다. 줄인 뒤에는 누르지 않습니다.
+- 위층 외곽선 도구에서 {t:ol.sameBelow}를 누르면 아래층 모양으로 되돌아갑니다. 줄인 뒤에는 누르지 않습니다.
 - 줄이는 거리가 너무 커서 모양이 뒤집히면 바뀌지 않고 알림이 나옵니다. 20 m 층은 10 m보다 작게 줄입니다.
 `,Ot=`---
 id: brec-terraced-slope
@@ -5786,13 +5811,15 @@ order: 60
 ## 하는 순서
 
 1. 지형이 있는 비탈에서 시작합니다 ([건설 지역](help:site-map)). {m:siteArea}로 비탈 아래쪽에 24 × 16 m 대지 1을, 그보다 2 m 이상 떨어진 위쪽에 같은 크기의 대지 2를 그립니다.
-2. {m:buildingEasy} 단추를 누르고 {t:bo.site} 목록에서 대지 1을 선택한 뒤 {t:bo.grade}를 누릅니다.
-3. 평탄화 도구에서 {t:grade.balance}을 누르고, {t:grade.more}를 펼쳐 {t:grade.cut}을 \`0\`으로 정한 뒤 Enter로 적용합니다. 평탄화 도구 창을 닫으면 건물 창이 다시 열립니다.
-4. {t:aw.drawOutline}를 누르고 대지 1 안에 20 × 12 m 건물 외곽선을 그린 뒤, {t:bnew.above} \`2\`, {t:bnew.height} \`3\`으로 {t:aw.easyGo}를 누릅니다.
-5. {m:buildingEasy}를 다시 누르고 {t:bo.site} 목록에서 대지 2를 선택한 뒤 {t:bo.grade}를 누릅니다.
-6. 평탄화 도구에서 {t:grade.height}를 대지 1보다 3 m 높게 넣고, {t:grade.more}에서 {t:grade.fill}을 \`0\`으로 정한 뒤 Enter로 적용하고 창을 닫습니다.
-7. {t:aw.drawOutline}를 누르고 대지 2 안에 20 × 12 m 건물 외곽선을 그린 뒤 같은 값으로 {t:aw.easyGo}를 누릅니다. 두 번째 건물의 1층 바닥이 첫 건물의 2층 바닥 높이에 놓입니다.
-8. {m:retainingWall}으로 대지 1의 위쪽 경계와 대지 2의 아래쪽 경계를 따라 옹벽을 하나씩 세웁니다. 흙 쪽이 반대이면 그리는 동안 {t:civil.x.flip}를 누릅니다.
+2. {m:grade} 단추를 누르고 {t:so.target} 목록에서 대지 1을 선택합니다.
+3. 평탄화 도구에서 {t:grade.balance}을 누르고, {t:grade.more}를 펼쳐 {t:grade.cut}을 \`0\`으로 정한 뒤 Enter로 적용하고 도구를 닫습니다.
+4. 화면에서 대지 1을 선택한 뒤 {m:buildingEasy}를 누릅니다. 대지 1에서 건물 외곽선 도구가 열리면 20 × 12 m 건물 외곽선을 그립니다.
+5. {c:buildFlow} 창의 {t:ab.easy}에 {t:bnew.above} \`2\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+6. {m:grade}를 다시 누르고 {t:so.target} 목록에서 대지 2를 선택합니다.
+7. 평탄화 도구에서 {t:grade.height}를 대지 1보다 3 m 높게 넣고, {t:grade.more}에서 {t:grade.fill}을 \`0\`으로 정한 뒤 Enter로 적용하고 도구를 닫습니다.
+8. 화면에서 대지 2를 선택한 뒤 {m:buildingEasy}를 누르고, 대지 2 안에 20 × 12 m 건물 외곽선을 그립니다.
+9. 같은 값으로 {t:aw.easyGo}를 누릅니다. 두 번째 건물의 1층 바닥이 첫 건물의 2층 바닥 높이에 놓입니다.
+10. {m:retainingWall}으로 대지 1의 위쪽 경계와 대지 2의 아래쪽 경계를 따라 옹벽을 하나씩 세웁니다. 흙 쪽이 반대이면 그리는 동안 {t:civil.x.flip}를 누릅니다.
 
 ## 팁
 
@@ -5827,8 +5854,8 @@ order: 50
 
 1. {m:buildingOutline}을 누르고 {t:opt.areaRect}으로 첫 구석을 찍은 뒤 \`@14,12\`를 입력합니다. 건물 A가 생깁니다.
 2. 다시 {m:buildingOutline}을 누르고, 건물 A 외곽선의 오른쪽 아래 구석을 클릭한 뒤 \`@10,12\`를 입력합니다. 건물 A에 맞닿은 건물 B가 생깁니다.
-3. {m:buildingEasy}를 누르고 {t:bo.outlinePick} 목록에서 건물 A를 선택합니다. {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
-4. {m:buildingEasy}를 다시 열고 {t:bo.outlinePick} 목록에서 건물 B를 선택한 뒤 같은 값으로 {t:aw.easyGo}를 누릅니다.
+3. 화면에서 건물 A의 외곽선 안을 클릭해 선택하고 {m:buildingEasy}를 누릅니다. {c:buildFlow} 창의 {t:ab.easy}에 {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+4. 건물 B의 외곽선 안을 클릭해 선택하고 {m:buildingEasy}를 다시 누른 뒤 같은 값으로 {t:aw.easyGo}를 누릅니다.
 5. 두 건물이 맞닿는 선에 벽이 한 장만 서 있는지 확인합니다. 먼저 세운 건물 A의 바깥벽이며, 두 건물이 함께 씁니다.
 6. {c:levelPanel}에서 건물 행을 두 번 클릭하면 그 건물로 작업 범위가 이동됩니다.
 
@@ -5864,19 +5891,17 @@ order: 10
 
 ## 하는 순서
 
-1. {m:buildingEasy} 단추를 누릅니다. 대지가 있으면 {t:bo.site} 목록에서 30 × 25 m보다 넉넉한 대지를 선택하고, 없으면 땅 전체에 짓습니다.
-2. {t:bo.outlinePick} 목록이 {t:bo.outlineNew}인지 확인하고 {t:aw.drawOutline}를 누릅니다.
-3. 건물 외곽선 도구 창에서 {t:opt.areaPoly}을 선택하고, 빈 곳을 클릭해 첫 구석을 찍습니다.
-4. 명령줄에 \`@20,0\`, \`@0,15\`, \`@-6,0\`, \`@0,-9\`, \`@-8,0\`, \`@0,9\`, \`@-6,0\`을 하나씩 입력하고 그때마다 Enter를 누릅니다.
-5. Enter를 한 번 더 누르면 구석 8개의 ㄷ자 외곽선이 닫혀 건물이 생기고, {c:buildingEasy} 창이 다시 열립니다.
-6. {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣습니다.
-7. 창 아래 안내에 방금 만든 건물이 나오는지 확인하고 {t:aw.easyGo}를 누릅니다.
-8. 세 층 모두 ㄷ자 외곽선을 받고, 층마다 바깥벽 8개와 바닥판, 맨 위에 ㄷ자 평지붕 하나가 생깁니다.
+1. 30 × 25 m보다 넉넉한 대지가 있으면 화면에서 그 대지를 선택한 뒤 {m:buildingEasy} 단추를 누릅니다. 대지가 없으면 그대로 눌러 땅 전체에 짓습니다. 건물 외곽선 도구가 열립니다.
+2. 건물 외곽선 도구 창에서 {t:opt.areaPoly}을 선택하고, 빈 곳을 클릭해 첫 구석을 찍습니다.
+3. 명령줄에 \`@20,0\`, \`@0,15\`, \`@-6,0\`, \`@0,-9\`, \`@-8,0\`, \`@0,9\`, \`@-6,0\`을 하나씩 입력하고 그때마다 Enter를 누릅니다.
+4. Enter를 한 번 더 누르면 구석 8개의 ㄷ자 외곽선이 닫혀 건물이 생기고, {c:buildFlow} 창의 {t:ab.easy}로 이동합니다.
+5. {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`을 넣고 {t:aw.easyGo}를 누릅니다.
+6. 세 층 모두 ㄷ자 외곽선을 받고, 층마다 바깥벽 8개와 바닥판, 맨 위에 ㄷ자 평지붕 하나가 생깁니다.
 
 ## 팁
 
 - 좌표 입력 방법은 [좌표·길이 입력](help:input-coords)을 봅니다. 마우스로 구석을 찍어도 됩니다.
-- {m:buildingOutline}으로 외곽선을 먼저 그려 두었으면 {t:bo.outlinePick} 목록에서 그 건물을 선택합니다: [건물 외곽선](help:build-outline).
+- {m:buildingOutline}으로 외곽선을 먼저 그려 두었으면 화면에서 그 외곽선을 선택하고 {m:buildingEasy}를 누릅니다: [건물 외곽선](help:build-outline).
 - 건축면적은 ㄷ자 외곽선의 넓이 228 m²로 계산되고, 안마당은 들어가지 않습니다.
 - L자, T자 모양도 같은 방법으로 세웁니다. 사방이 막힌 ㅁ자는 [중정](help:build-courtyard)으로 만듭니다.
 - 한쪽 날개만 높이를 달리하려면 [층마다](help:build-detailed)에서 위층 외곽선을 고칩니다.
@@ -5888,7 +5913,7 @@ order: 10
 - 대지를 선택했으면 외곽선은 대지 안에 있어야 합니다. 밖으로 나가면 만들어지지 않고 알림이 나옵니다. 20 × 15 m가 들어갈 자리에서 시작합니다.
 - 첫 구석을 기존 건물 외곽선 안에서 찍으면 새로 그리지 않고 그 외곽선이 선택됩니다. 다른 건물과 겹치게 그리면 만들어지지 않습니다.
 - 좌표에 mm 값을 넣는 실수가 많습니다. 3D 건설에서는 m 단위이므로 \`@20000,0\`이 아니라 \`@20,0\`입니다.
-- 안내에 다른 건물이 나오면 그 건물이 세워집니다. 세우기 전에 {t:bo.outlinePick} 목록에서 원하는 건물을 선택합니다.
+- 외곽선만 그리고 세우지 않은 건물이 이미 있으면 {m:buildingEasy}가 외곽선 도구 대신 그 건물의 {t:ab.easy}를 엽니다. 새 외곽선은 {c:buildingOutline}으로 그립니다.
 `,jt=`---
 id: civil-bridge
 title: 교량
@@ -6459,7 +6484,7 @@ title: 물 높이
 분류: 토목
 난이도: 기초
 workspace: 3D 건설
-keywords: 물, 물 높이, 수위, 저수지, 호수, 바다, 해수면, 침수, 홍수, 잠기는 땅, 담수 면적, 물 채우기, 물 없애기, 물 목록, 물 추가, 여러 물 높이, 댐 담수, 해발, 만수위, 물높이, 물 놓기, water, water level, waterlevel, sea level, flood, reservoir, several water levels
+keywords: 물, 물 높이, 수위, 저수지, 호수, 바다, 해수면, 침수, 홍수, 잠기는 땅, 담수 면적, 물 채우기, 물 없애기, 물 목록, 물 추가, 여러 물 높이, 댐 담수, 해발, 만수위, 물높이, 물 놓기, 물 빼기, 물 덩어리, 범위 빼기, 클릭한 곳, 한 곳만 채우기, 물 고르기, 물 숨기기, water, water level, waterlevel, sea level, flood, reservoir, several water levels, drain, cut area
 commands: water, dam, waterBody
 context: water
 order: 80
@@ -6467,33 +6492,55 @@ order: 80
 
 ## 무엇
 
-물 높이를 정하면 그보다 낮은 땅이 물에 잠겨 보이게 하는 도구입니다. 호수, 바다, 홍수로 땅이 잠기는 모습을 볼 때 씁니다. 땅은 파이지 않습니다. 물 높이는 여러 개 둘 수 있습니다.
+물 높이를 정하면 그보다 낮은 땅이 물에 잠겨 보이게 하는 도구입니다. 호수, 바다, 홍수로 땅이 잠기는 모습을 볼 때 씁니다. 땅은 파이지 않습니다. 물 높이는 여러 개 둘 수 있고, 잠긴 곳 가운데 필요 없는 물은 덩어리째 빼거나 범위를 그려 뺍니다.
 
 ## 하는 순서
 
 1. {m:water} 단추를 누릅니다.
 2. {t:water.level} 칸에 물 높이를 넣습니다.
-3. {t:water.scope}에서 {t:water.all}, {t:area.site}, {t:area.building} 가운데 하나를 선택합니다.
+3. {t:water.scope}에서 {t:water.all}, {t:area.site}, {t:area.building}, {t:water.spots} 가운데 하나를 선택합니다.
 4. 물 높이보다 낮은 땅이 반투명한 물로 덮입니다. {t:water.area}에서 잠긴 넓이를 봅니다.
-5. Enter를 누르면 창이 닫힙니다. 물을 없애려면 {t:water.none}를 누릅니다.
+5. 필요 없는 물은 {t:water.click}을 {t:water.mode.drain}나 {t:water.mode.cut}로 바꿔 뺍니다.
+6. Enter를 누르면 창이 닫힙니다. 물 높이를 지우려면 {t:water.none}를 누릅니다.
 
 ## 팁
 
+### 물 높이 선택
+
+- 창이 열린 동안 {t:water.click}이 {t:water.mode.pick}이면 화면의 물을 클릭해 그 물 높이를 엽니다. 고친 물은 화면에 강조되어 보입니다.
+- 창 위쪽에 {t:water.editing} 한 줄이 나옵니다. 목록 줄을 펼치면 모든 물 높이가 높이와 {t:water.scope}으로 나옵니다. 줄을 누르면 그 물을 고치고, ×를 누르면 그 물 높이를 삭제합니다. 화면에서 보이지 않는 물도 여기서 선택합니다. 펼친 상태는 다음에 창을 열 때도 그대로입니다.
+- {t:water.add}를 누르면 가장 높은 물보다 1 m 높은 물 높이가 하나 더 생깁니다. 물 높이마다 {t:water.scope}을 따로 정합니다.
+- 물 높이는 왼쪽 {c:toggleLeft} 창의 땅 아래 {t:water.tree} 줄에도 나옵니다. 줄을 누르면 물 높이 창이 그 물로 열리고, 오른쪽 클릭으로 숨기거나 삭제합니다. 숨긴 물은 화면에만 보이지 않고, 잠긴 넓이와 교량·댐 높이 계산에는 그대로 들어갑니다.
+
+### 물 빼기와 범위 빼기
+
+- 같은 물 높이라도 서로 이어지지 않은 잠긴 땅은 각각 한 덩어리입니다. {t:water.mode.drain}에서 물 덩어리를 클릭하면 그 덩어리만 빠지고, 뺀 자리를 다시 클릭하면 돌아옵니다. 덩어리는 클릭한 점으로 기억하므로 땅을 조금 고쳐도 같은 덩어리를 찾습니다.
+- 덩어리를 모두 빼면 그 물 높이가 지워지고 알림이 나옵니다. 되돌리기 한 번으로 돌아옵니다.
+- 뺀 덩어리가 있으면 뺀 물 되돌리기 단추로 한꺼번에 되돌립니다.
+- {t:water.mode.cut}에서 점을 차례로 클릭하고 첫 점을 다시 클릭하거나 Enter를 누르면 그 범위 안의 물만 빠집니다. 범위는 여러 개 둘 수 있고, 창의 빼는 범위 줄에 있는 ×로 삭제합니다. 그리는 중에 Ctrl+Z를 누르면 마지막 점이 지워집니다.
+
+### 클릭한 곳만 채우기
+
+- {t:water.scope}을 {t:water.spots}으로 바꾸면 {t:water.click}이 {t:water.mode.spots}으로 바뀝니다. 화면의 낮은 땅을 클릭하면 그 자리와 이어진, 물 높이보다 낮은 땅만 채웁니다. 여러 곳을 클릭해 더하고, 채운 곳을 다시 클릭하면 뺍니다.
+
+### 그 밖에
+
 - 지형이 있으면 {t:civil.heightRef}에서 {t:civil.sea}(해발 높이) 또는 {t:civil.aboveGround}(가장 낮은 땅에서 잰 높이)를 선택합니다. 창의 {t:water.lowest} 값을 기준으로 삼으면 편합니다.
 - 바다에 닿은 땅은 {t:civil.sea}로 두고 물 높이에 \`0\`을 넣으면 해수면이 됩니다.
-- 물 높이는 가장 낮은 땅보다 10 m 아래부터 가장 높은 땅보다 50 m 위까지 넣을 수 있습니다. 바꿀 때마다 되돌리기 한 단계가 됩니다.
-- 물 높이를 하나 정하면 창 위에 {t:water.list}이 나옵니다. {t:water.add}를 누르면 가장 높은 물보다 1 m 높은 물 높이가 하나 더 생기고, 목록의 단추로 고칠 물 높이를 선택합니다. 물 높이마다 {t:water.scope}을 따로 정합니다.
+- 물 높이는 가장 낮은 땅보다 10 m 아래부터 가장 높은 땅보다 50 m 위까지 넣을 수 있습니다. 높이를 바꾸거나, 덩어리를 빼거나, 범위를 더할 때마다 되돌리기 한 단계가 됩니다.
 - {t:area.site}를 선택하면 한 대지 안만 채웁니다. 대지가 여러 개이면 {t:so.target}에서 대지를 선택하고, 이때 작업 범위도 그 대지로 이동됩니다.
-- 저수지는 [댐](help:civil-dam)의 담수로 만드는 것이 좋습니다. 댐 뒤 골짜기만 만수위까지 채우고, 창 아래 {t:water.dams}에 댐마다 높이와 넓이가 나옵니다. 이 값은 댐 창에서 바꿉니다.
-- 물 높이를 정한 뒤 그리는 댐은 마루가 물보다 여유고 이상 높게, 교량은 상판이 물 위로 형하고만큼 높게 저절로 정해집니다.
+- 저수지는 [댐](help:civil-dam)의 담수로 만드는 것이 좋습니다. 댐 뒤 골짜기만 만수위까지 채우고, 창 아래 {t:water.dams}에 댐마다 높이와 넓이가 나옵니다. 이 값은 댐 창에서 바꿉니다. 화면에서 담수를 클릭하면 그렇게 알려 줍니다.
+- 물 높이를 정한 뒤 그리는 댐은 마루가 물보다 여유고 이상 높게, 교량은 상판이 물 위로 형하고만큼 높게 저절로 정해집니다. 뺀 물과 {t:water.spots}에서 채우지 않은 곳은 물이 없는 것으로 봅니다.
 - 땅을 파서 만드는 호수·연못·하천은 [물길·못](help:civil-waterway)으로 만듭니다.
 
 ## 자주 하는 실수
 
-- 낮은 땅이 모두 물에 잠깁니다. 물은 그 높이보다 낮은 땅을 모두 채웁니다. 한 곳만 채우려면 그곳을 감싸는 대지를 그리고 {t:water.scope}을 {t:area.site}로 바꾸거나, 댐의 담수를 씁니다.
+- 낮은 땅이 모두 물에 잠깁니다. 물은 그 높이보다 낮은 땅을 모두 채웁니다. 한 곳만 채우려면 {t:water.scope}을 {t:water.spots}으로 바꾸고 그곳을 클릭하거나, {t:water.mode.drain}로 다른 덩어리를 빼거나, 댐의 담수를 씁니다.
+- 창에 {t:water.noFlood}가 나옵니다. 물 높이가 가장 낮은 땅보다 낮아 잠기는 땅이 없습니다. 물 높이를 올립니다.
 - {t:area.building}을 선택했는데 물이 보이지 않습니다. 아직 건물 외곽선이 없거나 건물 외곽선 자리가 물 높이보다 높은 경우입니다.
-- 지형이 없는 평평한 땅에서는 물 높이가 0보다 높아야 물이 보이고, 땅 전체가 잠깁니다.
-- {t:water.add} 단추가 없습니다. 물 높이를 하나 먼저 넣어야 목록과 함께 나옵니다.
+- 화면의 물을 클릭했는데 그 물이 열리지 않고 덩어리가 빠집니다. {t:water.click}이 {t:water.mode.drain}입니다. {t:water.mode.pick}으로 바꿉니다.
+- 물을 빼려고 클릭했는데 {t:water.noBody}가 나옵니다. 지금 고친 물이 아닌 다른 물 높이를 클릭했습니다. 먼저 {t:water.mode.pick}으로 그 물을 선택합니다.
+- 지형이 없는 평평한 땅에서는 물 높이가 0보다 높아야 물이 보이고, 땅 전체가 한 덩어리로 잠깁니다.
 - 물 도구는 땅을 파지 않습니다. 땅을 파서 호수나 하천을 만들려면 [물길·못](help:civil-waterway)을 씁니다.
 - {c:water}이 메뉴에 없습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
 `,Ut=`---
@@ -7385,7 +7432,7 @@ title: Export and 3D printing
 분류: 시작하기
 난이도: 기초
 workspace: 공통
-keywords: stl, 3mf, print, 3d print, export, slicer, 3d printer, printing, cura, bambu, step, obj, dxf, svg, laser cutting, laser, other cad, build plate, printer plate, scale, larger, smaller, 1:50, 2:1, printer size, fit to printer, 3d print button
+keywords: stl, 3mf, print, 3d print, export, slicer, 3d printer, printing, cura, bambu, step, obj, dxf, svg, laser cutting, laser, other cad, build plate, printer plate, scale, larger, smaller, 1:50, 2:1, printer size, fit to printer, 3d print button, arrange, plate layout, pick in view, export some objects
 commands: exportStl, export3mf, exportStep, exportObj, exportDxf3d, exportSvg, exportDxf, print3d
 howto: stl
 context: exportStl, export3mf, exportStep, exportObj, exportDxf3d, exportSvg, exportDxf, print3d
@@ -7405,6 +7452,8 @@ Writes your objects to files that 3D printers and other programs read. Use STL o
 ## Tips
 
 - Before you are asked where to save, an export window opens. Under {t:ex.what} select {t:ex.picked} or {t:ex.all}, then press the export button at the bottom of the window (Enter). If objects were selected when it opened, it starts with {t:ex.picked}.
+- If nothing was selected first, press {t:ex.pickView} on the {t:ex.what} row. Click the objects in the 3D view or drag a box, then press Enter: the window comes back with {t:ex.picked} set to them. Esc goes back without a change. The window's other settings stay as they were.
+- In 3D Building a click selects the whole building of the part clicked. To select one part, switch to {t:ex.unitPart}.
 - {t:ex.quality} sets how finely curved faces are split into triangles. {t:ex.q.medium} is right for 3D printing; {t:ex.q.fine} gives smoother curves and a larger file.
 - What each format is for:
 
@@ -7438,8 +7487,18 @@ Writes your objects to files that 3D printers and other programs read. Use STL o
 | \`2\` (a plain number) | multiplied by it (twice as large) |
 
 - Press Enter to apply what you typed; ↑ and ↓ go to the next standard scale. Under the field you see what it means (for example "1:50 · 50 times smaller") and the {t:sc.outSize}.
-- STL, OBJ and 3MF windows also have the {t:sc.bed} (width, depth, height). {t:sc.fit} selects the largest scale that fits the printer, and red text warns about a model larger than the printer or parts thinner than 0.8 mm.
+- STL, OBJ and 3MF windows also have the {t:sc.bed} (width, depth, height). {t:sc.fit} selects the largest scale that fits the printer, and red text warns about a model larger than the printer or parts thinner than 0.8 mm. A model larger than the printer is still saved.
 - In 3D Building, STL, OBJ and 3MF exports start at the largest standard scale that fits the printer. Set {t:sc.base} to add a plate under the model.
+
+### Arrange (placing on the printer plate)
+
+- Press {t:ex.arrange} in an STL, OBJ or 3MF window: the 3D view shows the printer plate and only the objects to export.
+- Click an object to see corner marks of its box and its size in the file. Move and turn it with the move and rotate handles. The move and angle steps are the usual ones, and objects always rest on the plate.
+- In the small window you can change the {t:sc.label} and see the {t:ex.arrangeAll} and the {t:ex.arrangeSel}. The {t:ex.arrangeAll} row turns red when something is off the plate.
+- Ctrl+Z takes back only moves and turns made while arranging. Other tools and deleting are not available while arranging.
+- Press Enter ({t:btn.apply}) to go back to the window and export with that arrangement. Esc ({t:btn.cancel}) goes back without it. {t:ex.arrangeReset} puts the objects back where they were.
+- The objects in the document do not move. The arrangement is kept until the program closes and is not saved in the file.
+- In 3D Building a building moves as one piece; things on the land move one by one.
 
 ## Common mistakes
 
@@ -7952,7 +8011,7 @@ Turn, move and zoom the 3D view to see your objects from the direction you want.
 
 ## Tips
 
-- The view bar holds the {t:view.ortho} | {t:view.persp} switch, {c:pan}, {c:orbit}, {c:zoomMode}, the {t:nav.zoomTitle} (%), {c:fit}, {c:fitSel}, {c:faceView}, {c:visual}, {t:vis.menu}, {c:grid}, {c:dimInfo} and {c:screenshot}.
+- The view bar holds the {t:view.ortho} | {t:view.persp} switch, {c:pan}, {c:orbit}, {c:zoomMode}, the {t:nav.zoomTitle} (%), {c:fit}, {c:fitSel}, {c:faceView}, {c:visual}, {t:vis.menu}, {c:grid}, {c:dimInfo} and {c:screenshot}. In 3D Build it also holds {c:contours} and {c:cutAway}, and {c:terrainView} on the Advanced menus.
 - Orbit centre: with nothing under the cursor, the view turns about the middle of what is selected, then about the middle of the visible model. To always turn about the selected things, select {t:ux.set.pivot.selection} under {c:settings} → {t:set.options} → {t:ux.set.pivot}.
 - {c:faceView} asks you to click a face when none is selected. Flat and curved faces both work.
 - With the {c:pan}, {c:orbit} or {c:zoomMode} button on, a left drag does that action. Esc switches it off.
@@ -8319,7 +8378,7 @@ Covers the paper of a projection drawing (size, direction, scale), the title blo
 
 ### Objects drawn and layout parts
 
-- Under {t:dp.targets}, select {t:dp.targetPicked} instead of {t:dp.targetAll} and tick the objects to draw in the list. {t:dp.useSelection} draws only the objects selected in the 3D view.
+- Pick the objects to draw with {t:dp.pick3d} under {t:dp.targets}: in the 3D view a click adds or drops an object and a box takes several at once. Enter or {t:btn.apply} goes back to the drawing; Esc goes back without a change. {t:dp.targetAll} draws everything again.
 - Under {t:dsh.show}, turn the {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre} and {t:dsh.axes} on or off one by one.
 
 ### Title block
@@ -8342,6 +8401,7 @@ Covers the paper of a projection drawing (size, direction, scale), the title blo
 ### Export
 
 - {t:dv.print} prints every page in order. For a PDF, select "Save as PDF" in the print window.
+- {t:dv.printPage} shows with more than one page and prints only the page shown.
 - {t:dv.dxf}, SVG and PNG save the page shown. The DXF is split into layers such as VISIBLE, HIDDEN, CENTER, DIM, TEXT and BORDER.
 - {t:dp.dxfAll} (with several pages) puts every page side by side in one file.
 - {t:dv.viewDxf} saves only the selected view as a 1:1 DXF.
@@ -8410,7 +8470,7 @@ Turns 3D objects into front, top, side and other views on a sheet of paper. Hidd
 - The {t:dv.section} button opens the {t:dp.setupSection}. For {t:dp.cutAt} select {t:dp.byPlane} (the XY, XZ or YZ plane and the {t:dv.offset}; empty means through the middle of the objects), {t:dp.byFace} (click a flat face in the 3D view) or {t:dp.byLine} (click two points on another view), then click the button next to {t:btn.cancel}. With {t:dp.byPlane} that button is {t:dp.add}.
 - A section view gets a letter such as A-A, and its cutting line is drawn on a view that sees the cutting plane as a line. Change the letter in the {t:dp.letter} field after clicking the section view. Cut faces are hatched.
 - An {t:dv.custom} shows a slanted face straight on. For {t:dp.auxFrom} select {t:dp.byIncline} (click the face in 3D), {t:dp.byEdge} (click a slanted edge on a view) or {t:dp.byPlane}.
-- Section and auxiliary views can be turned round with {t:dv.flip}, and draw their own objects with {t:dp.includes}.
+- Section and auxiliary views can be turned round with {t:dv.flip}. Click a view and use {t:dp.pick3d} under {t:dp.includes} to pick its own objects in the 3D view.
 
 ### More
 
@@ -11315,7 +11375,7 @@ title: Work scope
 난이도: 중급
 workspace: 3D 건설
 keywords: work scope, scope, path, current level, working level, choose site, choose building, choose level, status bar, fade, turn off fading, all levels, double-click, Esc, scope up, cannot select, other building, joined buildings, where am I working
-commands: levelPanel, buildFlow, buildingEasy, buildingNew
+commands: levelPanel, buildFlow, buildingEasy, buildingOutline
 order: 80
 ---
 
@@ -11338,7 +11398,7 @@ The work scope is which site, which building and which level you are working on.
 - With the {t:bo.fade} switch on (it starts on), the upper levels and what lies outside the work scope are faded only while a building tool such as wall, slab or door is in use. Just looking, everything is clear; switched off, nothing is faded even while a tool is in use.
 - With {t:ab.allLevels} on, box selection reaches every level of the building, not only the current one.
 - With several buildings on one site, the building step lists each building on its own line. Buildings whose outlines touch are selected one by one too: [Joined buildings](help:build-shared-levels).
-- Selecting a place without a building shows {t:so.noBuilding} in the path, and the {c:buildFlow} window offers {c:buildingEasy} and {c:buildingNew}. Selecting in the path never opens a dialog.
+- Selecting a place without a building shows {t:so.noBuilding} in the path, and the {c:buildFlow} window offers {c:buildingEasy} and {c:buildingOutline}. Selecting in the path never opens a dialog.
 - Tools used on one level (walls, slabs, columns, doors, windows) select and snap only to parts on the scope's level; roofs and stairs to parts on any level of the scope's buildings. Civil structures such as roads and dams can be snapped to but never selected by building tools.
 - The first line of a site or civil tool's window names the site it works on. Changing {t:so.target} in the [grading](help:site-grade), water or [building outline](help:build-outline) tool moves the work scope too.
 - Double-clicking a part of another building moves the scope to that building and level, with a notice.
@@ -11381,6 +11441,7 @@ Settings for how the ground (terrain) is shown. {c:terrainView} sets the ground'
 
 - When the land gets heights for the first time, the {c:terrainView} window opens by itself. The {c:terrainView} button in the view row shows on the Advanced menus; the {c:contours} button shows on both levels.
 - {t:tv.opacity} at 0 % hides the ground.
+- To see the basements there is no need to make the whole ground see-through. Working on a basement, or the {t:bv.toggle} switch in the status bar, cuts away only the ground round the basements, so they and the earth's cut sides show. Only the view changes; the land and the earthwork stay: [Levels](help:arch-levels).
 - {t:tv.aerial}, {t:tv.base} and {t:tv.cadastral} are all fetched from V-World, so they need a key and the internet. Under V-World's terms they are not saved in the file; they are fetched again when it is opened. Without them the ground shows in plain earth colours.
 - The zoning colours and lot lines of {t:tv.cadastral} are for reference only, not a legal record.
 - With the interval set to automatic, it follows the height range of the land; 1, 2, 5, 10 or 20 m can also be selected. Lines at five times the interval above sea level are drawn thicker. Lower {t:ct.opacity} to let the map on the ground show better.
@@ -11402,9 +11463,9 @@ title: Ceilings, ceiling view and cut away above
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: ceiling, hang a ceiling, suspended ceiling, plenum, plenum depth, ceiling height, follow storey, ceilings on all levels, add ceilings, gypsum, ceiling tile, ceiling view, reflected ceiling plan, rcp, ceiling plan, ceiling lights, look up, view from below, mirror, cut away, cutaway, cut height, look into rooms, celing
-commands: ceiling, ceilingAll, ceilingView, cutAway, lighting, lightPlace
-context: ceilingView, cutAway, ceiling, ceilingAll
+keywords: ceiling, hang a ceiling, suspended ceiling, plenum, plenum depth, ceiling height, follow storey, add ceilings, gypsum, ceiling tile, ceiling view, reflected ceiling plan, rcp, ceiling plan, ceiling lights, look up, view from below, mirror, cut away, cutaway, cut height, look into rooms, celing
+commands: ceiling, ceilingView, cutAway, lighting, lightPlace
+context: ceilingView, cutAway, ceiling
 order: 180
 ---
 
@@ -11420,19 +11481,20 @@ order: 180
 4. To check the ceiling, click {m:ceilingView} or press {k:ceilingView}. The view turns to look up from below; the ground, other levels and other buildings are hidden.
 5. In the small box over the 3D view, set the {t:lt.cutHeight}; turn on {t:ceil.flip} to see it the same way round as the floor plan.
 6. When you are done, click × in the small box, press Esc, or press {k:ceilingView} again to go back to the view you had.
-7. To look into the rooms from above, click {m:cutAway} and set the height to cut at with {t:lt.cutHeight} in its small box.
+7. To look into the rooms from above, click the {c:cutAway} button in the view bar under the view cube. While it is on, a small box over the 3D view sets the height to cut at ({t:lt.cutHeight}). Click the button again to turn it off.
 
 ## Tips
 
 - With {t:ceil.rule} on (it starts on), the ceiling hangs the {t:ceil.plenum} (0.4 m at first) below the underside of the slab or roof above. With a 3 m storey and a 0.2 m slab, the ceiling is at 2.4 m. Turned off, the ceiling keeps the height typed in {t:ceil.height}.
 - A ceiling starts 20 mm thick. Under a sloped roof, select {t:ceil.kind.flat} or {t:ceil.kind.roof} under {t:ceil.kind}.
 - A ceiling made with {t:ceil.how.level} follows the level outline and its courtyards, and changes when the outline changes.
-- {c:ceilingAll} puts a ceiling along the outline of every level that has none, in one go. Piloti levels and levels that already have a ceiling are left out, and a message gives how many were made and left out. It is the {m:ceilingAll} button, in the {c:ceiling} tool window, and in the right-click menu of a building row in the {c:levelPanel}.
-- The {t:ceil.build} switch of [Build](help:build-overview) is on from the start, so building puts a ceiling on every level except piloti levels.
+- Ceilings go in at two places. The {t:ceil.build} switch of [Build](help:build-overview) is on from the start, so building puts a ceiling on every level except piloti levels. To add one level by level later, use the {c:ceiling} tool.
 - Select a ceiling to change its height, thickness and {t:ceil.finish} ({t:ceil.finish.gypsum}, {t:ceil.finish.tex}, {t:ceil.finish.wood}) in the Properties window. Ceiling lights hang from the ceiling and move with its height: [Lights, time of day and night](help:arch-lighting).
 - The {t:lt.cutHeight} is 1.2 m at first. In the {c:ceilingView} it goes from 0.1 m up to 0.1 m under the storey height or the lowest ceiling, so a ceiling you hung always shows.
 - Right-clicking a level row in the {c:levelPanel} and selecting {c:ceilingView} moves the work scope to that level, then turns the ceiling view on.
 - {c:planView}, {c:archSection}, {c:ceilingView} and {c:cutAway} are never on together: turning one on turns the others off.
+- With {c:cutAway} on, picking another level to work on cuts again at the {t:lt.cutHeight} above the new level's floor. The ground is not cut.
+- On a basement it works together with showing the basements: the levels above are hidden, only the ground round the basements is cut away, and the level you work on is cut at the {t:lt.cutHeight}: [Levels](help:arch-levels).
 
 ## Common mistakes
 
@@ -11587,7 +11649,7 @@ Draws a floor plan of each level and the four elevations of the building to scal
 
 1. Click {m:archDrawing}.
 2. Under {t:ad.makeTitle}, select {t:ad.all}, the paper and the scale, then click {t:ad.make}.
-3. Print or save a PDF with the Print all / PDF button.
+3. Print every sheet or save a PDF with {t:dv.print}.
 
 ## Tips
 
@@ -11602,7 +11664,7 @@ Draws a floor plan of each level and the four elevations of the building to scal
 - Making drawings of the same kind again replaces the ones made before. Sheets made from the plan or section view stay when {t:ad.new} makes a new set.
 - Deleting a level or a building deletes the sheets that draw it, and a message gives their number.
 - Switch sheets under {t:ad.sheet} and remove one with {t:ad.deleteSheet}.
-- {t:dv.print} prints the sheet you are looking at; it can also go out as {t:dv.dxf}, SVG or PNG. For a PDF, select Save as PDF in the print dialog.
+- {t:dv.print} prints every sheet in order; {t:dv.printPage} prints only the sheet shown. {t:dv.dxf}, SVG and PNG save the sheet shown. For a PDF, select Save as PDF in the print dialog.
 - In {t:dp.titleSetup}, the title block's {t:ks.author}, {t:ks.school} and {t:ks.number} go on every building sheet at once. Paper and title block are covered in [Drawing sheet and title block](help:obj-drawing-sheet).
 - With several buildings, every level name starts with its building's name and each building gets its own floor plans.
 - Click {t:dv.back3d} to leave the drawings.
@@ -11614,7 +11676,7 @@ Draws a floor plan of each level and the four elevations of the building to scal
 - The {c:archDrawing} button of the plan view makes no sheet and only shows a message. That level has neither an outline nor parts.
 - Upper levels do not show on a floor plan. A plan is the level cut 1.2 m above its floor, so levels above are not drawn.
 - A door shows no swing on the plan. It lies on the floor instead of sitting in a wall; delete it and fit it again by clicking on the face of a wall.
-- {t:dv.print} prints only the sheet shown; use Print all / PDF for every sheet.
+- Every sheet was printed when only one was wanted: {t:dv.print} prints them all; {t:dv.printPage} prints the sheet shown.
 `,ri=`---
 id: arch-face-paint
 title: Paint faces
@@ -11630,19 +11692,22 @@ order: 160
 
 ## What
 
-Colours single faces instead of the whole object: click faces one at a time. The inside and the outside face of the same wall can have different colours.
+Colours single faces instead of the whole object. The inside and the outside face of the same wall can have different colours. Click faces one at a time, drag over several at once, or paint every outer face of a building at once.
 
 ## Steps
 
 1. Click {m:facePaint}.
-2. Select a colour and click the faces to paint.
-3. Press Esc to finish.
+2. Select a colour and click the faces to paint. Press on a face and drag to paint every face you pass.
+3. {t:opt.paintOuter} paints the outer faces of the whole building at once.
+4. Press Esc to finish.
 
 ## Tips
 
 - {t:opt.paintColor} in the window offers 12 colours often used for walls and floors. Select any other colour with {t:opt.paintPick}.
-- Turn on the {t:opt.eraser} and click a face to take its colour off; it shows the object's own colour again. Clicking a colour turns the eraser off.
-- Every face painted is one step to undo (Ctrl+Z).
+- While dragging, the faces passed light up; they are painted when you let go.
+- {t:opt.paintOuter} paints only the outward faces of the walls, columns, slabs and roofs of the building worked in: the outside and courtyard faces of walls, slab edges and open roof tops; not inner wall faces, floor tops or undersides. It works while the work scope is in a building.
+- Turn on the {t:opt.eraser} and click or drag over faces to take their colour off; with the eraser on, {t:opt.paintOuter} takes the colour off every outer face. Clicking a colour turns the eraser off.
+- Every click, every drag and every {t:opt.paintOuter} is one step to undo (Ctrl+Z).
 - A painted wall face keeps its colour when a door or window is fitted into the wall later.
 - The colour used last is still selected the next time the tool opens.
 - To change the colour and material of a whole object, use {m:material}. See [Colours and materials](help:obj-material).
@@ -11650,7 +11715,8 @@ Colours single faces instead of the whole object: click faces one at a time. The
 
 ## Common mistakes
 
-- Clicking empty space does nothing. Click a face of an object.
+- Clicking empty space does nothing. Click a face of an object; a drag also starts on a face.
+- {t:opt.paintOuter} is greyed out. The work scope is not a building; double-click inside a building to move the scope there.
 - With the {t:opt.eraser} on, clicked faces lose their colour. Click a colour first to paint.
 - Only one side of a wall changed colour. The inside and the outside of a wall are separate faces; click each one.
 `,ii=`---
@@ -11695,7 +11761,7 @@ Draw an area on the floor and the selected objects fill it in a grid. Use it for
 
 - Doors, windows and skylights do not fill an area. Select objects that stand on the floor, such as desks, cars or trees.
 - Clicking the view after the area is drawn does nothing. Press Enter to place, or click {t:fa.redraw}.
-- Pressing Esc with an area drawn fills it and then ends the tool. To end without filling, click {t:fa.redraw} first.
+- Esc with an area drawn placed nothing. Esc cancels: the objects are placed only with Enter (or a right click).
 - Fewer objects than expected. Check the room from edges and walls, the skipping of taken spots and {t:fa.max}.
 - A very small area is not made. Draw it larger.
 - Objects go on the floor of the level you are working on. Change the level first to fill another one.
@@ -11706,7 +11772,7 @@ title: Build Progress
 난이도: 기초
 workspace: 3D 건설
 keywords: build progress, building steps, steps, step by step, workflow, progress, checklist, next step, to do, waiting, guide, where to start, how to start a building, build a house, order of work, twelve steps
-commands: buildFlow, buildingEasy, buildingNew, siteArea, grade, buildingOutline, levelOutline, wall, slab, column, door, window, stair, roof
+commands: buildFlow, buildingEasy, siteArea, grade, buildingOutline, levelOutline, wall, slab, column, door, window, stair, roof
 context: buildFlow
 order: 10
 ---
@@ -11718,11 +11784,11 @@ The {c:buildFlow} window guides one building through twelve steps: site → buil
 ## Steps
 
 1. Click the {c:buildFlow} button next to the {t:win.menu} menu on the menu bar. The window is open on the left from the start; the number on the button counts the steps done ({t:fl.state.optional} steps count as done).
-2. At the top of the window, check in the path (site › building › level) that it shows the building you want. On a site without buildings, {c:buildingEasy} and {c:buildingNew} buttons are shown; on a site with buildings, each of them has an {t:fl.enter} button. The same shows after Esc took the work scope up to the site.
+2. At the top of the window, check in the path (site › building › level) that it shows the building you want. On a site without buildings, {c:buildingEasy} and {c:buildingOutline} buttons are shown; on a site with buildings, each of them has an {t:fl.enter} button. The same shows after Esc took the work scope up to the site.
 3. Find the step marked {t:fl.next}.
 4. Click a button under that step to open its tool, and do the work.
 5. When the work is finished the step shows {t:fl.state.done} and the next step is highlighted.
-6. When all twelve steps are done, {c:areaTable}, {c:archDrawing}, {c:facePaint} and {c:buildingNew} buttons appear at the bottom of the window.
+6. When all twelve steps are done, {c:areaTable}, {c:archDrawing}, {c:facePaint} and {c:buildingOutline} buttons appear at the bottom of the window.
 
 ## Tips
 
@@ -11735,9 +11801,9 @@ The {c:buildFlow} window guides one building through twelve steps: site → buil
 | 3 {t:fl.step.grade} | Flattens the ground under the building outline. It is {t:fl.state.optional} and never holds the later steps. | {c:grade}, {t:fl.gradeSkip} |
 | 4 {t:fl.step.base} | Sets the height of the ground floor. | {t:base.button} |
 | 5 {t:fl.step.levels} | {t:ab.build}: {t:ab.easy} makes the whole building from the floors and the storey height, {t:ab.detailed} sets an outline and a kind per level. | {t:ab.easy}, {t:ab.detailed} |
-| 6 {t:fl.step.outlines} | Draws the outer shape of each level. {t:ca.outlinesFromShape} gives every level the building outline as it is. | {c:levelOutline}, {t:ca.outlinesFromShape} |
-| 7 {t:fl.step.walls} | Raises the outer walls along the outline, or draws walls by hand: [Outer walls](help:build-outer-walls). | {c:outerWalls}, {c:wall} |
-| 8 {t:fl.step.slabs} | A level with an outline gets its slab by itself. | {t:ca.slabsFromOutline}, {c:slab} |
+| 6 {t:fl.step.outlines} | Draws the outer shape of each level. Copy a shape with {t:ol.sameBelow} or {t:ol.toAll} in the outline tool. | {c:levelOutline} |
+| 7 {t:fl.step.walls} | Raises the outer walls on the sides of the outline ({c:outerWalls}), or draws inner walls by hand ({c:wall}): [Outer walls](help:build-outer-walls). | {c:outerWalls}, {c:wall} |
+| 8 {t:fl.step.slabs} | A level with an outline gets its slab by itself. The {c:slab} tool has three ways: {t:slab.way.draw}, {t:slab.way.walls} and {t:slab.way.outline}. | {c:slab} |
 | 9 {t:fl.step.columns} | Puts up columns where needed. This step is {t:fl.state.optional}. | {c:column} |
 | 10 {t:fl.step.openings} | Fits doors and windows into the walls. | {c:door}, {c:window} |
 | 11 {t:fl.step.stairs} | Places a stair up from every level but the top one. | {c:stair} |
@@ -11745,10 +11811,12 @@ The {c:buildFlow} window guides one building through twelve steps: site → buil
 
 - Each step shows {t:fl.state.done}, {t:fl.state.todo}, {t:fl.state.optional} or {t:fl.state.wait}. While the site, building outline, ground floor height or build step is not done, the steps left after it show {t:fl.state.wait} and their buttons are off. A waiting step names the step to do first.
 - Steps done level by level (outlines, walls, slabs, stairs) show the levels done out of all levels, such as \`2/3\`, and name the levels still left.
-- Building with Build in step 5 finishes steps 6 to 8 and step 12 at once: [Building a building](help:build-overview). For a building with walls drawn by hand, step 5 opens on {t:ab.detailed}, where the level fields at the top and {t:fl.planApply} set the levels.
+- Building with Build in step 5 finishes steps 6 to 8 and step 12 at once: [Building a building](help:build-overview). The {t:ab.easy} card holds the floor fields and the build button, and on land with terrain a {t:bo.grade} button too. Both {t:ab.easy} and {t:ab.detailed} raise the outer walls on every side of the outline. A wall not needed is clicked, selected and deleted after building. For a building with walls drawn by hand, step 5 opens on {t:ab.detailed}. {t:ab.detailed} has no level fields; levels are added and deleted in the {c:levelPanel}.
+- Clicking {m:buildingEasy} moves the work scope to the building to raise and opens this window on {t:ab.easy} in step 5: [Quick Building](help:build-easy).
+- In a building raised with Build, the steps among outline per level, walls, slabs and roof that were done by building fold into one line, {t:fl.autoDone}. Click that line to unfold them.
 - The {t:base.button} button of step 4 opens a question. Select ‘Use the grading height’, {t:base.high}, {t:base.keep} or {t:base.typed}, then click {t:base.ok}. Moving the ground floor moves every level and part of that building with it.
 - If you place a part on terrain before the ground floor height is set, the same question opens first. On land without terrain the ground floor is at 0 m and step 4 counts as done.
-- The outer wall button of step 7 raises 0.2 m thick walls just inside the outline, up to the floor above. When several levels are left, a second button raises them on all of those levels at once. Basements get a 0.3 m basement wall, and levels that already have walls are skipped.
+- The {c:outerWalls} button of step 7 opens the outer walls window. {t:ow.mode.all} puts walls on every side of the outline, {t:ow.mode.pick} on the sides you select or part of one. By default the walls are 0.2 m thick and rise to the floor above, and basements get a 0.3 m basement wall. Select {t:ec.allLevels} in the window to build on every level that has the same sides at once. Sides and stretches that already have walls are skipped.
 - The {t:fl.roofTop} button of step 12 opens the [roof](help:arch-roof) tool with the top outline already selected. The eaves sit at the top level's floor plus its storey height. Check the shape, then press Enter to make the roof.
 - If you closed the window, click the {c:buildFlow} button on the menu bar again. Clicking it while the window is in front hides the window.
 
@@ -11807,8 +11875,8 @@ title: Levels
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: level, floor, storey, story, basement, levels, add level, copy level, delete level, rename level, storey height, floor height, floor level, upper levels, hide upper floors, fade, show only this level, current level, levels window, project window, second floor, ground floor, B1
-commands: levelAdd, levelPanel, levelCopy, upperLevels, buildingNew, levelOutline
+keywords: level, floor, storey, story, basement, levels, add level, copy level, delete level, rename level, storey height, floor height, floor level, upper levels, hide upper floors, fade, show only this level, basements view, show basements, excavation view, current level, levels window, project window, second floor, ground floor, B1
+commands: levelAdd, levelPanel, levelCopy, upperLevels, buildingOutline, levelOutline
 howto: levels
 context: levelAdd, levelCopy, levelPanel, upperLevels
 order: 20
@@ -11826,7 +11894,7 @@ A building is made of levels. Each level has a name and a storey height; its flo
 
 ## Tips
 
-- The {c:levelPanel} window lists land › site › building › level, with each building's levels from the top down. Click a level's row to work on it; the level you work on is highlighted: [Building names, colours and the project tree](help:build-names-tree).
+- The {c:levelPanel} window lists land › site › building › level, with each building's levels from the top down. Click a level's row once to work on it; a double-click also selects its parts. The level you work on is highlighted. A level name under {t:ab.detailed} in [Build Progress](help:arch-flow) works the same with one click: [Building names, colours and the project tree](help:build-names-tree).
 - Click a level's name to change it in place: Enter keeps it, Esc goes back. Names you typed stay as they are; default names (Level 1, Level 2, B1) are numbered again when levels are added or removed.
 - Changing the {t:levels.height} field of a level row moves the levels above it, with their parts, up or down. Changing a basement's storey height moves that basement's floor and the basements below it. Storey heights go from 1 to 20 m.
 - The floor height (for example \`+3\`) is worked out from the ground floor and the storey heights, so it is not typed. Set the ground floor height again with the ground floor button of the building row, or in step 4 of [Build Progress](help:arch-flow).
@@ -11836,6 +11904,10 @@ A building is made of levels. Each level has a name and a storey height; its flo
 - At the right of each level row are the level outline button (it opens the [level outline](help:arch-outline) tool), the view button (each click: shown → faded → hidden), {t:lt.isolate} and {t:lt.view}.
 - If upper levels hide the level you are drawing, select {t:upper.fade} or {t:upper.hide} under {t:levels.upper} at the bottom of the window. Typing \`upperlevels\` in the command line also switches {c:upperLevels} between shown, faded and hidden. How levels are shown is not saved in the file.
 - {t:upper.fade} fades the upper levels only while a building tool such as wall or slab is in use; just looking, they are clear. With the {t:bo.fade} switch in the status bar off, nothing is faded even while a tool is in use: [Work scope](help:site-scope).
+- Working on a basement hides every level of that building above the one you work on, and the ground round its basements is cut away down to under the deepest basement floor, so the basements and the earth's cut sides show. On B2, B1 and the floors above the ground are hidden; on B1, the floors above the ground; the level you work on and the basements under it stay. Other buildings stay as they are. Back on a floor above the ground, the levels show as they did before.
+- To see the basements while working above the ground, turn on the {t:bv.toggle} switch in the status bar. Every building with a basement hides its floors above the ground and shows all its basements. The switch shows only when there is a basement.
+- Showing the basements changes the view only. The ground heights, earthwork, area tables, drawings and exports stay as they are, and nothing is saved in the file.
+- If you change a level's look with its view button while the basements are shown, your looks are kept from then on, also after going back above the ground. Levels you hid yourself before stay hidden too.
 - The status bar always shows the path of where you work and the current level's floor height and storey height. The levels button in front of the path brings the {c:levelPanel} window to the front.
 - A building takes up to 60 levels, basements included. To set the number of basements and floors at once, use the {t:fl.step.levels} step of [Build Progress](help:arch-flow).
 - With a level above, walls, columns and stairs reach up to its floor by default and follow storey height changes ([wall tops](help:arch-wall-top)). Making the levels first and drawing the parts afterwards saves work.
@@ -11845,7 +11917,7 @@ A building is made of levels. Each level has a name and a storey height; its flo
 - Walls end up on the wrong level. Check the level you work on in the path on the status bar or in the {c:levelPanel} window before drawing. The {t:lv.pickLevel} field of the tool window changes it too.
 - {t:levels.delete} cannot be clicked. The only level above the ground of a building cannot be deleted.
 - Deleting a level that holds objects asks whether to delete them too or keep them on the level below (the level above for the lowest one). Undo a mistake with {k:undo}.
-- An upper level is not shown. Check whether {t:levels.upper} is set to {t:upper.hide}, or whether that level's view button is on hidden.
+- An upper level is not shown. Check whether {t:levels.upper} is set to {t:upper.hide}, or whether that level's view button is on hidden. Working on a basement, or the {t:bv.toggle} switch on, hides the levels above too.
 - The storey height changed but a wall kept its height. That wall's {t:flow.top} is set to a typed height. Tie it to the level above in the Properties window.
 `,ci=`---
 id: arch-lighting
@@ -11943,18 +12015,17 @@ title: New building
 난이도: 중급
 workspace: 3D 건설
 keywords: new building, add building, another building, second building, several buildings, buildings, site, building outline, footprint, ground floor height, number of levels, storey height, story height, basement, building name, delete building, Building B
-commands: buildingNew, buildingOutline, buildingEasy, levelPanel
-context: buildingNew
+commands: buildingOutline, buildingEasy, levelPanel
 order: 210
 ---
 
 ## What
 
-Makes one more building. {c:buildingNew} opens the [building outline](help:build-outline) tool; once the outline is drawn, a new building with one level stands there. Its levels, walls and roof are made afterwards with Build. To get the levels, walls and roof in one go, use [Quick Building](help:build-easy).
+Makes one more building. {c:buildingOutline} opens the [building outline](help:build-outline) tool; once the outline is drawn, a new building with one level stands there. Its levels, walls and roof are made afterwards with Build. To get the levels, walls and roof in one go, use [Quick Building](help:build-easy).
 
 ## Steps
 
-1. Click {m:buildingOutline}, or type \`buildingnew\` on the command line. The building outline tool opens on the site of the current work scope.
+1. Click {m:buildingOutline}, or type \`buildingoutline\` on the command line. The building outline tool opens on the site of the current work scope.
 2. In the {t:so.target} list of the window, check the site the building stands on. To build without a site, select {t:bld.wholeLand}.
 3. Select {t:opt.areaRect} or {t:opt.areaPoly} and draw the ground the building takes up.
 4. When it is drawn, a new building named such as Building B is made, and work goes on on its ground floor.
@@ -11967,7 +12038,7 @@ Makes one more building. {c:buildingNew} opens the [building outline](help:build
 - Basements: 0 to 10; floors above ground: 1 to 50; storey height: 1 to 20 m.
 - A new outline cannot overlap another building's outline. Drawn touching, the two buildings cover and support each other's floors and roofs: [Joined buildings](help:build-shared-levels).
 - A document takes up to 30 buildings.
-- The {c:levelPanel} shows each site with its buildings and levels. The **+** button of a site row opens the building outline tool too. Rename or delete a building from its row's right-click menu. The bottom of that window and the {c:buildFlow} window also have a {c:buildingNew} button.
+- The {c:levelPanel} shows each site with its buildings and levels. The **+** button of a site row opens the building outline tool too. Rename or delete a building from its row's right-click menu. The bottom of that window and the {c:buildFlow} window also have a {c:buildingOutline} button.
 
 ## Common mistakes
 
@@ -11995,30 +12066,31 @@ A level outline is the outer shape of one level. Once it is drawn, the level's s
 
 1. Make the level you want to outline the level you work on.
 2. Click {m:levelOutline}.
-3. To use the dashed reference shape as it is, click its Use button in the window.
+3. To use the dashed reference shape as it is, click {t:ol.sameBelow} in the window. A basement shows {t:ol.sameAbove}, the ground floor drawn first {t:ol.sameShape}.
 4. To draw a new one, under {t:ol.mode.draw} click {t:ol.shape.poly} or {t:ol.shape.rect} and click points on the floor. A polygon closes when you click its first point again or press Enter.
 5. To change the shape, under {t:ol.mode.edit} click a corner and then its new place. Clicking on a side adds a point there.
 6. To move every side at once, type a distance in {t:ol.offset} and click {t:ol.grow} or {t:ol.shrink}.
-7. When you are done, press Esc to close the tool.
+7. When you are done, press Esc to close the tool. Walls, columns and roofs are made again then, once.
 
 ## Tips
 
 - The dashed reference shape: the ground floor drawn first shows the building outline, an upper level the nearest level below with an outline, a basement the nearest level above with an outline.
-- After one level is drawn, the window offers a button that puts the same outline on every level of the building that has none, and a button that moves work to the next level without an outline.
-- The {t:ca.outlinesFromShape} button of [Build Progress](help:arch-flow) gives every level of the building its building outline, curves included. Existing outlines change too; one undo brings them back.
+- After one level is drawn, {t:ol.toAll} in the window puts the same outline on every level of the building that has none. These two are the only buttons that copy an outline.
+- While points are edited only the slab follows; walls, columns and roofs stay. When the tool closes, the changed levels and the levels under them get their walls, columns and roofs made again in one go, so no in-between shape deletes doors or windows. It is the same wherever the tool was opened.
 - {t:ol.offset} starts at 0.5 m. To make an upper level 1 m bigger all round, use the reference shape, type \`1\` and click {t:ol.grow}. What reaches outside the building outline is cut off.
 - Press, wait 0.5 s and drag while clicking points to make a curved side. Edit the points and handles of a curved outline with {c:pathEdit} ([Edit Curve](help:obj-curve-edit)).
 - The window shows the outline's {t:ol.area} and {t:ol.perimeter}.
 - {t:ol.autoSlab} is on from the start. The slab's top lies on the level's floor and its thickness goes downwards.
 - On a basement, switch on {t:ol.retain} for a 0.3 m wall just inside the outline, up to the floor above.
-- Once the outline is set, {t:ow.mode.all} in {m:outerWalls} raises the outer walls along it in one go: [Outer walls](help:build-outer-walls).
+- In a building made with Build, outer walls stand by themselves on every side of the level outline: [Per level](help:build-detailed). In other buildings, once the outline is set, {t:ow.mode.all} in {m:outerWalls} raises the outer walls along it in one go: [Outer walls](help:build-outer-walls).
 - The outline button on each level row of the {c:levelPanel} window opens the outline tool on that level too.
 - Level outlines (basements too) stay inside the building outline. One reaching outside is cut back to it, with a message; one wholly outside, or one that would fall into pieces, is not set: [Building outline](help:build-outline).
 
 ## Common mistakes
 
-- Changing the outline does not move walls already raised. Only the automatic slab and the basement wall follow the outline. Edit the walls separately, or delete them and raise them again.
-- Deleting the automatic slab switches {t:ol.autoSlab} off, so it does not come back. Switch it on again or click {t:ca.slabsFromOutline} in [Build Progress](help:arch-flow).
+- Changing the outline does not move walls drawn by hand or raised with {m:outerWalls}. Edit those walls separately, or delete them and raise them again. Outer walls made by Build are made again along the outline.
+- Deleting the automatic slab switches {t:ol.autoSlab} off, and a message says so. To make it again, switch it on or use {t:slab.way.outline} in the {c:slab} tool.
+- A slab drawn with the {c:slab} tool over a level's outline slab is not made, and a message says so. One place takes one slab.
 - A shrink distance that is too big would turn the shape inside out, so nothing changes and a message appears. Use a smaller distance.
 - An outline with fewer than 3 points, or a very small one, is not set.
 - {t:ol.clear} also deletes the level's automatic slab.
@@ -12037,17 +12109,16 @@ order: 110
 
 ## What
 
-Puts up railings through clicked points, along edges and lines, or along the side of a stair. Joining points at different heights makes the railing follow the slope.
+Puts up railings through clicked points, along edges and lines. Joining points at different heights makes the railing follow the slope.
 
 ## Steps
 
 1. Click {m:railing}.
-2. In the window, click {t:stairs.railHow.points}, {t:stairs.railHow.edge} or {t:stairs.railHow.stair}.
+2. In the window, click {t:stairs.railHow.points} or {t:stairs.railHow.edge}.
 3. Set {t:param.h} and {t:opt.postSpacing}.
 4. {t:stairs.railHow.points}: click points one after another and finish with a double click or Enter.
 5. {t:stairs.railHow.edge}: click the edges or sketch lines to follow and finish with Enter.
-6. {t:stairs.railHow.stair}: click one side of a stair; a railing follows that edge.
-7. When you are done, press Esc.
+6. When you are done, press Esc.
 
 ## Tips
 
@@ -12056,15 +12127,13 @@ Puts up railings through clicked points, along edges and lines, or along the sid
 - With {t:stairs.railHow.points}, clicking the first point again closes the railing all round, for a balcony or a roof edge.
 - With {t:stairs.railHow.points}, press, wait 0.5 s and drag while clicking points for a curved railing.
 - With {t:stairs.railHow.edge}, edges and lines that meet end to end join into one railing. Clicking one that does not meet ends the railing so far and starts a new one.
-- {t:stairs.railHow.stair} follows the flights and landings, on the side nearer the click.
 - The tool stays open until Esc, so several railings can be drawn in a row. While drawing, {k:undo} takes back the last point.
 - Select a drawn railing to change {t:param.h} and {t:opt.postSpacing} in the Properties window, or reshape its points and curves with {c:pathEdit}.
-- The {t:stairs.rails} setting of the stair itself makes railings that are part of the stair ([stairs](help:arch-stair)).
+- Railings along a stair are made with the {t:stairs.rails} setting in the stair's properties, not with this tool. They are part of the stair and follow it when it changes ([stairs](help:arch-stair)).
 
 ## Common mistakes
 
-- A railing made {t:stairs.railHow.stair} does not follow later changes to the stair. After changing the stair, delete the railing and make it again, or use the stair's own {t:stairs.rails} setting.
-- {t:stairs.railHow.stair} does not work on spiral stairs.
+- A railing put beside a stair with points does not follow later changes to the stair. After changing the stair, delete the railing and make it again, or use the stair's own {t:stairs.rails} setting.
 - The railing lies flat on the floor instead of following the slope. The points went on the floor, not onto the object. Put the points on stair edge ends or corners; with object snap ({k:osnap}) on they are easy to hit ([object snap](help:snap-osnap)).
 `,pi=`---
 id: arch-roof-edit
@@ -12079,7 +12148,7 @@ order: 130
 
 ## What
 
-After you select what the roof covers, select for each side whether the roof rises from it. The roof slopes up from sides that are on; sides that are off end in a gable. A roof already made is changed the same way in the Properties window.
+After you select what the roof covers, select for each side whether the roof rises from it. The roof slopes up from sides that are on; sides that are off end in a gable. A roof already made is changed the same way with {t:roof.sides.btn} in the Properties window.
 
 ## Steps
 
@@ -12088,11 +12157,12 @@ After you select what the roof covers, select for each side whether the roof ris
 3. To change several sides at once, press and drag a box over them. Every side inside the box turns on, or off when they were all on already.
 4. To change every side at once, click {t:ca.allOn} or {t:ca.allOff} in the window.
 5. Check the {t:opt.roofPitch} and {t:opt.overhang}, then Apply (Enter).
-6. To change a finished roof, select it and click the numbered side buttons in the Properties window to turn sides on or off.
+6. To change a finished roof, select it and click {t:roof.sides.btn} in the Properties window. As when it was made, click sides in the view or box them to turn them on or off. Each change is one undo step; Esc ends.
 
 ## Tips
 
-- A curved side counts as one side, however many small steps it is made of. One click or one box turns the whole curved side on or off, and its numbered button in the Properties window carries a \`~\`.
+- A curved side counts as one side, however many small steps it is made of. One click or one box turns the whole curved side on or off.
+- While {t:roof.sides.btn} is on, side numbers show in the view. They match the numbers of the {t:archedit.roofSlopes} fields in the Properties window.
 - The window shows how many sides slope out of how many there are.
 - Clicking a shape button ({t:opt.roofGable}, {t:opt.roofHip} …) sets the sloped sides for that shape again. Selecting the shape first and then fixing single sides is quickest.
 - Under {t:archedit.roofSlopes} in the Properties window, give each sloped side its own slope. Different slopes move the ridge and hip points. {t:archedit.sameSlope} gives every side the same slope again.
@@ -12147,37 +12217,38 @@ Puts a roof over a slab, a closed ring of walls or a rectangle drawn on the floo
 - A message says the roof is made flat. The shape is too complex for a sloped roof: slope fewer sides or simplify the outline.
 - Walls and slabs of another building cannot be selected. Click that building in the {c:levelPanel} to work in it, then click again.
 - The roof floats above the walls or cuts into them. Check the {t:flow.roofBase} and the {t:flow.offset}.
-- Pressing Esc after the outline is selected makes the roof as set so far and ends the tool. To end without a roof, first take the outline back with Ctrl+Z.
+- Esc after the outline is selected made no roof. Esc cancels: the roof is made only with Apply (Enter).
 `,hi=`---
 id: arch-slab
 title: Lay a floor slab
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: slab, floor slab, ceiling, floor, make a floor, slab from walls, automatic slab, slab thickness, hole in slab, stair opening, floor plate, deck
-commands: slabAuto, slab, levelOutline, stair, pathEdit
+keywords: slab, floor slab, ceiling, floor, make a floor, slab from walls, closed walls, automatic slab, outline slab, slab thickness, hole in slab, stair opening, floor plate, deck
+commands: slab, levelOutline, stair, pathEdit
 howto: slab
-context: slab, slabAuto
+context: slab
 order: 60
 ---
 
 ## What
 
-A slab is the plate that makes a level's floor. Its top lies on the level's floor height and its thickness goes downwards. Lay slabs under closed walls in one go, draw them as a rectangle or polygon, or let a level outline make one by itself.
+A slab is the plate that makes a level's floor. Its top lies on the level's floor height and its thickness goes downwards. The one {c:slab} tool picks the way it is made: {t:slab.way.draw} draws a rectangle or polygon, {t:slab.way.walls} lays slabs under closed walls in one go, and {t:slab.way.outline} makes the level outline's slab.
 
 ## Steps
 
-1. Draw the walls as a closed loop (back to the first point).
-2. Click {m:slabAuto} and press Enter: a slab fills under the walls.
-3. To draw one yourself, use {m:slab} with a rectangle or polygon.
+1. Click {m:slab}.
+2. At the top of the window select {t:slab.way.draw}, {t:slab.way.walls} or {t:slab.way.outline}.
+3. With {t:slab.way.draw}, draw a rectangle or a polygon. With {t:slab.way.walls} and {t:slab.way.outline}, check what was found and press Enter.
 
 ## Tips
 
-- The {c:slabAuto} tool finds every closed ring of walls on the current level and lays a slab out to their outer faces. The window shows how many it found in {t:opt.closedWalls}; walls whose ends meet all the way round count as closed too.
-- The {t:opt.slabRect} shape of the {c:slab} tool takes two corners. Sizes typed in {t:opt.sideW} and {t:opt.sideH} make it that size.
+- {t:slab.way.walls} finds every closed ring of walls on the current level and lays a slab out to their outer faces. The window shows how many it found in {t:opt.closedWalls}; walls whose ends meet all the way round count as closed too.
+- The {t:opt.slabRect} shape of {t:slab.way.draw} takes two corners. Sizes typed in {t:opt.sideW} and {t:opt.sideH} make it that size.
 - {t:opt.slabPoly} takes points one after another; click the first point again or press Enter to close it. Press, wait 0.5 s and drag while clicking points for curved sides.
 - {t:opt.thickness} starts at 0.2 m and goes from 0.05 to 2 m. A value in {t:flow.baseOffset} raises the slab's top by that much.
 - A level with a level outline gets its slab by itself, and the slab follows the outline ([level outline](help:arch-outline)). Drawing an upper outline bigger makes a slab that overhangs the level below.
+- {t:slab.way.outline} finds the levels of this building with an outline whose outline slab is off and makes it again. A level that already has a slab in that place is skipped, with a message.
 - Holes in slabs: a stair cuts a hole its size in the slab above it by itself. The hole follows the stair when it moves and closes when the stair is deleted ([stairs](help:arch-stair)).
 - Select a drawn slab to change its thickness in the Properties window, or reshape its edge points and curves with {c:pathEdit}.
 - A slab can go on another level too: select it in the {t:lv.pickLevel} field of the window.
@@ -12185,7 +12256,8 @@ A slab is the plate that makes a level's floor. Its top lies on the level's floo
 ## Common mistakes
 
 - {t:opt.closedWalls} shows 0. The walls are not closed, or they are on another level. Make the wall ends meet exactly, or check the level you work on.
-- Using {c:slabAuto} or {c:slab} again on a level with an outline puts two slabs on top of each other. Delete one of them.
+- No slab is made and a message names the outline slab. A level with an outline already has its slab, so no slab is made over it. Set {t:flow.baseOffset} for another height, or select the outline slab and change it.
+- Deleting the outline slab switches {t:ol.autoSlab} off, with a message. Use {t:slab.way.outline} to make it again.
 - The {c:slab} tool closes after one slab. For the next one click the button again, or press Enter to open the tool again.
 - The slab seems to float above the floor. Check that {t:flow.baseOffset} is 0.
 - No hole appears over a stair. Check that the stair's {t:stairs.slabCut} switch is on and that the slab is at the height of the stair's top.
@@ -12285,7 +12357,7 @@ title: Draw walls
 난이도: 기초
 workspace: 3D 건설
 keywords: wall, walls, room, exterior wall, interior wall, outer wall, partition, wall thickness, wall height, centre line, center line, reference line, outer face, inner face, wall join, join walls, curved wall, round wall, draw a room
-commands: wall, slabAuto, levelOutline, pathEdit
+commands: wall, slab, levelOutline, pathEdit
 howto: wall
 context: wall
 order: 40
@@ -12293,14 +12365,15 @@ order: 40
 
 ## What
 
-Click points on the floor one after another to put up walls. A wall starts on the current level's floor and, when there is a level above, reaches up to its floor. Each clicked piece becomes a wall of its own, and walls that meet are joined cleanly by themselves.
+Click points on the floor one after another to put up walls, or put them up along a line lying on the floor. A wall starts on the current level's floor and, when there is a level above, reaches up to its floor. Each clicked piece becomes a wall of its own, and walls that meet are joined cleanly by themselves.
 
 ## Steps
 
 1. Click {m:wall}.
-2. Click point after point to raise the walls (or type a length like 5).
-3. Click the first point to close it; double-click or Enter to finish.
-4. Set the thickness and height in the window.
+2. At the top of the window, select {t:ws.how.points} or {t:ws.how.line}.
+3. With {t:ws.how.points}, click point after point to raise the walls (or type a length like 5). Click the first point to close it; double-click or Enter to finish.
+4. With {t:ws.how.line}, click a line on the floor: a sketch line, a building outline or a site line. The wall starts where you clicked. Move the cursor along the line and the wall follows its bends; click where it ends to put it up. You can also type the length in the {t:ws.lineLen} field or the command line and press Enter.
+5. Set the thickness and height in the window.
 
 ## Tips
 
@@ -12310,7 +12383,11 @@ Click points on the floor one after another to put up walls. A wall starts on th
 - The pointer snaps to wall ends, wall corners and wall lines on the same level, showing {t:flow.snap.end}, {t:flow.snap.corner} or {t:flow.snap.line}.
 - Values in the {t:opt.segLength} and {t:opt.angle} fields of the window set the length and direction of the next wall. You can also type \`@5<90\` in the command line ([coordinates and lengths](help:input-coords)).
 - Press, wait 0.5 s and drag while clicking points to draw a curved wall. A wall with curves is made as one wall.
+- With {t:ws.how.line} the start and the end snap to the line's ends and bends, elsewhere to the grid step. A closed line can be followed once round; going all the way round makes a closed wall. Every bend starts a new wall, joined to the one before.
+- A typed length goes that far the way the cursor last moved. After picking a line, Esc lets you pick another one.
 - Switch {t:archedit.wallJoin} off and the ends of new walls are not joined to other walls. After drawing, the {t:archedit.joins} buttons in the Properties window join or free each end.
+- Drawing on from the end of a wall, or from a corner where two walls meet, never makes a wall disappear. Where the ends cannot be fitted cleanly, they stay square and overlap.
+- To cut a wall, use {m:wallSplit}. Click the wall: its nearer end becomes the {t:ws.base}. Then click where to cut, or type the {t:ws.dist} from that end: [Automatic wall splitting](help:build-wall-split).
 - To raise the outer walls along the outline in one go, on part of a side only, or to delete part of a wall, use {m:outerWalls}: [Outer walls](help:build-outer-walls).
 - A value in {t:flow.baseOffset} starts the wall that much above the level's floor (below it for a negative value).
 - Select a drawn wall to change its thickness, height and line position in the Properties window, slope its top with {t:archedit.tops}, or reshape its line with {c:pathEdit}.
@@ -12318,7 +12395,7 @@ Click points on the floor one after another to put up walls. A wall starts on th
 
 ## Common mistakes
 
-- The walls are not closed, so {c:slabAuto} finds no closed walls. Click the first point again at the end, or make the wall ends meet exactly.
+- The walls are not closed, so {t:slab.way.walls} of the {c:slab} tool finds no closed walls. Click the first point again at the end, or make the wall ends meet exactly.
 - Walls appear on another level. Check the {t:lv.pickLevel} field of the tool window and the level in the status bar.
 - A wall is a little lower than the storey height, such as 2.8 m. It stops under the slab of the level above; this is correct ([wall tops](help:arch-wall-top)).
 - There is no height field in the window. With {t:flow.top} set to {t:flow.top.toFloor}, the height follows the level above. Click {t:flow.top.height} to get the field.
@@ -12360,8 +12437,8 @@ Build works out the roofs from the level outlines alone. The part of a level's t
 ## Common mistakes
 
 - Looking for {t:aw.roofOffset} in the upper level's row. The roof height belongs to the level that has the roof (the lower level).
-- An upper outline drawn slightly off the lower one can leave very narrow roof slivers. Pieces under 0.01 m² or under 20 mm wide on average get no roof, and when more than 1 m² is left out on one level the {c:buildFlow} window shows a note. To line corners up, start from {t:aw.useBelow} and edit.
-- Deleting an automatic roof does not last: applying the level again makes it again. To get rid of a terrace, widen the upper outline over it.
+- An upper outline drawn slightly off the lower one can leave very narrow roof slivers. Pieces under 0.01 m² or under 20 mm wide on average get no roof, and when more than 1 m² is left out on one level the {c:buildFlow} window shows a note. To line corners up, start from {t:ol.sameBelow} in the outline tool and edit.
+- A deleted automatic roof is not made in that place again when the level is applied. To bring it back, right-click that level's row in the {c:levelPanel} and select {t:lt.reviveAuto}, or click {t:lt.reviveAuto} in its row under {t:ab.detailed}. A changed outline that moves that place makes a new roof by itself.
 - A roof made with {m:roof} has no {t:aw.roofOffset} field. Only roofs made by Build have it.
 `,bi=`---
 id: build-courtyard
@@ -12384,7 +12461,7 @@ Draws a hole inside a level outline to leave an open yard (courtyard) in the mid
 2. In the outline tool, click {t:ol.mode.draw}.
 3. In the {t:aw.ring.outer} / {t:aw.ring.hole} choice, select {t:aw.ring.hole}.
 4. Draw the courtyard inside the outline as a {t:ol.shape.poly} or a {t:ol.shape.rect}. The first corner can be typed as coordinates, such as \`5,5\`.
-5. When it is finished it applies at once: inner walls stand round the courtyard and the slab gets its hole.
+5. When it is finished the slab gets its hole; inner walls stand round the courtyard when the tool closes.
 6. For a courtyard open from top to bottom, draw it at the same place on every level above.
 
 ## Tips
@@ -12394,7 +12471,7 @@ Draws a hole inside a level outline to leave an open yard (courtyard) in the mid
 - The roof terrace round a courtyard is made as several flat roof pieces that leave it open: [Automatic roofs and roof height](help:build-auto-roof).
 - A ceiling over the whole level leaves the courtyard open too.
 - Setting a level with a courtyard to {t:ab.kind.piloti} puts columns round the courtyard as well: [Piloti](help:build-piloti).
-- {t:aw.useBelow} takes the outer outline only, not the courtyards. Draw the courtyards on each level.
+- {t:ol.sameBelow} in the outline tool takes the outer outline only, not the courtyards. Draw the courtyards on each level.
 - A building closed on all four sides gets one courtyard; one open on a side is made by drawing a U-shaped building outline: [Courtyard house](help:brec-courtyard-house), [U-shaped building](help:brec-u-shape).
 - A hole in the slab with no walls round it: see [Atrium through several levels](help:brec-atrium).
 
@@ -12411,47 +12488,48 @@ title: Building Per Level
 분류: 건물 세우기
 난이도: 중급
 workspace: 3D 건설
-keywords: advanced, outline per level, level kind, normal, piloti, penthouse, level below, level above, outline as is, building outline, setback, overhang, apply outline, shape per level, details, set these levels, outer walls, raise walls, pick sides, part of a side
+keywords: advanced, outline per level, level kind, normal, piloti, penthouse, level below, level above, outline as is, building outline, setback, overhang, apply outline, shape per level, details, set these levels, outer walls, raise walls, select sides, part of a side
 commands: buildFlow, levelOutline, outerWalls, buildingEasy
 order: 30
 ---
 
 ## What
 
-Builds by giving each level its own outline and {t:ab.kind} ({t:ab.kind.normal}, {t:ab.kind.piloti}, {t:ab.kind.rooftop}). Finishing an outline or changing a kind makes the roofs, slabs and piloti columns of that level and of the level right below again at once. {t:ab.detailed} makes no walls by itself: raise them with {c:outerWalls}. Use it also to change a single level of a building made with {t:ab.easy}.
+Builds by giving each level its own outline and {t:ab.kind} ({t:ab.kind.normal} or {t:ab.kind.piloti}). Closing the outline tool or changing a kind makes the roofs, slabs and piloti columns of that level and of the level right below again. Outer walls stand by themselves on every side of the level outline and follow it when it changes. Use it also to change a single level of a building made with {t:ab.easy}.
 
 ## Steps
 
 1. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed} next to {t:ab.build}. The levels are listed from the top down.
 2. Click the name of the level to change to work on it.
-3. Click that level's outline button ({t:aw.outlineDraw}, or its area in m²) to open the outline tool, then draw a new outline or move its points. It applies as soon as the outline is finished.
-4. For the same shape as the level below, click {t:aw.useBelow} next to the outline button. When no level below has an outline, {t:aw.useShape} is shown instead, which takes the building outline as it is.
-5. In the {t:ab.kind} field select {t:ab.kind.normal}, {t:ab.kind.piloti} or {t:ab.kind.rooftop}. It applies as soon as it is selected.
-6. For walls, click {t:cmd.outerWalls} above the list. At the top of its window select {t:ow.mode.all}, {t:ow.mode.pick} or {t:ow.mode.draw}, then click {t:ew.build} at the bottom of the window: [Outer walls](help:build-outer-walls).
+3. Click that level's outline button ({t:aw.outlineDraw}, or its area in m²) to open the outline tool, then draw a new outline or move its points. Walls, columns and roofs are made again once, when the outline tool closes.
+4. For the same shape as the level below, click {t:ol.sameBelow} in the outline tool. When no level below has an outline, {t:ol.sameShape} shows instead. To use this outline on the other levels without one, click {t:ol.toAll}.
+5. In the {t:ab.kind} field select {t:ab.kind.normal} or {t:ab.kind.piloti}. It applies as soon as it is selected.
+6. Click an outer wall that is not needed to select it and delete it with the Delete key. To open only part of a side, delete that stretch with {t:ow.mode.cut} in {m:outerWalls}: [Outer walls](help:build-outer-walls).
 7. A level with an automatic roof gets a {t:aw.roofOffset} field under its row; a {t:ab.kind.piloti} level gets its column fields there.
 
 ## Tips
 
-- {t:ab.kind.normal} is an ordinary level with a slab, {t:ab.kind.piloti} a level with columns only ([Piloti](help:build-piloti)), {t:ab.kind.rooftop} a top level smaller than the one below. {t:ab.kind.rooftop} only changes the name: it gets the same parts as {t:ab.kind.normal}.
-- A basement shows {t:aw.useAbove} next to its outline button.
+- {t:ab.kind.normal} is an ordinary level with a slab, {t:ab.kind.piloti} a level with columns only ([Piloti](help:build-piloti)).
+- On a basement the outline tool shows {t:ol.sameAbove}.
 - Level outlines (basements too) stay inside the building outline. A part reaching outside is cut off; an outline wholly outside, or one that would fall into pieces, is not taken. For an upper level that overhangs, draw the building outline as large as the widest level and shrink the levels below: [Building outline](help:build-outline).
-- The {t:cmd.outerWalls} button is the same as {m:outerWalls} on the menu. Each selected side or stretch gets one ordinary wall, at first with its outer face on the outline, up to the floor above. One raise is one undo step.
-- Walls raised with {c:outerWalls} are like walls drawn by hand: they do not follow when the outline changes. Only the outer walls of a building made with {t:ab.easy} are made again along the outline.
+- Where an outer wall was deleted stays open when the level is applied again or a level is added. To bring it back, click that place on the level while no tool is in use. It shows as a dashed line; a click brings the wall back with the message {t:aw.wallBack}.
+- A level with walls drawn by hand gets no automatic outer walls, and its row shows the note {t:aw.handWalls}.
+- Walls raised with {c:outerWalls} are like walls drawn by hand: they do not follow when the outline changes.
 - Each apply is one undo step. A message gives the number of walls, columns and roofs made again.
-- With the {t:ceil.build} switch above the list on, a level whose outline you finish gets its ceiling too.
+- With the {t:ceil.build} switch above the list on, a level that gets its first outline gets its ceiling too.
 - In the outline tool, selecting {t:aw.ring.hole} under {t:ol.mode.draw} draws an open yard inside the outline: [Courtyards](help:build-courtyard).
-- Set the number of levels and the storey height in the fields at the top and click {t:fl.planApply}. A new building with only its outline drawn has one level, so add its levels here. A new level takes the outline of the level below, a new basement the one above.
+- To add or delete levels, open the {c:levelPanel} window with the {c:levelPanel} button at the top: [Levels](help:arch-levels). A new building with only its outline drawn has one level, so add its levels there. In a building made with Build a new level takes the outline of the level below, a new basement the one above.
 - Roofs and walls between levels of different shapes: [Automatic roofs and roof height](help:build-auto-roof), [Automatic wall splitting](help:build-wall-split).
 - Problems of the building are listed one per line above {t:ab.build}. An outline overlapping another building or reaching outside its site comes with an {t:cmd.outlineEdit} button; walls or columns outside the outline come with a {t:bo.issuePick} button.
 - For a building with walls drawn by hand, the {c:buildFlow} window starts with {t:ab.detailed} selected.
 
 ## Common mistakes
 
-- The outline is set but no walls appear. {t:ab.detailed} makes no walls by itself. Raise them with {c:outerWalls}.
+- The outline is set but no outer walls appear. A level with walls drawn by hand gets no automatic outer walls. Raise walls on the sides without one with {t:ow.mode.all} in {m:outerWalls}.
 - An upper level made wider was cut back. Level outlines cannot reach outside the building outline. Widen the building outline first with {c:areaEdit}.
-- The outline tool opened from the {c:levelPanel} or the menu makes the roofs again at once only in a building made with Build. For a building started by hand, open it with the outline button under {t:ab.detailed}.
-- In a building made with {t:ab.easy}, a changed outline makes the level's automatic walls new, so a door or window whose new wall does not stand where the old one did is deleted. Settle the outlines before adding doors and windows.
-- If you edit an automatic wall by hand and then apply its level again, the wall may be replaced by a new one. Undo with {c:undo} ({k:undo}).
+- Walls and roofs stay as they are while points are being edited. Wherever it was opened, the outline tool applies once, when it closes. Close it with Esc or {t:btn.close}.
+- A changed outline makes the level's automatic walls new, so a door or window whose new wall does not stand where the old one did is deleted. Settle the outlines before adding doors and windows. If one went by mistake, undo with {c:undo} ({k:undo}).
+- Automatic roofs and columns (and automatic walls other than outer walls) that were deleted or edited by hand are not made there again when the level is applied. An edited part stays as your own. To bring the automatic parts back, click {t:lt.reviveAuto} in that level's row, or right-click the level row in the {c:levelPanel} and select {t:lt.reviveAuto}.
 - Changing a level to {t:ab.kind.piloti} deletes all of its outer walls and puts up columns. Doors and windows in those walls go too.
 `,Si=`---
 id: build-easy
@@ -12459,7 +12537,7 @@ title: Quick Building
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: quick building, basic, fast building, whole building at once, number of floors, storey height, basement, build again, auto building, quickbuilding, easybuilding, draw site, draw outline, building outline, grading, leave as is, add ceilings, outer walls, wall, no wall, part, walls per side, part of a wall, garage
+keywords: quick building, basic, fast building, whole building at once, number of floors, storey height, basement, build again, auto building, quickbuilding, easybuilding, draw site, draw outline, building outline, grading, leave as is, add ceilings, outer walls, walls on every side, delete a wall not needed
 commands: buildingEasy, buildFlow, buildingOutline, siteArea, grade, levelAdd
 context: buildingEasy
 order: 20
@@ -12467,59 +12545,51 @@ order: 20
 
 ## What
 
-Set the number of floors and the storey height, and the levels, level outlines, outer walls, slabs and a flat roof all appear on the building outline at once. The window walks you through ① {t:bo.step.site} ② {t:bo.step.outline} ③ {t:bo.step.grade} ④ {t:bo.step.build} and starts with any step still missing. Step ③ may be skipped: the whole site is never asked to be graded first. Every level's outline takes the shape of the building outline, and the outer walls follow it. Each side can have a wall, no wall, or a wall on part of it. The whole result is one undo step.
+Set the number of floors and the storey height, and the levels, level outlines, outer walls, slabs and a flat roof all appear on the building outline at once. It has no window of its own: you build in the {t:fl.step.levels} step of the [Build Progress](help:arch-flow) window. Grading may be skipped, and the whole site is never asked to be graded first. Every level's outline takes the shape of the building outline, and the outer walls stand on every side of it. A wall not needed is clicked, selected and deleted after building. The whole result is one undo step.
 
 ## Steps
 
 1. Click {m:buildingEasy}. Typing \`quickbuilding\` on the command line does the same.
-2. With sites drawn, select the site in the {t:bo.site} list. To build on the whole land without a site, select {t:bld.wholeLand}. With no site at all this step is done by itself.
-3. Select the building to raise in the {t:bo.outlinePick} list. Without an outline, click {t:aw.drawOutline} and draw one. When it is drawn, the window opens again.
-4. On land with terrain a {t:bo.grade} button shows at the bottom. It opens the grading tool on the ground under the building outline, and the window opens again when the tool is closed. Skip it to build on the ground as it is.
-5. Set {t:bnew.above} (1 to 50), {t:bnew.below} (0 to 10) and the {t:bnew.height} (m).
-6. In the {t:ec.title} box, set the sides that need no wall to {t:ec.state.none}, and those open only in part to {t:ec.state.part}. Left as they are, walls go all round.
-7. Check the place named in the note at the bottom of the window, then click {t:aw.easyGo}. A message lists the levels, walls, columns and roofs made, and work moves to the building's ground floor.
+2. With a building to raise, the work scope moves to that building and the {c:buildFlow} window opens on {t:ab.easy} in step 5, {t:fl.step.levels}. A building to raise is one with an outline and nothing raised yet: the building outline selected in the view comes first, else the one in the work scope.
+3. With no building to raise, the building outline tool opens on that site, or on the whole land without a site. When the outline is drawn, you move to {t:ab.easy} of that building.
+4. On land with terrain the card has a {t:bo.grade} button. It opens the grading tool on the ground under the building outline. Grading may be skipped.
+5. Type {t:bnew.above} (1 to 50), {t:bnew.below} (0 to 10) and the {t:bnew.height} (m).
+6. Click {t:aw.easyGo}. A message lists the levels, walls, columns and roofs made, and work moves to the building's ground floor.
 
 ## Tips
 
-- Where the window opens from: the menu button, the {c:buildingEasy} button at the bottom of the {c:levelPanel} window, the side bar and right-click menu of a building outline, and the {c:buildFlow} window of a scope without a building. Opened with a building outline selected, that building is already selected.
-- Instead of the {t:bo.site} and {t:bo.outlinePick} lists, you can click {t:bo.pickInView} and then click a site or building outline in the view. Esc goes back to the window.
-- The {t:bo.outlinePick} list shows the buildings with an outline but nothing raised yet, with their areas. To draw a new outline, select {t:bo.outlineNew}.
-- The {t:ec.title} box has a small plan of the outline with its sides numbered, and a list with one line per side, such as Side 3 · 12.0 m. Each line selects {t:ec.state.wall}, {t:ec.state.none} or {t:ec.state.part}. A click on a side in the plan switches it between {t:ec.state.wall} and {t:ec.state.none}. The plan and list are the same as {t:ow.mode.pick} in [Outer walls](help:build-outer-walls).
-- {t:ec.state.part}: set each stretch with no wall by {t:ec.start} (from the side's first point) and {t:ec.length}, in mm, or drag the dots at its ends on the plan. {t:ec.addGap} gives a side more stretches. For example, start 8000 and length 3000 on a 20 m front side opens only its middle 3 m.
-- Deleting part of an outer wall later with {t:ow.mode.cut} in {m:outerWalls} shows up here as {t:ec.state.part} too, and building again leaves that stretch open.
-- With two or more levels, select one level instead of {t:ec.allLevels} in the level list of the {t:ec.title} box to change the walls of that level only. For example, select Level 1 and set the front side to {t:ec.state.none} for an open garage on the ground floor. Basements are not in the list.
-- With {t:ec.allLevels} selected, a side whose walls differ from level to level shows {t:ec.state.varies}. Selecting {t:ec.state.wall} or {t:ec.state.none} in its row makes every level the same.
-- A curved side can be set to {t:ec.state.part} too: {t:ec.start} and {t:ec.length} are measured along the curve. {t:ab.kind.piloti} levels have no outer walls anyway.
-- A side set to {t:ec.state.none} stays without a wall as a whole when the building outline is changed later and the side gets longer.
-- Walls, roofs and columns made by building that you delete or change stay so when the building is raised again or a level is added. A deleted outer wall shows in the {t:ec.title} box as {t:ec.state.none} or {t:ec.state.part} on its level; a changed part becomes one drawn by hand.
+- Where {c:buildingEasy} is: the menu button, the {c:buildingEasy} button at the bottom of the {c:levelPanel} window, the side bar and right-click menu of a building outline, and the {c:buildFlow} window of a scope without a building. Clicked with a building outline selected, it raises that building.
+- To build on another site, select that site in the view and click {m:buildingEasy}, or draw an outline with {c:buildingOutline}. To change the site a building stands on, use the site list in step 1, {t:fl.step.site}, of Build Progress.
+- The outer walls always go on every side. For a side that needs no wall, click its wall after building and delete it with the Delete key; to open only part of a side, delete that stretch with {t:ow.mode.cut} in {m:outerWalls}: [Outer walls](help:build-outer-walls). {t:ab.kind.piloti} levels have no outer walls anyway.
+- Walls, roofs and columns made by building that you delete or change stay so when the building is raised again or a level is added. A deleted outer wall does not come back there; a changed part becomes one drawn by hand.
+- Where an outer wall was deleted stays open when the building outline is changed later and the side gets longer.
+- To bring a deleted outer wall back, click the place where it was on that level while no tool is in use. The place shows as a dashed line that turns solid under the pointer. A click brings the wall back with the message {t:aw.wallBack}; one undo takes it away again.
 - When raising again changes the walls so that a door or window has no wall left to sit in, it is deleted, and a message gives the number with a {t:cmd.undo} button.
-- The first time, the window holds 3 floors, 0 basements and a 3 m storey height; after that it keeps the values you used last. Drawing a site or an outline on the way keeps the values you typed.
+- For an empty building, {t:ab.easy} first holds 3 floors, 0 basements and a 3 m storey height; after that it keeps the values you used last.
 - With {t:ceil.build} on (it starts on), every level except piloti levels gets a ceiling too.
 - Basements get a 0.3 m basement wall along their outline instead of outer walls. Every level gets a slab; the top level gets the flat roof.
 - The ground floor height follows the grading of that place if it has one, else the highest ground there (0 without terrain). Change it later in the {t:fl.step.base} step of [Build Progress](help:arch-flow).
-- For a building made this way, change the floors, the storey height and the walls per side under {t:ab.easy} in the {t:fl.step.levels} step of the {c:buildFlow} window and click {t:aw.easyAgain}. New levels take the outline of the level next to them.
+- For a building made this way, change the floors and the storey height under {t:ab.easy} in the {t:fl.step.levels} step of the {c:buildFlow} window and click {t:aw.easyAgain}. New levels take the outline of the level next to them.
 - When the building outline is changed, the outer walls are made again along the new outline: [Building outline](help:build-outline).
 - Adding a level with {m:levelAdd} also gives the new level the outline below with its walls, and the flat roof moves up to the new top level. With {t:ceil.build} on, the new level gets its ceiling too.
 - To change the shape of one level only, use [Per level](help:build-detailed).
-- The level list of {t:ec.title} shows the floors typed even before the building is built (Level 1, Level 2 …) and applies them to the real levels when it is built: a ground floor carport is one pass. Each row also names the way the side faces, and pointing at a row or side highlights it in 3D with its number. {t:ec.start} and {t:ec.length} are typed in mm with the value in m beside them.
-- Grading is not asked first: once the outline is drawn, a {t:bo.grade} button offers to flatten the ground under it, and it may be skipped.
 
 ## Common mistakes
 
 - The storey height is in metres. Type \`3\`, not \`3000\`.
 - {t:aw.easyAgain} with fewer floors keeps the levels that hold parts you placed by hand. The message says how many were kept.
 - In a building whose walls or columns were drawn by hand, {t:ab.easy} shows a note and a {c:buildingEasy} button instead of {t:aw.easyGo}. Change that building under [Per level](help:build-detailed), or build a new one.
-- No building outline is made up for you. With no building to raise, the {t:bo.outlinePick} list shows {t:bo.outlineNew} and the main button turns into {t:aw.drawOutline}.
-- A side set to {t:ec.state.none} or {t:ec.state.part} gets no wall there when the building is raised again. For a wall there, set the side to {t:ec.state.wall} and click {t:aw.easyAgain}.
-- When a stretch ends less than 0.3 m from the end of its side, the short wall left between is not made.
+- No building outline is made up for you. With no building to raise, the building outline tool opens: draw the outline.
+- A deleted outer wall does not come back with {t:aw.easyAgain}. For a wall there, click the place where it was on that level to bring it back.
+- When a stretch deleted in part ends less than 0.3 m from the end of its side, the short wall left between is not made.
 `,Ci=`---
 id: build-names-tree
 title: Building names, colours and the project tree
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: building name, Building A, building colour, building color, project tree, project list, project window, tree, levels list, land, site, civil, basement name, B1, rename, hide building, path, where am I working, all levels, right click, ceilings on all levels, move building, another site, drag and drop
-commands: levelPanel, buildingEasy, buildingNew, buildingOutline, levelAdd, ceilingAll
+keywords: building name, Building A, building colour, building color, project tree, project list, project window, tree, levels list, land, site, civil, basement name, B1, rename, hide building, path, where am I working, all levels, right click, move building, another site, drag and drop, restore auto parts, deleted roof
+commands: levelPanel, buildingEasy, buildingOutline, levelAdd
 order: 90
 ---
 
@@ -12530,7 +12600,7 @@ New buildings are named **Building A, Building B …** and each gets its own col
 ## Steps
 
 1. Click the levels button in front of the path in the status bar to bring the {c:levelPanel} window to the front. At first the window is docked at the right of the screen.
-2. A click on a row only selects: a site row selects that place, a building or level row selects its shown parts, and the row is marked. Double-click a row, its name included, or press Enter to move work to that site, building or level. While a tool is open, a click on a level row only moves the work to that level and selects nothing. A click on the {t:aw.land} row moves work to the whole land.
+2. A click on a site or building row only selects: a site row selects that place, a building row selects its shown parts, and the row is marked. Double-click such a row, its name included, or press Enter to move work to that site or building. A level row works the other way: one click moves work to that level, a double-click also selects its shown parts. While a tool is open, a double-click too only moves the work to that level. A click on the {t:aw.land} row moves work to the whole land.
 3. Use a row's **+** button to add what goes under it: the {t:aw.land} row does {t:aw.addSite}, a site row opens the tool that draws a [building outline](help:build-outline) on that site, a building row adds a level.
 4. The eye button of site and building rows hides them in the view or shows them again.
 5. Right-click a row for a menu with {t:aw.rename}, {t:aw.delete} and more. Deleting asks once more. F2 on a selected row renames it too; a name is a field only while it is renamed.
@@ -12538,7 +12608,8 @@ New buildings are named **Building A, Building B …** and each gets its own col
 
 ## Tips
 
-- The right-click menu adds {c:planView}, {c:ceilingView} and {c:archSection} on a level row, and {c:archSection}, {t:aw.color} and {c:ceilingAll} on a building row. Selecting a view moves the work scope to that level or building first.
+- The right-click menu adds {c:planView}, {c:ceilingView} and {c:archSection} on a level row, and {c:archSection} and {t:aw.color} on a building row. Selecting a view moves the work scope to that level or building first.
+- A level where roofs or columns made by Build were deleted or edited shows {t:lt.reviveAuto} in its right-click menu. It makes the automatic parts there again; parts edited by hand stay.
 - A new building takes the first letter not used in the project yet: with Building A there, the next is Building B. A renamed building (such as Main Hall) holds no letter.
 - With more than one building, level names start with the building name, such as Building A · Level 2.
 - New basements are named B1, B2. A level name you typed stays as it is.
@@ -12547,7 +12618,7 @@ New buildings are named **Building A, Building B …** and each gets its own col
 - Buildings are listed under the site they stand on; a building on no site is listed right under the {t:aw.land} row. Buildings whose outlines touch get a row each too: [Joined buildings](help:build-shared-levels).
 - Drag a building row onto another site row, or pick a site under {t:so.moveToSite} in the building row's right-click menu. When the building lies outside that site you are asked first; it then moves to the middle of the site, or else to the nearest free place 1 m clear of the other buildings, and is selected and brought into view. If there is no room, it stays and a message says so. The Objects window works the same way.
 - A level row has its name, the {t:levels.height} field, its floor height, the outline button, the view button (each click: shown → faded → hidden), show only this level and zoom to it. The ground floor button of a building row sets the ground floor height again.
-- Under the list are the {t:levels.add}, {t:levels.addBasement}, {t:levels.copy}, {t:levels.delete}, {c:buildingEasy} and {c:buildingNew} buttons and the {t:levels.upper} choice: [Levels](help:arch-levels).
+- Under the list are the {t:levels.add}, {t:levels.addBasement}, {t:levels.copy}, {t:levels.delete}, {c:buildingEasy} and {c:buildingOutline} buttons and the {t:levels.upper} choice: [Levels](help:arch-levels).
 - The {t:aw.civil} group at the end lists civil structures such as roads, bridges, tunnels and levees, in order of kind and by their own names (Road 1, Bridge 1 …). Click one to select it.
 - A new part or structure gets the number after the highest one of that name: with Road 1 and Road 3, a new road is Road 4. Existing names never change.
 - Click a step of the path in the status bar (Site 1 › Building A › Level 3) to move to another place at that step: [Work scope](help:site-scope).
@@ -12567,7 +12638,7 @@ title: Outer walls
 분류: 건물 세우기
 난이도: 기초
 workspace: 3D 건설
-keywords: outer walls, outerwalls, edgewall, walls along the outline, all, pick sides, draw, delete part, part of a wall, delete part of a wall, stretch, part of a side, wall thickness, wall height, outer face, centre, inner face, all levels, walls first, outline from walls
+keywords: outer walls, outerwalls, edgewall, walls along the outline, all, select sides, pick sides, box select, enlarge, delete part, part of a wall, delete part of a wall, stretch, part of a side, wall thickness, wall height, outer face, centre, inner face, all levels, walls first, outline from walls
 commands: outerWalls, wallCut, wall, buildingOutline
 howto: outerWalls
 context: outerWalls, wallCut
@@ -12576,37 +12647,40 @@ order: 35
 
 ## What
 
-One window for the outer walls along the building outline. The four ways at its top share the same settings. {t:ow.mode.all} raises walls on every side, {t:ow.mode.pick} on the sides you select or on part of them. {t:ow.mode.draw} draws walls as lines, and {t:ow.mode.cut} deletes one stretch of a wall already there. Every way makes ordinary walls, changed later in the same way.
+One window for the outer walls along the building outline. The three ways at its top share the same settings. {t:ow.mode.all} raises walls on every side, {t:ow.mode.pick} on the sides you select or on part of them. Both skip sides and stretches that already have a wall and raise walls only where there is none. {t:ow.mode.cut} deletes one stretch of a wall already there. The walls made are ordinary walls. To draw walls yourself, use {m:wall}.
 
 ## Steps
 
-1. Click {m:outerWalls}. The {t:fl.step.walls} step of [Build Progress](help:arch-flow) and the {t:cmd.outerWalls} button under {t:ab.detailed} open the same window.
-2. At the top of the window select {t:ow.mode.all}, {t:ow.mode.pick}, {t:ow.mode.draw} or {t:ow.mode.cut}.
+1. Click {m:outerWalls}. The {t:fl.step.walls} step of [Build Progress](help:arch-flow) opens the same window.
+2. At the top of the window select {t:ow.mode.all}, {t:ow.mode.pick} or {t:ow.mode.cut}.
 3. Set the settings, always in the same order: {t:opt.wallJustify} ({t:flow.justify.left}, {t:flow.justify.center}, {t:flow.justify.right}), {t:flow.top}, {t:opt.thickness}, {t:param.h}, and {t:ew.thisLevel} or {t:ec.allLevels}.
-4. With {t:ow.mode.all}, click {t:ew.build} at the bottom of the window. Every side of the outline gets a wall. That button is the window's only action button; in {t:ow.mode.cut} it reads {t:ew.delete}.
-5. With {t:ow.mode.pick}, click a side in the view for all of it, or drag along it for that stretch only. The window's list can also set each side to {t:ec.state.wall}, {t:ec.state.none} or {t:ec.state.part}. Then click {t:ew.build}.
-6. With {t:ow.mode.draw}, the [Walls](help:arch-wall) tool opens with the same settings: click the points of the walls one after another. With {t:ow.mode.cut}, drag along a wall over the stretch to delete, then press Delete or click {t:ew.delete}.
+4. With {t:ow.mode.all}, click {t:ew.build} at the bottom of the window. The sides and stretches of the outline without a wall get one. When every side has a wall already, the message {t:aa.wallsHave} shows. That button is the window's only action button; in {t:ow.mode.cut} it reads {t:ew.delete}.
+5. With {t:ow.mode.pick}, click a side in the view for all of it, or drag along it for that stretch only. A drag from an empty spot selects the sides in its box at once. The window's small plan selects the same ways. Then click {t:ew.build}. When every selected side has a wall already, the message {t:ew.pickedHave} shows.
+6. With {t:ow.mode.cut}, click the wall near the end to measure from. That end becomes the {t:ws.base} and is marked in the 3D view. Click where the stretch starts and where it ends, or type {t:ws.cutStart} and {t:ec.length} from that end in the window. You can also type start,length like \`1,2\` in the command line, in the current unit (m at first). {t:ws.flip} measures from the other end. A drag along the wall picks a stretch at once too. Then press Delete or click {t:ew.delete}.
 
 ## Tips
 
 - {t:opt.wallJustify} says which face of the wall lies on the outline. With {t:flow.justify.left}, the first choice, the wall stands inside the outline.
 - With {t:flow.top.toFloor} under {t:flow.top}, the walls reach the floor above and follow storey height changes. Without a level above, type the {t:param.h}.
-- {t:ec.allLevels} raises the walls on every level with the same side at once. {t:ow.mode.all} gives basements their 0.3 m basement wall and skips levels that have walls already.
+- {t:ec.allLevels} raises the walls on every level with the same side at once. {t:ow.mode.all} gives basements their 0.3 m basement wall and skips sides and stretches that have walls already. One wall on a level does not make the whole level skipped.
+- On a basement, {t:ow.mode.pick} makes nothing and shows the message {t:ew.basementPick}. Raise basement walls with {t:ow.mode.all}.
 - The window is named {t:cmd.outerWalls} whichever way is selected. The way in use shows in the buttons on top.
 - Dragging along a side snaps to its ends and its middle, and to the grid step elsewhere. Start and length show next to the cursor in mm while you drag.
 - Curved sides and curved walls can be selected and deleted in part too. Start and length are measured along the curve, and the snaps are the curve's ends, the middle of its length and the grid step measured along it. The stretch selected is drawn on the curve itself.
 - While a stretch is being selected with {t:ow.mode.pick} or {t:ow.mode.cut}, the levels above and the roofs and ceilings of this level are drawn faded, so the walls show from above. Another way or closing the window brings the view back. The {c:upperLevels} setting does not change.
-- Type start,length in mm on the command line, such as \`2000,3000\`, to select that stretch of the side last pointed at. One number changes the length of the last stretch.
-- The window's plan and list use the same numbers and words as the {t:ec.title} box of [Quick Building](help:build-easy). {t:ec.state.part} takes a {t:ec.start} and {t:ec.length} in mm for each stretch, or the dots dragged on the plan.
+- Type start,length in the current unit on the command line, such as \`2,3\`, to select that stretch of the side last pointed at. One number changes the length of the last stretch.
+- The box works as the app's box selection. Dragged left to right it selects the sides wholly inside; right to left also the sides it touches. With no key held it replaces the selection, with Shift it adds, with Ctrl it removes. Shift+click on a side adds it, Ctrl+click removes it.
+- The window's small plan numbers the sides and draws the selected ones solid, the others dashed. For a side selected in part, drag the dots at the ends of the stretch to change it. Pointing at a side of the plan shows it in the 3D view with its number.
+- The {t:ec.zoom} button in the plan's corner, or a double click on an empty spot of the small plan, opens the {t:ec.bigTitle} window large. Its numbers sit outside the sides, clear of each other, and clicks and boxes select the same way. Esc or {t:btn.close} closes it.
 - {t:ow.mode.cut} is the same as {c:wallCut} in a wall's right-click menu. The pieces on either side stay; doors and windows wholly inside the stretch go with it, and the message gives their number. A curved wall is split on its curve there, and the pieces left keep the same curve, thickness, top and justification.
-- Deleting part of an outer wall of a building made with {t:ab.easy} turns that side to {t:ec.state.part} in the {t:ec.title} box. Building again leaves the stretch open.
+- Deleting an outer wall made by building, or part of one, leaves that stretch open when the building is raised again or a level is added. To bring it back, click that place on the level while no tool is in use. It shows as a dashed line that turns solid under the pointer; a click brings the wall back with the message {t:aw.wallBack}.
 - Walls may come first. In a building without an outline, walls closing a ring give it its building outline along their outer faces, with the message {t:bo.fromWalls}. One undo takes the walls and the outline back. The message has {t:cmd.outlineEdit} and {t:cmd.undo} buttons. A small or very thin ring may be a slip: it is not made into the outline by itself, and the message asks with {t:bo.fromWallsBtn}. When the walls that made the outline are changed later, a message offers {t:bo.refit}.
 - Walls that do not close make no outline, and the {t:fl.step.shape} step of [Build Progress](help:arch-flow) offers {t:bo.fromWallsBtn}, which makes an outline round all the walls drawn.
 - Each raise and each delete is one undo step.
 
 ## Common mistakes
 
-- {t:ew.build} is greyed out under {t:ow.mode.pick}. No side is selected yet. Click a side, or set one to {t:ec.state.wall} in the list.
+- {t:ew.build} is greyed out under {t:ow.mode.pick}. No side is selected yet. Click a side or select sides with a box.
 - A message says a door or window lies across an end of the stretch. A stretch cutting through a door or window is not deleted. Move the stretch clear of it, or take the door or window in.
 - Closed, stepped-top and linked walls cannot lose only a part; nor can a closed curved wall. An outer wall made by building can, even a closed one.
 - A stretch shorter than 100 mm cannot be deleted. Dragging to within 100 mm of an end deletes up to that end.
@@ -12629,7 +12703,7 @@ The tool that draws the most ground a building may take up. Drawing an outline m
 
 ## Steps
 
-1. Click {m:buildingOutline}. {c:buildingNew} and the **+** button of a site row in the project tree open the same tool.
+1. Click {m:buildingOutline}. The {c:buildingOutline} buttons of the Build Progress and project tree windows and the **+** button of a site row in the project tree open the same tool.
 2. With sites drawn, select the site the building stands on in the {t:so.target} list of the window. To build without a site, select {t:bld.wholeLand}.
 3. Select {t:opt.areaRect} or {t:opt.areaPoly} and draw the outline. In a polygon, press, wait 0.5 s and drag to make a curved side.
 4. When it is drawn the building is made, and a message gives its name and area (for example Building B made · 120.0 m²). Work moves to its ground floor.
@@ -12646,7 +12720,7 @@ The tool that draws the most ground a building may take up. Drawing an outline m
 - The {t:fl.step.shape} step of the {c:buildFlow} window shows the outline's area with the building area and coverage.
 - Changing it later: with no tool, click the empty ground inside an outline to select it. Its side bar and right-click menu offer {c:areaEdit}, {c:buildingEasy} and {c:areaDelete}. A double click inside the outline moves the work scope into that building.
 - Reshaping with {c:areaEdit} (dragging corners, editing curves or drawing it again) applies at once. Levels that had the old outline take the new one; other levels are cut to it. The walls and roofs made by building are made again for the new outline, and so are those of a building touching it. Walls drawn by hand that are left outside stay, and a message counts them.
-- A side set to {t:ec.state.none} stays without a wall as a whole when it gets longer. The stretches of {t:ec.state.part} keep their places, measured from the side's first point.
+- A side whose outer wall was deleted whole stays without a wall as a whole when it gets longer. Stretches deleted in part keep their places, measured from the side's first point.
 - {c:areaDelete} deletes the building with its levels and parts. When it is the only building, {t:lt.clearBuilding} is offered instead. When its outline has its own grading, you are asked first whether the grading goes too, as for a site.
 - Moving it to another site: drag the building row onto another site row in the project tree or the Objects window. The building moves to the middle of that site, or else to the nearest free place, and a message says so. Changing the {t:so.bldSite} list in step ① of the {c:buildFlow} window or {t:so.moveToSite} in the right-click menu does the same, asking first when the building lies outside that site. The free place keeps 1 m from the other buildings, and the building moved is selected and brought into view.
 
@@ -12670,20 +12744,20 @@ order: 10
 
 ## What
 
-Makes the levels, level outlines, outer walls, slabs and roofs in one go instead of drawing them one by one. Every building starts from its [building outline](help:build-outline). {t:ab.easy} raises the whole building, outer walls included, from the number of floors and the storey height; {t:ab.detailed} sets an outline and a {t:ab.kind} for each level and raises walls only on the sides you select. Both make the same data, so you can build with {t:ab.easy} and then change a single level under {t:ab.detailed}.
+Makes the levels, level outlines, outer walls, slabs and roofs in one go instead of drawing them one by one. Every building starts from its [building outline](help:build-outline). {t:ab.easy} raises the whole building, outer walls included, from the number of floors and the storey height; {t:ab.detailed} sets an outline and a {t:ab.kind} for each level. Both raise outer walls by themselves on every side of the outline. Both make the same data, so you can build with {t:ab.easy} and then change a single level under {t:ab.detailed}.
 
 ## Steps
 
 1. Click {m:buildingEasy}.
-2. At the top of the window, the steps ① {t:bo.step.site} ② {t:bo.step.outline} ③ {t:bo.step.grade} ④ {t:bo.step.build} show which one is next. The main button at the bottom does that step.
-3. If there is no building outline yet, click the main button and draw it. When it is drawn, this window opens again.
-4. Set {t:bnew.above}, {t:bnew.below} and {t:bnew.height}, then click {t:aw.easyGo}.
-5. If a level needs another shape, select {t:ab.detailed} in the {t:fl.step.levels} step of the {c:buildFlow} window and change that level's outline or {t:ab.kind}. Changes apply at once.
+2. With no building outline to raise, the building outline tool opens. Draw the outline.
+3. When {t:ab.easy} shows in the {t:fl.step.levels} step of the {c:buildFlow} window, type {t:bnew.above}, {t:bnew.below} and {t:bnew.height}, then click {t:aw.easyGo}.
+4. Click an outer wall that is not needed to select it and delete it with the Delete key.
+5. If a level needs another shape, select {t:ab.detailed} in the {t:fl.step.levels} step of the {c:buildFlow} window and change that level's outline or {t:ab.kind}. A kind applies at once, an outline when the outline tool closes.
 6. If you do not like the result, click {c:undo} ({k:undo}). Each build and each change is one undo step.
 
 ## Tips
 
-- {t:ab.easy} gives every level the shape of the building outline, puts outer walls round it (each side can be switched off) and a flat roof on top: [Quick Building](help:build-easy).
+- {t:ab.easy} gives every level the shape of the building outline, puts outer walls round it and a flat roof on top: [Quick Building](help:build-easy).
 - A building whose third floor is narrower, one standing on columns, or one with an open middle is made under [Per level](help:build-detailed).
 - What is worked out by itself: [Automatic roofs and roof height](help:build-auto-roof), [Automatic wall splitting](help:build-wall-split), [Piloti](help:build-piloti), [Courtyards](help:build-courtyard).
 - The {t:ceil.build} switch is on from the start: every level except piloti levels gets a ceiling that follows the storey height: [Ceilings](help:arch-ceiling).
@@ -12695,10 +12769,8 @@ Makes the levels, level outlines, outer walls, slabs and roofs in one go instead
 
 - Deleting automatic walls and roofs one by one and drawing them again. To change the shape, edit that level's outline: its walls and roofs are made again with it.
 - A level with walls drawn by hand gets no automatic outer walls, only its roofs.
-- A building made with {t:ab.detailed} only gets no walls by itself. Raise them with {m:outerWalls}: [Outer walls](help:build-outer-walls).
-- Changing an outline makes that level's automatic walls again. A door or window whose new wall does not stand where the old one did is deleted, so settle the outlines before adding doors and windows.
-- On land with terrain, step ② needs a choice, {t:bo.grade} or {t:fl.gradeSkip}, before the next step comes.
-`,Di=`---
+- A deleted outer wall does not come back when the building is raised again. To bring it back, click the place where it was on that level: [Quick Building](help:build-easy).
+- Changing an outline makes that level's automatic walls again. A door or window whose new wall does not stand where the old one did is deleted, so settle the outlines before adding doors and windows.`,Di=`---
 id: build-piloti
 title: Piloti
 분류: 건물 세우기
@@ -12759,8 +12831,8 @@ Each building has its own [building outline](help:build-outline). Buildings on t
 
 1. Draw the first building's outline with {m:buildingOutline}. Building A is made.
 2. Click {m:buildingOutline} again and draw an outline that touches the first one, starting from a corner of the first building's outline. Building B is made.
-3. Click {m:buildingEasy}, select Building A in the {t:bo.outlinePick} list, type the floors and storey height and click {t:aw.easyGo}.
-4. Open {m:buildingEasy} again, select Building B and raise it with the same storey height.
+3. Click Building A's outline in the view to select it and click {m:buildingEasy}. Under {t:ab.easy} in the {c:buildFlow} window, type the floors and storey height and click {t:aw.easyGo}.
+4. Select Building B's outline, click {m:buildingEasy} again and raise it with the same storey height.
 5. In the {c:levelPanel}, check that both buildings show as separate rows under the same site.
 
 ## Tips
@@ -12811,7 +12883,7 @@ When one side's outer wall lies partly under the level above and partly under a 
 - Pieces shorter than 0.3 m are not made on their own; they join the piece next to them.
 - A curved side becomes one curved wall; cut at a boundary, each piece is a smooth curved wall.
 - With Level 3 only in the middle of the long direction, the long-side walls of Level 2 come in three pieces: terrace, Level 3, terrace.
-- Cut a hand-drawn wall in two where you click with {m:wallSplit}, then set each piece's top on its own. Each click cuts there; Esc ends: [Wall tops](help:arch-wall-top).
+- Cut a hand-drawn wall in two with {m:wallSplit}, then set each piece's top on its own: [Wall tops](help:arch-wall-top). Click the wall near the end to measure from: that end becomes the {t:ws.base}. Then click where to cut, or type the {t:ws.dist} from that end in the window or the command line and press Enter. {t:ws.flip} measures from the other end. After each cut you pick the next wall; Esc ends.
 - When you make a roof yourself with {m:roof}, {t:aw.splitWalls} (on from the start) cuts the walls lying across the roof's edge there and attaches only the pieces under the roof.
 - A hand-drawn wall lying wholly under a roof terrace made by Build is attached to that roof by itself.
 
@@ -12819,7 +12891,7 @@ When one side's outer wall lies partly under the level above and partly under a 
 
 - Walls drawn by hand are not cut by themselves where a terrace edge crosses them. Cut them yourself with {c:wallSplit} when needed.
 - A level with walls drawn by hand gets no automatic outer walls, only its roofs.
-- A cut automatic wall that you delete stays deleted: applying the level again makes no wall there. To have one again, draw it with [Outer walls](help:build-outer-walls) or {m:wall}.
+- A cut automatic wall that you delete stays deleted: applying the level again makes no wall there. To bring it back, click that place on the level while no tool is in use: [Quick Building](help:build-easy).
 - Curved walls, closed walls, walls with a stepped top and linked copies cannot be cut with {c:wallSplit}, and a wall cannot be cut within 0.1 m of its ends.
 - {c:wallSplit} is not on the menu. It is on the advanced menus only: select {t:level.advanced} at the right of the menu bar: [Basic and advanced menus](help:start-level).
 `,Ai=`---
@@ -12829,38 +12901,39 @@ title: Atrium through several levels
 난이도: 심화
 workspace: 3D 건설
 keywords: atrium, void, double height, triple height, open to several floors, slab hole, hole in the floor, tall wall, three-storey wall, lobby, hall, railing, light well, recipe, example, tutorial
-commands: buildingOutline, buildFlow, levelOutline, outerWalls, wall, railing
+commands: buildingEasy, buildFlow, levelOutline, wall, railing
 order: 70
 ---
 
 ## What
 
-Cut an 8 × 6 m hole in the Level 2 and Level 3 slabs of a 24 × 18 m 4-storey building, for an atrium open three storeys high, from Level 1 up to the Level 4 floor. Railings instead of walls go round the holes, and one tall wall stands in the atrium from Level 1 up to the Level 4 floor. The building is made under {t:ab.detailed}, not {t:ab.easy}, so no walls are made by themselves and the holes get no inner walls.
+Cut an 8 × 6 m hole in the Level 2 and Level 3 slabs of a 24 × 18 m 4-storey building, for an atrium open three storeys high, from Level 1 up to the Level 4 floor. The inner walls that stand round the holes by themselves are deleted and railings go there instead, and one tall wall stands in the atrium from Level 1 up to the Level 4 floor.
 
 ## Steps
 
-1. Draw a 24 × 18 m building outline with {m:buildingOutline} ({t:opt.areaRect}: click the first corner, then \`@24,18\`). The building is made.
-2. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed}, open {t:aw.more}, type {t:bnew.above} \`4\` and {t:bnew.height} \`3\`, and click {t:fl.planApply}.
-3. In the {t:fl.step.outlines} step, click {t:ca.outlinesFromShape}. Then click {t:cmd.outerWalls} under {t:ab.detailed}, select {t:ow.mode.all} and {t:ec.allLevels}, and click {t:ew.build}.
-4. In the {c:levelPanel}, click the outline button of the Level 2 row. In the outline tool click {t:ol.mode.draw}, then select {t:aw.ring.hole} and {t:ol.shape.rect}.
-5. Hold Ctrl and right-click, select {t:osnap.aid.from}, click the outline corner that matches the building outline's first corner and type \`@8,6\`, then \`@8,6\` again. The Level 2 slab gets an 8 × 6 m hole.
-6. Click the outline button of the Level 3 row and cut a hole at the same place the same way as in steps 4 and 5.
+1. Click {m:buildingEasy}. When the building outline tool opens, select {t:opt.areaRect}, click the first corner and type \`@24,18\`.
+2. Under {t:ab.easy} in the {c:buildFlow} window, switch {t:ceil.build} off, type {t:bnew.above} \`4\`, {t:bnew.below} \`0\` and {t:bnew.height} \`3\`, and click {t:aw.easyGo}.
+3. In the {c:levelPanel}, click the outline button of the Level 2 row. In the outline tool click {t:ol.mode.draw}, then select {t:aw.ring.hole} and {t:ol.shape.rect}.
+4. Hold Ctrl and right-click, select {t:osnap.aid.from}, click the outline corner that matches the building outline's first corner and type \`@8,6\`, then \`@8,6\` again. The Level 2 slab gets an 8 × 6 m hole; inner walls stand round it when the outline tool closes or another level's outline button is clicked.
+5. Click the outline button of the Level 3 row and cut a hole at the same place the same way as in steps 3 and 4.
+6. On Level 2 and Level 3, click the inner walls round the hole one by one and delete them with the Delete key.
 7. On Level 2, click {m:railing}, select {t:stairs.railHow.edge}, click the four edges of the hole one after another and press Enter. Put railings on Level 3 the same way.
 8. On Level 1, click {m:wall}, set {t:flow.top} to {t:flow.top.toFloor} and {t:flow.topLevel} to Level 4. With {t:osnap.aid.from}, click \`@9,9\` from the same corner and type \`@6,0\`, then press Enter: a 6 m wall crosses the middle of the atrium.
 
 ## Tips
 
 - The wall of step 8 stands 8.8 m high, from the Level 1 floor to the underside of the Level 4 slab. The Level 2 and Level 3 slabs have their holes there, so they do not stop it. It follows storey height changes: [Wall tops](help:arch-wall-top).
-- The outer walls of step 3 are ordinary walls raised with {m:outerWalls}: their outer face lies on the building outline and they go up to the floor above: [Outer walls](help:build-outer-walls).
-- A courtyard drawn in a building made with {t:ab.easy} gets inner walls round it. This building was made under {t:ab.detailed} only, so the holes are just cut: [Courtyards](help:build-courtyard).
+- The outer walls are automatic walls that Build raises along every side of the outline: [Quick Building](help:build-easy).
+- The inner walls deleted in step 6 do not come back when levels are raised again or added: [Courtyards](help:build-courtyard).
 - Level 1 and Level 4 cover the holes of Levels 2 and 3, so the building area stays 24 × 18 m, 432 m².
-- For the roof, click {t:fl.roofTop} in the {t:fl.step.roof} step of the {c:buildFlow} window, select {t:opt.roofFlat} and press Enter.
+- The flat roof on top of Level 4 comes with step 2.
 - A stair cuts a hole of its size in the slab above by itself: [Stairs](help:arch-stair).
 - For base point input see [From a base point](help:snap-from).
 
 ## Common mistakes
 
-- In a building made with {t:ab.easy}, a hole gets inner walls round it. Make an atrium in a building built under {t:ab.detailed}, as in these steps.
+- Inner walls left round the holes close the atrium off. Delete them as in step 6.
+- A level with walls drawn by hand gets no automatic outer walls. Raising Level 1 again after drawing the wall of step 8 leaves it without outer walls, so finish the holes and outlines before step 8.
 - Holes at different places on Level 2 and Level 3 do not make one atrium. Start both from the same corner with the same offset.
 - Leaving {t:flow.topLevel} at Level 2 in step 8 makes the wall one storey high only. Select Level 4.
 - Railings select only the slab edges of the working level. Make the level for the railing the working level first.
@@ -12881,12 +12954,12 @@ An 18 × 18 m 2-storey house with an 8 × 8 m courtyard open to the sky in the m
 
 ## Steps
 
-1. Follow the steps of the {m:buildingEasy} window and click {t:aw.drawOutline}. Select {t:opt.areaRect}, click the first corner and type \`@18,18\`.
-2. Type {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+1. Click {m:buildingEasy}. When the building outline tool opens, select {t:opt.areaRect}, click the first corner and type \`@18,18\`.
+2. Under {t:ab.easy} in the {c:buildFlow} window, type {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
 3. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed} and click the outline button of the Level 1 row.
 4. In the outline tool, click {t:ol.mode.draw}, then select {t:aw.ring.hole} and {t:ol.shape.rect}.
 5. In the 3D view, hold Ctrl and right-click, select {t:osnap.aid.from}, click the outline corner that matches the building outline's first corner and type \`@5,5\`. That is the courtyard's first corner.
-6. Type \`@8,8\` on the command line. The courtyard is drawn and applies at once: four inner walls stand up and the Level 1 slab gets its hole.
+6. Type \`@8,8\` on the command line. The courtyard is drawn and the Level 1 slab gets its hole. Close the tool with Esc and four inner walls stand up.
 7. Click the outline button of the Level 2 row and draw the courtyard at the same place the same way as in steps 4 to 6.
 8. With {m:door}, fit a door into an inner wall to give a way out into the yard.
 
@@ -12903,7 +12976,7 @@ An 18 × 18 m 2-storey house with an 8 × 8 m courtyard open to the sky in the m
 ## Common mistakes
 
 - Without the courtyard on Level 2 the sky does not show. Draw it at the same place on every level above.
-- {t:aw.useBelow} takes the outer outline only, not the courtyards.
+- {t:ol.sameBelow} in the outline tool takes the outer outline only, not the courtyards.
 - A courtyard touching or crossing the outline keeps only its part inside the outline. Leave room for the walls on every side.
 - Doors and windows put in before the courtyard is drawn may be deleted with the automatic walls when the outline changes. Draw the courtyard first.
 `,Mi=`---
@@ -12923,11 +12996,11 @@ Draw a building outline with one straight 18 m side and a round arch opposite, t
 
 ## Steps
 
-1. Click {m:buildingEasy}. With sites drawn, select one of about 40 × 30 m in the {t:bo.site} list; without sites, the building goes on the whole land.
-2. Click {t:aw.drawOutline} and select {t:opt.areaPoly} in the building outline tool.
+1. With a site of about 40 × 30 m drawn, select it in the view and click {m:buildingEasy}. Without sites, just click it: the building goes on the whole land. The building outline tool opens.
+2. Select {t:opt.areaPoly} in the building outline tool.
 3. Click an empty place for the first point, then type \`@18,0\` on the command line.
 4. About 8 m above the middle between the two points, press the mouse button, wait 0.5 s, drag to the left and let go. A smooth curve point makes the arch.
-5. Click the first point to close. The building is made and the {c:buildingEasy} window opens again.
+5. Click the first point to close. The building is made and you move to {t:ab.easy} in the {c:buildFlow} window.
 6. Type {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
 7. Each level gets one straight wall, one curved wall along the arch and a slab of the curved shape, and a flat roof of the same shape goes on top.
 
@@ -12962,10 +13035,10 @@ Raise a 2-storey building on a 23 × 13 m building outline, then shrink the grou
 
 ## Steps
 
-1. Follow the steps of the {m:buildingEasy} window and click {t:aw.drawOutline}. In the building outline tool select {t:opt.areaRect}, click the first corner and type \`@23,13\`.
-2. Type {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+1. Click {m:buildingEasy}. When the building outline tool opens, select {t:opt.areaRect}, click the first corner and type \`@23,13\`.
+2. Under {t:ab.easy} in the {c:buildFlow} window, type {t:bnew.above} \`2\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
 3. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed}.
-4. Click the outline button of the Level 1 row to open the outline tool. Type \`1.5\` in {t:ol.offset} and click {t:ol.shrink}. Level 1 becomes 20 × 10 m and it applies at once.
+4. Click the outline button of the Level 1 row to open the outline tool. Type \`1.5\` in {t:ol.offset} and click {t:ol.shrink}. Level 1 becomes 20 × 10 m. Close the outline tool with Esc to apply it.
 5. In the {t:ab.kind} field of the Level 1 row, select {t:ab.kind.piloti}. The ground floor's outer walls go and 12 columns stand up.
 6. Fine-tune the columns with {t:ab.columnSpacing}, {t:aw.pilotiSize} and the {t:aw.square} / {t:aw.round} choice under the Level 1 row.
 
@@ -13001,12 +13074,12 @@ Raise a 20 × 10 m 3-storey building with {t:ab.easy}, then narrow only the thir
 
 ## Steps
 
-1. Follow the steps of the {m:buildingEasy} window and click {t:aw.drawOutline}. In the building outline tool select {t:opt.areaRect}, click the first corner and type \`@20,10\`.
-2. When the window opens again, type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+1. Click {m:buildingEasy}. When the building outline tool opens, select {t:opt.areaRect}, click the first corner and type \`@20,10\`.
+2. When {t:ab.easy} shows in the {c:buildFlow} window, type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
 3. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed} and click the outline button of the Level 3 row.
 4. In the outline tool, click {t:ol.mode.draw} and select {t:ol.shape.rect}.
 5. On the dashed Level 2 outline, click the corner that matches the building outline's first corner, then type \`@12,10\` on the command line.
-6. When the rectangle is finished it applies at once: an 8 × 10 m roof terrace appears on Level 2, and Level 2's long-side walls are cut in two pieces each.
+6. Press Esc to close the outline tool. It applies then: an 8 × 10 m roof terrace appears on Level 2, and Level 2's long-side walls are cut in two pieces each.
 7. Type \`-0.1\` in {t:aw.roofOffset} of the Level 2 row: the terrace top drops 0.1 m below the Level 3 floor.
 
 ## Tips
@@ -13022,8 +13095,8 @@ Raise a 20 × 10 m 3-storey building with {t:ab.easy}, then narrow only the thir
 
 - A Level 3 outline a few millimetres off Level 2's leaves or drops very narrow roof slivers. Click the first corner right on a corner of the Level 2 outline.
 - {t:aw.roofOffset} is in the Level 2 row, the level with the terrace, not in the Level 3 row.
-- Moving points one by one with {t:ol.mode.edit} works too, but each move applies at once, so walls and roofs are made again for every in-between shape.
-- Doors or windows put into Level 3 before changing its outline may be deleted with Level 3's automatic walls.
+- Moving points one by one with {t:ol.mode.edit} works too. Walls and roofs are made again once, for the last shape, when the tool closes.
+- Doors or windows put into Level 3 before changing its outline may be deleted where a new wall does not stand where the old one did. Undo with {k:undo} then.
 `,Fi=`---
 id: brec-small-house
 title: Small house from walls
@@ -13031,7 +13104,7 @@ title: Small house from walls
 난이도: 기초
 workspace: 3D 건설
 keywords: small house, build a house, walls first, draw walls, one-storey house, cabin, hut, gable roof, add a door, add windows, slab, by hand, recipe, example, tutorial, first building
-commands: wall, slabAuto, door, window, roof
+commands: wall, slab, door, window, roof
 order: 100
 ---
 
@@ -13045,7 +13118,7 @@ Build an 8 × 6 m one-storey house by drawing its walls one by one, without Buil
 2. Click {m:wall} and click an empty place on the ground for the first point.
 3. On the command line type \`@8,0\`, \`@0,6\`, \`@-8,0\`, pressing Enter after each one.
 4. Click the first point again to close the four walls, then press Esc to close the tool.
-5. Click {m:slabAuto} and press Enter: a slab is laid under the closed walls.
+5. Click {m:slab}, select {t:slab.way.walls} at the top of the window and press Enter: a slab is laid under the closed walls.
 6. Click {m:door}, select {t:preset.door.single} and click the middle of an 8 m wall. Press Esc to close the tool.
 7. Click {m:window}, select {t:preset.window.single} and click the other walls to fit windows. Press Esc to close the tool.
 8. Click {m:roof}, click a wall, select {t:opt.roofGable} and press Enter. The walls of the short sides rise in a triangle along the roof's underside.
@@ -13062,7 +13135,7 @@ Build an 8 × 6 m one-storey house by drawing its walls one by one, without Buil
 
 ## Common mistakes
 
-- If the last click misses the first point, the walls are not closed and the {c:slabAuto} tool finds no closed walls. When {t:opt.closedWalls} shows 0, draw the walls again with their ends meeting.
+- If the last click misses the first point, the walls are not closed and {t:slab.way.walls} of the {c:slab} tool finds no closed walls. When {t:opt.closedWalls} shows 0, draw the walls again with their ends meeting.
 - Typing millimetres by mistake: \`@8,0\`, not \`@8000,0\`.
 - Clicking one wall that is not closed makes the roof over that wall's bounding rectangle only. Close the walls, or click the slab.
 - A door or window placed on the floor makes no hole in a wall. Click on the face of a wall.
@@ -13083,19 +13156,18 @@ Raise a 20 × 20 m 4-storey building with {t:ab.easy}, then under {t:ab.detailed
 
 ## Steps
 
-1. Following the steps of the {m:buildingEasy} window, click {t:aw.drawOutline}, select {t:opt.areaRect}, click the first corner and type \`@20,20\` to draw the building outline. Build with {t:bnew.above} \`4\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`.
+1. Click {m:buildingEasy}. When the building outline tool opens, select {t:opt.areaRect}, click the first corner and type \`@20,20\` to draw the building outline. Under {t:ab.easy} in the {c:buildFlow} window, type {t:bnew.above} \`4\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
 2. In the {t:fl.step.levels} step of the {c:buildFlow} window, select {t:ab.detailed}. The levels are listed from Level 4 down.
 3. Click the outline button of the Level 4 row, type \`6\` in {t:ol.offset} in the outline tool and click {t:ol.shrink}. Level 4 becomes 8 × 8 m.
 4. Click the outline button of the Level 3 row, type \`4\` in {t:ol.offset} and click {t:ol.shrink}. Level 3 becomes 12 × 12 m.
 5. Click the outline button of the Level 2 row, type \`2\` in {t:ol.offset} and click {t:ol.shrink}. Level 2 becomes 16 × 16 m.
-6. In the {t:ab.kind} field of the Level 4 row select {t:ab.kind.rooftop}, then press Esc to close the outline tool.
+6. Press Esc to close the outline tool.
 7. Check that Levels 1, 2 and 3 have a 2 m wide terrace rim made of several flat roof pieces, and that an 8 × 8 m roof sits on Level 4.
 
 ## Tips
 
 - To drop the terrace floors a little, type a value such as \`-0.1\` in {t:aw.roofOffset} of the Level 1, 2 and 3 rows: [Automatic roofs and roof height](help:build-auto-roof).
 - Different shrink distances per level give terraces of different widths. To step back on one side only, draw a new rectangle with {t:ol.mode.draw}: [Narrower third floor](help:brec-setback).
-- {t:ab.kind.rooftop} only changes the name; its parts are the same as {t:ab.kind.normal}.
 - Put [railings](help:arch-railing) round the terrace edges.
 - How walls are cut between the level above and the terrace: [Automatic wall splitting](help:build-wall-split).
 
@@ -13103,7 +13175,7 @@ Raise a 20 × 20 m 4-storey building with {t:ab.easy}, then under {t:ab.detailed
 
 - {t:ol.offset} goes back to 0.5 m every time the outline tool opens. Type the value again for each level.
 - Shrinking moves every side together, so 2 m makes the width and the depth each 4 m smaller.
-- Clicking {t:aw.useBelow} on an upper level brings back the shape of the level below. Do not click it after shrinking.
+- Clicking {t:ol.sameBelow} in an upper level's outline tool brings back the shape of the level below. Do not click it after shrinking.
 - A shrink so large that the shape would turn inside out is not made, and a message says so. Shrink a 20 m level by less than 10 m.
 `,Li=`---
 id: brec-terraced-slope
@@ -13123,13 +13195,15 @@ Seat two buildings on sloping ground like steps, one storey apart. Grading gives
 ## Steps
 
 1. Start on a slope with terrain ([Construction area](help:site-map)). With {m:siteArea}, draw a 24 × 16 m Site 1 low on the slope and a Site 2 of the same size higher up, at least 2 m away from it.
-2. Click {m:buildingEasy}, select Site 1 in the {t:bo.site} list and click {t:bo.grade}.
-3. In the grading tool click {t:grade.balance}, open {t:grade.more}, set {t:grade.cut} to \`0\` and apply with Enter. Closing the grading tool window brings the building window back.
-4. Click {t:aw.drawOutline}, draw a 20 × 12 m building outline inside Site 1, then click {t:aw.easyGo} with {t:bnew.above} \`2\` and {t:bnew.height} \`3\`.
-5. Click {m:buildingEasy} again, select Site 2 in the {t:bo.site} list and click {t:bo.grade}.
-6. In the grading tool type a {t:grade.height} 3 m higher than Site 1's, set {t:grade.fill} to \`0\` under {t:grade.more}, apply with Enter and close the window.
-7. Click {t:aw.drawOutline}, draw a 20 × 12 m building outline inside Site 2, then click {t:aw.easyGo} with the same values. The second building's ground floor sits at the height of the first building's Level 2 floor.
-8. With {m:retainingWall}, raise one retaining wall along the upper edge of Site 1 and one along the lower edge of Site 2. If the earth side is the wrong way round, click {t:civil.x.flip} while drawing.
+2. Click {m:grade} and select Site 1 in the {t:so.target} list.
+3. In the grading tool click {t:grade.balance}, open {t:grade.more}, set {t:grade.cut} to \`0\`, apply with Enter and close the tool.
+4. Select Site 1 in the view and click {m:buildingEasy}. When the building outline tool opens on Site 1, draw a 20 × 12 m building outline.
+5. Under {t:ab.easy} in the {c:buildFlow} window, type {t:bnew.above} \`2\` and {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+6. Click {m:grade} again and select Site 2 in the {t:so.target} list.
+7. In the grading tool type a {t:grade.height} 3 m higher than Site 1's, set {t:grade.fill} to \`0\` under {t:grade.more}, apply with Enter and close the tool.
+8. Select Site 2 in the view, click {m:buildingEasy} and draw a 20 × 12 m building outline inside Site 2.
+9. Click {t:aw.easyGo} with the same values. The second building's ground floor sits at the height of the first building's Level 2 floor.
+10. With {m:retainingWall}, raise one retaining wall along the upper edge of Site 1 and one along the lower edge of Site 2. If the earth side is the wrong way round, click {t:civil.x.flip} while drawing.
 
 ## Tips
 
@@ -13164,8 +13238,8 @@ Raise two 3-storey buildings side by side, with touching outlines. Building A ta
 
 1. Click {m:buildingOutline}, select {t:opt.areaRect}, click the first corner and type \`@14,12\`. Building A is made.
 2. Click {m:buildingOutline} again, click the bottom right corner of Building A's outline and type \`@10,12\`. Building B is made, touching Building A.
-3. Click {m:buildingEasy} and select Building A in the {t:bo.outlinePick} list. Type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
-4. Open {m:buildingEasy} again, select Building B in the {t:bo.outlinePick} list and click {t:aw.easyGo} with the same values.
+3. Click inside Building A's outline in the view to select it, then click {m:buildingEasy}. Under {t:ab.easy} in the {c:buildFlow} window, type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+4. Click inside Building B's outline to select it, click {m:buildingEasy} again and click {t:aw.easyGo} with the same values.
 5. Check that only one wall stands on the line where the buildings touch. It is the outer wall of Building A, raised first, and both buildings share it.
 6. In the {c:levelPanel}, double-click a building row to move the work scope to that building.
 
@@ -13201,19 +13275,17 @@ Draw a U-shaped building outline, then raise a 3-storey building on it at once w
 
 ## Steps
 
-1. Click {m:buildingEasy}. With sites drawn, select one comfortably larger than 30 × 25 m in the {t:bo.site} list; without sites, the building goes on the whole land.
-2. Check that the {t:bo.outlinePick} list shows {t:bo.outlineNew}, and click {t:aw.drawOutline}.
-3. In the building outline tool window select {t:opt.areaPoly}, then click an empty place for the first corner.
-4. On the command line type \`@20,0\`, \`@0,15\`, \`@-6,0\`, \`@0,-9\`, \`@-8,0\`, \`@0,9\`, \`@-6,0\`, pressing Enter after each one.
-5. Press Enter once more: the 8-corner U-shaped outline closes, the building is made and the {c:buildingEasy} window opens again.
-6. Type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\`.
-7. Check that the note at the bottom of the window names the building you just made, then click {t:aw.easyGo}.
-8. All three levels take the U-shaped outline; each level gets 8 outer walls and a slab, and one U-shaped flat roof goes on top.
+1. With a site comfortably larger than 30 × 25 m drawn, select it in the view and click {m:buildingEasy}. Without sites, just click it: the building goes on the whole land. The building outline tool opens.
+2. In the building outline tool window select {t:opt.areaPoly}, then click an empty place for the first corner.
+3. On the command line type \`@20,0\`, \`@0,15\`, \`@-6,0\`, \`@0,-9\`, \`@-8,0\`, \`@0,9\`, \`@-6,0\`, pressing Enter after each one.
+4. Press Enter once more: the 8-corner U-shaped outline closes, the building is made and you move to {t:ab.easy} in the {c:buildFlow} window.
+5. Type {t:bnew.above} \`3\`, {t:bnew.below} \`0\`, {t:bnew.height} \`3\` and click {t:aw.easyGo}.
+6. All three levels take the U-shaped outline; each level gets 8 outer walls and a slab, and one U-shaped flat roof goes on top.
 
 ## Tips
 
 - For typing coordinates see [Coordinates and lengths](help:input-coords). Clicking the corners with the mouse works too.
-- If you drew the outline beforehand with {m:buildingOutline}, select that building in the {t:bo.outlinePick} list: [Building outline](help:build-outline).
+- If you drew the outline beforehand with {m:buildingOutline}, select that outline in the view and click {m:buildingEasy}: [Building outline](help:build-outline).
 - The building area is the U-shaped outline's 228 m²; the yard is not counted.
 - L and T shapes are built the same way. A shape closed on all four sides is made with a [courtyard](help:build-courtyard).
 - To give one wing another height, edit the upper outlines under [Per level](help:build-detailed).
@@ -13225,7 +13297,7 @@ Draw a U-shaped building outline, then raise a 3-storey building on it at once w
 - With a site selected, the outline must lie inside it. Reaching outside, it is not made and a message says so. Start where 20 × 15 m fits.
 - Clicking the first corner inside an existing building outline selects that outline instead of drawing a new one. An outline overlapping another building is not made.
 - Typing millimetres by mistake. The 3D construction workspace works in metres: \`@20,0\`, not \`@20000,0\`.
-- If the note names another building, that building is raised. Select the building you want in the {t:bo.outlinePick} list before building.
+- When a building with only its outline drawn is already there, {m:buildingEasy} opens {t:ab.easy} of that building instead of the outline tool. Draw a new outline with {c:buildingOutline}.
 `,Bi=`---
 id: civil-bridge
 title: Bridge
@@ -13796,7 +13868,7 @@ title: Water Level
 분류: 토목
 난이도: 기초
 workspace: 3D 건설
-keywords: water, water level, waterlevel, sea level, flood, flooding, reservoir, lake, sea, flooded area, fill with water, remove water, water levels list, add water level, several water levels, dam reservoir, full supply level, watter
+keywords: water, water level, waterlevel, sea level, flood, flooding, reservoir, lake, sea, flooded area, fill with water, remove water, water levels list, add water level, several water levels, dam reservoir, full supply level, watter, drain, body of water, cut area, clicked places, pick water, hide water
 commands: water, dam, waterBody
 context: water
 order: 80
@@ -13804,33 +13876,55 @@ order: 80
 
 ## What
 
-Set a water level and the ground lower than it shows under water. Use it to see lakes, the sea or land flooded by water. The ground is not dug. The land can have several water levels.
+Set a water level and the ground lower than it shows under water. Use it to see lakes, the sea or land flooded by water. The ground is not dug. The land can have several water levels, and water not wanted can be drained body by body or cut out with an area drawn.
 
 ## Steps
 
 1. Click {m:water}.
 2. Type the height in the {t:water.level} field.
-3. Under {t:water.scope}, select {t:water.all}, {t:area.site} or {t:area.building}.
+3. Under {t:water.scope}, select {t:water.all}, {t:area.site}, {t:area.building} or {t:water.spots}.
 4. Ground lower than the water level is covered with see-through water. {t:water.area} shows the area under water.
-5. Enter closes the window. To take the water away, click {t:water.none}.
+5. To take water out, set {t:water.click} to {t:water.mode.drain} or {t:water.mode.cut}.
+6. Enter closes the window. To delete the level, click {t:water.none}.
 
 ## Tips
 
+### Picking a level
+
+- While the window is open and {t:water.click} is {t:water.mode.pick}, click water in the view to edit its level. The level edited is lit in the view.
+- The top of the window shows the level edited ({t:water.editing}). Open the list row to see every level by height and {t:water.scope}; click a row to edit it, × deletes it. Levels too small to see in the view are picked here. The list stays open or closed as you left it.
+- {t:water.add} makes one more level, 1 m above the highest one. Each level has its own {t:water.scope}.
+- The levels are also listed in the {c:toggleLeft} window under the land, in the {t:water.tree} row. Click one to open the water window on it; right-click to hide or delete it. A hidden level is only not drawn: its area and the bridge and dam heights still count it.
+
+### Draining and cutting
+
+- Low ground under the same level that is not joined is a separate body of water. With {t:water.mode.drain}, click a body to drain only it; click the drained place again to bring it back. A body is kept by the point clicked, so a slightly changed ground still finds it.
+- Draining the last body deletes the level and says so; one undo brings it back.
+- With drained bodies, the bring-back button brings them all back.
+- With {t:water.mode.cut}, click points and click the first one again (or press Enter): the water inside that area is taken out. There can be several areas; × on an area's row deletes it. Ctrl+Z while drawing takes back the last point.
+
+### Filling clicked places only
+
+- With {t:water.scope} set to {t:water.spots}, {t:water.click} becomes {t:water.mode.spots}: clicking low ground fills it and the lower ground joined to it only. Click more places to add them; click a filled place again to take it out.
+
+### More
+
 - With terrain, select under {t:civil.heightRef} between {t:civil.sea} (height above sea level) and {t:civil.aboveGround} (height above the lowest ground). The {t:water.lowest} value in the window is a handy reference.
 - For land by the sea, keep {t:civil.sea} and type \`0\` for sea level.
-- The level can be from 10 m below the lowest ground to 50 m above the highest ground. Each change is one undo step.
-- Once there is one water level, {t:water.list} appears at the top of the window. {t:water.add} makes one more level, 1 m above the highest one, and the list's buttons select which level to change. Each level has its own {t:water.scope}.
+- The level can be from 10 m below the lowest ground to 50 m above the highest ground. Every change of height, every body drained and every area added is one undo step.
 - {t:area.site} fills one site only. With several sites, select the site under {t:so.target}; the work scope moves to that site too.
-- A reservoir is best made with the reservoir of a [dam](help:civil-dam): only the valley behind the dam fills up to its full supply level, and {t:water.dams} at the bottom of the window lists each dam's level and area. Those are changed in the dam's window.
-- A dam drawn after the water level is set gets its crest at least the freeboard above the water; a bridge gets its deck the clearance above the water.
+- A reservoir is best made with the reservoir of a [dam](help:civil-dam): only the valley behind the dam fills up to its full supply level, and {t:water.dams} at the bottom of the window lists each dam's level and area. Those are changed in the dam's window; clicking a reservoir in the view says so.
+- A dam drawn after the water level is set gets its crest at least the freeboard above the water; a bridge gets its deck the clearance above the water. Drained water, and places not filled with {t:water.spots}, count as dry.
 - Lakes, ponds and rivers dug into the ground are made with [Water body](help:civil-waterway).
 
 ## Common mistakes
 
-- All the low ground goes under water. Water fills every bit of ground lower than its level. To fill one place only, draw a site around it and set {t:water.scope} to {t:area.site}, or use a dam's reservoir.
+- All the low ground goes under water. Water fills every bit of ground lower than its level. To fill one place only, set {t:water.scope} to {t:water.spots} and click it, drain the other bodies with {t:water.mode.drain}, or use a dam's reservoir.
+- The window says {t:water.noFlood}. The level is below the lowest ground; raise it.
 - {t:area.building} is selected but no water shows. There is no building outline yet, or the outlines lie higher than the water.
-- On flat land without terrain, the level must be above 0 for water to show, and then the whole land is under water.
-- There is no {t:water.add} button. It appears with the list once one water level is set.
+- Clicking water drains it instead of opening it: {t:water.click} is {t:water.mode.drain}. Switch to {t:water.mode.pick}.
+- Clicking to drain says {t:water.noBody}. That water belongs to another level; pick it first with {t:water.mode.pick}.
+- On flat land without terrain, the level must be above 0 for water to show, and then the whole land is one body under water.
 - The water tool does not dig the ground. To dig a lake or river, use [Water body](help:civil-waterway).
 - {c:water} is not on the menu. Select {t:level.advanced} at the right of the menu bar.
 `,Qi=`---
