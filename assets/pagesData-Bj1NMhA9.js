@@ -5270,7 +5270,7 @@ order: 35
 1. {m:outerWalls} 단추를 누릅니다. [건설 진행 상황](help:arch-flow)의 {t:fl.step.walls} 단계에서도 같은 창이 열립니다.
 2. 창 위에서 {t:ow.mode.all}, {t:ow.mode.pick}, {t:ow.mode.cut} 가운데 하나를 선택합니다.
 3. 설정을 정합니다. 순서는 늘 같습니다: {t:opt.wallJustify}({t:flow.justify.left}·{t:flow.justify.center}·{t:flow.justify.right}), {t:flow.top}, {t:opt.thickness}, {t:param.h}, {t:ew.thisLevel} 또는 {t:ec.allLevels}.
-4. {t:ow.mode.all}이면 창 아래의 {t:ew.build}를 누릅니다. 외곽선에서 벽이 없는 변과 구간에 벽이 섭니다. 모든 변에 이미 벽이 있으면 {t:aa.wallsHave} 알림이 나옵니다. 창 아래의 단추가 이 창의 하나뿐인 실행 단추이며, {t:ow.mode.cut}에서는 {t:ew.delete}로 바뀝니다.
+4. {t:ow.mode.all}이면 창 아래의 {t:ew.build}를 누릅니다. 외곽선에서 벽이 없는 변과 구간에 벽이 섭니다. 모든 변에 이미 벽이 있으면 세우지 않았다는 알림이 나옵니다. 창 아래의 단추가 이 창의 하나뿐인 실행 단추이며, {t:ow.mode.cut}에서는 {t:ew.delete}로 바뀝니다.
 5. {t:ow.mode.pick}이면 화면에서 변을 클릭해 변 전체를 선택하거나, 변을 따라 끌어 그 구간만 선택합니다. 빈 곳에서 끌면 상자 안의 변이 한 번에 선택됩니다. 창의 작은 평면에서도 같은 방법으로 선택합니다. 다 선택하면 {t:ew.build}를 누릅니다. 선택한 변에 모두 벽이 있으면 {t:ew.pickedHave} 알림이 나옵니다.
 6. {t:ow.mode.cut}이면 잴 끝 가까이에서 벽을 누릅니다. 그 끝이 {t:ws.base}이 되어 3D 화면에 표시됩니다. 삭제할 구간의 시작과 끝을 차례로 누르거나, 창의 {t:ws.cutStart}와 {t:ec.length}에 {t:ws.base}에서 잰 값을 입력합니다. 명령줄에 \`1,2\`처럼 시작 거리,길이를 지금 단위(처음 m)로 입력해도 됩니다. {t:ws.flip} 단추를 누르면 반대쪽 끝에서 잽니다. 벽을 따라 끌어 구간을 바로 선택해도 됩니다. 구간이 정해지면 Delete 키나 {t:ew.delete} 단추를 누릅니다.
 
@@ -12654,7 +12654,7 @@ One window for the outer walls along the building outline. The three ways at its
 1. Click {m:outerWalls}. The {t:fl.step.walls} step of [Build Progress](help:arch-flow) opens the same window.
 2. At the top of the window select {t:ow.mode.all}, {t:ow.mode.pick} or {t:ow.mode.cut}.
 3. Set the settings, always in the same order: {t:opt.wallJustify} ({t:flow.justify.left}, {t:flow.justify.center}, {t:flow.justify.right}), {t:flow.top}, {t:opt.thickness}, {t:param.h}, and {t:ew.thisLevel} or {t:ec.allLevels}.
-4. With {t:ow.mode.all}, click {t:ew.build} at the bottom of the window. The sides and stretches of the outline without a wall get one. When every side has a wall already, the message {t:aa.wallsHave} shows. That button is the window's only action button; in {t:ow.mode.cut} it reads {t:ew.delete}.
+4. With {t:ow.mode.all}, click {t:ew.build} at the bottom of the window. The sides and stretches of the outline without a wall get one. When every side has a wall already, a message says none were added. That button is the window's only action button; in {t:ow.mode.cut} it reads {t:ew.delete}.
 5. With {t:ow.mode.pick}, click a side in the view for all of it, or drag along it for that stretch only. A drag from an empty spot selects the sides in its box at once. The window's small plan selects the same ways. Then click {t:ew.build}. When every selected side has a wall already, the message {t:ew.pickedHave} shows.
 6. With {t:ow.mode.cut}, click the wall near the end to measure from. That end becomes the {t:ws.base} and is marked in the 3D view. Click where the stretch starts and where it ends, or type {t:ws.cutStart} and {t:ec.length} from that end in the window. You can also type start,length like \`1,2\` in the command line, in the current unit (m at first). {t:ws.flip} measures from the other end. A drag along the wall picks a stretch at once too. Then press Delete or click {t:ew.delete}.
 
