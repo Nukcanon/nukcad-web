@@ -3954,7 +3954,7 @@ order: 10
 - {t:tv.depth}는 땅 아래 흙덩이(지층 단면)를 얼마나 깊게 그릴지 정합니다(1 ~ 200 m, 기본 10 m).
 - 인증키가 없거나 인터넷이 막혀 있으면 {t:site.other}을 씁니다. {t:site.file}는 직접 찍었거나 써도 되는 사진과 그 실제 가로 길이로, {t:site.plain}은 가로·세로 길이만으로 땅을 만듭니다.
 - 인증키가 없을 때 지도 위에 보이는 {t:site.openSettings} 단추를 누르면 환경 설정의 지도 쪽이 열리고, 키를 받는 세 단계가 적혀 있습니다. 받은 키는 {t:set.vworldKey} 칸에 넣습니다.
-- 받은 항공사진은 문서에 한 장으로 저장되므로 다음부터는 인터넷 없이 열립니다. 높이가 처음 들어오면 {c:terrainView} 창이 함께 열립니다. 자세한 보기 방법은 [지형 보기·등고선](help:site-terrain-view)에 있습니다.
+- 브이월드 이용약관에 따라 항공사진은 파일에 저장되지 않습니다. 파일에는 땅의 위치와 크기만 남고, 파일을 열 때 항공사진을 다시 받습니다. 인터넷이 없으면 사진 없이 흙·풀 색 땅으로 보이며, 땅의 높이와 물체 위치는 그대로입니다. 높이가 처음 들어오면 {c:terrainView} 창이 함께 열립니다. 자세한 보기 방법은 [지형 보기·등고선](help:site-terrain-view)에 있습니다.
 - 나중에 건설 지역을 다시 정해도 지어 둔 물체는 땅 위 제자리에 남고, [평탄화](help:site-grade)와 물 높이도 그대로 남습니다. 도로·교량·터널 같은 토목 구조물은 새 땅에 저절로 다시 맞춰집니다.
 
 ## 자주 하는 실수
@@ -4037,7 +4037,8 @@ order: 20
 
 - 땅에 높이가 처음 들어오면 {c:terrainView} 창이 저절로 열립니다. 보기 단추 줄의 {c:terrainView} 단추는 고급 메뉴에서 보이고, {c:contours} 단추는 일반·고급 모두에서 보입니다.
 - {t:tv.opacity}를 0 %로 두면 땅이 숨겨집니다.
-- {t:tv.aerial}는 문서에 저장된 항공사진입니다. {t:tv.base}와 {t:tv.cadastral}는 선택할 때 브이월드에서 받아 오므로 인증키와 인터넷이 있어야 합니다. 설치한 프로그램에서는 받은 지도도 파일에 함께 저장됩니다.
+- {t:tv.aerial}, {t:tv.base}, {t:tv.cadastral}는 모두 브이월드에서 받아 오므로 인증키와 인터넷이 있어야 합니다. 브이월드 이용약관에 따라 파일에는 저장되지 않으며, 파일을 열 때 다시 받습니다. 받지 못하면 사진 없이 흙·풀 색 땅으로 보입니다.
+- 브이월드 지도가 보이는 동안에는 화면 구석에 "© 국토교통부 브이월드" 출처가 표시되고, 화면 저장 그림에도 함께 들어갑니다.
 - {t:tv.cadastral}의 용도지역 색과 지번 경계는 참고용이며 법적 효력이 없습니다.
 - 등고선 간격을 자동으로 두면 땅의 높낮이에 맞춰 정해지고, 1·2·5·10·20 m 가운데에서 선택할 수도 있습니다. 해발 높이가 간격의 5배인 선은 굵게 그려집니다. {t:ct.opacity}를 낮추면 땅 위 지도가 잘 보입니다.
 - 등고선은 [평탄화](help:site-grade)한 뒤의 땅을 따라 그려지므로, 평탄화 높이를 바꾸면 선도 함께 바뀝니다.
@@ -4049,7 +4050,7 @@ order: 20
 ## 자주 하는 실수
 
 - 등고선 창에 지형이 없다는 글이 나옵니다. 아직 땅에 높이 자료가 없는 경우입니다. 창 안의 {c:siteMap} 단추로 지도에서 영역을 정하거나 높이 파일을 가져옵니다.
-- {t:tv.base}나 {t:tv.cadastral}가 나오지 않습니다. 브이월드 인증키가 없거나 인터넷이 끊긴 경우입니다. 지도에서 정하지 않은 땅(사진 파일·평평한 땅)에는 가져온 사진만 깔 수 있습니다.
+- 항공사진이나 {t:tv.base}·{t:tv.cadastral}가 나오지 않습니다. 브이월드 인증키가 없거나 인터넷이 끊긴 경우입니다. 연결된 뒤 {t:tv.retry}를 누릅니다. 지도에서 정하지 않은 땅(사진 파일·평평한 땅)에는 가져온 사진만 깔 수 있습니다.
 - {c:dropGround}를 눌러도 아무것도 바뀌지 않습니다. 물체를 먼저 선택해야 합니다.
 - 경사진 땅에서 큰 물체를 내려놓으면 한쪽이 땅에 묻히거나 뜹니다. 물체 가운데 아래 한 점의 높이에 맞추기 때문입니다. 큰 건물은 먼저 [평탄화](help:site-grade)합니다.
 `,Ue=`---
@@ -11282,7 +11283,7 @@ The window where you select the land everything in 3D Building stands on, as a r
 - {t:tv.depth} sets how deep the soil block (a cross-section of earth layers) is drawn under the ground (1 to 200 m, 10 m by default).
 - Without a key or an internet connection, use {t:site.other}: {t:site.file} makes the land from a photo you took or may use plus its real width, {t:site.plain} from a width and a height only.
 - Without a key, the {t:site.openSettings} button on the map opens the map part of Preferences, which lists three steps to get a key. Enter the key in the {t:set.vworldKey} field.
-- The aerial photo is stored in the document as one picture, so the file opens offline later. When heights arrive for the first time, the {c:terrainView} window opens too. See [terrain view and contours](help:site-terrain-view).
+- Under V-World's terms the aerial photo is not saved in the file: only where the land is, and the photo is fetched again when the file is opened. Offline the land shows without it; heights and object positions stay the same. When heights arrive for the first time, the {c:terrainView} window opens too. See [terrain view and contours](help:site-terrain-view).
 - Selecting the site location again later keeps everything already built in its place on the earth, and keeps [grading](help:site-grade) and the water level. Civil structures such as roads, bridges and tunnels are fitted to the new ground by themselves.
 
 ## Common mistakes
@@ -11365,7 +11366,7 @@ Settings for how the ground (terrain) is shown. {c:terrainView} sets the ground'
 
 - When the land gets heights for the first time, the {c:terrainView} window opens by itself. The {c:terrainView} button in the view row shows on the Advanced menus; the {c:contours} button shows on both levels.
 - {t:tv.opacity} at 0 % hides the ground.
-- {t:tv.aerial} is the aerial photo stored in the document. {t:tv.base} and {t:tv.cadastral} are fetched from V-World when selected, so they need a key and the internet. The installed app saves the fetched maps in the file too.
+- {t:tv.aerial}, {t:tv.base} and {t:tv.cadastral} are all fetched from V-World, so they need a key and the internet. Under V-World's terms they are not saved in the file; they are fetched again when it is opened. Without them the ground shows in plain earth colours.
 - The zoning colours and lot lines of {t:tv.cadastral} are for reference only, not a legal record.
 - With the interval set to automatic, it follows the height range of the land; 1, 2, 5, 10 or 20 m can also be selected. Lines at five times the interval above sea level are drawn thicker. Lower {t:ct.opacity} to let the map on the ground show better.
 - Contours follow the ground after [grading](help:site-grade), so changing a grading height changes the lines too.
