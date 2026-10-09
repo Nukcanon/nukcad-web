@@ -1,0 +1,55 @@
+var e=`# Third-party notices
+
+NukCAD에 포함되는 외부 구성요소. 추가할 때마다 기록한다 (\`npm run check:licenses\`가 자동 검사).
+
+| 이름 | 용도 | 라이선스 | 출처 |
+|---|---|---|---|
+| OpenCascade (replicad-opencascadejs 1.1) | 형상 커널 (WASM, 별도 파일로 로드) | LGPL-2.1 (OCCT 예외 조항 포함) | https://github.com/sgenoud/replicad · https://dev.opencascade.org |
+| replicad 1.1 | OpenCascade JS 래퍼 | MIT | https://github.com/sgenoud/replicad |
+| opentype.js 1.3 | 글꼴 윤곽 → 스케치 (문자 도구), replicad 의존성 | MIT | https://github.com/opentypejs/opentype.js |
+| tiny-inflate, string.prototype.codepointat | opentype.js 의존성 | MIT | npm |
+| flatbush, flatqueue | replicad의 공간 색인 의존성 | ISC | npm |
+| three.js 0.186 | 3D 화면 | MIT | https://threejs.org |
+| Tabler Icons (Paweł Kuna) | 일반 화면 아이콘 (\`src/ui/icons.tsx\`, 모양을 옮겨 씀) | MIT (Copyright (c) Paweł Kuna) | https://tabler.io/icons · https://github.com/tabler/tabler-icons |
+| React 19, react-dom, scheduler | UI | MIT | https://react.dev |
+| zustand 5 | 상태 관리 | MIT | https://github.com/pmndrs/zustand |
+| fzstd 0.1 | zstd 압축 해제 (Blender 3.0+ .blend 읽기) | MIT | https://github.com/101arrowz/fzstd |
+| Tauri 2 (@tauri-apps/api, 런타임) | Windows 설치형 앱 | Apache-2.0 OR MIT | https://tauri.app |
+| WebLLM (@mlc-ai/web-llm 0.2.85) | "이 컴퓨터 AI" — 설치판과 웹판 (WebGPU로 작은 모델 실행, 필요할 때만 불러옴) | Apache-2.0 | https://github.com/mlc-ai/web-llm |
+| TVM web runtime, web-tokenizers (WebLLM에 묶여 있음) | 모델 실행·토크나이저 | Apache-2.0 | https://github.com/apache/tvm · https://github.com/mlc-ai/tokenizers-cpp |
+| loglevel 1.9 | WebLLM 의존성 | MIT | https://github.com/pimterry/loglevel |
+| onnxruntime-web 1.30 (onnxruntime-common) | @depthai 부조 → 깊이: 깊이 모델 실행 (WebGPU·WebAssembly, 그 방식을 쓸 때만 워커로 불러옴) | MIT (Copyright (c) Microsoft Corporation) | https://github.com/microsoft/onnxruntime |
+| protobufjs 7 (@protobufjs/*), flatbuffers, long, guid-typescript, platform | onnxruntime-web 의존성 | BSD-3-Clause · Apache-2.0 · Apache-2.0 · ISC · MIT | npm |
+| Pretendard 1.3.9 (길형진) | 화면 글꼴 — 메뉴·창·글자 전체 (\`src/ui/fonts/\`, 작가가 배포한 부분 집합 woff2 4개: Regular·Medium·SemiBold·Bold, 고치지 않음, 합계 1.03 MB) | SIL OFL 1.1 (예약 글꼴 이름 "Pretendard") | https://github.com/orioncactus/pretendard · npm \`pretendard@1.3.9\` \`dist/web/static/woff2-subset/\` |
+
+- **아이콘**: 일반 화면 아이콘(파일, 편집, 화살표, 도움말 등)은 Tabler Icons의 모양을 \`src/ui/icons.tsx\`에 옮겨 쓴다 (MIT, Copyright (c) Paweł Kuna, https://tabler.io/icons). 그 밖의 CAD 아이콘, 앱 아이콘, 시작 화면 그림은 NukCAD에서 직접 그린 것이다. 라이선스 전문: \`licenses/Tabler-Icons-MIT.txt\`.
+- **@menufont 화면 글꼴 Pretendard**: 작가가 npm 패키지에 넣어 배포한 부분 집합 파일(KS X 1001 한글과 상용 한글 2,780자, 라틴 문자, 숫자, 기호)을 그대로 쓴다. 파일을 고치거나 다시 부분 집합으로 만들지 않으므로 예약 글꼴 이름을 그대로 쓸 수 있다. 글꼴만 따로 팔지 않는다. 라이선스 전문: \`licenses/Pretendard-OFL-1.1.txt\` (원본 \`src/ui/fonts/Pretendard-OFL.txt\`).
+- 파일 읽기(SAT/SAB, 123dx, DXF 3D 솔리드, .blend, 3MF, STL, OBJ)는 공개된 형식 설명과 파일 자체의 구조 정보로 NukCAD가 직접 작성했다. 다른 프로그램의 코드는 쓰지 않았다.
+- DWG는 사용자가 직접 설치한 무료 ODA File Converter가 있을 때만 그것을 호출해 DXF로 바꾼다 (NukCAD에 포함하지 않음).
+- **OpenCascade (LGPL-2.1)**: replicad-opencascadejs 1.1에 든 OpenCascade Technology의 WebAssembly 빌드(\`replicad_single.wasm\`)를 쓴다. 이 파일은 프로그램 코드와 합치지 않은 별도 파일이며, 같은 인터페이스의 호환 빌드로 교체할 수 있다. 소스 코드는 https://dev.opencascade.org (OpenCascade)와 https://github.com/sgenoud/replicad (WebAssembly 빌드)에서 받을 수 있다. LGPL 전문: \`licenses/OpenCascade-LGPL-2.1.txt\`.
+- WebLLM 라이선스 전문: \`licenses/web-llm-Apache-2.0.txt\`.
+- **AI 모델은 NukCAD에 포함하지 않는다.** 사용자가 설정에서 "내려받기"를 누를 때 Hugging Face(mlc-ai 변환본)에서 받아 이 PC의 앱 캐시에 저장한다. 쓰는 모델은 Apache-2.0인 것만 고른다 (\`src/ai/localModels.ts\`):
+  - Qwen2.5-1.5B-Instruct (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct · 변환본 https://huggingface.co/mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC
+  - Qwen2.5-0.5B-Instruct (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct · 변환본 https://huggingface.co/mlc-ai/Qwen2.5-0.5B-Instruct-q4f16_1-MLC
+  - Qwen3-4B (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen3-4B · 변환본 https://huggingface.co/mlc-ai/Qwen3-4B-q4f16_1-MLC
+  - Qwen2.5-7B-Instruct (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen2.5-7B-Instruct · 변환본 https://huggingface.co/mlc-ai/Qwen2.5-7B-Instruct-q4f16_1-MLC
+  - (@safety) 안전 검사 AI: Qwen3Guard-Gen-0.6B (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen3Guard-Gen-0.6B (커밋 fada3b2f) · MLC 변환본(q4f16_1, NukCAD 쪽에서 변환해 공개) https://huggingface.co/Cwkisgo/Qwen3Guard-Gen-0.6B-q4f16_1-MLC · 설치판용 GGUF(Q8_0, 아직 앱에서 안 씀) https://huggingface.co/Cwkisgo/Qwen3Guard-Gen-0.6B-GGUF. 두 저장소 모두 원본 LICENSE(Apache-2.0, Copyright 2024 Alibaba Cloud) 사본과 변경 고지·원본 인용 문구를 모델 카드에 둠(docs/AI_SAFETY.md). WebGPU 라이브러리는 같은 구조인 Qwen3-0.6B의 것을 씀.
+  - 웹판도 같은 모델을 같은 곳에서 받아 브라우저 저장소(Cache Storage)와, 학생이 고르면 학생 PC의 폴더에 둔다 (docs/WEB_AI.md). 배포물에는 넣지 않는다.
+  - 넣지 않은 모델: Llama 3.2(커뮤니티 라이선스·이용 정책), Gemma(Gemma 이용 약관·금지 용도 정책 전달 의무), SmolLM2(한국어 거의 못 함).
+  - 모델별 GPU 라이브러리(.wasm)는 WebLLM 기본 설정대로 https://github.com/mlc-ai/binary-mlc-llm-libs 에서 받는다 (MLC-LLM(Apache-2.0)로 만든 빌드 결과물. 저장소에 별도 라이선스 파일은 없음 — 배포물에 포함하지 않고 실행할 때만 받는다).
+  - Qwen2.5-3B 등 자체·연구용 라이선스 모델은 쓰지 않는다.
+- **@depthai 부조 → 깊이의 깊이 모델**: Depth Anything V2 Small (Yang et al. 2024, Apache-2.0 — 원본 https://huggingface.co/depth-anything/Depth-Anything-V2-Small, 모델 카드 \`license: apache-2.0\`). ONNX fp16 변환본 https://huggingface.co/onnx-community/depth-anything-v2-small (Apache-2.0) 리비전 \`4472b7362082ad9968fee890ca0f1e5aca36b93d\`의 \`onnx/model_fp16.onnx\` (49,642,442 바이트, SHA-256 \`2df6223f206b5164e21f664ace61dabeb9bb6a49b8b5a3e00510b4807d0f5b04\`, \`src/core/depthModel.json\`). 고치지 않고 그대로 쓴다.
+  - **설치판에는 포함한다** (\`src-tauri/tauri.conf.json\` bundle.resources → 설치 폴더 \`models\\\`). git에는 넣지 않고 빌드 전에 \`npm run fetch-models\`가 고정 주소에서 받아 SHA-256을 확인한다. 라이선스 전문: \`licenses/Depth-Anything-V2-Small-Apache-2.0.txt\`.
+  - **웹판에는 포함하지 않는다.** 사용자가 받기를 누를 때 같은 주소에서 받아 확인한 뒤 브라우저 저장소(Cache Storage)에 둔다.
+  - Depth Anything V2 Base·Large는 CC-BY-NC-4.0(비상업)이라 쓰지 않는다.
+  - onnxruntime-web 라이선스 전문: \`licenses/onnxruntime-web-MIT.txt\` (패키지에 LICENSE 파일이 없어 빌드가 MIT 전문을 적는다).
+- **@bigai 설치판 큰 AI(CPU)** (\`src/ai/nativeModels.ts\`, docs/BIG_AI.md): 아래 파일도 NukCAD에 포함하지 않는다. 사용자가 고르고 "내려받기"를 누를 때 공식 출처에서 받아 \`%APPDATA%\\com.nukcanon.nukcad\\bigai\\\`에 두고, 받은 뒤 SHA-256을 확인한다.
+  - llama.cpp b11433 \`llama-server\` (CPU x64 빌드, MIT, ggml-org) — https://github.com/ggml-org/llama.cpp/releases/tag/b11433. 압축 파일 안의 LICENSE를 그대로 둔다.
+  - Gemma 4 E2B / E4B / 12B instruct, Q4_0 GGUF (Google, Apache-2.0 — 라이선스 본문 https://ai.google.dev/gemma/apache_2 는 표준 Apache License 2.0) — 변환본 https://huggingface.co/ggml-org (llama.cpp 팀). Gemma 1~3과 달리 Gemma 이용 약관이 아니다.
+  - Qwen3-4B / Qwen3-8B, Q4_K_M GGUF (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen3-4B-GGUF · https://huggingface.co/Qwen/Qwen3-8B-GGUF (Qwen 공식).
+
+- **@nukesound 재난 시뮬레이션 폭발 소리** (\`public/sounds/nuke-blast.mp3\`): Pixabay의 소리 네 개를 섞고 다듬어 만든 파일 하나. Pixabay Content License(https://pixabay.com/service/license-summary/)로 무료 사용(앱 안에 넣어 쓰는 것 허용, 소리만 따로 재배포·판매 금지, 출처 표시 의무 없음). CC0는 아니다.
+  - soumages — "Nuke" (pixabay 333673)
+  - SingularitysMarauder — "Distant Explosion" (pixabay 199372)
+  - DavidDumaisAudio — "Large Underwater Explosion" (pixabay 190270)
+  - u_xg7ssi08yr — "Bomb Explosion 1" (pixabay 381972)`;export{e as default};
