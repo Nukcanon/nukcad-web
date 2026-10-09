@@ -1784,7 +1784,7 @@ title: 이동·회전
 분류: 3D 물체 도구
 난이도: 기초
 workspace: 공통
-keywords: 옮기, 옮기기, 이동, 움직, 돌리, 돌리기, 회전, 위치, 기울, 각도 바꾸, move, rotate, turn, position, tilt, 이동 회전, 핸들, 화살표, 고리, 기즈모, 기준점, 피벗, 90도 돌리기, 눕히기, 세우기, 거리 입력, 3dmove, 3drotate, pivot, gizmo
+keywords: 옮기, 옮기기, 이동, 움직, 돌리, 돌리기, 회전, 위치, 기울, 각도 바꾸, move, rotate, turn, position, tilt, 이동 회전, 핸들, 화살표, 고리, 기즈모, 기준점, 피벗, 90도 돌리기, 눕히기, 세우기, 거리 입력, 3dmove, 3drotate, pivot, gizmo, 손잡이 축, 핸들 축, 월드, 로컬, 월드 축, 로컬 축, 축 방향, world, local
 commands: move, pivotHere, rotX, rotY, rotZ
 howto: move
 context: move, pivotHere, rotX, rotY, rotZ
@@ -1815,7 +1815,14 @@ order: 310
 - 핸들은 처음에 선택한 물체들의 가운데에 놓입니다. 이 점이 이동·회전의 기준점입니다.
 - {t:gizmo2.pivotBtn} 단추나 P 키를 누른 뒤 꼭짓점·모서리 중점·면 중심 같은 점을 클릭하면 그 점이 새 기준점이 됩니다. 모서리나 면을 클릭하면 핸들의 축이 그 방향에 맞춰집니다. Esc로 끝냅니다.
 - Alt를 누르고 있는 동안에도 잠시 기준점을 바꿀 수 있습니다.
-- {t:gizmo2.axisReset}는 돌아간 핸들의 축을 X·Y·Z 방향으로 되돌립니다.
+- {t:gizmo2.axisReset}는 모서리·면에 맞춘 축을 지우고 손잡이 축 설정의 방향으로 되돌립니다.
+
+### 손잡이 축: 월드와 로컬
+
+- 상태 표시줄의 {t:gizmo2.axesWorld} 단추를 누를 때마다 월드와 로컬이 바뀝니다. 3D 물체와 3D 건설 모두에 적용되고, 고른 값은 다음에 열어도 그대로입니다.
+- 월드(처음 값): 화살표와 고리가 언제나 바닥의 X·Y·Z 방향입니다.
+- 로컬: 화살표와 고리가 고른 물체의 축 방향을 따릅니다. 물체를 회전하면 핸들도 함께 돌아가고, Ctrl+Z·Ctrl+Y로 되돌리면 핸들도 그때 물체의 방향으로 돌아갑니다. 여러 물체의 방향이 서로 다르면 월드 방향으로 나옵니다.
+- 격자 스냅과 각도 스냅은 어느 쪽이든 핸들의 축을 따라 맞춰집니다.
 - 면·모서리·꼭짓점을 하나 선택한 상태에서 오른쪽 클릭 메뉴의 {c:pivotHere}를 누르면 그 점(모서리는 중점, 면은 중심)을 기준점으로 {c:move}이 열립니다.
 - {t:ac.advanced}(고급 메뉴에서는 처음부터 보임)에는 기준점을 클릭한 점으로 이동하는 {t:opt.pivotToPoint}, 원점으로 이동하는 {t:opt.pivotToOrigin}, 처음 상태로 되돌리는 {t:opt.pivotReset}가 있습니다. 앞의 두 단추는 물체도 함께 이동합니다.
 
@@ -1839,7 +1846,7 @@ order: 310
 - 물체를 선택하지 않으면 핸들이 나오지 않습니다. 물체를 먼저 클릭합니다.
 - 빈 곳을 클릭하면 도구가 끝납니다. 물체 위를 정확히 클릭합니다.
 - 네모 핸들은 클릭해도 숫자를 넣을 수 없습니다. 정확한 거리는 화살표를 클릭해 넣습니다.
-- 한 번 회전한 뒤에는 핸들도 함께 돌아가 있어 화살표가 비스듬한 방향을 가리킵니다. 월드 방향으로 이동하려면 {t:gizmo2.axisReset}를 누릅니다.
+- 로컬에서는 회전한 물체의 화살표가 비스듬한 방향을 가리킵니다. 바닥의 X·Y·Z 방향으로 이동하려면 상태 표시줄의 손잡이 축을 월드로 바꿉니다.
 `,z=`---
 id: obj-partial-delete
 title: 부분 삭제와 나누기
@@ -3510,7 +3517,7 @@ order: 50
 - 처음에는 격자 스냅이 {t:ux.snap.auto}입니다.
 - {t:ux.snap.auto}에서는 격자가 보이지 않을 때 격자에 맞추지 않습니다. 가까운 객체 스냅이 있으면 그것이 먼저입니다: [객체 스냅](help:snap-osnap).
 - 이동·회전 핸들을 끌 때 Shift 키를 누르고 있으면 간격에 맞추지 않고 자유롭게 움직입니다.
-- 도구가 열려 있지 않을 때 물체를 선택하고 화살표 키를 누르면 {t:grid.linear}의 10분의 1씩 움직입니다. 누르고 있으면 점점 빨라지고, Shift 키를 함께 누르면 10배로, Page Up·Page Down 키는 위아래로 움직입니다.
+- 도구가 열려 있지 않을 때 물체를 선택하고 화살표 키를 누르면 {t:grid.linear}의 10분의 1씩 움직입니다. 누르고 있으면 점점 빨라지고, Shift 키를 함께 누르면 10배로 움직입니다. 방향은 화면 기준입니다: → 는 화면 오른쪽, ← 는 왼쪽, ↑ 는 위, ↓ 는 아래로, 화면에서 그 방향에 가장 가까운 축을 따라 움직이므로 화면을 돌리면 키가 움직이는 축도 달라집니다. 위에서 보면 → 는 +X, ↑ 는 +Y입니다. ↑ ↓ 는 거의 옆에서 볼 때(수평에서 약 25° 이내)는 높이(Z)를, 그보다 위나 아래에서 볼 때는 화면 안쪽으로 뻗는 수평 축을 움직입니다. 남은 한 축은 Page Up(보는 쪽)·Page Down(먼 쪽)이 움직입니다. 스케치 안에서는 선택한 선이 그 스케치 평면의 두 축으로만 움직입니다.
 - 명령줄에서도 정할 수 있습니다: \`snap auto\`, \`snap on\`, \`snap off\`, \`snap 5\`(이동 간격을 5로 정하고 켜기), \`snap angle 15\`, \`snap angle off\`. 간격은 목록에 있는 값만 쓸 수 있고, \`1cm\`처럼 단위를 붙여도 됩니다.
 - {c:snapSettings} 창과 Ctrl+오른쪽 클릭 메뉴에도 {c:snap} 켜기·끄기가 있습니다.
 - [스냅 추적](help:snap-track)의 {t:otrack.dir.polar}도 {t:grid.angular}을 씁니다.
@@ -7223,7 +7230,7 @@ order: 10
 | Shift (끌면서) | 격자 스냅 없이 자유롭게 움직입니다. |
 | Alt (점을 찍는 동안) | 음영 보기에서 면 뒤에 가려진 스냅점에도 붙습니다. |
 | → ← ↑, ↓ | 점을 찍는 동안 X·Y·Z 방향으로 고정하고, ↓로 풉니다. |
-| 화살표, Page Up, Page Down | 도구가 없을 때 선택한 물체를 조금씩 이동합니다. |
+| 화살표, Page Up, Page Down | 도구가 없을 때 선택한 물체를 화면 기준으로 조금씩 이동합니다. 화살표는 화면 오른쪽·왼쪽·위·아래, Page Up·Page Down은 보는 쪽·먼 쪽입니다. |
 
 ### 선택
 
@@ -9105,7 +9112,7 @@ title: Move and rotate
 분류: 3D 물체 도구
 난이도: 기초
 workspace: 공통
-keywords: move, rotate, turn, position, tilt, gizmo, handles, arrows, rings, pivot, set pivot, rotate 90, lay down, stand up, type a distance, 3dmove, 3drotate, transform, roate
+keywords: move, rotate, turn, position, tilt, gizmo, handles, arrows, rings, pivot, set pivot, rotate 90, lay down, stand up, type a distance, 3dmove, 3drotate, transform, roate, handle axes, world, local, world axes, local axes
 commands: move, pivotHere, rotX, rotY, rotZ
 howto: move
 context: move, pivotHere, rotX, rotY, rotZ
@@ -9136,7 +9143,14 @@ Moves and turns the selected objects with arrow, square and ring handles. Distan
 - The handles start in the middle of the selected objects. That point is the pivot of moves and turns.
 - Click {t:gizmo2.pivotBtn} or press P, then click a point such as a corner, an edge midpoint or a face centre: it becomes the new pivot. Clicking an edge or a face lines the handle axes up with it. Esc ends it.
 - Holding Alt changes the pivot for as long as Alt is down.
-- {t:gizmo2.axisReset} turns the handle axes back to X, Y and Z.
+- {t:gizmo2.axisReset} clears an alignment to an edge or face: the handles go back to the handle axes setting.
+
+### Handle axes: world and local
+
+- The {t:gizmo2.axesWorld} button in the status bar switches between world and local. It works in 3D object and 3D building mode, and the choice is kept for next time.
+- World (the default): the arrows and rings always point along the ground's X, Y and Z.
+- Local: the arrows and rings follow the picked object's own axes. When the object turns, the handles turn with it; Ctrl+Z and Ctrl+Y turn them back with the object. Objects facing different ways get the world axes.
+- Grid and angle snaps follow the handle axes either way.
 - With one face, edge or vertex selected, select {c:pivotHere} in the right-click menu: {c:move} opens with the pivot on that point (the middle of an edge, the centre of a face).
 - Under {t:ac.advanced} (shown from the start with the advanced menus): {t:opt.pivotToPoint} moves the pivot to a clicked point, {t:opt.pivotToOrigin} moves it to the origin, and {t:opt.pivotReset} puts it back. The first two take the objects along.
 
@@ -9160,7 +9174,7 @@ Moves and turns the selected objects with arrow, square and ring handles. Distan
 - No handles appear when nothing is selected. Click the object first.
 - Clicking empty space ends the tool. Click on the object itself.
 - A square handle takes no typed value. For an exact distance, click an arrow.
-- After a turn the handles stay turned, so the arrows point at a slant. To move along the world directions, click {t:gizmo2.axisReset}.
+- In local, the arrows of a turned object point at a slant. To move along the ground's X, Y and Z, switch the handle axes to world in the status bar.
 `,Jn=`---
 id: obj-partial-delete
 title: Partial delete and splitting
