@@ -6617,7 +6617,7 @@ desktop: true
 - 모델을 고르려면 \`-Models e4b,e2b\`처럼 씁니다. 가벼운 e2b, 보통 e4b, 고성능 12b가 있습니다. 기본은 e4b입니다.
 - 설치 프로그램으로 넣은 모델은 NukCAD 설치 폴더에 들어가 그 PC의 모든 사용자가 함께 씁니다. 사용자마다 다시 받지 않습니다.
 - 확인은 설치할 때 한 번만 합니다. 확인 결과(verified.json)는 관리자만 바꿀 수 있는 설치 폴더에 있어서, 재부팅 때 사용자 자료를 되돌리는 PC에서도 다시 확인하지 않습니다. 예전 설치처럼 확인 결과가 없을 때만 사용자마다 처음 한 번 확인합니다.
-- 묶음 없이 설치할 때는 첫 화면의 '카두 AI 모델 함께 받기'(기본으로 켜짐, 약 5.4 GB)를 켜 두면, 처음 켤 때 이 PC에 맞는 모델을 인터넷으로 받고 내 컴퓨터 AI를 켭니다. 인터넷이 없으면 다음에 켤 때 이어서 받습니다. 조용한 설치에서는 \`/AIMODEL=1\`을 붙입니다.
+- 묶음 없이 설치할 때는 첫 화면의 'AI 모델 다운로드'(기본으로 켜짐, 약 5.4 GB)를 켜 두면, 프로그램을 설치한 뒤 설치 프로그램이 이 PC에 맞는 모델을 바로 받습니다. 받는 동안 진행 막대와 '중지' 단추가 보입니다. 중지하거나 인터넷이 없으면 설치는 그대로 끝나고, 처음 켤 때 앱이 모델을 받고 내 컴퓨터 AI를 켭니다. 그때도 인터넷이 없으면 다음에 켤 때 이어서 받습니다. 조용한 설치에서는 \`/AIMODEL=1\`을 붙이면 처음 켤 때 받습니다.
 - 원본과 다른 파일은 설치 프로그램이 지우고 알려 줍니다. 묶음을 다시 만들어 설치하거나 {t:bundle.import}로 넣습니다.
 - 자세한 설치 방법은 [AI 연결](help:more-ai-setup)과 묶음 폴더의 '읽어 보세요.txt'에 있습니다.
 
@@ -6653,9 +6653,9 @@ Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다
 ## 팁
 
 - 이 컴퓨터 AI는 질문과 답이 컴퓨터 밖으로 나가지 않습니다. 모델은 크기에 따라 수백 MB에서 수 GB입니다. 가벼운 모델일수록 빠르지만 답이 단순합니다.
-- {t:bigai.engine}의 {t:bigai.engine.webgpu}는 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
+- {t:bigai.engine}의 {t:bigai.engine.webgpu}은 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
 - 웹판 AI와 작은 AI는 그래픽 칩(WebGPU)이 있어야 합니다. 그래픽 가속이 꺼져 있으면 [3D 화면이 검거나 느릴 때](help:faq-black-screen)를 봅니다.
-- 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버 주소와 학년·반·번호는 [멘토에게 도움 요청](help:more-mentor-help)에도 쓰입니다.
+- 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버 주소와 학년·반·번호는 [멘토 도움 요청](help:more-mentor-help)에도 쓰입니다.
 - 학교에서 미리 정해 둔 PC는 관리 비밀번호 없이는 이 설정을 바꿀 수 없습니다.
 - AI가 무엇을 돕지 않는지는 [AI가 못 하는 것·안전](help:more-ai-limits)에 있습니다.
 
@@ -6808,7 +6808,7 @@ desktop: true
 - {t:tapp.tab.ai} 탭에서 AI 모델, 학생 한 명의 하루 질문 수 같은 한도, {t:tapp.extra}를 정하고 {t:tapp.ai.save}을 누릅니다. 시험 질문은 학생 사용량에 세지 않습니다.
 - {t:tapp.lim.keepLastQuestions}을 0으로 두면 질문을 남기지 않습니다. 0보다 크게 두어도 Cadoo 대화의 질문은 남기지 않습니다.
 - {t:tapp.tab.usage} 탭에는 오늘의 질문 수와 예상 비용이 학년·반별로 나옵니다. 토큰으로 계산한 추정값입니다.
-- 학생 쪽 사용법은 [멘토에게 도움 요청](help:more-mentor-help)과 [AI 연결](help:more-ai-setup)에 있습니다.
+- 학생 쪽 사용법은 [멘토 도움 요청](help:more-mentor-help)과 [AI 연결](help:more-ai-setup)에 있습니다.
 
 ## 자주 하는 실수
 
@@ -6819,7 +6819,7 @@ desktop: true
 - API 키를 학생에게 알려 주지 않습니다. 키는 멘토 서버의 설정 파일에만 저장되고, 창에는 가린 모양만 보입니다.
 `,Zt=`---
 id: more-mentor-help
-title: 멘토에게 도움 요청
+title: 멘토 도움 요청
 분류: 그 밖의 기능
 난이도: 기초
 workspace: 공통
@@ -6833,7 +6833,7 @@ desktop: true
 
 ## 무엇
 
-수업 중에 막혔을 때 멘토에게 도움 요청을 보내고, 멘토가 자기 화면에서 내 모델을 같이 보거나 내가 허락하면 직접 고쳐 주게 하는 기능입니다. 설치판에서만 쓸 수 있습니다. 화면 영상이 아니라 문서(모델)를 그대로 맞추는 방식이라 멘토는 모델을 자유롭게 회전해 볼 수 있습니다.
+수업 중에 막혔을 때 멘토 도움 요청을 보내고, 멘토가 자기 화면에서 내 모델을 같이 보거나 내가 허락하면 직접 고쳐 주게 하는 기능입니다. 설치판에서만 쓸 수 있습니다. 화면 영상이 아니라 문서(모델)를 그대로 맞추는 방식이라 멘토는 모델을 자유롭게 회전해 볼 수 있습니다.
 
 ## 하는 순서
 
@@ -13939,7 +13939,7 @@ How to install NukCAD together with a big AI model on school PCs with no or slow
 - To choose models, add \`-Models e4b,e2b\`. There are e2b (light), e4b (normal) and 12b (smart); the default is e4b.
 - Models put in by the installer go into NukCAD's install folder and every user of the PC shares them; no user downloads them again.
 - The check runs once, at install time. Its result (verified.json) is in the install folder, which only administrators can change, so even a PC that resets user data at each restart never checks again. Only without that result (an older install) does each user's app check once.
-- Without a bundle, keep 'Also download the Cadoo AI model' (on by default, about 5.4 GB) on the installer's first page: at the first start NukCAD downloads the model that suits the PC and turns on AI on this computer. Without internet it continues at the next start. For a silent install, add \`/AIMODEL=1\`.
+- Without a bundle, keep 'AI 모델 다운로드' (AI model download, on by default, about 5.4 GB) on the installer's first page: after the program is installed, the installer downloads the model that suits the PC, with a progress bar and a '중지' (stop) button. If you stop it or there is no internet, the install still finishes and NukCAD downloads the model at its first start and turns on AI on this computer; without internet then too, it continues at the next start. For a silent install, \`/AIMODEL=1\` makes NukCAD download at its first start.
 - A file that differs from the original is deleted by the installer, which says so. Make the bundle again, or add the model with {t:bundle.import}.
 - More about installing is in [AI setup](help:more-ai-setup) and in the bundle folder's '읽어 보세요.txt'.
 
