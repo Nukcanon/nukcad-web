@@ -4840,10 +4840,10 @@ title: 바닥판 깔기
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: 바닥판, 바닥 깔기, 슬래브, 천장, 마루, 방바닥, slab, floor slab, ceiling, 바닥, 바닥 만들기, 벽으로 바닥판, 닫힌 벽, 자동 바닥판, 외곽선 바닥판, 바닥판 두께, 바닥 구멍, 계단 구멍, 슬라브, 바닥판 그리기, floor, slab from walls, slab thickness, slab hole, stair opening
-commands: slab, levelOutline, stair, pathEdit
+keywords: 바닥판, 바닥 깔기, 슬래브, 천장, 마루, 방바닥, slab, floor slab, ceiling, 바닥, 바닥 만들기, 벽으로 바닥판, 닫힌 벽, 자동 바닥판, 외곽선 바닥판, 바닥판 두께, 바닥 구멍, 계단 구멍, 구멍 뚫기, 구멍 메우기, 바닥 개구부, 슬라브, 바닥판 그리기, floor, slab from walls, slab thickness, slab hole, stair opening
+commands: slab, levelOutline, stair, pathEdit, slabHole, slabHoleFill
 howto: slab
-context: slab
+context: slab, slabHole
 order: 60
 ---
 
@@ -4866,6 +4866,9 @@ order: 60
 - 층 외곽선이 있는 층은 바닥판이 저절로 생기고 외곽선을 따라 바뀝니다 ([층 외곽선](help:arch-outline)). 위층 외곽선을 더 크게 그리면 아래층 밖으로 내민 바닥판이 됩니다.
 - {t:slab.way.outline}은 이 건물에서 외곽선은 있는데 외곽선 바닥판이 꺼진 층을 찾아 다시 만듭니다. 그 자리에 이미 바닥판이 있는 층은 건너뛰고 알림이 나옵니다.
 - 바닥판의 구멍: 계단을 놓으면 그 위의 바닥판에 계단 크기만큼 구멍이 저절로 뚫립니다. 계단을 이동하면 구멍도 따라가고, 계단을 삭제하면 구멍이 막힙니다 ([계단](help:arch-stair)).
+- 구멍을 직접 뚫으려면 바닥판을 오른쪽 클릭하고 {c:slabHole}를 누릅니다. 속성 창의 {c:slabHole} 단추도 같습니다. 바닥판 위에 두 점을 찍고 Enter를 누르면 사각형, 세 점 이상을 찍고 첫 점을 다시 누르거나 Enter를 누르면 다각형 구멍이 뚫립니다. \`@3,2\`처럼 앞 점에서 잰 값도 입력합니다. Esc를 누르면 뚫지 않고 끝납니다.
+- 직접 뚫는 구멍은 바닥판 안에 있어야 합니다. 가장자리에 닿거나 밖으로 나가면 뚫지 않고 알림이 나옵니다. 바닥판만 뚫리고 벽은 생기지 않습니다. 외곽선 바닥판의 구멍은 층 외곽선을 고쳐도 그 자리에 남습니다.
+- 직접 뚫은 구멍을 없애려면 구멍 위에서 오른쪽 클릭하고 {c:slabHoleFill}를 누릅니다.
 - 그린 바닥판을 선택하면 속성 창에서 두께를 바꾸고, {c:pathEdit}으로 외곽 점과 곡선을 고칩니다.
 - 바닥판은 다른 층에도 놓을 수 있습니다. 창의 {t:lv.pickLevel} 칸에서 층을 선택합니다.
 
@@ -12224,10 +12227,10 @@ title: Lay a floor slab
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: slab, floor slab, ceiling, floor, make a floor, slab from walls, closed walls, automatic slab, outline slab, slab thickness, hole in slab, stair opening, floor plate, deck
-commands: slab, levelOutline, stair, pathEdit
+keywords: slab, floor slab, ceiling, floor, make a floor, slab from walls, closed walls, automatic slab, outline slab, slab thickness, hole in slab, stair opening, cut hole, fill hole, floor opening, floor plate, deck
+commands: slab, levelOutline, stair, pathEdit, slabHole, slabHoleFill
 howto: slab
-context: slab
+context: slab, slabHole
 order: 60
 ---
 
@@ -12250,6 +12253,9 @@ A slab is the plate that makes a level's floor. Its top lies on the level's floo
 - A level with a level outline gets its slab by itself, and the slab follows the outline ([level outline](help:arch-outline)). Drawing an upper outline bigger makes a slab that overhangs the level below.
 - {t:slab.way.outline} finds the levels of this building with an outline whose outline slab is off and makes it again. A level that already has a slab in that place is skipped, with a message.
 - Holes in slabs: a stair cuts a hole its size in the slab above it by itself. The hole follows the stair when it moves and closes when the stair is deleted ([stairs](help:arch-stair)).
+- To cut a hole yourself, right-click the slab and choose {c:slabHole}. The {c:slabHole} button in the Properties window does the same. Click two points on the slab and press Enter for a rectangle, or click three or more points and click the first point again or press Enter for a polygon. Values measured from the last point such as \`@3,2\` can be typed too. Esc ends without cutting.
+- A hole you cut must lie inside the slab. When it touches the edge or reaches outside, nothing is cut and a message says so. Only the slab is cut: no walls are made. A hole in an outline slab stays in its place when the level outline is changed.
+- To close a hole you cut, right-click on the hole and choose {c:slabHoleFill}.
 - Select a drawn slab to change its thickness in the Properties window, or reshape its edge points and curves with {c:pathEdit}.
 - A slab can go on another level too: select it in the {t:lv.pickLevel} field of the window.
 
