@@ -6617,7 +6617,7 @@ desktop: true
 2. PowerShell에서 \`tools\\make-offline-bundle.ps1 -Installer <설치 프로그램 경로>\`를 실행합니다. 모델을 받는 데 시간이 걸리고, 끊겨도 다시 실행하면 이어서 받습니다.
 3. 만들어진 NukCAD-학교용 폴더를 통째로 USB나 공유 폴더에 복사합니다. 설치 프로그램과 NukCAD-models 폴더는 같은 폴더에 둡니다.
 4. 각 PC에서 관리자 계정으로 그 폴더의 설치 프로그램을 실행합니다. 설치가 끝날 때 AI 모델 파일을 NukCAD 설치 폴더의 NukCAD-models(보통 \`C:\\Program Files\\NukCAD\\NukCAD-models\`)로 복사하고, 각 파일이 원본과 같은지(SHA-256) 그 자리에서 한 번 확인합니다. 조용한 설치(/S)도 같습니다.
-5. NukCAD를 켜면 설치 때 확인한 모델을 바로 씁니다. AI 방식을 고른 적이 없는 사용자는 내 컴퓨터 AI가 저절로 켜지고 짧은 안내가 한 번 나옵니다. {c:settings} → {t:set.general} 탭의 {t:ai.set.label}에서 모델이 {t:bigai.installed}으로 표시됩니다.
+5. NukCAD를 켜면 설치 때 확인한 모델을 바로 씁니다. AI 방식을 고른 적이 없는 사용자는 로컬 AI가 저절로 켜지고 짧은 안내가 한 번 나옵니다. {c:settings} → {t:set.general} 탭의 {t:ai.set.label}에서 모델이 {t:bigai.installed}으로 표시됩니다.
 6. 이미 NukCAD가 설치된 PC에서는 {t:ai.set.label}에서 {t:ai.set.local}과 {t:bigai.engine.cpu}을 선택하고 {t:bundle.import}를 누릅니다. {t:bundle.import.find}로 USB의 NukCAD-models 폴더를 찾은 뒤 {t:bundle.import.start}를 누릅니다.
 
 ## 팁
@@ -6625,7 +6625,7 @@ desktop: true
 - 모델을 고르려면 \`-Models e4b,e2b\`처럼 씁니다. 가벼운 e2b, 보통 e4b, 고성능 12b가 있습니다. 기본은 e4b입니다.
 - 설치 프로그램으로 넣은 모델은 NukCAD 설치 폴더에 들어가 그 PC의 모든 사용자가 함께 씁니다. 사용자마다 다시 받지 않습니다.
 - 확인은 설치할 때 한 번만 합니다. 확인 결과(verified.json)는 관리자만 바꿀 수 있는 설치 폴더에 있어서, 재부팅 때 사용자 자료를 되돌리는 PC에서도 다시 확인하지 않습니다. 예전 설치처럼 확인 결과가 없을 때만 사용자마다 처음 한 번 확인합니다.
-- 묶음 없이 설치할 때는 첫 화면의 'AI 모델 다운로드'(기본으로 켜짐, 약 5.4 GB)를 켜 두면, 프로그램을 설치한 뒤 설치 프로그램이 이 PC에 맞는 모델을 바로 받습니다. 받는 동안 진행 막대와 '중지' 단추가 보입니다. 중지하거나 인터넷이 없으면 설치는 그대로 끝나고, 처음 켤 때 앱이 모델을 받고 내 컴퓨터 AI를 켭니다. 그때도 인터넷이 없으면 다음에 켤 때 이어서 받습니다. 조용한 설치에서는 \`/AIMODEL=1\`을 붙이면 처음 켤 때 받습니다.
+- 묶음 없이 설치할 때는 첫 화면의 'AI 모델 다운로드'(기본으로 켜짐, 약 5.4 GB)를 켜 두면, 프로그램을 설치한 뒤 설치 프로그램이 이 PC에 맞는 모델을 바로 받습니다. 받는 동안 진행 막대와 '중지' 단추가 보입니다. 중지하거나 인터넷이 없으면 설치는 그대로 끝나고, 처음 켤 때 앱이 모델을 받고 로컬 AI를 켭니다. 그때도 인터넷이 없으면 다음에 켤 때 이어서 받습니다. 조용한 설치에서는 \`/AIMODEL=1\`을 붙이면 처음 켤 때 받습니다.
 - 원본과 다른 파일은 설치 프로그램이 지우고 알려 줍니다. 묶음을 다시 만들어 설치하거나 {t:bundle.import}로 넣습니다.
 - 자세한 설치 방법은 [AI 연결](help:more-ai-setup)과 묶음 폴더의 '읽어 보세요.txt'에 있습니다.
 
@@ -6640,31 +6640,33 @@ title: AI 연결
 분류: 그 밖의 기능
 난이도: 중급
 workspace: 공통
-keywords: AI 연결, AI 켜기, AI 설정, AI 도우미, AI 모델, 모델 받기, 다운로드, 내 컴퓨터 AI, 이 컴퓨터 AI, 멘토 서버, 교사 서버, 서버 주소, 연결 시험, WebGPU, 그래픽 칩, 프로세서, CPU, 큰 AI, 웹판 AI, Qwen, AI 안 됨, ai setup, ai model, local model, mentor server
+keywords: AI 연결, AI 켜기, AI 설정, AI 도우미, AI 모델, 모델 받기, 다운로드, AI 모두 삭제, 모델 삭제, 로컬 AI, 원격 AI, 내 컴퓨터 AI, 이 컴퓨터 AI, 멘토 서버, 교사 서버, 서버 주소, 연결 시험, WebGPU, 그래픽 칩, 프로세서, CPU, 큰 AI, 웹판 AI, Qwen, AI 안 됨, ai setup, ai model, local model, mentor server
 commands: cadooChat, settings
 order: 50
 ---
 
 ## 무엇
 
-Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다. 자유로운 대화와 더 복잡한 만들기 부탁에는 AI를 연결합니다. 연결 방법은 세 가지입니다: 이 컴퓨터에서 실행하는 AI(웹판·설치판), 멘토 PC의 서버를 거치는 AI(설치판), AI를 쓰지 않음.
+Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다. 자유로운 대화와 더 복잡한 만들기 부탁에는 AI를 연결합니다. AI 종류는 두 가지입니다: 이 컴퓨터에서 실행하는 {t:ai.set.local}(웹판·설치판)와 멘토 서버를 거치는 {t:ai.set.teacher}(설치판). AI를 끄고 쓸 수도 있습니다.
 
 ## 하는 순서
 
 1. 웹판에서는 {c:cadooChat} 창 위쪽의 {t:chat.aiSetup} 단추를 누릅니다.
 2. 그래픽 확인 결과를 보고, 목록에서 모델을 선택한 뒤 받기를 누릅니다. 처음 한 번만 인터넷으로 받습니다.
-3. 설치판에서는 {c:settings} → {t:set.general} 탭의 {t:ai.set.label}에서 {t:ai.set.off}, {t:ai.set.local}, {t:ai.set.teacher} 가운데 하나를 선택합니다.
-4. {t:ai.set.local}을 선택하면 {t:bigai.engine}를 정하고 모델을 받습니다.
-5. {t:ai.set.teacher}를 선택하면 멘토가 알려 준 {t:ai.teacher.server}를 입력하고 {t:ai.teacher.test} 단추로 연결을 확인합니다.
-6. {c:cadooChat} 창 위쪽에 지금 누가 답하는지 표시됩니다. 질문을 보내 확인합니다.
+3. 설치판에서는 {c:settings} → {t:set.general} 탭의 {t:ai.set.label} 줄이나 {c:cadooChat} 창 위쪽 줄의 {t:aip.more} 단추를 누릅니다. 두 곳은 같은 화면입니다.
+4. {t:aip.kind}에서 {t:ai.set.local}나 {t:ai.set.teacher}를 선택하고 {t:aip.on} 스위치를 켭니다.
+5. {t:ai.set.local}는 {t:aip.model}을 선택하고 다운로드 단추를 누릅니다. 받는 동안 {t:aip.stop} 단추로 멈출 수 있고, 다음에 이어서 받습니다.
+6. {t:ai.set.teacher}는 멘토가 알려 준 {t:ai.teacher.server}를 입력하고 {t:ai.teacher.test} 단추로 연결을 확인합니다.
+7. 위쪽 줄에 AI 종류, 모델, 사용 공간이 보이고, 받지 않았거나 받는 중이면 그 상태도 보입니다.
 
 ## 팁
 
-- 이 컴퓨터 AI는 질문과 답이 컴퓨터 밖으로 나가지 않습니다. 모델은 크기에 따라 수백 MB에서 수 GB입니다. 가벼운 모델일수록 빠르지만 답이 단순합니다.
-- {t:bigai.engine}의 {t:bigai.engine.webgpu}은 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
-- 웹판 AI와 작은 AI는 그래픽 칩(WebGPU)이 있어야 합니다. 그래픽 가속이 꺼져 있으면 [3D 화면이 검거나 느릴 때](help:faq-black-screen)를 봅니다.
+- {t:ai.set.local}는 질문과 답이 컴퓨터 밖으로 나가지 않습니다. 모델은 크기에 따라 수백 MB에서 수 GB입니다. 가벼운 모델일수록 빠르지만 답이 단순합니다.
+- {t:aip.advanced}의 {t:bigai.engine}에서 {t:bigai.engine.webgpu}은 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
+- 웹판 AI와 작은 모델은 그래픽 칩(WebGPU)이 있어야 합니다. 그래픽 가속이 꺼져 있으면 [3D 화면이 검거나 느릴 때](help:faq-black-screen)를 봅니다.
 - 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버 주소와 학년·반·번호는 [멘토 도움 요청](help:more-mentor-help)에도 쓰입니다.
-- 학교에서 미리 정해 둔 PC는 관리 비밀번호 없이는 이 설정을 바꿀 수 없습니다.
+- {t:bigai.removeAll}는 이 PC에 받은 AI 파일을 모두 지웁니다. 설치할 때 함께 받은 공용 AI 파일도 지우며, 필요하면 Windows가 관리자 권한을 묻습니다. 학교 학생용 PC의 공용 AI 파일은 멘토가 관리하므로 그대로 둡니다.
+- 학교에서 미리 정해 둔 PC는 관리 비밀번호 없이는 멘토 서버 주소를 바꿀 수 없습니다.
 - AI가 무엇을 돕지 않는지는 [AI가 못 하는 것·안전](help:more-ai-limits)에 있습니다.
 
 ## 자주 하는 실수
@@ -6977,7 +6979,7 @@ order: 20
 
 ## 무엇
 
-3D 화면이 검게 나오거나, {t:gl.none} 안내가 뜨거나, 화면 위에 {t:gpuhint.banner} 띠가 보이면 브라우저나 PC가 그래픽 칩을 쓰지 못하는 상태입니다. 이때는 3D 화면이 그려지지 않거나 매우 느리고, 이 컴퓨터 AI도 실행할 수 없습니다.
+3D 화면이 검게 나오거나, {t:gl.none} 안내가 뜨거나, 화면 위에 {t:gpuhint.banner} 띠가 보이면 브라우저나 PC가 그래픽 칩을 쓰지 못하는 상태입니다. 이때는 3D 화면이 그려지지 않거나 매우 느리고, 로컬 AI도 실행할 수 없습니다.
 
 ## 하는 순서
 
@@ -7284,7 +7286,7 @@ order: 50
 - {t:set.drawQuality.auto}는 느려지면 작게 보이는 물체를 스스로 더 대충 그리고, 빨라지면 천천히 되돌립니다. 선택한 물체와 편집 중인 스케치는 항상 원래대로 그립니다.
 - 웹판은 설치판보다 일찍 대충 그립니다. 큰 건물이나 넓은 땅은 설치판이 더 빠릅니다.
 - 다른 탭이나 프로그램(동영상, 게임)을 닫으면 그래픽 칩과 메모리가 남습니다.
-- 이 컴퓨터 AI가 답하는 동안에는 그래픽 칩을 함께 쓰므로 화면이 느려질 수 있습니다.
+- 로컬 AI가 답하는 동안에는 그래픽 칩을 함께 쓰므로 화면이 느려질 수 있습니다.
 - 넓은 지도를 받으면 땅이 커집니다. 건설 지역은 필요한 만큼만 선택합니다. [건설 지역 정하기](help:site-map)를 봅니다.
 
 ## 자주 하는 실수
@@ -13969,23 +13971,24 @@ title: Connecting an AI
 분류: 그 밖의 기능
 난이도: 중급
 workspace: 공통
-keywords: connect ai, turn on ai, ai settings, ai helper, ai model, download model, local ai, this computer, mentor server, server address, test connection, webgpu, graphics chip, processor, cpu, web ai, qwen
+keywords: delete all ai, delete model, remote ai, connect ai, turn on ai, ai settings, ai helper, ai model, download model, local ai, this computer, mentor server, server address, test connection, webgpu, graphics chip, processor, cpu, web ai, qwen
 commands: cadooChat, settings
 order: 50
 ---
 
 ## What
 
-Cadoo answers from this help and its own rules and can make objects without an AI. For free conversation and more complex making requests, connect an AI. There are three ways: an AI running on this computer (web and installed app), an AI reached through the server on the mentor's PC (installed app), or no AI.
+Cadoo answers from this help and its own rules and can make objects without an AI. For free conversation and more complex making requests, connect an AI. There are two AI types: {t:ai.set.local}, running on this computer (web and installed app), and {t:ai.set.teacher}, reached through the mentor server (installed app). The AI can also be turned off.
 
 ## Steps
 
 1. In the web version, click the {t:chat.aiSetup} button at the top of the {c:cadooChat} window.
 2. Check the graphics result, select a model from the list and download it. It is downloaded only once.
-3. In the installed app, open {c:settings} → {t:set.general} and select {t:ai.set.off}, {t:ai.set.local} or {t:ai.set.teacher} under {t:ai.set.label}.
-4. With {t:ai.set.local}, set {t:bigai.engine} and download a model.
-5. With {t:ai.set.teacher}, type the {t:ai.teacher.server} your mentor gave you and check it with {t:ai.teacher.test}.
-6. The top of the {c:cadooChat} window shows what answers now. Send a question to check.
+3. In the installed app, click {t:aip.more} on the {t:ai.set.label} line in {c:settings} → {t:set.general}, or on the line at the top of the {c:cadooChat} window. Both show the same panel.
+4. Under {t:aip.kind}, select {t:ai.set.local} or {t:ai.set.teacher} and switch {t:aip.on} on.
+5. With {t:ai.set.local}, select a {t:aip.model} and click the download button. {t:aip.stop} pauses it; the next download continues.
+6. With {t:ai.set.teacher}, type the {t:ai.teacher.server} your mentor gave you and check it with {t:ai.teacher.test}.
+7. The top line shows the AI type, the model and the disk space used, and the state when the model is missing or downloading.
 
 ## Tips
 
@@ -13993,7 +13996,8 @@ Cadoo answers from this help and its own rules and can make objects without an A
 - Under {t:bigai.engine}, {t:bigai.engine.webgpu} runs on the graphics chip and {t:bigai.engine.cpu} on the processor. The processor option runs larger models but uses much memory and answers slowly.
 - The web AI and the small AI need a graphics chip with WebGPU. If graphics acceleration is off, see [Black or slow 3D view](help:faq-black-screen).
 - The mentor server is a program started by NukCAD on the mentor's PC. Its address and your grade, class and number are also used by [Ask the mentor for help](help:more-mentor-help).
-- On a PC set up by the school, these settings cannot be changed without the admin password.
+- {t:bigai.removeAll} deletes every AI file on this PC, also the shared AI files downloaded at install time; Windows asks for administrator rights when needed. On a school student PC the shared files stay, as the mentor manages them.
+- On a PC set up by the school, the mentor server address cannot be changed without the admin password.
 - What the AI will not help with is in [What the AI will not do, and safety](help:more-ai-limits).
 
 ## Common mistakes

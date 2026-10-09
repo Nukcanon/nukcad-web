@@ -1,0 +1,5 @@
+function e(e){let t=e.trim();if(!t)return null;/^[a-z][a-z0-9+.-]*:\/\//i.test(t)||(t=`http://${t}`);let n;try{n=new URL(t)}catch{return null}if(n.protocol!==`http:`&&n.protocol!==`https:`||!n.hostname)return null;let r=/^https?:\/\/(?:\[[^\]]*\]|[^/:?#]*):(\d+)/i.exec(t),i=n.port||(r?``:`8765`);return`${n.protocol}//${n.hostname}${i?`:${i}`:``}`}function t(e){let t=[];return{text:e.replace(/```nukcad[^\n]*\n([\s\S]*?)(```|$)/gi,(e,n)=>{for(let e of n.split(`
+`))e.trim()&&t.push(e.trim());return``}).replace(/\n{3,}/g,`
+
+`).trim(),commands:t}}function n(e){return t(e.replace(/`{1,2}$/,``).replace(/```(?:n(?:u(?:k(?:c(?:a(?:d)?)?)?)?)?)?$/i,``)).text}function r(e){let t=``,n=t=>{let n=t.split(/\r?\n/).filter(e=>e.startsWith(`data:`)).map(e=>e.slice(5).replace(/^ /,``)).join(`
+`);if(n)try{e(JSON.parse(n))}catch{}};return{feed(e){t+=e;let r;for(;(r=t.search(/\r?\n\r?\n/))>=0;){let e=/\r?\n\r?\n/.exec(t.slice(r));n(t.slice(0,r)),t=t.slice(r+e[0].length)}},end(){t.trim()&&n(t),t=``}}}export{n as i,e as n,t as r,r as t};
