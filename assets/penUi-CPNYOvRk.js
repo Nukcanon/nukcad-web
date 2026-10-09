@@ -1,1 +1,0 @@
-import{Hn as e,Mt as t}from"./sketchTools-J3s-5Iid.js";var n=e();function r(){return(0,n.jsx)(`p`,{className:`hint pen-hint`,"data-tip":t(`dragclick.penShortTip`),children:t(`dragclick.penShort`)})}export{r as t};
