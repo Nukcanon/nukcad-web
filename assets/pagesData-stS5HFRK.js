@@ -4301,7 +4301,7 @@ title: 오류 점검
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: 오류 점검, 오류, 점검, 검사, 검토, 겹침, 틈, 턱, 바닥판 속 벽, 벽이 바닥판을 뚫음, 뜬 물체, 묻힌 물체, 계단 단높이, 천장 높이, 옥상 턱, 고치기, 모두 고치기, 부재 맞춤, 맞춤 점검, check, error check, errors, misfit, overlap, gap
+keywords: 오류 점검, 오류, 주의, 점검, 범위, 다시 점검, 상태 표시줄, 묶음, 겹친 부재, 같은 자리 부재, 모양 없는 부재, 받치는 것 없음, 벽이 없는 문, 아깝게 안 닿음, 틈, 고치기, 모두 고치기, check, error check, errors, warnings, range
 commands: errorCheck, buildFlow
 context: errorCheck
 order: 155
@@ -4309,32 +4309,38 @@ order: 155
 
 ## 무엇
 
-{c:errorCheck}은 벽·기둥·바닥판·지붕·계단·난간·문·창·물체·토목 구조물이 서로 맞지 않는 곳을 찾아 한 창에 목록으로 보여 줍니다. 벽 위가 바닥판 속으로 들어간 곳, 벽과 지붕 사이의 틈, 바닥에서 뜬 물체, 기준을 넘는 계단 단높이, 낮은 천장 같은 것입니다. 오류마다 고치는 단추가 있고, 선택한 오류를 한 번에 고칠 수도 있습니다.
+{c:errorCheck}은 확실히 잘못된 부재와 몇 mm 차이로 아깝게 맞지 않는 곳만 찾아 한 창에 보여 줍니다. 일부러 했을 수 있는 것은 찾지 않습니다.
+
+- **오류**: 어떤 뜻으로도 설명되지 않는 것입니다. 길이·높이·두께가 0이라 모양이 없는 부재, 모양을 만들지 못한 부재, 같은 자리에 똑같이 두 번 만든 부재, 끼워져 있던 벽이 삭제된 문·창, 연결되어 있던 지붕이나 층이 삭제된 부재, 위층에서 아래에 아무것도 받치지 않는 부재가 여기에 들어갑니다.
+- **주의**: 2 mm보다 크고 10 mm 이하로 아깝게 닿지 않거나 살짝 파고든 곳입니다. 벽 위와 바닥판·지붕 사이의 작은 틈, 바닥에서 조금 뜬 벽·가구, 벽보다 조금 깊은 문, 층 선에서 조금 어긋난 바닥판, 다른 벽 속에 통째로 들어간 벽 같은 것입니다.
+- 직접 입력한 높이로 바닥판이나 지붕에 닿지 않는 벽, 두 층을 지나는 벽, 일부러 뚫은 구멍, 들어 올린 부재, 가파른 계단, 낮은 천장 등은 나오지 않습니다.
 
 ## 하는 순서
 
-1. {m:errorCheck} 단추를 누릅니다. {c:buildFlow} 창 맨 아래 줄의 {c:errorCheck}을 눌러도 같은 창이 열립니다.
-2. 목록에서 오류 문장을 누르면 그 부재가 선택되고 화면이 그곳으로 이동합니다.
-3. 고치지 않을 오류는 줄 앞의 체크 상자를 해제합니다.
-4. 창 위쪽의 {t:pfit.fix} 단추를 누르면 체크된 오류가 저마다 권장 방법으로 한 번에 고쳐집니다.
-5. 오류 하나만 다른 방법으로 고치려면 그 줄 오른쪽의 단추를 누릅니다.
+1. {m:errorCheck} 단추를 누릅니다. 선택한 범위를 바로 점검하고 창이 열립니다.
+2. 점검할 범위를 바꾸려면 창 맨 위의 {t:echk.range} 줄을 눌러 {t:echk.rangeAll}, 건물, 층, {t:echk.rangePicked} 가운데에서 선택하고 {t:echk.again} 단추를 누릅니다.
+3. 목록에서 줄을 누르면 그 부재가 선택되고 화면이 그곳으로 이동합니다.
+4. 고치지 않을 줄은 앞의 체크 상자를 해제합니다.
+5. 창 위쪽의 {t:pfit.fix} 단추를 누르면 체크된 것이 저마다 권장 방법으로 한 번에 고쳐집니다. 하나만 다른 방법으로 고치려면 그 줄 오른쪽의 단추를 누릅니다.
 
 ## 팁
 
-- {t:echk.selectAll}을 누르면 고칠 수 있는 오류가 모두 선택되거나 모두 해제됩니다.
-- {t:pfit.fix} 단추로 고친 것은 몇 개든 되돌리기 한 번으로 모두 되돌아갑니다. 줄 오른쪽 단추로 고친 것도 되돌리기 한 번입니다.
-- 창이 열려 있는 동안에는 문서를 바꿀 때마다 목록을 다시 점검합니다. 해제한 오류는 남아 있는 동안 해제된 채로 있고, 새로 생긴 오류는 체크된 채로 들어옵니다.
-- 줄 앞의 빨간 점은 고쳐야 하는 오류, 주황 점은 확인할 오류, 회색 점은 참고입니다.
-- 줄 오른쪽에 단추가 없는 오류(문 머리가 벽 위보다 높음, 계단 머리 위 여유 부족 등)는 자동으로 고칠 방법이 없어 부재를 직접 고칩니다.
-- 층고·옥상 높이·바닥판 두께·지붕 두께·벽 두께를 바꾸면, 층 선에 정확히 닿아 있던 벽·기둥·계단, 자동 옥상, 지붕 위에 선 물체, 벽 두께에 맞춘 문·창 깊이가 같은 단계에서 함께 맞춰지고 알림이 뜹니다. 직접 넣은 값(예: 1.1 m 난간벽)은 바뀌지 않고, 맞지 않으면 이 목록에 나옵니다.
+- 창은 떠 있는 창이라 제목 줄을 끌어 옮기고 가장자리를 끌어 크기를 바꿀 수 있습니다. {c:errorCheck}을 실행했을 때와 상태 표시줄의 오류 칸을 두 번 눌렀을 때, {c:buildFlow} 창 맨 아래 줄을 눌렀을 때만 열립니다.
+- 상태 표시줄에는 **오류 개수만** 보입니다. 오류가 없으면 칸이 사라지고, 주의는 창에서만 보입니다. {c:buildFlow} 창 맨 아래 줄도 오류 개수만 보여 줍니다.
+- 창 안에서는 오류가 먼저, 주의가 그 아래에 따로 나옵니다. 같은 종류가 여러 개이면 「문장 · n개」 한 줄로 묶이고, 여러 층에 걸친 큰 묶음은 층마다 다시 묶입니다.
+- 범위에서 건물을 체크하면 그 건물의 모든 층이 선택됩니다. 선택한 범위는 다음에 점검할 때도 그대로 쓰입니다.
+- 작업을 하면 바뀐 부재와 그 주변, 그리고 이미 나와 있는 줄의 부재만 작업 직후 한 번, 컴퓨터가 쉬는 때에 다시 점검합니다. 문서 전체를 계속 점검하지 않으므로 큰 건물에서도 느려지지 않습니다.
+- 한 부재에는 한 줄만 나옵니다. 벽 위가 천장이나 위층 바닥판, 지붕 가운데 하나에 닿아 있으면 다른 것과 떨어져 있어도 나오지 않습니다. 바닥판이 층 선에서 어긋나면 그 바닥판 한 줄만 나오고 그 위아래 부재는 따로 세지 않습니다.
+- {t:pfit.fix} 단추로 고친 것은 몇 개든 되돌리기 한 번으로 모두 되돌아갑니다. 고치기가 새 오류를 만들지 않도록 점검되어 있습니다.
+- 줄 오른쪽에 단추가 없는 것(받치는 것이 없는 부재, 모양을 만들지 못한 부재 등)은 부재를 직접 고칩니다.
+- 층고·옥상 높이·바닥판 두께·지붕 두께·벽 두께를 바꾸면 층 선에 정확히 닿아 있던 벽·기둥·계단, 자동 옥상, 지붕 위에 선 물체, 벽 두께와 같던 문·창 깊이가 같은 단계에서 함께 맞춰집니다. 직접 넣은 값(예: 1.1 m 난간벽, 벽보다 깊게 넣은 문)은 바뀌지 않습니다.
 - 숨긴 부재도 점검합니다.
-- 오류가 없으면 창에 {t:pfit.none} 문장이 보이고, {c:buildFlow} 창 맨 아래 줄에는 {t:echk.noneShort} 표시가 보입니다.
 
 ## 자주 하는 실수
 
-- {t:pfit.fix} 단추를 눌렀는데 오류가 남습니다. 체크를 해제한 오류와 자동으로 고칠 방법이 없는 오류는 그대로 남습니다.
-- 오류 문장을 눌렀는데 부재가 보이지 않습니다. 다른 층의 오류이면 작업 층이 그 층으로 바뀝니다. 그 층이 숨겨져 있으면 {c:levelPanel}에서 보이게 합니다.
-- 벽 위가 바닥판 속으로 들어간 오류가 수십 개 나옵니다. 높이를 층고와 같게 그린 벽은 위층 바닥판 속으로 들어갑니다. {t:pfit.fix} 단추 한 번으로 모두 위층 바닥까지로 맞출 수 있습니다.
+- {t:pfit.fix} 단추를 눌렀는데 줄이 남습니다. 체크를 해제한 줄과 자동으로 고칠 방법이 없는 줄은 그대로 남습니다.
+- 줄을 눌렀는데 부재가 보이지 않습니다. 다른 층의 부재이면 작업 층이 그 층으로 바뀝니다. 그 층이 숨겨져 있으면 {c:levelPanel}에서 보이게 합니다.
+- 바닥판에 닿지 않는 벽이 목록에 없습니다. 직접 입력한 높이는 일부러 한 것으로 보고 나오지 않습니다. 몇 mm 차이로 아깝게 안 닿는 것만 주의로 나옵니다.
 `,Ye=`---
 id: arch-face-paint
 title: 면 칠하기
@@ -11730,7 +11736,7 @@ title: Error check
 분류: 건축 부재
 난이도: 기초
 workspace: 3D 건설
-keywords: error check, errors, check, checking, review, misfit, overlap, gap, step, wall inside slab, wall through slab, floating object, buried object, stair riser, clear height, rooftop step, fix, fix all, part fit
+keywords: error check, errors, warnings, check, range, check again, status bar, group, doubled part, part with no shape, nothing under it, door without a wall, near miss, gap, fix, fix all, part fit
 commands: errorCheck, buildFlow
 context: errorCheck
 order: 155
@@ -11738,32 +11744,38 @@ order: 155
 
 ## What
 
-{c:errorCheck} finds where walls, columns, slabs, roofs, stairs, railings, doors, windows, objects and civil structures do not fit each other, and lists them in one window: a wall top running into a slab, a gap between a wall and a roof, an object floating above the floor, a riser over the limit, a low ceiling. Each error has its fix buttons, and the selected errors can be fixed at once.
+{c:errorCheck} finds only the parts that are certainly wrong and the places off by a few mm, and lists them in one window. What may have been done on purpose is not looked for.
+
+- **Errors**: what no intent explains. A part with a length, height or thickness of 0 (no shape), a part whose shape could not be made, the same part made twice in the same place, a door or window whose wall was deleted, a part whose roof or level was deleted, a part on an upper floor with nothing under it.
+- **Warnings**: places that miss by more than 2 mm and at most 10 mm. A small gap between a wall top and a slab or roof, a wall or furniture a hair above the floor, a door a little deeper than its wall, a slab a little off its level line, a wall lying wholly inside another.
+- Walls typed to a height that reaches no slab or roof, walls through two storeys, holes made on purpose, raised parts, steep stairs and low ceilings are not listed.
 
 ## Steps
 
-1. Click {m:errorCheck}. The last line of the {c:buildFlow} window, {c:errorCheck}, opens the same window.
-2. Click an error's sentence in the list: its parts are selected and the view moves to them.
-3. Clear the checkbox in front of an error you do not want fixed.
-4. Click {t:pfit.fix} at the top of the window: every checked error is fixed its recommended way, all at once.
-5. To fix only one error, or another way, click a button at the right of its line.
+1. Click {m:errorCheck}. The selected range is checked at once and the window opens.
+2. To change the range, click the {t:echk.range} line at the top of the window, select {t:echk.rangeAll}, buildings, levels or {t:echk.rangePicked}, then click {t:echk.again}.
+3. Click a line in the list: its parts are selected and the view moves to them.
+4. Clear the checkbox in front of a line you do not want fixed.
+5. Click {t:pfit.fix} at the top: every checked line is fixed its recommended way, all at once. To fix only one, or another way, click a button at the right of its line.
 
 ## Tips
 
-- {t:echk.selectAll} selects or clears every error that can be fixed.
-- However many errors {t:pfit.fix} fixed, one undo takes them all back. A fix from a line's own button is one undo too.
-- While the window is open the list is checked again after each change. A cleared error stays cleared while it is there; a new error comes in checked.
-- The dot in front of a line: red for errors to fix, orange for things to check, grey for notes.
-- An error with no buttons at its right (a door head above the wall top, too little headroom over a stair) has no automatic fix; fix the part by hand.
-- When a storey height, a rooftop offset, or a slab, roof or wall thickness changes, the walls, columns and stairs that reached the level line exactly, the auto rooftops, what stands on a roof and the doors and windows as deep as their wall follow in the same step, and a notice says so. Values you typed (a 1.1 m parapet) never change; what no longer fits shows in this list.
+- The window floats: drag its title to move it and its edges to size it. It opens only from {c:errorCheck}, a double click on the status bar's error count, or the last line of the {c:buildFlow} window.
+- The status bar shows **the number of errors only**. With no error it goes away; warnings are in the window alone. The last line of the {c:buildFlow} window shows the errors only too.
+- In the window errors come first, warnings below them. Several lines of one kind fold into one line, sentence · count; a big group over several levels holds a line per level.
+- Ticking a building in the range selects all its levels. The range is kept for the next check.
+- After each change only the parts that changed, their neighbours and the parts already listed are checked again, once, when the computer is idle. The whole document is never checked over and over, so a big building stays fast.
+- One part, one line. A wall top that meets a ceiling, the slab above or a roof is not listed for missing another. A slab off its level line is one line; the parts over and under it are not counted again.
+- However many lines {t:pfit.fix} fixed, one undo takes them all back. The fixes are checked not to make new errors.
+- A line with no buttons (nothing under it, a shape that could not be made) is fixed by hand.
+- When a storey height, a rooftop offset, or a slab, roof or wall thickness changes, the walls, columns and stairs that reached the level line exactly, the auto rooftops, what stands on a roof and the doors and windows as deep as their wall follow in the same step. Values you typed (a 1.1 m parapet, a door deeper than its wall) never change.
 - Hidden parts are checked too.
-- With no errors the window shows {t:pfit.none}, and the last line of the {c:buildFlow} window shows {t:echk.noneShort}.
 
 ## Common mistakes
 
-- Some errors are left after {t:pfit.fix}. Cleared errors and errors with no automatic fix stay as they are.
-- A click on an error shows no part. An error on another level makes that level the working level; if the level is hidden, show it in {c:levelPanel}.
-- Dozens of errors say a wall top runs into a slab. Walls drawn as high as the storey run into the slab above. One {t:pfit.fix} sets them all to reach the floor above.
+- Some lines are left after {t:pfit.fix}. Cleared lines and lines with no automatic fix stay as they are.
+- A click on a line shows no part. A part on another level makes that level the working level; if the level is hidden, show it in {c:levelPanel}.
+- A wall that does not reach the slab is not listed. A typed height is taken as meant; only a miss of a few mm is a warning.
 `,ai=`---
 id: arch-face-paint
 title: Paint faces
