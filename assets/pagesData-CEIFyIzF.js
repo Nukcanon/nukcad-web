@@ -4832,9 +4832,12 @@ order: 130
 - {t:roof.sides.btn} 중에는 화면에 변 번호가 보입니다. 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves} 칸 번호와 같습니다.
 - 창에는 켜진 경사 변 수와 전체 변 수가 함께 보입니다.
 - 지붕 모양 단추({t:opt.roofGable}, {t:opt.roofHip} 등)를 누르면 그 모양에 맞게 경사 변이 다시 정해집니다. 모양을 먼저 선택한 뒤 필요한 변만 하나씩 고치면 빠릅니다.
+- 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves}는 처음에 접혀 있습니다. 제목을 누르면 변마다 칸이 펼쳐지고, 한 번 펼치면 프로그램을 닫을 때까지 펼쳐진 채로 있습니다. 따로 정한 값이 있으면 접힌 상태에서도 제목 옆에 {t:archedit.sameSlope}나 {t:re.sameEave} 단추가 보입니다.
+- 펼친 칸에 마우스를 올리거나 칸에 값을 입력하는 동안, 화면에서 그 변에 선과 변 번호가 보입니다. 칸에서 벗어나면 보이지 않습니다.
 - 속성 창의 {t:archedit.roofSlopes}에서 켜진 변마다 경사를 따로 정합니다. 경사를 다르게 하면 용마루와 추녀 점이 이동됩니다. {t:archedit.sameSlope}를 누르면 모든 변이 다시 같은 경사가 됩니다.
 - {m:tweak}으로 지붕의 용마루 점이나 선을 이동해도 변마다 경사 값이 바뀌고, 지붕 설정으로 계속 고칠 수 있습니다.
 - 속성 창의 {t:re.eaves}에서 변마다 처마 길이를 따로 정합니다. 따로 정하지 않은 변은 {t:opt.overhang} 값을 따르고, {t:re.sameEave}를 누르면 모든 변이 다시 {t:opt.overhang} 값을 따릅니다. 처마 길이가 다른 두 변은 모서리에서 두 처마선이 만나는 점까지 이어집니다.
+- [지붕 나누기](help:arch-roof-split)로 나눈 지붕에서 옆 지붕과 맞닿은 변은 처마가 0입니다. {t:re.sameEave}를 눌러도 그 변은 처마 없이 남아 두 지붕이 겹치지 않습니다. 따로 정한 값이 그 변의 0뿐이면 단추가 나오지 않습니다. 옆 지붕을 삭제하거나 떼어 놓으면 보통 변으로 돌아갑니다.
 - 속성 창에서는 지붕 모양, {t:opt.roofPitch}, {t:opt.overhang}, {t:opt.thickness}도 바꿉니다.
 - {t:flow.roofEave}는 지붕 아랫면이 외곽선과 만나는 높이입니다. 값을 입력하면 지붕이 그 높이로 이동되고, 지붕에 붙은 벽도 따라갑니다.
 - {t:flow.roofRidge}는 지붕 아랫면에서 가장 높은 곳의 높이이고, {t:opt.roofShed} 지붕에서는 높은 쪽의 높이입니다. 값을 입력하면 변들의 경사 비율을 유지한 채 경사가 바뀝니다. 경사는 5°~70° 안에서만 바뀌므로, 그 범위를 벗어나는 높이는 입력되지 않습니다.
@@ -4854,7 +4857,7 @@ title: 지붕 나누기
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: 지붕 나누기, 지붕 자르기, 지붕 분할, 지붕 둘로, 지붕 일부만 높게, 지붕 한 단 높게, 지붕 조각, 높이가 다른 지붕, 단차 지붕, 지붕나누기, split roof, cut roof, roof pieces, raised roof part, stepped roof
+keywords: 지붕 나누기, 지붕 자르기, 지붕 분할, 지붕 둘로, 지붕 일부만 높게, 지붕 한 단 높게, 지붕 조각, 높이가 다른 지붕, 단차 지붕, 지붕나누기, 꺾인 선, 지붕 모서리 떼기, 지붕 모서리만, ㄱ자로 나누기, split roof, cut roof, roof pieces, raised roof part, stepped roof, bent cut, roof corner
 commands: roofSplit, roof, wallSplit
 context: roofSplit
 order: 135
@@ -4862,24 +4865,29 @@ order: 135
 
 ## 무엇
 
-지붕 위에 선을 그어 지붕을 둘로 나누는 도구입니다. 나뉜 조각은 저마다 지붕이 되어 높이, 경사, 처마를 따로 정할 수 있습니다. 지붕의 일부만 한 단 높게 만들 때 씁니다.
+지붕 위에 곧은 선이나 꺾인 선을 그어 지붕을 나누는 도구입니다. 나뉜 조각은 저마다 지붕이 되어 높이, 경사, 처마를 따로 정할 수 있습니다. 지붕의 일부만 한 단 높게 만들 때 씁니다.
 
 ## 하는 순서
 
 1. {m:roofSplit} 단추를 누릅니다.
 2. 나눌 지붕을 누릅니다.
-3. 지붕 위에서 나누는 선의 첫 점과 끝 점을 누릅니다. 끝 점을 누르기 전에 나뉠 자리가 실선으로 보입니다.
-4. 나뉜 지붕 가운데 하나를 선택하고 속성 창에서 {t:flow.roofEave}나 {t:re.roofHeight}를 바꿉니다.
-5. 다음 지붕을 이어서 나누거나 Esc로 마칩니다.
+3. 나누는 선의 첫 점을 누릅니다.
+4. 곧게 나누려면 지붕 밖이나 외곽선을 누릅니다. 그 자리에서 선이 끝나고 지붕이 바로 나뉩니다.
+5. 꺾어서 나누려면 지붕 안을 누릅니다. 그 점에서 선이 꺾이고 계속 이어집니다. 지붕 밖이나 외곽선을 누르면 끝납니다.
+6. 나뉜 지붕 가운데 하나를 선택하고 속성 창에서 {t:flow.roofEave}나 {t:re.roofHeight}를 바꿉니다.
+7. 다음 지붕을 이어서 나누거나 Esc로 마칩니다.
 
 ## 팁
 
-- 선은 지붕 안에서 끝나도 외곽선까지 이어서 나눕니다. 두 점은 방향과 자리만 정합니다.
-- 오목한 지붕에서 선이 파인 곳을 건너가면 선이 지나는 자리마다 나뉘어 조각이 셋 이상이 됩니다. 한쪽만 나누려면 그쪽 안에서 두 점을 누릅니다.
+- 지붕 안을 누르면 꺾이는 점이고, 지붕 밖이나 외곽선을 누르면 끝점입니다. 커서가 외곽선 가까이 가면 외곽선에 붙고, 커서 옆에 {t:rs.endHere} 표시가 나옵니다.
+- 누르기 전에 나뉠 자리가 실선으로 보입니다. 커서가 지붕 안에 있으면 거기서 외곽선까지 이어질 자리가 점선으로 보입니다.
+- 지붕의 한 모서리만 떼어 내려면 선을 한 번 꺾습니다. 한 변 밖에서 시작해 지붕 안의 한 점을 누르고, 옆 변 밖을 누릅니다. 조각이 둘만 생깁니다.
+- 지붕 안에서 선을 끝내려면 점을 둘 이상 누른 뒤 Enter를 누르거나 창의 {t:ws.split} 단추를 누릅니다. 마지막 구간이 외곽선까지 이어집니다. 첫 점이 지붕 안에 있으면 첫 구간도 뒤쪽으로 외곽선까지 이어집니다.
+- 오목한 지붕에서 선이 파인 곳을 건너가면 선이 지나는 자리마다 나뉘어 조각이 셋 이상이 됩니다.
 - 지붕을 선택한 채로 도구를 열거나 지붕을 오른쪽 클릭해 {c:roofSplit}를 누르면 그 지붕이 바로 잡힙니다.
-- 점은 명령줄에 \`@0,3\`처럼 입력해도 됩니다. Esc나 Ctrl+Z는 첫 점, 그다음 지붕 선택을 차례로 취소합니다.
-- 나눈 변은 경사 없이 세운 면이 되고 처마가 없습니다. 그래서 두 조각이 겹치지 않고 맞닿습니다. 원래 변은 경사와 처마를 그대로 가집니다.
-- 평지붕, 그리고 용마루를 가로질러 나눈 {t:opt.roofGable}·{t:opt.roofShed} 지붕은 나눈 뒤에도 모양이 같습니다.
+- 점은 명령줄에 \`@0,3\`처럼 입력해도 됩니다. Ctrl+Z는 마지막 점부터 하나씩, 그다음 지붕 선택을 취소하고, Ctrl+Y는 취소한 점을 되살립니다. Esc는 도구를 끝내며 그리던 선으로는 나누지 않습니다.
+- 나눈 변은 경사 없이 세운 면이 되고 처마가 없습니다. 그래서 두 조각이 겹치지 않고 맞닿습니다. 꺾인 선의 구간마다 그렇습니다. 원래 변은 경사와 처마를 그대로 가집니다.
+- 평지붕, 그리고 용마루를 가로질러 나눈 {t:opt.roofGable}·{t:opt.roofShed} 지붕은 나눈 뒤에도 모양이 같습니다. 볼록한 지붕에서 꺾인 선으로 모서리를 떼어 내도 두 조각의 모양이 그대로입니다.
 - 조각은 자기 외곽선에서 모양을 다시 만듭니다. {t:opt.roofHip} 지붕이나 오목한 지붕처럼 다른 변의 경사면이 넘어와 있던 곳은 모양이 달라지고, 그때는 알림이 나옵니다.
 - 안쪽 모서리에서 한 변을 따라 곧게 나누면, 그 변이 있는 조각에서는 나눈 변도 그 변과 같은 경사가 되어 한 변처럼 이어집니다. 그 변의 처마는 모서리 옆에서 없어져 두 조각의 처마가 겹치지 않습니다.
 - {t:rs.walls}가 켜져 있으면(처음에 켜져 있습니다) 지붕에 붙은 벽이 선에 걸칠 때 그 자리에서 나누고, 조각마다 그 위의 지붕에 붙입니다. 지붕 한 조각을 올리면 그 아래 벽만 따라 올라갑니다.
@@ -4888,7 +4896,10 @@ order: 135
 
 ## 자주 하는 실수
 
+- 둘째 점을 지붕 안에 눌렀더니 나뉘지 않습니다. 지붕 안의 점은 꺾이는 점입니다. 지붕 밖이나 외곽선을 누르거나 Enter를 누릅니다.
 - 선이 지붕을 지나지 않으면 나뉘지 않습니다. 지붕 밖에서만 두 점을 누르면 선을 이어도 나누지 않습니다. 한 점은 지붕 위나 지붕 건너편에 둡니다.
+- 선이 엇갈리거나 온 길로 곧장 되돌아가면 나눌 수 없습니다. Ctrl+Z로 점을 취소하고 다시 긋습니다.
+- 오목한 경사 지붕에서는 꺾인 선으로 나눌 수 없다는 안내가 나올 때가 있습니다. 조각의 경사면을 만들 수 없는 경우입니다. 곧은 선으로 나누거나 꺾이는 자리를 바꿉니다.
 - 선이 천창을 지나면 나눌 수 없습니다. 천창을 피해서 긋습니다.
 - 조각의 폭이 100 mm보다 좁아지는 자리는 나눌 수 없습니다.
 - 안쪽 모서리에서 비스듬하게 나누어 두 조각의 처마가 겹치게 되면 나눌 수 없다는 안내가 나옵니다. 모서리의 한 변을 따라 곧게 긋거나 다른 자리에 긋습니다.
@@ -12324,9 +12335,12 @@ After you select what the roof covers, select for each side whether the roof ris
 - While {t:roof.sides.btn} is on, side numbers show in the view. They match the numbers of the {t:archedit.roofSlopes} and {t:re.eaves} fields in the Properties window.
 - The window shows how many sides slope out of how many there are.
 - Clicking a shape button ({t:opt.roofGable}, {t:opt.roofHip} …) sets the sloped sides for that shape again. Selecting the shape first and then fixing single sides is quickest.
+- {t:archedit.roofSlopes} and {t:re.eaves} in the Properties window are folded at first. Click a title to open its fields; once opened it stays open until the program is closed. When a side has a value of its own, {t:archedit.sameSlope} or {t:re.sameEave} shows beside the title even while folded.
+- While the mouse is over a side's field, or the cursor is in it, the view shows that side with a line and its number. Leave the field and they are gone.
 - Under {t:archedit.roofSlopes} in the Properties window, give each sloped side its own slope. Different slopes move the ridge and hip points. {t:archedit.sameSlope} gives every side the same slope again.
 - Moving a ridge point or line with {m:tweak} also changes the slopes of the sides, and the roof stays a roof you can change by its values.
 - Under {t:re.eaves} in the Properties window, give each side its own eaves. A side without its own follows {t:opt.overhang}, and {t:re.sameEave} makes every side follow {t:opt.overhang} again. Two sides with different eaves run on to the point where their eaves lines meet at the corner.
+- On a roof cut with [Split a roof](help:arch-roof-split), an edge that meets the next roof has no eaves. {t:re.sameEave} leaves that edge without eaves, so the two roofs do not overlap. When the only value set is the 0 of such an edge, the button does not show. Delete the next roof or move it away, and the edge is an ordinary one again.
 - The Properties window also changes the shape, {t:opt.roofPitch}, {t:opt.overhang} and {t:opt.thickness}.
 - {t:flow.roofEave} is the height where the roof's underside meets the outline. Typing a value moves the roof there, and the walls attached to it follow.
 - {t:flow.roofRidge} is the height of the highest point of the underside; on a {t:opt.roofShed} roof it is the high side. Typing a value changes the slopes together, keeping their ratios. Slopes stay between 5° and 70°, so a height outside what they allow is not taken.
@@ -12346,7 +12360,7 @@ title: Split a roof
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: split roof, cut roof, divide roof, roof in two, roof pieces, raise part of a roof, roof one step higher, roofs at different heights, stepped roof
+keywords: split roof, cut roof, divide roof, roof in two, roof pieces, raise part of a roof, roof one step higher, roofs at different heights, stepped roof, bent cut, bent line, cut off a roof corner, L-shaped cut
 commands: roofSplit, roof, wallSplit
 context: roofSplit
 order: 135
@@ -12354,24 +12368,29 @@ order: 135
 
 ## What
 
-Cuts a roof in two along a line drawn across it. Each piece becomes a roof of its own, with its own height, slopes and eaves. Use it to make part of a roof one step higher.
+Cuts a roof along a straight or bent line drawn across it. Each piece becomes a roof of its own, with its own height, slopes and eaves. Use it to make part of a roof one step higher.
 
 ## Steps
 
 1. Click {m:roofSplit}.
 2. Click the roof to cut.
-3. Click the first and the end point of the cut line on the roof. Before the second click, the place of the cut shows as a solid line.
-4. Select one of the pieces and change its {t:flow.roofEave} or {t:re.roofHeight} in the Properties window.
-5. Go on with the next roof, or press Esc to finish.
+3. Click the first point of the cut line.
+4. For a straight cut, click off the roof or on its outline. The line ends there and the roof is cut at once.
+5. For a bent cut, click inside the roof. The line bends at that point and goes on. A click off the roof or on its outline ends it.
+6. Select one of the pieces and change its {t:flow.roofEave} or {t:re.roofHeight} in the Properties window.
+7. Go on with the next roof, or press Esc to finish.
 
 ## Tips
 
-- A line that ends inside the roof runs on to the outline. The two points only give its place and direction.
-- On a concave roof, a line that crosses the notch cuts every stretch it passes over, so there are three pieces or more. To cut one side only, click both points inside that side.
+- A click inside the roof is a bend; a click off the roof or on its outline is the end. Near the outline the cursor snaps onto it, and {t:rs.endHere} shows next to the cursor.
+- Before you click, the place of the cut shows as a solid line. While the cursor is inside the roof, the run-on from it to the outline shows dashed.
+- To take one corner off a roof, bend the line once: start outside one side, click a point inside the roof, then click outside the next side. Only two pieces are made.
+- To end the line inside the roof, click two points or more and press Enter, or click {t:ws.split} in the window. The last stretch runs on to the outline. A first point inside the roof also runs back to the outline.
+- On a concave roof, a line that crosses the notch cuts every stretch it passes over, so there are three pieces or more.
 - With a roof selected when the tool opens, or with {c:roofSplit} on the roof's right-click menu, that roof is taken at once.
-- Points can be typed on the command line, for example \`@0,3\`. Esc or Ctrl+Z takes back the first point, then the roof.
-- The cut edge stands upright, without a slope and without eaves, so the two pieces meet without overlapping. The original edges keep their slopes and eaves.
-- A flat roof, and a {t:opt.roofGable} or {t:opt.roofShed} roof cut across its ridge, look the same after the cut.
+- Points can be typed on the command line, for example \`@0,3\`. Ctrl+Z takes back the last point, one at a time, then the roof; Ctrl+Y brings a point back. Esc ends the tool, and a line half drawn cuts nothing.
+- A cut edge stands upright, without a slope and without eaves, so the two pieces meet without overlapping. That holds for every stretch of a bent line. The original edges keep their slopes and eaves.
+- A flat roof, and a {t:opt.roofGable} or {t:opt.roofShed} roof cut across its ridge, look the same after the cut. So do the two pieces when a corner is taken off a convex roof with a bent line.
 - Each piece is made again from its own outline. Where the slope of another edge used to run over a piece, as on a {t:opt.roofHip} roof or a concave roof, the shape changes, and a message says so.
 - A cut that leaves an inside corner straight along one of its edges: in the piece that keeps that edge, the cut edge slopes like it, as one side. The eaves of that edge stop next to the corner, so the eaves of the two pieces do not overlap.
 - With {t:rs.walls} on (it starts on), walls attached to the roof that lie across the line are cut there, and each piece is attached to the roof over it. Raising one piece of the roof raises only the walls under it.
@@ -12380,7 +12399,10 @@ Cuts a roof in two along a line drawn across it. Each piece becomes a roof of it
 
 ## Common mistakes
 
+- The second point was clicked inside the roof and nothing was cut. A point inside the roof is a bend. Click off the roof or on its outline, or press Enter.
 - A line that does not cross the roof cuts nothing. Two points outside the roof on the same side do not cut it even though the line would reach it. Put one point on the roof or beyond it.
+- A line that crosses itself or turns straight back cannot cut. Take points back with Ctrl+Z and draw it again.
+- On a concave sloped roof a bent line is sometimes refused with a message: the slopes of a piece could not be worked out. Cut with a straight line, or bend the line somewhere else.
 - A line through a skylight cannot cut. Draw it clear of the skylight.
 - A cut that would leave a piece narrower than 100 mm is not made.
 - A slanted cut from an inside corner that would make the eaves of the two pieces overlap is refused with a message. Draw it straight along one of the corner's edges, or somewhere else.
