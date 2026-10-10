@@ -86,7 +86,7 @@ order: 60
   - {t:panel.props} 창의 {t:panel.info}에서 {t:m.solidCheck} 줄이 {t:m.solidOk}인지 봅니다. 떨어진 덩어리가 여러 개이면 {c:union}로 합칩니다.
   - 떠 있는 물체는 {c:drop}로 바닥에 내려놓습니다.
   - 프린터 판 크기는 {c:settings} → {t:set.units} → {t:set.printer}에서 정합니다. 바닥 격자가 판 크기를 보여 줍니다.
-- {m:print3d} 단추도 같은 STL 내보내기 창을 엽니다. {t:level.basic} 메뉴에서는 3D 물체의 {t:lv.group.output} 탭, 3D 건설의 {t:flow.group.finish} 탭에 있습니다.
+- {m:print3d} 단추도 같은 STL 내보내기 창을 엽니다. 3D 물체에서는 {t:lv.group.output} 탭에, 3D 건설에서는 {t:level.basic} 메뉴의 {t:flow.group.finish} 탭에 있습니다.
 - 투상도와 건물 도면은 {t:menu.export2d} 안에 있습니다: [투상도](help:obj-drawing), [도면](help:arch-drawing).
 
 ### 축척 (크기 바꿔 내보내기)
@@ -193,10 +193,11 @@ order: 30
 
 | 작업 | {t:level.basic} 탭 | {t:level.advanced} 탭 |
 |---|---|---|
-| 3D 물체 | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.modify}, {t:group.pattern}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.sketchEdit}, {t:group.modify}, {t:group.construct}, {t:group.parts}, {t:group.combine}, {t:group.dims} |
+| 3D 물체 | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.modify}, {t:group.pattern}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.sketchEdit}, {t:group.modify}, {t:group.construct}, {t:group.parts}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} |
 | 3D 건설 | {t:group.site}, {t:group.build}, {t:lib.group}, {t:flow.group.finish}, {t:archui.tab.model} | {t:group.site}, {t:group.civil}, {t:group.build}, {t:lib.group}, {t:flow.group.finish}, {t:archui.tab.model} |
 
-- 3D 물체의 {t:level.basic} {t:group.sketch} 탭에는 그리기 도구 뒤에 {t:lv.head.edit}({c:editSketch}, {c:trim}, {c:offset} …)과 {t:lv.head.solid}({c:extrude}, {c:revolve}) 도구가 이어서 있습니다. {t:lv.group.output} 탭에는 {c:drawing}, {c:print3d}, {c:screenshot}이 있습니다.
+- 3D 물체의 {t:level.basic} {t:group.sketch} 탭에는 그리기 도구 뒤에 {t:lv.head.edit}({c:editSketch}, {c:trim}, {c:offset} …)과 {t:lv.head.solid}({c:extrude}, {c:revolve}) 도구가 이어서 있습니다.
+- 3D 물체의 {t:lv.group.output} 탭은 두 수준에 똑같이 있고, {c:drawing}, {c:print3d}, {c:screenshot}이 있습니다.
 - 3D 건설의 {t:level.basic}에서는 {c:road}가 {t:group.site} 탭에 있고, {c:planView}와 {c:archSection} 단추가 {t:flow.group.finish} 탭에 있습니다.
 - {t:level.basic}에서 메뉴에 없는 도구도 명령줄에 이름을 입력하거나 단축키를 누르면 실행됩니다. 이때 그 도구가 {t:level.advanced} 메뉴에 있다고 알려 줍니다.
 - 3D 물체의 {t:level.basic}에서는 {t:group.parts} 탭이 보이지 않습니다. {c:sweep}, {c:loft}, {c:pipe}, {c:ellipse}, {c:spline}, {c:extend}, {c:sectionView} 같은 도구도 {t:level.advanced}에만 있습니다.
@@ -504,6 +505,7 @@ order: 140
 - {t:ux.set.pivot}은 화면을 회전할 때의 중심입니다. {t:ux.set.pivot.cursor}(처음 설정)는 끌기 시작한 곳의 점을, {t:ux.set.pivot.selection}은 선택한 것의 가운데를 중심으로 회전합니다: [화면 보기](help:start-view).
 - {t:set.uiScale}는 90%부터 150%까지 선택합니다. 글자가 작으면 크게 합니다.
 - {t:set.autosave} 간격은 끔, 1·2·5·10·15·30분 가운데에서 선택합니다 (기본 5분): [저장](help:start-save).
+- {t:set.options} 탭의 {t:gpuhint.set.label} 줄, {t:set.engines} 칸, {t:stable.keep}·{t:stable.days} 같은 {t:stable.storage} 기준, {t:depth.row} 줄은 {t:level.basic} 수준에서 {t:ac.advanced} 안에 접혀 있습니다. {t:ac.advanced} 제목을 누르면 펼쳐지고, {t:level.advanced} 수준에서는 늘 펼쳐져 있습니다.
 - {t:set.buddy}에서 {t:buddy.off}을 선택하면 Cadoo 캐릭터가 사라집니다. {t:buddy.still} 칸을 켜면 Cadoo가 걸어 다니지 않고 그 자리에 있습니다.
 - {t:set.showGrid}는 {t:ag.show.auto}, {t:ag.show.always}, {t:ag.show.off} 가운데에서 선택하며, 작업 종류마다 따로 기억됩니다: [격자·격자 스냅](help:snap-grid).
 - {t:set.map} 탭의 키는 3D 건설의 항공사진에 씁니다: [건설 지역](help:site-map). AI 연결은 [AI 연결](help:more-ai-setup)을 봅니다.
@@ -638,7 +640,7 @@ order: 90
 - 뷰 큐브를 끌면 화면이 돕니다. 큐브 옆의 손잡이를 끌면 큐브를 화면의 다른 구석으로 이동합니다. 3D 건설에서는 큐브 둘레에 동·서·남·북이 나옵니다 (북쪽이 +Y).
 - 큐브 크기, 휠 한 칸의 확대 정도, 회전 속도는 {c:settings} → {t:set.options}의 {t:set.cubeSize}, {t:set.wheelZoom}, {t:set.orbitSpeed}에서 바꿉니다.
 - 터치 화면에서는 두 손가락으로 회전하고 확대하며, 세 손가락으로 이동합니다. 길게 누르면 오른쪽 클릭과 같습니다.
-- 3D 건설에서는 건물을 잘라 보는 보기가 더 있습니다: {c:planView}({k:planView})는 한 층을 잘라 위에서, {c:archSection}({k:archSection})은 건물을 세로로 잘라 옆에서, {c:ceilingView}({k:ceilingView})는 한 층의 천장을 아래에서 봅니다. 같은 키를 다시 누르거나 Esc를 누르면 끝납니다: [천장 보기·위 잘라 보기](help:arch-ceiling).
+- 3D 건설에서는 건물을 잘라 보는 보기가 더 있습니다: {c:planView}({k:planView})는 한 층을 잘라 위에서, {c:archSection}({k:archSection})는 건물을 세로로 잘라 옆에서, {c:ceilingView}({k:ceilingView})는 한 층의 천장을 아래에서 봅니다. 같은 키를 다시 누르거나 Esc를 누르면 끝납니다: [천장 보기·위 잘라 보기](help:arch-ceiling).
 - 3D 건설에서 작업 범위를 다른 건물이나 층으로 바꾸면 그곳이 화면에 들어오도록 이동됩니다. 끄려면 {c:settings} → {t:set.options}의 {t:ux.set.scopeFit} 칸을 끕니다.
 
 ## 자주 하는 실수
@@ -843,7 +845,7 @@ order: 190
 
 ## 무엇
 
-솔리드의 모서리를 같은 거리만큼 비스듬히 잘라 내는 도구입니다. 날카로운 모서리를 없애거나, 조립할 부품이 잘 들어가도록 입구를 넓힐 때 씁니다.
+솔리드의 모서리를 같은 거리만큼 비스듬히 잘라 내는 도구입니다. 날카로운 모서리를 다듬거나, 조립할 부품이 잘 들어가도록 입구를 넓힐 때 씁니다.
 
 ## 하는 순서
 
@@ -895,7 +897,7 @@ order: 16
 - 여는 다른 방법: 스케치 편집 중에 선을 두 번 클릭하거나, 3D 건설에서 벽·난간·도로 같은 물체를 두 번 클릭합니다. 벽·도로 같은 물체를 선택하면 나오는 작은 막대와 스케치의 오른쪽 클릭 메뉴에도 {c:pathEdit} 단추가 있습니다.
 - 점은 네모, 핸들 끝은 동그라미로 보입니다. 선택한 점은 속이 찬 네모가 됩니다.
 - 곡선은 그릴 때부터 만들 수 있습니다. {c:spline}의 {t:curves.splinePen}에서는 점을 누른 채 끌고, {c:polyline}의 직선 상태에서는 누른 채 0.5초 기다렸다가 끌면 부드러운 곡선 점이 됩니다. 3D 건설의 벽·난간·도로는 {c:polyline}과 같은 방법으로 곡선을 그립니다.
-- Alt+점 끌기는 꺾인 점에서 핸들을 뽑고, Alt+점 클릭은 핸들을 모두 없애 꺾인 점으로 만듭니다.
+- Alt+점 끌기는 꺾인 점에서 핸들을 뽑고, Alt+점 클릭은 핸들을 모두 삭제해 꺾인 점으로 만듭니다.
 - Alt+핸들 끌기는 두 핸들을 따로 움직이고, Shift+핸들 끌기는 두 핸들을 한 직선으로 맞춥니다. 핸들 끝을 점 위에 끌어 놓으면 그 핸들만 없어집니다.
 - Shift+클릭으로 점을 여러 개 선택하고, 선택한 점을 끌면 함께 이동됩니다. 점을 끌 때 Shift를 누르면 45° 방향으로만 움직입니다. {t:curves.selectAll} 단추는 이 선의 점을 모두 선택합니다.
 - 점 하나를 선택하면 창에 {t:curves.inLen}, {t:curves.inAng}, {t:curves.outLen}, {t:curves.outAng} 칸이 나와 숫자로 정할 수 있습니다.
@@ -1216,7 +1218,7 @@ order: 17
 
 - 스케치를 선택한 상태나 편집 중에 {c:extrude} 단추를 누르면 영역이 바로 선택됩니다. 영역이 여러 개면 안쪽 구멍을 뺀 영역이 모두 선택되고, 영역을 클릭하면 빼거나 다시 넣습니다.
 - 화살표는 화살표 위가 아니어도 화면의 빈 곳 어디서나 끌 수 있습니다. [격자 스냅](help:snap-grid)이 켜져 있으면 그 단계로 움직입니다.
-- 창의 {t:opt.distance} 칸에 숫자를 입력하고 Enter를 누르면 그 높이로 바로 만들어집니다. 명령줄에 입력했을 때는 높이만 바뀌고, Enter를 한 번 더 누르면 만들어집니다. 처음 높이는 3D 물체에서 10 mm입니다.
+- 창의 {t:opt.distance} 칸이나 명령줄에 숫자를 입력하고 Enter를 누르면 그 높이로 바로 만들어집니다. 영역을 선택하기 전에 입력하면 높이만 바뀝니다. 처음 높이는 3D 물체에서 10 mm입니다.
 - {t:opt.symmetric} 옵션을 켜면 스케치 평면 양쪽으로 거리의 절반씩 돌출됩니다.
 - {t:opt.flip}은 방향을 반대로 바꿉니다. 거리를 음수로 입력해도 같습니다.
 - 결과는 {t:op.new}, {t:op.union}, {t:op.subtract}, {t:op.intersect} 가운데 선택하고, 합치거나 뺄 물체는 {t:role.target}에서 선택합니다.
@@ -1329,7 +1331,7 @@ order: 170
 - 그룹으로 묶어도 모양은 하나가 되지 않습니다. 3D 프린팅할 때 한 덩어리로 붙이려면 [합치기](help:obj-union)를 씁니다.
 - 떨어진 덩어리가 없는 물체에 {c:separate}를 쓰면 {t:msg.nothingToSeparate}라는 알림만 뜹니다.
 - 3D 건설에서 부재를 다른 층의 그룹으로 끌어다 놓을 수 없습니다. 끌어다 놓기는 부재의 층을 바꾸지 않습니다.
-- 그룹 줄에서 {t:obj.mDelete}를 선택하면 안의 물체도 모두 삭제됩니다. 그룹만 없애려면 {t:ot.mUngroup}를 선택합니다.
+- 그룹 줄에서 {t:obj.mDelete}를 선택하면 안의 물체도 모두 삭제됩니다. 그룹만 삭제하려면 {t:ot.mUngroup}를 선택합니다.
 `,D=`---
 id: obj-hole
 title: 구멍
@@ -1410,7 +1412,7 @@ order: 396
 - 설치판에는 깊이 모델이 들어 있습니다. 따로 받을 것이 없습니다.
 - 웹판은 처음 {t:img.reliefMethod.depth}를 선택할 때 "깊이 모델(약 50 MB)을 받을까요?"라고 한 번 묻습니다. {t:depth.get}를 누르면 받는 동안 진행률이 보이고, 받은 파일이 원본과 같은지 확인한 뒤 이 브라우저에 저장합니다. 다음부터는 받지 않습니다.
 - {t:depth.later}를 누르면 다시 묻지 않습니다. {t:img.reliefMethod.depth} 칸에 "{t:depth.none}"가 보이며, 받기 전까지는 {t:img.reliefMethod.shade}이 기본 방식입니다.
-- {c:settings} → {t:set.options} 탭 › {t:stable.storage}의 "{t:depth.row}" 줄에서 상태를 보고 {t:depth.get}와 {t:depth.delete}를 할 수 있습니다. 브라우저의 사이트 데이터를 삭제하면 모델도 함께 없어집니다.
+- {c:settings} → {t:set.options} 탭 › {t:stable.storage}의 "{t:depth.row}" 줄에서 상태를 보고 {t:depth.get}와 {t:depth.delete}를 할 수 있습니다. {t:level.basic} 수준에서는 이 줄이 {t:ac.advanced} 안에 있습니다. 브라우저의 사이트 데이터를 삭제하면 모델도 함께 없어집니다.
 
 ## 팁
 
@@ -1483,7 +1485,7 @@ order: 398
 
 ## 무엇
 
-스케치를 편집하는 중에 그림을 스케치 평면에 깔아 두고 그 위에 선을 따라 그리는 기능입니다. 밑그림은 스케치 선 아래에 놓여 선을 클릭하거나 스냅하는 데 방해가 되지 않습니다. 크기 맞추기로 실제 치수에 맞출 수 있습니다.
+스케치를 편집하는 중에 그림을 스케치 평면에 깔아 두고 그 위에 선을 따라 그리는 기능입니다. 밑그림은 스케치 선 아래에 놓여 선을 클릭하거나 스냅하는 데 방해가 되지 않습니다. {c:imageCalibrate}로 실제 치수에 맞출 수 있습니다.
 
 ## 하는 순서
 
@@ -1536,7 +1538,7 @@ order: 395
 - 다른 프로그램에서 복사한 그림은 Ctrl+V로 바로 붙일 수 있습니다. 그림 파일을 3D 화면에 끌어 놓으면 놓은 자리의 면에 붙습니다.
 - 크기를 정확히 정하려면 붙이기 전에 창의 {t:img.width}·{t:img.height}를 입력하거나 명령 창에 \`200x100\`처럼 mm로 입력합니다. 3D 건설에서도 mm로 입력합니다(\`20000x15000\`은 20 × 15 m). 칸이 비어 있으면 붙일 곳에 맞춘 크기가 됩니다.
 - 이미지를 끌면 같은 물체의 옆면으로도 넘어갑니다. 위의 둥근 손잡이를 끌면 돌아갑니다. Shift를 누르고 모서리를 끌면 비율이 자유롭게 바뀝니다.
-- {t:img.cropGroup}는 숫자로 정하거나 {t:img.cropStart} 단추를 눌러 그림 위 손잡이를 끕니다. Enter로 확정하고 Esc로 취소합니다. 잘라 낸 부분은 삭제되지 않아 {c:imageReset}로 언제든 되돌릴 수 있습니다.
+- {t:img.cropGroup}는 숫자로 정하거나 {t:img.cropStart} 단추를 눌러 그림 위 손잡이를 끕니다. Enter로 확인하고 Esc로 취소합니다. 잘라 낸 부분은 삭제되지 않아 {c:imageReset}로 언제든 되돌릴 수 있습니다.
 - 놓은 이미지를 더블클릭하거나 {c:imageEdit}을 누르면 같은 창이 다시 열려 크기·자르기·밝기를 바꿀 수 있습니다.
 - {t:img.transparency}는 0 %가 그대로 보이는 상태이고 100 %는 보이지 않는 상태입니다.
 - 이미지가 겹치면 {c:imageFront}·{c:imageBack}로 위아래를 바꿉니다. {c:imageRepick}는 이미지를 다른 면으로 이동합니다.
@@ -2591,7 +2593,7 @@ order: 150
 - 물체를 미리 Shift를 누른 채 선택해 두고 {c:subtract}를 누르면, 먼저 선택한 물체가 {t:role.keep}, 나머지가 {t:role.cutters}가 됩니다. 이때도 적용 (Enter)을 눌러야 빠집니다.
 - 역할을 거꾸로 선택했으면 도구 창의 {t:opt.swapRoles} 단추를 누릅니다.
 - 빼낸 물체는 보통 사라집니다. 같은 모양으로 여러 번 파내려면 도구 창의 {t:opt.keepTools}를 켭니다. [일반 메뉴](help:start-level)에서는 이 칸이 {t:ac.advanced} 안에 접혀 있습니다.
-- {c:toggleLeft} 창에서 남긴 물체의 단계 목록을 펼치면 빼기 단계가 보입니다. {t:step.restore} 단추를 누르면 빼기를 없애고 빼낸 물체를 되살립니다.
+- {c:toggleLeft} 창에서 남긴 물체의 단계 목록을 펼치면 빼기 단계가 보입니다. {t:step.restore} 단추를 누르면 빼기를 삭제하고 빼낸 물체를 되살립니다.
 - 둥근 구멍 하나는 [구멍](help:obj-hole) 도구가 더 빠릅니다.
 
 ## 자주 하는 실수
@@ -2673,6 +2675,7 @@ order: 21
 
 - 첫 클릭은 글자를 놓을 평면(면·작업 평면·바닥)을 선택하고, 다음 클릭이 글자의 시작점입니다. 그 뒤에 다른 곳을 클릭하거나 시작점의 작은 네모를 끌면 글자가 이동됩니다.
 - 창의 칸에서 글자 내용, {t:text.font}, {t:text.bold}, {t:text.italic}, {t:text.height}, {t:text.angle}를 바꾸면 화면에 바로 보입니다. 처음 {t:text.height}는 10 mm입니다.
+- 글꼴 목록에는 프로그램에 들어 있는 기본 글꼴 Pretendard가 늘 있습니다. 이 PC의 글꼴을 쓰지 않아도 한글·영문·숫자를 바로 만들 수 있습니다.
 - {t:text.pcFonts} 단추는 이 PC에 깔린 글꼴을 불러옵니다 (처음 한 번 브라우저가 허락을 묻습니다). 한글 글꼴이 목록 앞에 옵니다.
 - {t:text.fontFile} 단추로 .ttf·.otf·.ttc·.woff 글꼴 파일을 열 수 있습니다. 연 글꼴은 앱을 닫을 때까지 목록에 남습니다.
 - 굵게·기울임 글꼴이 따로 없는 글꼴도 {t:text.bold}·{t:text.italic}이 됩니다. 글꼴에 없는 글자는 기본 글꼴로 그려지고 창에 안내가 나옵니다.
@@ -2686,7 +2689,7 @@ order: 21
 
 - 굽은 면에는 글자를 놓을 수 없습니다. 평평한 면이나 [작업 평면](help:obj-workplane)을 선택합니다.
 - 글꼴을 읽을 수 없으면 {t:text.unreadableNone}라는 안내가 나옵니다. 다른 글꼴을 선택합니다.
-- 글꼴 목록이 비어 있으면 글꼴이 없다는 안내가 나옵니다. {t:text.pcFonts}이나 {t:text.fontFile} 단추로 글꼴을 가져옵니다. {t:text.pcFonts} 단추가 없는 브라우저에서는 {t:text.fontFile}를 씁니다.
+- 기본 글꼴도 읽지 못하고 다른 글꼴도 없으면 글꼴이 없다는 안내가 나옵니다. 인터넷 연결을 확인하고 도구를 다시 열거나, {t:text.pcFonts}이나 {t:text.fontFile} 단추로 글꼴을 가져옵니다. {t:text.pcFonts} 단추가 없는 브라우저에서는 {t:text.fontFile}를 씁니다.
 - {c:editText} 기능은 문자 도구로 만든 스케치에만 됩니다. 다른 스케치를 선택하면 {t:msg.pickText}라는 안내가 나옵니다.
 - 돌출할 때 거리를 물체 두께보다 깊게 밀면 글자 모양으로 뚫립니다. 새기는 깊이는 두께보다 얕게 정합니다.
 - 3D 건설의 메뉴에는 {c:text}가 없습니다. 명령 창에 \`text\`를 입력하면 쓸 수 있습니다.
@@ -3255,7 +3258,7 @@ order: 200
 - 창문도 같은 방법으로 만듭니다. {c:splitFace}에서 첫 점으로 다시 돌아와 닫힌 네모를 그리면 면 가운데에 조각이 생기고, {c:presspull}로 \`-1\`만큼 밀면 창이 됩니다.
 - 6단계에서 \`-2\` 대신 \`2\`를 넣으면 앞으로 튀어나온 문이 됩니다.
 - {m:addPoint}로 윗면 가운데에 점을 넣고 {c:tweak}에서 {t:tweakflat.bend}를 선택한 뒤 그 점을 위로 이동하면, 둘레 면이 삼각형으로 나뉘며 뾰족한 지붕이 됩니다.
-- 잘못 판 홈이나 모깎기 면을 없애려면 물체를 클릭한 뒤 그 면을 한 번 더 클릭해 선택하고 Delete를 누릅니다({c:deleteSub}). 면이 삭제되고 둘레 면이 이어져 메워집니다. 선 추가로 넣은 선을 같은 방법으로 삭제하면 나뉜 면이 다시 하나로 합쳐집니다.
+- 잘못 판 홈이나 모깎기 면을 삭제하려면 물체를 클릭한 뒤 그 면을 한 번 더 클릭해 선택하고 Delete를 누릅니다({c:deleteSub}). 면이 삭제되고 둘레 면이 이어져 메워집니다. 선 추가로 넣은 선을 같은 방법으로 삭제하면 나뉜 면이 다시 하나로 합쳐집니다.
 - 꼭짓점 하나를 {t:tweakflat.flat}로 이동하면 면이 기울지 않고 나란히 밀립니다. 한쪽만 기울이려면 모서리를 이동하거나 {t:tweakflat.bend}를 선택합니다.
 - {c:addLine}, {c:splitFace}, {c:addPoint}는 고급 메뉴에 있습니다 ([일반·고급 메뉴](help:start-level)).
 - 관련 도구: [점·선·면 이동](help:obj-tweak), [부분 삭제와 나누기](help:obj-partial-delete), [밀고 당기기](help:obj-presspull). 쐐기로 지붕을 올리는 방법은 [집 모형](help:rec-house-model)에 있습니다.
@@ -3380,12 +3383,14 @@ order: 70
 - 목록이 보일 때 명령 이름 뒤에서 Space 키를 눌러도 실행됩니다.
 - 한글 입력 상태로 쳐도 같은 자리의 영문 글자로 읽습니다 (\`ㅠㅐㅌ\` → \`box\`).
 - 빈 명령줄에서 ↑ 키를 누르면 앞에 입력한 줄을 차례로 다시 불러옵니다.
+- 명령줄 위에 보이는 기록과 ↑ 키로 불러오는 줄은 3D 물체와 3D 건설에 따로 남습니다. 작업 종류를 바꾸면 그쪽 기록이 보입니다. 기록은 프로그램을 닫으면 사라집니다.
 - 도구가 없을 때 \`10/3\`처럼 계산식을 입력하고 Enter를 누르면 \`= 3.333333\`처럼 답이 나옵니다. 자세한 내용은 [계산식](help:input-calc)에 있습니다.
 - 일반 메뉴에 보이지 않는 도구도 이름을 입력하면 열립니다. 이때 고급 메뉴에서 보인다는 안내가 함께 나옵니다.
 - 틀린 이름을 입력하면 비슷한 명령 이름을 알려 줍니다.
 - 모든 명령의 이름과 단축키는 {c:help} 창({k:help})의 {t:hd.shortcuts}에 있습니다.
 - 명령줄은 {k:toggleCommand} 키나 {c:settings} → {t:set.options} 탭의 {t:set.commandLine}로 보이거나 숨깁니다.
 - 단축키 방식이 Fusion 360이나 Blender이면 몇몇 글자 키가 바로 도구를 엽니다. 그때 명령 이름은 명령줄을 클릭하고 입력합니다. 자세한 내용은 [단축키](help:faq-shortcuts)에 있습니다.
+- {c:extrude}, {c:revolve}, {c:presspull}, {c:fillet}, {c:chamfer}, {c:shell}에서는 선택을 마친 뒤 명령줄에 값을 입력하고 Enter를 누르면 그 값으로 바로 적용됩니다. 창의 숫자 칸에 입력한 것과 같습니다. 선택하기 전에 입력하면 값만 바뀝니다. {c:divide}도 선을 미리 선택해 두었으면 개수를 입력하고 Enter를 누를 때 바로 나뉩니다.
 - 점을 입력하는 방법은 [좌표·길이 입력](help:input-coords)에 있습니다.
 
 ## 자주 하는 실수
@@ -3552,7 +3557,7 @@ order: 50
 
 ### 3D 건설의 기준면
 
-- 벽, 바닥판, 기둥, 천장, 지붕, 계단, 난간, 물체 놓기, 영역에 채우기 같은 3D 건설 도구는 도구 창 맨 위의 {t:ag.plane}에 그립니다. 격자도 이 면 위에 놓입니다.
+- 벽, 바닥판, 기둥, 천장, 지붕, 계단, 난간, 물체 놓기, 영역에 채우기 같은 3D 건설 도구는 도구 창의 {t:ag.plane}에 그립니다. 격자도 이 면 위에 놓입니다. [일반 메뉴](help:start-level)에서는 이 칸이 창의 {t:ac.advanced} 안에 접혀 있고, 고급 메뉴에서는 창 맨 위에 보입니다.
 
 | {t:ag.plane} | 그리는 높이 |
 |---|---|
@@ -3883,11 +3888,11 @@ order: 70
 - 건물 하나 아래의 땅만 선택하려면 {t:so.target} 목록에서 건물 A 외곽선처럼 건물 외곽선을 선택합니다. 그 평탄화는 건물 외곽선을 고치거나 건물을 다른 대지로 이동하면 함께 따라갑니다. 건물을 삭제할 때는 평탄화도 삭제할지 남길지 묻고, 남기면 목록에 ‘대지 없음’이 붙은 항목으로 남습니다.
 - {t:grade.height}는 기준면 0 m에서 잰 높이이며, 원래 땅의 가장 낮은 곳보다 50 m 아래부터 가장 높은 곳보다 50 m 위까지 정할 수 있습니다. 처음에는 대지 아래 땅의 평균 높이로 정해집니다.
 - {t:grade.average}는 선택한 대지 안의 지금 땅 높이 평균으로, {t:grade.balance}은 깎는 흙과 채우는 흙이 거의 같아지는 높이로 맞춥니다. 흙을 밖으로 실어 내거나 들여오지 않으려면 {t:grade.balance}을 씁니다.
-- 값을 바꾸는 동안 땅이 바로 바뀌어 보이고, Enter를 누르거나 다음 도구를 열어야 문서에 들어갑니다. 한 번 넣을 때마다 되돌리기 한 단계입니다.
+- 값을 바꾸는 동안 땅이 바로 바뀌어 보이고, Enter를 누르면 문서에 들어갑니다. 창이나 화면에서 대지를 선택하거나 값을 바꾼 뒤에는 Esc나 닫기를 누르거나 다른 도구를 열어도 들어갑니다. 한 번 넣을 때마다 되돌리기 한 단계입니다.
 - 평탄화한 땅을 지나는 토목 구조물(교량·터널·댐·옹벽·제방·배수 시설, 지형을 따라가는 도로)은 같은 되돌리기 단계 안에서 새 땅에 저절로 다시 맞춰집니다. 자세한 내용은 [평탄화와 토목](help:civil-grading)에 있습니다.
 - {t:grade.more}를 열면 {t:grade.sea}로 높이를 입력할 수 있고, {t:grade.cut}과 {t:grade.fill}을 \`1 : n\`의 n으로 정합니다(0 ~ 5, 기본 1과 1.5). 1 : 1.5면 높이 1 m에 옆으로 1.5 m 퍼지고, 0이면 수직 벽(옹벽)이 됩니다.
 - 토공량은 {t:grade.cutV}, {t:grade.fillV}, {t:grade.net}(m³)으로 나옵니다. 평탄화가 있으면 [면적표](help:site-area-table) 아래에도 함께 나옵니다.
-- 평탄화를 없애려면 그 대지를 선택하고 {t:grade.remove}를 누릅니다.
+- 평탄화를 삭제하려면 그 대지를 선택하고 {t:grade.remove}를 누릅니다.
 - 이미 세운 건물 아래를 평탄화하면, 1층 바닥이 새 평탄화 높이와 다른 건물이 있을 때 {t:lf.followTitle} 창이 뜹니다. {t:lf.followBtn}를 누르면 1층 바닥이 그 높이로 이동되고 앞으로도 평탄화를 따라갑니다. {t:lf.followKeep}를 누르면 건물은 그대로 있습니다.
 - 평탄화 높이는 건물의 1층 바닥 높이를 정할 때 선택할 수 있습니다. 비탈 대신 벽으로 높이 차이를 받치려면 [옹벽](help:civil-retaining)을 세웁니다.
 - 평탄화한 땅은 [등고선](help:site-terrain-view)으로 확인하면 비탈이 잘 보입니다.
@@ -3897,7 +3902,7 @@ order: 70
 - 창에 지형이 없다는 글만 나옵니다. 평평한 땅(높이 자료 없음)은 평탄화할 수 없습니다. 창의 {c:siteMap} 단추로 지도에서 영역을 정하거나 높이 파일을 가져옵니다.
 - 대지를 삭제했는데 평탄화가 남아 있습니다. 대지를 삭제할 때 평탄화를 남기기로 했다면 목록에 ‘대지 없음’이 붙은 항목으로 남습니다. 그 항목을 선택해 고치거나 {t:grade.remove}를 누릅니다. {t:cfit.unlink}로 보통 솔리드가 된 호수·연못이 판 땅도 같은 방식으로 남습니다.
 - 깎기 비탈을 0으로 두었더니 땅이 수직으로 잘렸습니다. 0은 옹벽처럼 수직 벽을 뜻합니다. 보통 1 ~ 2 정도로 둡니다.
-- Esc를 눌렀더니 바꾼 높이가 들어가지 않았습니다. Enter를 눌러야 들어갑니다.
+- 높이만 바꿔 보고 Esc를 눌렀는데 평탄화가 들어갔습니다. 대지를 선택하거나 값을 바꾼 뒤에는 Esc와 닫기도 평탄화를 넣습니다. 넣지 않으려면 {k:undo}로 되돌립니다.
 `,ze=`---
 id: site-land-edit
 title: 대지 편집
@@ -3973,7 +3978,7 @@ order: 10
 - 오른쪽의 {t:opt.sideW}·{t:opt.sideH} 칸에 길이를 직접 입력해도 사각형이 그 크기로 바뀝니다. 한 변은 5 m 이상이고, 가장 긴 변은 기본 2000 m입니다. 더 넓은 땅이 필요하면 환경 설정의 {t:set.siteMax}를 늘립니다(컴퓨터 메모리에 따라 한도가 정해집니다).
 - {t:hs.title}는 {t:hs.auto}이면 공개 높이 자료(약 30 m 간격)를 함께 받습니다. 더 정밀한 자료(.asc 격자, x y z 점 목록)가 있으면 {t:hs.file}를 선택하고 {t:tf.coords}를 맞춥니다. 영역은 그대로 두고 높이만 바꾸려면 {t:hs.applyNow}를 누릅니다.
 - {t:tv.depth}는 땅 아래 흙덩이(지층 단면)를 얼마나 깊게 그릴지 정합니다(1 ~ 200 m, 기본 10 m).
-- 인증키가 없거나 인터넷이 막혀 있으면 {t:site.other}을 씁니다. {t:site.file}는 직접 찍었거나 써도 되는 사진과 그 실제 가로 길이로, {t:site.plain}은 가로·세로 길이만으로 땅을 만듭니다.
+- 인증키가 없거나 인터넷이 막혀 있으면 {t:site.other}을 씁니다. {t:site.file}는 직접 찍었거나 써도 되는 사진과 그 실제 가로 길이로, {t:site.plain}은 가로·세로 길이만으로 땅을 만듭니다. {t:site.plain}을 누르면 창 위쪽의 {t:opt.sideW}·{t:opt.sideH} 칸이 그 땅의 크기가 되고, {t:site.plain} 바로 아래에 나오는 {t:site.confirm} 단추로 정합니다.
 - 인증키가 없을 때 지도 위에 보이는 {t:site.openSettings} 단추를 누르면 환경 설정의 지도 쪽이 열리고, 키를 받는 세 단계가 적혀 있습니다. 받은 키는 {t:set.vworldKey} 칸에 넣습니다.
 - 브이월드 이용약관에 따라 항공사진은 파일에 저장되지 않습니다. 파일에는 땅의 위치와 크기만 남고, 파일을 열 때 항공사진을 다시 받습니다. 인터넷이 없으면 사진 없이 흙·풀 색 땅으로 보이며, 땅의 높이와 물체 위치는 그대로입니다. 높이가 처음 들어오면 {c:terrainView} 창이 함께 열립니다. 자세한 보기 방법은 [지형 보기·등고선](help:site-terrain-view)에 있습니다.
 - 나중에 건설 지역을 다시 정해도 지어 둔 물체는 땅 위 제자리에 남고, [평탄화](help:site-grade)와 물 높이도 그대로 남습니다. 도로·교량·터널 같은 토목 구조물은 새 땅에 저절로 다시 맞춰집니다.
@@ -4103,7 +4108,7 @@ order: 180
 
 ## 팁
 
-- {t:ceil.rule}가 켜져 있으면(처음에 켜짐) 천장 높이는 위 바닥판이나 지붕 밑면에서 {t:ceil.plenum}(처음 0.4 m)만큼 내려온 곳입니다. 층고 3 m, 바닥판 두께 0.2 m이면 천장은 2.4 m입니다. 끄면 {t:ceil.height}에 넣은 높이를 지킵니다.
+- {t:ceil.rule}가 켜져 있으면(처음에 켜짐) 천장 높이는 위 바닥판이나 지붕 밑면에서 {t:ceil.plenum}(처음 400 mm)만큼 내려온 곳입니다. 층고 3 m, 바닥판 두께 200 mm이면 천장은 2.4 m입니다. 끄면 {t:ceil.height}에 넣은 높이를 지킵니다.
 - 천장 두께는 처음 20 mm입니다. 경사 지붕 아래에서는 {t:ceil.kind}에서 {t:ceil.kind.flat}이나 {t:ceil.kind.roof}를 선택합니다.
 - {t:ceil.how.level}로 단 천장은 층 외곽선과 중정을 따르고, 외곽선을 고치면 함께 바뀝니다.
 - 바로 위 바닥판에 직접 뚫은 구멍이 있으면 천장에도 같은 자리에 구멍이 뚫리고, 구멍을 메우면 천장도 다시 막힙니다: [바닥판 깔기](help:arch-slab).
@@ -4149,6 +4154,7 @@ order: 70
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {t:ag.plane}, {t:lv.pickLevel}, {t:flow.baseOffset}, {t:flow.top}, {t:flow.topLevel} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - 크기는 처음에 0.4 m이고 0.1~3 m로 정합니다.
 - 위층이 있으면 {t:flow.top}이 {t:flow.top.toFloor}로 정해져 높이를 따로 넣지 않습니다. 층고를 바꾸면 기둥 높이도 따라 바뀌고, 위층 바닥판이 덮는 기둥은 바닥판 아랫면에서 멈춥니다.
 - 위층이 없거나 {t:flow.top.height} 단추를 누르면 높이를 직접 넣습니다 (0.1~30 m).
@@ -4184,14 +4190,14 @@ order: 90
 
 1. {m:curtainWall} 단추를 누릅니다.
 2. 창에서 {t:lib.curtain.line} 또는 {t:lib.curtain.wall} 단추를 누릅니다.
-3. {t:presetParam.h}, {t:presetParam.gx}, {t:presetParam.gz}, {t:presetParam.mw} 칸에 값을 넣습니다.
+3. {t:presetParam.h}, {t:presetParam.gx}, {t:presetParam.gz}, {t:presetParam.mw} 칸에 값을 넣습니다. {t:presetParam.mw} 칸만 mm로 입력합니다.
 4. {t:lib.curtain.line}: 바닥에 점을 차례로 찍고, 마지막 점을 다시 누르거나 Enter를 누르면 커튼월이 섭니다.
 5. {t:lib.curtain.wall}: 벽 위를 클릭하면 벽에 구멍이 나고 그 자리에 커튼월이 끼워집니다. 다 끼웠으면 Esc를 누릅니다.
 
 ## 팁
 
 - 선을 따라 세우면 꺾인 토막마다 커튼월이 한 장씩 서고, 모두 한 그룹으로 묶입니다. 1 m보다 짧은 토막은 건너뜁니다.
-- 처음 값은 높이 3 m, 멀리언·트랜섬 간격 1.5 m, 멀리언 폭 0.06 m입니다. 간격을 바꾸면 유리 칸의 크기가 바뀝니다.
+- 처음 값은 높이 3 m, 멀리언·트랜섬 간격 1.5 m, 멀리언 폭 60 mm입니다. 간격을 바꾸면 유리 칸의 크기가 바뀝니다.
 - 선을 그리는 도중 {k:undo}는 마지막 점을 삭제합니다.
 - {t:lib.curtain.line} 방식으로 세운 커튼월은 지금 층 바닥에 섭니다. 층고에 맞추려면 {t:presetParam.h} 칸에 층고와 같은 값을 넣습니다.
 - {t:lib.curtain.wall} 방식에서는 {t:presetParam.w} 칸으로 너비를 정하고, R 키로 앞뒤를 바꿉니다.
@@ -4232,7 +4238,7 @@ order: 80
 - 문 종류: {t:preset.door.single}, {t:preset.door.double}, {t:preset.door.sliding}, {t:preset.door.auto}, {t:preset.door.fire}, {t:preset.door.revolving}.
 - 창 종류: {t:preset.window.single}, {t:preset.window.double}, {t:preset.window.tall}, {t:preset.window.fixed}, {t:preset.window.casement}, {t:preset.window.sliding}, {t:preset.window.awning}, {t:preset.window.hung}, {t:preset.window.skylight}.
 - 창 위쪽의 {t:lib.group.opening} 묶음에서 {t:presetCat.door}, {t:presetCat.window}, {t:presetCat.curtain} 사이를 오갑니다. 검색 칸에 이름을 입력해도 찾습니다.
-- 크기 칸은 {t:presetParam.w}, {t:presetParam.thick}, {t:presetParam.h}, {t:presetParam.frame}입니다. 정한 크기는 프로그램을 닫을 때까지 기억됩니다.
+- 크기 칸은 {t:presetParam.w}, {t:presetParam.thick}, {t:presetParam.h}, {t:presetParam.frame}입니다. {t:presetParam.frame} 칸만 mm로 입력하고 나머지는 m로 입력합니다. 정한 크기는 프로그램을 닫을 때까지 기억됩니다.
 - 문은 바닥에 붙어 끼워집니다. 창은 대부분 바닥에서 0.9 m 높이에 끼워지며, {t:preset.window.awning}은 1.5 m, {t:preset.window.hung}은 0.8 m, {t:preset.window.tall}은 바닥부터입니다.
 - 벽 안에서 R 키나 창의 {t:opt.presetFlip} 단추를 누르면 문·창의 앞뒤가 바뀝니다. 바닥 위에서는 90° 돌아갑니다.
 - {t:preset.door.single}, {t:preset.door.double}, {t:preset.door.fire}은 벽 안에서 F 키나 {t:auto.door.side} 단추로 열리는 쪽만 바꿉니다. {t:preset.door.single}과 {t:preset.door.fire}은 H 키나 {t:auto.door.hinge} 단추로 경첩 쪽만 바꿉니다.
@@ -4279,9 +4285,9 @@ order: 190
 - 평면도는 한 층에 한 장씩, 입면도는 정면도와 배면도, 좌측면도와 우측면도를 짝지어 놓습니다. 입면도에는 층마다 \`1층 FL ±0\`처럼 바닥 높이가 적힙니다.
 - 평면도에는 문마다 활짝 연 문짝과 문이 지나가는 4분의 1 원호가 가는 선으로 그려집니다. 문짝 길이는 벽에 난 문 구멍의 폭과 같고, 문짝은 경첩 쪽 끝에 그려집니다. 속성 창에서 {t:auto.door.hinge}이나 {t:auto.door.side}을 바꾸면 그림도 바뀝니다.
 - {m:planView} ({k:planView})는 작업 층을 {t:lt.cutHeight}(처음 1.2 m)에서 잘라 3D 화면에서 내려다보는 보기입니다. 잘린 벽은 채워 그리고 문 열림도 보여 주며, 작은 창의 {t:av.below}을 켜면 바로 아래층이 흐리게 함께 보입니다.
-- {m:archSection} ({k:archSection})은 작업 범위의 건물을 세로로 잘라 옆에서 봅니다. 작은 창에서 {t:av.axisX}·{t:av.axisY}와 {t:av.at}를 정하거나, {t:av.drawLine}로 평면에 단면선을 그려 자릅니다.
+- {m:archSection} ({k:archSection})는 작업 범위의 건물을 세로로 잘라 옆에서 봅니다. 작은 창에서 {t:av.axisX}·{t:av.axisY}와 {t:av.at}를 정하거나, {t:av.drawLine}로 평면에 단면선을 그려 자릅니다.
 - 두 보기의 작은 창에 있는 {c:archDrawing} 단추를 누르면 보고 있는 층·자르는 높이(단면은 자르는 위치) 그대로 A3 도면 한 장을 만들고 엽니다. 같은 보기로 만든 도면은 새것으로 바뀝니다. 평면도는 지붕 처마까지 그 층에 보이는 부재가 다 들어가게 맞춥니다.
-- 같은 종류의 도면을 다시 만들면 전에 만든 도면은 새것으로 바뀝니다. 평면 보기나 단면 보기에서 만든 도면은 {t:ad.new}로 다시 만들어도 남습니다.
+- 같은 종류의 도면을 다시 만들면 전에 만든 도면은 새것으로 바뀝니다. 평면 보기나 건물 단면 보기에서 만든 도면은 {t:ad.new}로 다시 만들어도 남습니다.
 - 층이나 건물을 삭제하면 그 층·건물을 그린 도면도 함께 삭제되고, 알림에 삭제한 장 수가 나옵니다.
 - {t:ad.sheet}에서 다른 도면으로 바꿔 보고, 필요 없는 도면은 {t:ad.deleteSheet}로 삭제합니다.
 - {t:dv.print}는 모든 도면을 차례로 인쇄합니다. 지금 보는 한 장만 인쇄하려면 {t:dv.printPage}를 누릅니다. {t:dv.dxf}·SVG·PNG는 지금 보는 한 장을 내보냅니다. PDF는 인쇄 창에서 PDF로 저장을 선택하면 만들어집니다.
@@ -4484,7 +4490,7 @@ order: 10
 - 건물 세우기로 지은 건물에서는 층마다 외곽선·벽·바닥판·지붕 가운데 저절로 끝난 단계가 {t:fl.autoDone} 한 줄로 접혀 보입니다. 그 줄을 누르면 펼쳐집니다.
 - 4단계의 {t:base.button} 단추를 누르면 묻는 창이 열립니다. ‘평탄화 높이 사용’, {t:base.high}, {t:base.keep}, {t:base.typed} 가운데 하나를 선택하고 {t:base.ok} 단추를 누릅니다. 1층 바닥을 이동하면 그 건물의 모든 층과 부품이 함께 움직입니다.
 - 1층 바닥 높이를 정하지 않은 채 지형 위에 부품을 놓으면, 놓기 전에 같은 창이 먼저 열립니다. 지형이 없는 땅에서는 1층 바닥이 0 m이고 4단계는 끝난 것으로 봅니다.
-- 7단계의 {c:outerWalls} 단추는 외벽 세우기 창을 엽니다. {t:ow.mode.all}는 외곽선의 모든 변에, {t:ow.mode.pick}은 고른 변이나 그 일부에 벽을 세웁니다. 처음 값은 두께 0.2 m 벽을 위층 바닥까지 세우는 것이고, 지하층에는 두께 0.3 m 지하 외벽이 섭니다. 창에서 {t:ec.allLevels}을 고르면 같은 변이 있는 모든 층에 한 번에 세웁니다. 벽이 이미 있는 변이나 구간은 건너뜁니다.
+- 7단계의 {c:outerWalls} 단추는 외벽 세우기 창을 엽니다. {t:ow.mode.all}는 외곽선의 모든 변에, {t:ow.mode.pick}은 고른 변이나 그 일부에 벽을 세웁니다. 처음 값은 두께 200 mm 벽을 위층 바닥까지 세우는 것이고, 지하층에는 두께 300 mm 지하 외벽이 섭니다. 창에서 {t:ec.allLevels}을 고르면 같은 변이 있는 모든 층에 한 번에 세웁니다. 벽이 이미 있는 변이나 구간은 건너뜁니다.
 - 12단계의 {t:fl.roofTop} 단추는 맨 위 외곽선을 선택한 상태로 [지붕](help:arch-roof) 도구를 엽니다. 처마 높이는 맨 위 층 바닥 + 층고입니다. 모양을 확인한 뒤 Enter를 눌러 지붕을 만듭니다.
 - 창을 닫았으면 메뉴 줄의 {c:buildFlow} 단추를 다시 누릅니다. 창이 앞에 있을 때 누르면 창이 숨겨집니다.
 
@@ -4615,6 +4621,7 @@ order: 170
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {c:lightPlace} 창의 {t:light.k}, {t:light.angle} 칸이 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - {t:lt.sky}이 켜져 있어야 해·하늘·조명이 시간에 따라 바뀌고 조명이 실제로 주변을 비춥니다. {t:lt.day}·{t:lt.evening}·{t:lt.night} 단추를 누르거나 그림자를 켜면 저절로 켜지고, 끄면 모델링용 고른 빛으로 돌아갑니다.
 - {t:lt.day} 단추는 13:00, {t:lt.evening} 단추는 18:45, {t:lt.night} 단추는 22:00으로 맞춥니다. {t:lt.spring}·{t:lt.summer}·{t:lt.winter} 단추로 날짜를 바로 선택합니다.
 - 해의 위치는 지도에서 선택한 땅의 위치로 셈하고, 지도로 정한 땅이 아니면 서울 기준입니다. {t:lt.tz}는 UTC와의 시간 차이입니다 (한국은 9).
@@ -4749,7 +4756,7 @@ order: 30
 - 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 변이 됩니다. 곡선 외곽선은 {c:pathEdit}으로 점과 핸들을 고칩니다 ([곡선 편집](help:obj-curve-edit)).
 - 창에 외곽선의 {t:ol.area}와 {t:ol.perimeter}가 보입니다.
 - {t:ol.autoSlab} 스위치는 처음부터 켜져 있습니다. 바닥판 윗면은 층 바닥 높이에 맞고 두께는 아래로 생깁니다.
-- 지하층에서는 {t:ol.retain} 스위치를 켜면 외곽선 안쪽을 따라 두께 0.3 m 벽이 위층 바닥까지 섭니다.
+- 지하층에서는 {t:ol.retain} 스위치를 켜면 외곽선 안쪽을 따라 두께 300 mm 벽이 위층 바닥까지 섭니다.
 - 건물 세우기로 만든 건물은 층 외곽선의 모든 변에 바깥벽이 저절로 섭니다: [층마다](help:build-detailed). 그 밖의 건물은 외곽선을 정한 뒤 {m:outerWalls}의 {t:ow.mode.all}로 외곽선을 따라 바깥벽을 한 번에 세웁니다: [외벽 세우기](help:build-outer-walls).
 - {c:levelPanel} 창의 층 줄마다 있는 외곽선 단추로도 그 층의 외곽선 도구가 열립니다.
 - 층 외곽선(지하층 포함)은 건물 외곽선 안에만 둡니다. 밖으로 나가면 건물 외곽선에 맞춰 잘리고 알림이 나옵니다. 완전히 밖에 있거나 잘려서 여러 조각이 되면 정해지지 않습니다: [건물 외곽선](help:build-outline).
@@ -4832,8 +4839,8 @@ order: 130
 - {t:roof.sides.btn} 중에는 화면에 변 번호가 보입니다. 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves} 칸 번호와 같습니다.
 - 창에는 켜진 경사 변 수와 전체 변 수가 함께 보입니다.
 - 지붕 모양 단추({t:opt.roofGable}, {t:opt.roofHip} 등)를 누르면 그 모양에 맞게 경사 변이 다시 정해집니다. 모양을 먼저 선택한 뒤 필요한 변만 하나씩 고치면 빠릅니다.
-- 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves}는 처음에 접혀 있습니다. 제목을 누르면 변마다 칸이 펼쳐지고, 한 번 펼치면 프로그램을 닫을 때까지 펼쳐진 채로 있습니다. 따로 정한 값이 있으면 접힌 상태에서도 제목 옆에 {t:archedit.sameSlope}나 {t:re.sameEave} 단추가 보입니다.
-- 펼친 칸에 마우스를 올리거나 칸에 값을 입력하는 동안, 화면에서 그 변에 선과 변 번호가 보입니다. 칸에서 벗어나면 보이지 않습니다.
+- 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves}는 [일반 메뉴](help:start-level)에서는 처음에 접혀 있고, 고급 메뉴에서는 처음부터 펼쳐져 있습니다. 제목을 누르면 변마다 칸이 펼쳐지거나 접히고, 한 번 바꾼 상태는 프로그램을 닫을 때까지 그대로입니다. 따로 정한 값이 있으면 접힌 상태에서도 제목 옆에 {t:archedit.sameSlope}나 {t:re.sameEave} 단추가 보입니다.
+- 펼친 칸에 마우스를 올리거나 칸에 값을 입력하는 동안, 화면에서 그 변의 지붕 모서리가 빛나고 변 번호가 보입니다. 칸에서 벗어나면 보이지 않습니다.
 - 속성 창의 {t:archedit.roofSlopes}에서 켜진 변마다 경사를 따로 정합니다. 경사를 다르게 하면 용마루와 추녀 점이 이동됩니다. {t:archedit.sameSlope}를 누르면 모든 변이 다시 같은 경사가 됩니다.
 - {m:tweak}으로 지붕의 용마루 점이나 선을 이동해도 변마다 경사 값이 바뀌고, 지붕 설정으로 계속 고칠 수 있습니다.
 - 속성 창의 {t:re.eaves}에서 변마다 처마 길이를 따로 정합니다. 따로 정하지 않은 변은 {t:opt.overhang} 값을 따르고, {t:re.sameEave}를 누르면 모든 변이 다시 {t:opt.overhang} 값을 따릅니다. 처마 길이가 다른 두 변은 모서리에서 두 처마선이 만나는 점까지 이어집니다.
@@ -4891,6 +4898,7 @@ order: 135
 - 조각은 자기 외곽선에서 모양을 다시 만듭니다. {t:opt.roofHip} 지붕이나 오목한 지붕처럼 다른 변의 경사면이 넘어와 있던 곳은 모양이 달라지고, 그때는 알림이 나옵니다.
 - 안쪽 모서리에서 한 변을 따라 곧게 나누면, 그 변이 있는 조각에서는 나눈 변도 그 변과 같은 경사가 되어 한 변처럼 이어집니다. 그 변의 처마는 모서리 옆에서 없어져 두 조각의 처마가 겹치지 않습니다.
 - {t:rs.walls}가 켜져 있으면(처음에 켜져 있습니다) 지붕에 붙은 벽이 선에 걸칠 때 그 자리에서 나누고, 조각마다 그 위의 지붕에 붙입니다. 지붕 한 조각을 올리면 그 아래 벽만 따라 올라갑니다.
+- 나뉜 조각의 이름은 원래 이름 뒤에 \`_분리1\`, \`_분리2\`처럼 번호가 붙습니다. 가장 큰 조각이 1입니다. 조각을 다시 나누면 그 조각은 자기 이름을 지키고, 새 조각은 다음 번호를 받습니다. 화면 언어를 바꾼 뒤에 다시 나눠도 번호가 이어집니다.
 - 나눈 것은 되돌리기 한 번으로 지붕과 벽이 모두 돌아옵니다.
 - 건물 세우기가 만든 옥상도 나눌 수 있습니다. 나눈 조각은 직접 만든 지붕이 되어, 층을 다시 적용해도 그 자리에 옥상이 다시 생기지 않습니다.
 
@@ -4931,11 +4939,12 @@ order: 120
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {t:ag.plane}, {t:opt.thickness}, {t:flow.roofAttach}, {t:aw.splitWalls} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - 지붕 아래 모양을 선택하는 방법은 세 가지입니다. 닫힌 벽을 클릭하면 벽 바깥면을 따라, 바닥판을 클릭하면 바닥판 외곽선을 따라 정해집니다. 부재가 없는 빈 곳에서 두 모서리를 클릭하면 사각형이 되고, 두 번째 모서리는 \`@10,8\`처럼 가로·세로 길이로 입력해도 됩니다.
 - 지붕 모양에 따라 경사지게 올라가는 변이 정해집니다. {t:opt.roofGable}은 가장 긴 변과 그 맞은편 변, {t:opt.roofShed}은 가장 긴 변 하나, {t:opt.roofHip}은 모든 변이 경사지고, {t:opt.roofFlat}은 경사가 없습니다. 경사지지 않는 변은 박공(세운 면)이 됩니다.
 - 경사 변을 하나씩 켜고 끄거나 만든 지붕을 고치는 방법은 [지붕 변 선택](help:arch-roof-edit)에 있습니다.
 - 지붕의 일부만 높이나 경사를 다르게 하려면 지붕을 둘로 나눕니다: [지붕 나누기](help:arch-roof-split).
-- {t:opt.roofPitch}는 5°~70°(기본 30°), {t:opt.overhang}는 0~3 m(기본 0.5 m), {t:opt.thickness}는 0.05~1 m(기본 0.2 m)입니다. 숫자 칸에는 [계산식](help:input-calc)을 쓸 수 있습니다.
+- {t:opt.roofPitch}는 5°~70°(기본 30°), {t:opt.overhang}는 0~3000 mm(기본 500 mm), {t:opt.thickness}는 50~1000 mm(기본 200 mm)입니다. 숫자 칸에는 [계산식](help:input-calc)을 쓸 수 있습니다.
 - 지붕 아랫면 높이는 {t:flow.roofBase} 바닥 + {t:flow.offset}입니다. 처음에는 바로 위층 바닥(맨 위층이면 지금 층 바닥 + 층고), 곧 맨 위층 벽의 위로 정해집니다. 창에서 {t:flow.roofEave}와 {t:flow.roofRidge}를 바로 확인합니다.
 - {t:flow.roofAttach}가 켜져 있으면(기본) 지붕 아래 벽의 위쪽이 지붕 아랫면을 따라 올라갑니다. 자세한 내용은 [벽 위쪽 맞추기](help:arch-wall-top)에 있습니다.
 - 지붕 아래 모양을 잘못 선택했으면 {t:opt.repick}을 누르거나 Ctrl+Z로 처음부터 다시 선택합니다.
@@ -4974,17 +4983,18 @@ order: 60
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {t:ag.plane}, {t:lv.pickLevel}, {t:flow.baseOffset} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - {t:slab.way.walls}은 지금 층에서 닫힌 벽을 모두 찾아 벽 바깥면까지 바닥판을 깝니다. 창의 {t:opt.closedWalls}에 찾은 수가 보이고, 끝이 서로 맞닿아 한 바퀴를 이루는 벽들도 닫힌 벽으로 봅니다.
 - {t:slab.way.draw}의 {t:opt.slabRect}은 두 모서리를 찍어 만듭니다. 창의 {t:opt.sideW}와 {t:opt.sideH} 칸에 크기를 넣으면 그 크기로 만들어집니다.
 - {t:opt.slabPoly}은 점을 차례로 찍고 첫 점을 다시 누르거나 Enter를 눌러 닫습니다. 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 변이 됩니다.
-- {t:opt.thickness}는 처음에 0.2 m이고 0.05~2 m로 정합니다. {t:flow.baseOffset} 칸에 값을 넣으면 바닥판 윗면이 그만큼 올라갑니다.
+- {t:opt.thickness}는 처음에 200 mm이고 50~2000 mm로 정합니다. {t:flow.baseOffset} 칸에 값을 넣으면 바닥판 윗면이 그만큼 올라갑니다.
 - 층 외곽선이 있는 층은 바닥판이 저절로 생기고 외곽선을 따라 바뀝니다 ([층 외곽선](help:arch-outline)). 위층 외곽선을 더 크게 그리면 아래층 밖으로 내민 바닥판이 됩니다.
 - {t:slab.way.outline}은 이 건물에서 외곽선은 있는데 외곽선 바닥판이 꺼진 층을 찾아 다시 만듭니다. 그 자리에 이미 바닥판이 있는 층은 건너뛰고 알림이 나옵니다.
 - 바닥판의 구멍: 계단을 놓으면 그 위의 바닥판에 계단 크기만큼 구멍이 저절로 뚫립니다. 계단을 이동하면 구멍도 따라가고, 계단을 삭제하면 구멍이 막힙니다 ([계단](help:arch-stair)).
 - 구멍을 직접 뚫으려면 바닥판을 오른쪽 클릭하고 {c:slabHole}를 누릅니다. 속성 창의 {c:slabHole} 단추도 같습니다. 바닥판 위에 두 점을 찍고 Enter를 누르면 사각형, 세 점 이상을 찍고 첫 점을 다시 누르거나 Enter를 누르면 다각형 구멍이 뚫립니다. \`@3,2\`처럼 앞 점에서 잰 값도 입력합니다. Esc를 누르면 뚫지 않고 끝납니다.
 - 직접 뚫는 구멍은 바닥판 안에 있어야 합니다. 가장자리에 닿거나 밖으로 나가면 뚫지 않고 알림이 나옵니다. 바닥판만 뚫리고 벽은 생기지 않습니다. 외곽선 바닥판의 구멍은 층 외곽선을 고쳐도 그 자리에 남습니다.
 - 직접 뚫은 구멍은 [면적표](help:site-area-table)의 바닥면적에서 빠지고, 바로 아래층 천장에도 같은 자리에 구멍이 뚫립니다.
-- 직접 뚫은 구멍을 없애려면 구멍 위에서 오른쪽 클릭하고 {c:slabHoleFill}를 누릅니다.
+- 직접 뚫은 구멍을 삭제하려면 구멍 위에서 오른쪽 클릭하고 {c:slabHoleFill}를 누릅니다.
 - 그린 바닥판을 선택하면 속성 창에서 두께를 바꾸고, {c:pathEdit}으로 외곽 점과 곡선을 고칩니다.
 - 바닥판은 다른 층에도 놓을 수 있습니다. 창의 {t:lv.pickLevel} 칸에서 층을 선택합니다.
 
@@ -5021,15 +5031,16 @@ order: 100
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {t:ag.plane}, {t:lv.pickLevel}, {t:stairs.maxRiser}, {t:opt.stairSteps}, {t:stairs.slabGap} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - 시작점을 찍은 뒤 두 번째 클릭이 오를 방향입니다. 시작점을 다시 클릭하면 시작점을 찍기 전에 보이던 방향(R로 회전한 방향) 그대로 놓입니다. 계단 하나를 놓으면 도구가 닫힙니다.
 - 계단 모양은 {t:opt.stairStraight}, {t:opt.stairL}, {t:opt.stairU}, {t:stairs.style.z}, {t:opt.stairSpiral}, {t:stairs.style.path} 가운데에서 선택합니다. ㄱ·ㄷ·ㄹ자는 {t:stairs.flip} 스위치로 꺾는 쪽을 바꿉니다.
 - {t:stairs.top} 칸의 처음 값은 바로 위층입니다. 더 위의 층이나 {t:stairs.top.typed} 항목을 선택할 수 있습니다.
 - 두 번째 클릭으로 위층 바닥의 모서리나 점을 선택하면 그 높이까지 오릅니다. {t:opt.stairStraight} 계단은 그 점에서 끝나도록 디딤 폭이 맞춰집니다.
-- 단 수는 {t:opt.stairRise}를 {t:stairs.maxRiser}(처음 0.18 m)로 나눠 올림한 값입니다. 층고 3 m이면 17단, 한 단 높이는 약 0.176 m입니다. {t:opt.stairSteps} 칸에 직접 넣어도 됩니다.
-- {t:opt.stairWidth}은 처음 1 m(0.5~5 m), {t:opt.stairGoing}은 처음 0.27 m(0.15~0.6 m)입니다. 한 단이 최대 단 높이보다 높거나 디딤 폭이 0.26 m보다 좁으면 창에 경고가 나옵니다.
+- 단 수는 {t:opt.stairRise}를 {t:stairs.maxRiser}(처음 180 mm)로 나눠 올림한 값입니다. 층고 3 m이면 17단, 한 단 높이는 약 176 mm입니다. {t:opt.stairSteps} 칸에 직접 넣어도 됩니다.
+- {t:opt.stairWidth}은 처음 1 m(0.5~5 m), {t:opt.stairGoing}은 처음 270 mm(150~600 mm)입니다. 한 단이 최대 단 높이보다 높거나 디딤 폭이 260 mm보다 좁으면 창에 경고가 나옵니다.
 - {t:stairs.style.path}: 계단 가운데를 걷는 선을 점으로 그립니다. 꺾일 때마다 계단참이 생기고, Enter나 더블클릭으로 끝냅니다. 점을 찍을 때 마우스를 누른 채 0.5초 기다렸다가 끌면 곡선 계단이 됩니다.
 - {t:stairs.rails} 칸에서 {t:stairs.rails.none}, {t:stairs.rails.left}, {t:stairs.rails.right}, {t:stairs.rails.both} 가운데 하나를 선택하고 {t:stairs.railHeight}(처음 0.9 m)를 정합니다. 이 난간은 계단과 한 몸이라 계단을 고치면 함께 바뀝니다. 나선 계단에는 이 칸이 없습니다.
-- {t:stairs.slabCut} 스위치는 처음부터 켜져 있고, 계단 둘레를 {t:stairs.slabGap}(처음 0.1 m)만큼 더 넓게 뚫습니다.
+- {t:stairs.slabCut} 스위치는 처음부터 켜져 있고, 계단 둘레를 {t:stairs.slabGap}(처음 100 mm)만큼 더 넓게 뚫습니다.
 - 놓은 계단을 선택하면 속성 창에서 모양·폭·오를 높이·단 수·난간·구멍을 바꿉니다. {t:stairs.style.path}로 그린 계단은 {c:pathEdit}으로 걷는 선의 점과 곡선을 고칩니다 ([곡선 편집](help:obj-curve-edit)).
 - 위층에 묶인 계단은 층고를 바꾸면 오를 높이와 단 수가 따라 바뀝니다.
 - 기둥은 [기둥](help:arch-column), 난간은 [난간](help:arch-railing)에 자세히 있습니다.
@@ -5067,7 +5078,8 @@ order: 50
 
 ## 팁
 
-- 층에 묶은 벽은 그 층 바닥판의 아랫면에서 멈춥니다. 층고 3 m, 바닥판 두께 0.2 m이면 바닥판이 덮는 곳의 벽은 2.8 m이고, 바닥판이 없는 곳만 3 m까지 올라갑니다. 바닥판이 벽 위에 얹히는 구조입니다.
+- [일반 메뉴](help:start-level)에서는 벽 도구 창의 {t:flow.top}, {t:flow.topLevel}, {t:flow.stopAtSlabs} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
+- 층에 묶은 벽은 그 층 바닥판의 아랫면에서 멈춥니다. 층고 3 m, 바닥판 두께 200 mm이면 바닥판이 덮는 곳의 벽은 2.8 m이고, 바닥판이 없는 곳만 3 m까지 올라갑니다. 바닥판이 벽 위에 얹히는 구조입니다.
 - 예: 1층 벽을 3층에 묶고 {t:flow.stopAtSlabs} 칸을 켜면, 2층 바닥판 아래 부분은 2층 바닥에서 멈추고 2층 바닥판이 없는 부분만 3층 바닥까지 올라갑니다. 2층이 3층보다 작은 건물의 바깥벽에 씁니다.
 - {t:flow.stopAtSlabs} 칸은 사이에 층이 있을 때만 켤 수 있습니다. 바로 위층을 선택하면 꺼진 채로 있습니다.
 - 위층이 없으면 {t:flow.top.aboveNone} 표시가 보이고 높이를 직접 정합니다. {c:levelAdd}로 층을 더하면 그 층까지 올릴 수 있습니다.
@@ -5112,8 +5124,9 @@ order: 40
 
 ## 팁
 
+- [일반 메뉴](help:start-level)에서는 {t:ag.plane}, {t:lv.pickLevel}, {t:flow.baseOffset}, {t:flow.top}, {t:archedit.wallJoin} 칸이 창 아래쪽의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다. 고급 메뉴에서는 처음부터 보입니다.
 - 그린 선이 벽의 어디에 오는지 창의 그림 단추로 선택합니다. {t:flow.justify.center}, {t:flow.justify.left}, {t:flow.justify.right} 가운데 하나이며, 명령줄에 \`f\`를 입력하면 벽이 그린 선의 반대쪽으로 이동됩니다.
-- 두께는 처음에 0.2 m이고 0.05~2 m로 정합니다. 위층이 없으면 높이는 층고와 같고 0.1~30 m로 정합니다.
+- 두께는 처음에 200 mm이고 50~2000 mm로 정합니다. 두께는 mm로, 높이는 m로 입력합니다. 위층이 없으면 높이는 층고와 같고 0.1~30 m로 정합니다.
 - 위층이 있으면 창의 {t:flow.top}이 {t:flow.top.toFloor}로 정해져, 층고를 바꿀 때 벽 높이도 따라 바뀝니다. 높이를 직접 정하려면 {t:flow.top.height} 단추를 누릅니다. 자세한 것은 [벽 위쪽 맞추기](help:arch-wall-top)에 있습니다.
 - 포인터는 같은 층 벽의 끝, 벽 모서리, 벽 선 위에 붙고 화면에 {t:flow.snap.end}, {t:flow.snap.corner}, {t:flow.snap.line} 표시가 나옵니다.
 - 창의 {t:opt.segLength}와 {t:opt.angle} 칸에 값을 넣으면 다음 벽의 길이와 방향이 정해집니다. 명령줄에 \`@5<90\`처럼 입력해도 됩니다 ([좌표·길이 입력](help:input-coords)).
@@ -5161,7 +5174,7 @@ order: 40
 ## 팁
 
 - 맨 위층은 덮는 층이 없으므로 윗면 전체가 지붕이 됩니다. 그 지붕의 윗면은 맨 위층 바닥에서 층고만큼 올라간 높이에 놓입니다.
-- {t:aw.roofOffset}는 -3 m부터 3 m까지이고, 0이면 위층 바닥과 같은 높이입니다. 지붕 두께는 0.2 m이며 윗면을 기준으로 놓입니다.
+- {t:aw.roofOffset}는 -3 m부터 3 m까지이고, 0이면 위층 바닥과 같은 높이입니다. 지붕 두께는 200 mm이며 윗면을 기준으로 놓입니다.
 - 층고를 바꾸면 옥상도 위층 바닥을 따라 함께 움직입니다.
 - 옥상 높이를 바꾸면 그 지붕에 붙은 벽도 지붕 아랫면을 따라갑니다. 위층 바닥까지 올라가는 벽은 그대로입니다: [벽 자동 나누기](help:build-wall-split).
 - 아래층이 받치지 않는 아랫면(돌출 아랫면)에는 따로 부재가 생기지 않고 그 층의 바닥판이 그 자리를 덮습니다. 위층이 아래층보다 넓을 때와 [필로티](help:build-piloti) 층 위의 층이 그렇습니다.
@@ -5302,7 +5315,7 @@ order: 20
 - 다시 세울 때 벽이 바뀌어 문·창이 들어갈 벽이 없어지면 문·창이 삭제되고, 알림에 그 수와 {t:cmd.undo} 단추가 나옵니다.
 - 빈 건물의 {t:ab.easy}에는 처음에 지상 3층, 지하 0층, 층고 3 m가 들어 있고, 그다음부터는 마지막에 쓴 값이 들어 있습니다.
 - {t:ceil.build} 스위치를 켜 두면(처음에 켜짐) 필로티 층을 뺀 모든 층에 천장이 함께 생깁니다.
-- 지하층에는 바깥벽 대신 외곽선을 따라 두께 0.3 m 지하 외벽이 생깁니다. 바닥판은 모든 층에 생기고, 평지붕은 맨 위층에 생깁니다.
+- 지하층에는 바깥벽 대신 외곽선을 따라 두께 300 mm 지하 외벽이 생깁니다. 바닥판은 모든 층에 생기고, 평지붕은 맨 위층에 생깁니다.
 - 1층 바닥 높이는 그 자리에 평탄화가 있으면 그 높이를 따르고, 없으면 그 자리에서 가장 높은 땅의 높이를 씁니다 (지형이 없으면 0). 나중에 [건설 진행 상황](help:arch-flow)의 {t:fl.step.base} 단계에서 바꿉니다.
 - 이렇게 세운 건물은 {c:buildFlow} 창의 {t:fl.step.levels} 단계 {t:ab.easy}에서 층 수·층고를 바꾸고 {t:aw.easyAgain}를 누르면 다시 만들어집니다. 늘어난 층은 옆 층의 외곽선을 받습니다.
 - 건물 외곽선을 고치면 바깥벽도 새 외곽선을 따라 다시 만들어집니다: [건물 외곽선](help:build-outline).
@@ -5396,8 +5409,9 @@ order: 35
 ## 팁
 
 - {t:opt.wallJustify}는 외곽선이 벽의 어느 면에 오는지 정합니다. 처음 값인 {t:flow.justify.left}이면 벽이 외곽선 안쪽에 섭니다.
+- [일반 메뉴](help:start-level)에서는 {t:flow.top} 칸이 설정 아래의 {t:ac.advanced} 안에 접혀 있습니다. 눌러서 펼칩니다.
 - {t:flow.top}에서 {t:flow.top.toFloor}를 선택하면 벽이 위층 바닥까지 서고 층고가 바뀌면 함께 바뀝니다. 위층이 없으면 {t:param.h}를 입력합니다.
-- {t:ec.allLevels}을 선택하면 같은 변이 있는 모든 층에 한 번에 세웁니다. {t:ow.mode.all}에서는 지하층에 0.3 m 지하 외벽이 서고, 벽이 이미 있는 변이나 구간은 건너뜁니다. 층에 벽이 하나 있다고 그 층 전체를 건너뛰지는 않습니다.
+- {t:ec.allLevels}을 선택하면 같은 변이 있는 모든 층에 한 번에 세웁니다. {t:ow.mode.all}에서는 지하층에 두께 300 mm 지하 외벽이 서고, 벽이 이미 있는 변이나 구간은 건너뜁니다. 층에 벽이 하나 있다고 그 층 전체를 건너뛰지는 않습니다.
 - 지하층에서는 {t:ow.mode.pick}으로 아무것도 만들지 않고 {t:ew.basementPick} 알림이 나옵니다. 지하 외벽은 {t:ow.mode.all}로 세웁니다.
 - 창 이름은 어느 방법을 선택해도 {t:cmd.outerWalls}입니다. 지금 방법은 창 위의 단추에 표시됩니다.
 - 변을 따라 끌 때는 변의 양 끝과 가운데에 붙고, 그 밖에서는 격자 간격에 맞춰집니다. 끄는 동안 커서 옆에 시작과 길이가 mm로 보입니다.
@@ -5860,9 +5874,9 @@ order: 100
 
 ## 팁
 
-- 벽은 처음에 두께 0.2 m이고, 위층이 없으므로 높이는 층고(3 m)와 같습니다. 지붕의 처마도 1층 바닥 + 층고에 놓입니다.
+- 벽은 처음에 두께 200 mm이고, 위층이 없으므로 높이는 층고(3 m)와 같습니다. 지붕의 처마도 1층 바닥 + 층고에 놓입니다.
 - 방을 나누려면 {c:wall}으로 안쪽 벽을 더 그립니다. 벽 끝은 다른 벽에 붙어 저절로 이어집니다: [벽](help:arch-wall).
-- {t:opt.roofPitch}(기본 30°)와 {t:opt.overhang}(기본 0.5 m)는 지붕 도구 창에서 바꿉니다: [지붕](help:arch-roof).
+- {t:opt.roofPitch}(기본 30°)와 {t:opt.overhang}(기본 500 mm)는 지붕 도구 창에서 바꿉니다: [지붕](help:arch-roof).
 - 지형이 있는 땅에서는 첫 벽을 놓기 전에 1층 바닥 높이를 묻는 창이 먼저 열립니다. 추천 높이를 선택하고 {t:base.ok}를 누릅니다.
 - 2층을 올리려면 {m:levelAdd}를 누르고 2층에서 같은 방법으로 벽을 그립니다. 위층이 있는 층에 그린 벽은 위층 바닥까지 올라가므로, 층을 먼저 만들고 벽을 그리면 편합니다: [층](help:arch-levels).
 - 벽을 손으로 그린 건물은 건물 세우기의 {t:ab.easy}로 다시 세울 수 없습니다. 층 수가 많은 건물은 [건물 바로 세우기](help:build-easy)가 빠릅니다.
@@ -7452,7 +7466,7 @@ order: 50
 3. {c:visual} 메뉴에서 {t:vis.shaded}처럼 모서리를 그리지 않는 방식을 선택합니다.
 4. 지금 쓰지 않는 물체는 숨깁니다. 3D 건설에서는 {c:upperLevels}로 위층을 흐리게 하거나 숨깁니다.
 5. 나사산이 있는 볼트, 잇수가 많은 기어처럼 면이 많은 물체는 다 만든 뒤 숨기거나 개수를 줄입니다.
-6. 물체가 많아 계산이 오래 걸리면 {c:settings} → {t:set.options} 탭의 {t:set.engines}을 {t:set.engines.auto}으로 둡니다. 엔진이 많으면 더 빨리 계산하지만 메모리를 더 씁니다.
+6. 물체가 많아 계산이 오래 걸리면 {c:settings} → {t:set.options} 탭의 {t:set.engines}을 {t:set.engines.auto}으로 둡니다. 엔진이 많으면 더 빨리 계산하지만 메모리를 더 씁니다. {t:level.basic} 수준에서는 이 칸이 {t:ac.advanced} 안에 있습니다.
 
 ## 팁
 
@@ -7590,7 +7604,7 @@ Writes your objects to files that 3D printers and other programs read. Use STL o
   - In the {t:panel.props} window, check that {t:m.solidCheck} under {t:panel.info} says {t:m.solidOk}. If there are several separate lumps, join them with {c:union}.
   - Put floating objects on the floor with {c:drop}.
   - Set your printer's plate under {c:settings} → {t:set.units} → {t:set.printer}. The floor grid shows the plate size.
-- The {m:print3d} button opens the same STL export window. On the {t:level.basic} menus it is on the {t:lv.group.output} tab in 3D Object and on the {t:flow.group.finish} tab in 3D Building.
+- The {m:print3d} button opens the same STL export window. In 3D Object it is on the {t:lv.group.output} tab; in 3D Building it is on the {t:flow.group.finish} tab of the {t:level.basic} menus.
 - Technical drawings and building drawings are under {t:menu.export2d}: [technical drawing](help:obj-drawing), [building drawings](help:arch-drawing).
 
 ### Scale (exporting larger or smaller)
@@ -7697,10 +7711,11 @@ The {t:level.basic} | {t:level.advanced} switch at the right of the menu bar set
 
 | Work | {t:level.basic} tabs | {t:level.advanced} tabs |
 |---|---|---|
-| 3D Object | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.modify}, {t:group.pattern}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.sketchEdit}, {t:group.modify}, {t:group.construct}, {t:group.parts}, {t:group.combine}, {t:group.dims} |
+| 3D Object | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.modify}, {t:group.pattern}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} | {t:group.transform}, {t:group.primitives}, {t:group.sketch}, {t:group.sketchEdit}, {t:group.modify}, {t:group.construct}, {t:group.parts}, {t:group.combine}, {t:group.dims}, {t:lv.group.output} |
 | 3D Building | {t:group.site}, {t:group.build}, {t:lib.group}, {t:flow.group.finish}, {t:archui.tab.model} | {t:group.site}, {t:group.civil}, {t:group.build}, {t:lib.group}, {t:flow.group.finish}, {t:archui.tab.model} |
 
-- In 3D Object, the {t:level.basic} {t:group.sketch} tab has the drawing tools followed by {t:lv.head.edit} ({c:editSketch}, {c:trim}, {c:offset} …) and {t:lv.head.solid} ({c:extrude}, {c:revolve}). The {t:lv.group.output} tab holds {c:drawing}, {c:print3d} and {c:screenshot}.
+- In 3D Object, the {t:level.basic} {t:group.sketch} tab has the drawing tools followed by {t:lv.head.edit} ({c:editSketch}, {c:trim}, {c:offset} …) and {t:lv.head.solid} ({c:extrude}, {c:revolve}).
+- In 3D Object the {t:lv.group.output} tab is the same at both levels and holds {c:drawing}, {c:print3d} and {c:screenshot}.
 - In 3D Building at {t:level.basic}, {c:road} is on the {t:group.site} tab, and {c:planView} and {c:archSection} are on the {t:flow.group.finish} tab.
 - A tool that is not on the {t:level.basic} menus still runs when you type its name in the command line or press its shortcut. You are told that it is on the {t:level.advanced} menus.
 - In 3D Object, {t:level.basic} has no {t:group.parts} tab. Tools such as {c:sweep}, {c:loft}, {c:pipe}, {c:ellipse}, {c:spline}, {c:extend} and {c:sectionView} are only in {t:level.advanced}.
@@ -8008,6 +8023,7 @@ order: 140
 - {t:ux.set.pivot} is what the view turns about. {t:ux.set.pivot.cursor} (the default) turns about the point where the drag starts, {t:ux.set.pivot.selection} about the middle of what is selected: [moving the view](help:start-view).
 - {t:set.uiScale} goes from 90% to 150%. Make it larger if the text is too small.
 - {t:set.autosave} can be off or every 1, 2, 5, 10, 15 or 30 minutes (5 by default): [save](help:start-save).
+- In the {t:set.options} tab, the {t:gpuhint.set.label} line, {t:set.engines}, the {t:stable.storage} limits such as {t:stable.keep} and {t:stable.days}, and the {t:depth.row} line are folded under {t:ac.advanced} at the {t:level.basic} level. Click the {t:ac.advanced} title to open it; at the {t:level.advanced} level they are always shown.
 - Set {t:set.buddy} to {t:buddy.off} to hide the Cadoo character. Switch on {t:buddy.still} to keep Cadoo in one place instead of walking.
 - {t:set.showGrid} is {t:ag.show.auto}, {t:ag.show.always} or {t:ag.show.off}, kept separately for each kind of work: [grid and grid snap](help:snap-grid).
 - The key on the {t:set.map} tab is for aerial photos in 3D Building: [building site](help:site-map). For the AI connection see [AI setup](help:more-ai-setup).
@@ -8399,11 +8415,11 @@ Reshapes a line by dragging its points and handles, like Illustrator's direct se
 - Other ways to open it: double-click a line while editing a sketch, or double-click an object such as a wall, railing or road in 3D construction. {c:pathEdit} is also on the small bar of a selected wall or road and in the right-click menu of a sketch.
 - Points show as squares and handle ends as circles; a selected point becomes a filled square.
 - You can make curves while drawing: in {c:spline} with {t:curves.splinePen}, press and drag at a point; in {c:polyline} in line mode, press, wait 0.5 s and drag. Either makes a smooth curve point. Walls, railings and roads in 3D construction are drawn as curves the same way as in {c:polyline}.
-- Alt+drag a point pulls handles out of a corner; Alt+click a point removes all its handles, making a corner.
+- Alt+drag a point pulls handles out of a corner; Alt+click a point deletes all its handles, making a corner.
 - Alt+drag a handle moves the two handles separately; Shift+drag a handle lines both handles up on one straight line. Dropping a handle end on its point removes that handle.
 - Shift+click selects several points, and dragging a selected point moves them all. Holding Shift while dragging a point keeps it to 45° directions. {t:curves.selectAll} selects every point of the line.
 - With one point selected, the window shows {t:curves.inLen}, {t:curves.inAng}, {t:curves.outLen} and {t:curves.outAng} fields for exact values.
-- Remove selected points with Delete or {t:curves.remove}. {t:curves.dropIn} and {t:curves.dropOut} remove only one handle.
+- Delete selected points with Delete or {t:curves.remove}. {t:curves.dropIn} and {t:curves.dropOut} delete only one handle.
 - Ctrl+Z undoes one drag or button at a time. Clicking another wall or road switches to it.
 - In 3D construction, the {c:levelOutline} window and {c:landEdit} lead to Edit Curve too. See [walls](help:arch-wall) and [roads](help:civil-road).
 
@@ -8411,7 +8427,7 @@ Reshapes a line by dragging its points and handles, like Illustrator's direct se
 
 - Arcs, circles, ellipses and splines drawn with {t:curves.splineThrough} cannot be changed here. Only straight lines and pen curves can.
 - Where three or more lines meet at one point, the curve stops there and each part is edited on its own.
-- Removing points that would leave too few is refused; those points stay.
+- Deleting points that would leave too few is refused; those points stay.
 - A curved road that bends more sharply than half its width is refused. Shorten the handles for a gentler curve.
 - Walls, roads and similar objects that have been tilted do not open in Edit Curve.
 `,An=`---
@@ -8720,7 +8736,7 @@ Gives a closed area of a sketch thickness to make a solid. Use it to stand up a 
 
 - With the sketch selected or being edited, {c:extrude} selects its area at once. With several areas, every area except the holes inside is selected; click an area to take it out or put it back.
 - The arrow can be dragged from anywhere on the empty view, not only on the arrow itself. With [grid snap](help:snap-grid) on, it moves in grid steps.
-- Type a number in the {t:opt.distance} field of the window and press Enter: it is made at that height at once. Typed in the command line, the number only sets the height; press Enter once more to make it. The first height is 10 mm in 3D objects.
+- Type a number in the {t:opt.distance} field of the window or in the command line and press Enter: it is made at that height at once. Typed before an area is selected, the number only sets the height. The first height is 10 mm in 3D objects.
 - With {t:opt.symmetric} on, half the distance goes to each side of the sketch plane.
 - {t:opt.flip} reverses the direction; typing a negative distance does the same.
 - Select the result: {t:op.new}, {t:op.union}, {t:op.subtract} or {t:op.intersect}; select the object to merge with or cut in {t:role.target}.
@@ -8914,7 +8930,7 @@ Turns a picture into a solid: a closed object with the picture's shape standing 
 - The installed app includes the depth model. There is nothing to download.
 - The web version asks once, the first time {t:img.reliefMethod.depth} is selected: "Download the depth model (about 50 MB)?". {t:depth.get} shows the progress, checks that the file matches the original and keeps it in this browser. It is not downloaded again.
 - {t:depth.later} means it is not asked again. The {t:img.reliefMethod.depth} option then shows "{t:depth.none}", and {t:img.reliefMethod.shade} is the default method until the model is downloaded.
-- In {c:settings} → {t:set.options} › {t:stable.storage}, the "{t:depth.row}" line shows its state and has {t:depth.get} and {t:depth.delete}. Clearing the browser's site data removes the model too.
+- In {c:settings} → {t:set.options} › {t:stable.storage}, the "{t:depth.row}" line shows its state and has {t:depth.get} and {t:depth.delete}. At the {t:level.basic} level this line is under {t:ac.advanced}. Clearing the browser's site data removes the model too.
 
 ## Tips
 
@@ -8987,7 +9003,7 @@ order: 398
 
 ## What
 
-While a sketch is edited, lays a picture on the sketch plane so you can draw over it. The underlay lies under the sketch lines and never gets in the way of clicking or snapping to them. Calibrate sets it to real dimensions.
+While a sketch is edited, lays a picture on the sketch plane so you can draw over it. The underlay lies under the sketch lines and never gets in the way of clicking or snapping to them. {c:imageCalibrate} sets it to real dimensions.
 
 ## Steps
 
@@ -10176,6 +10192,7 @@ Turns letter outlines into a sketch, then engraves them into an object or raises
 
 - The first click selects the plane (a face, a workplane or the ground); the next click is the start of the text. After that, click elsewhere or drag the small square at the start to move the text.
 - Changes to the text, {t:text.font}, {t:text.bold}, {t:text.italic}, {t:text.height} and {t:text.angle} in the window show at once. The first {t:text.height} is 10 mm.
+- The font list always has Pretendard, the font that comes with the program. Korean, Latin letters and digits can be made at once without this PC's fonts.
 - {t:text.pcFonts} loads the fonts installed on this PC (the browser asks for permission the first time). Korean fonts come first in the list.
 - {t:text.fontFile} opens a .ttf, .otf, .ttc or .woff font file. An opened font stays in the list until the app is closed.
 - {t:text.bold} and {t:text.italic} work even with fonts that have no bold or italic style. Letters a font lacks are drawn with a default font, and the window says so.
@@ -10189,7 +10206,7 @@ Turns letter outlines into a sketch, then engraves them into an object or raises
 
 - Text cannot be placed on a curved face. Select a flat face or a [workplane](help:obj-workplane).
 - If a font cannot be read, {t:text.unreadableNone} is shown. Select another font.
-- With an empty font list, a note says there are no fonts. Bring one in with {t:text.pcFonts} or {t:text.fontFile}. In a browser without the {t:text.pcFonts} button, use {t:text.fontFile}.
+- If even the program's own font cannot be read and there is no other font, a note says there are no fonts. Check the internet connection and open the tool again, or bring a font in with {t:text.pcFonts} or {t:text.fontFile}. In a browser without the {t:text.pcFonts} button, use {t:text.fontFile}.
 - {c:editText} works only on sketches made with the text tool; with another sketch selected it shows {t:msg.pickText}.
 - Pushing the extrude deeper than the object is thick cuts the letters right through. Keep the engraving depth less than the thickness.
 - The 3D construction menus have no {c:text}; type \`text\` in the command line to use it there.
@@ -10883,12 +10900,14 @@ The command line is where you type a command name to open a tool. While a tool i
 - While the list shows, Space after a command name runs it too.
 - Text typed with the Korean input on is read by the keys pressed (\`ㅠㅐㅌ\` becomes \`box\`).
 - On an empty command line, ↑ brings back the lines typed before, one by one.
+- The record shown above the command line and the lines ↑ brings back are kept separately for 3D Object and 3D Building. Switching the kind of work shows its own record. The record is gone when the program closes.
 - With no tool open, type a calculation such as \`10/3\` and press Enter to get the answer, such as \`= 3.333333\`. See [calculations](help:input-calc).
 - Tools not shown on the Basic menus open when their name is typed, with a note that they are on the Advanced menus.
 - A mistyped name gets a suggestion of similar command names.
 - Every command's name and key is in {t:hd.shortcuts} of the {c:help} window ({k:help}).
 - Show or hide the command line with {k:toggleCommand}, or with {t:set.commandLine} in {c:settings} → {t:set.options}.
 - In the Fusion 360 and Blender key maps some letter keys open tools at once. Click the command line before typing a command name there. See [keyboard shortcuts](help:faq-shortcuts).
+- In {c:extrude}, {c:revolve}, {c:presspull}, {c:fillet}, {c:chamfer} and {c:shell}, once the picks are made, a value typed in the command line and Enter applies it at once, as a value typed in the window's field does. Typed before the picks, it only sets the value. {c:divide} too divides at once when lines were selected before and the count is typed with Enter.
 - For the ways to type points, see [typing coordinates and lengths](help:input-coords).
 
 ## Common mistakes
@@ -11055,7 +11074,7 @@ order: 50
 
 ### The reference plane in 3D Building
 
-- 3D Building tools such as walls, slabs, columns, ceilings, roofs, stairs, railings, placing objects and filling an area draw on the {t:ag.plane} selected at the top of the tool window. The grid lies on that plane too.
+- 3D Building tools such as walls, slabs, columns, ceilings, roofs, stairs, railings, placing objects and filling an area draw on the {t:ag.plane} selected in the tool window. The grid lies on that plane too. With the [Basic menus](help:start-level) it is folded under {t:ac.advanced} in the window; with the advanced menus it is at the top of the window.
 
 | {t:ag.plane} | Height drawn at |
 |---|---|
@@ -11386,7 +11405,7 @@ The tool that levels a site to one height. Inside the site the ground becomes fl
 - To level only the ground under one building, select its outline in the {t:so.target} list, such as Building A outline. That grading follows the building outline when it is reshaped or the building moves to another site, When the building is deleted you are asked whether its grading goes too; kept, it stays in the list marked as having no site.
 - {t:grade.height} is measured from the 0 m datum and can go from 50 m below the lowest natural ground to 50 m above the highest. It starts at the mean height of the ground under the site.
 - {t:grade.average} sets the mean height of the ground now inside the site; {t:grade.balance} finds the height where the soil cut and the soil filled are about the same. Use {t:grade.balance} to avoid carting soil away or bringing it in.
-- The ground changes in the view while you try values; it goes into the document only with Enter (or when the next tool opens). Each time is one undo step.
+- The ground changes in the view while you try values; Enter puts it into the document. Once you have selected a site or changed a value in the window or the view, Esc, Close and opening another tool put it in too. Each time is one undo step.
 - Civil structures over the graded ground (bridges, tunnels, dams, retaining walls, levees, drainage, roads that follow the terrain) are fitted to the new ground by themselves in the same undo step. See [Grading and civil works](help:civil-grading).
 - Under {t:grade.more} the height can be typed as {t:grade.sea}, and {t:grade.cut} and {t:grade.fill} are set as n in \`1 : n\` (0 to 5, by default 1 and 1.5). 1 : 1.5 spreads 1.5 m sideways per 1 m of height; 0 is an upright wall (a retaining wall).
 - The earthwork shows {t:grade.cutV}, {t:grade.fillV} and {t:grade.net} in m³. With grading on the land, it also shows under the [area table](help:site-area-table).
@@ -11400,7 +11419,7 @@ The tool that levels a site to one height. Inside the site the ground becomes fl
 - The window only says there is no terrain. Flat land (no height data) cannot be graded. Use the {c:siteMap} button in the window to select the area on the map or load a height file.
 - The site was deleted but its grading stayed. If you chose to keep the grading when deleting the site, it stays in the list marked ‘no site’. Select it to change it or click {t:grade.remove}. The basin of a lake or pond that was made a plain solid with {t:cfit.unlink} shows the same way.
 - A cut slope of 0 cut the ground straight down. 0 means an upright wall, as a retaining wall. Values around 1 to 2 are usual.
-- Esc left the new height out. Enter puts it in.
+- You only tried a height and pressed Esc, but the ground was graded. Once you have selected a site or changed a value, Esc and Close grade it too. To take it back, press {k:undo}.
 `,Xr=`---
 id: site-land-edit
 title: Edit a site
@@ -11476,7 +11495,7 @@ The window where you select the land everything in 3D Building stands on, as a r
 - Typing lengths in the {t:opt.sideW} and {t:opt.sideH} fields on the right resizes the rectangle. A side must be at least 5 m; the longest side is 2000 m by default. For larger land, raise {t:set.siteMax} in Preferences (the limit depends on the computer's memory).
 - Under {t:hs.title}, {t:hs.auto} gets open height data (about 30 m apart) with the photo. For more precise data (an .asc grid or a list of x y z points), select {t:hs.file} and set {t:tf.coords}. To change only the heights and keep the area, click {t:hs.applyNow}.
 - {t:tv.depth} sets how deep the soil block (a cross-section of earth layers) is drawn under the ground (1 to 200 m, 10 m by default).
-- Without a key or an internet connection, use {t:site.other}: {t:site.file} makes the land from a photo you took or may use plus its real width, {t:site.plain} from a width and a height only.
+- Without a key or an internet connection, use {t:site.other}: {t:site.file} makes the land from a photo you took or may use plus its real width, {t:site.plain} from a width and a height only. With {t:site.plain} selected, the {t:opt.sideW} and {t:opt.sideH} fields at the top of the window are that land's size, and the {t:site.confirm} button right under {t:site.plain} sets it.
 - Without a key, the {t:site.openSettings} button on the map opens the map part of Preferences, which lists three steps to get a key. Enter the key in the {t:set.vworldKey} field.
 - Under V-World's terms the aerial photo is not saved in the file: only where the land is, and the photo is fetched again when the file is opened. Offline the land shows without it; heights and object positions stay the same. When heights arrive for the first time, the {c:terrainView} window opens too. See [terrain view and contours](help:site-terrain-view).
 - Selecting the site location again later keeps everything already built in its place on the earth, and keeps [grading](help:site-grade) and the water level. Civil structures such as roads, bridges and tunnels are fitted to the new ground by themselves.
@@ -11605,7 +11624,7 @@ order: 180
 
 ## Tips
 
-- With {t:ceil.rule} on (it starts on), the ceiling hangs the {t:ceil.plenum} (0.4 m at first) below the underside of the slab or roof above. With a 3 m storey and a 0.2 m slab, the ceiling is at 2.4 m. Turned off, the ceiling keeps the height typed in {t:ceil.height}.
+- With {t:ceil.rule} on (it starts on), the ceiling hangs the {t:ceil.plenum} (400 mm at first) below the underside of the slab or roof above. With a 3 m storey and a 200 mm slab, the ceiling is at 2.4 m. Turned off, the ceiling keeps the height typed in {t:ceil.height}.
 - A ceiling starts 20 mm thick. Under a sloped roof, select {t:ceil.kind.flat} or {t:ceil.kind.roof} under {t:ceil.kind}.
 - A ceiling made with {t:ceil.how.level} follows the level outline and its courtyards, and changes when the outline changes.
 - Where the slab right above has a hole cut by hand, the ceiling gets the same hole; when the hole is filled, the ceiling closes again: [Lay a floor slab](help:arch-slab).
@@ -11651,6 +11670,7 @@ Puts up a square or round column wherever you click. A column starts on the curr
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:ag.plane}, {t:lv.pickLevel}, {t:flow.baseOffset}, {t:flow.top} and {t:flow.topLevel} are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
 - The size starts at 0.4 m and goes from 0.1 to 3 m.
 - With a level above, {t:flow.top} is set to {t:flow.top.toFloor}, so no height is typed. The column follows storey height changes, and a column under the upper slab stops at the slab's underside.
 - Without a level above, or after clicking {t:flow.top.height}, type the height (0.1 to 30 m).
@@ -11686,14 +11706,14 @@ A glass wall with panes set between mullions (upright bars) and transoms (cross 
 
 1. Click {m:curtainWall}.
 2. In the window, click {t:lib.curtain.line} or {t:lib.curtain.wall}.
-3. Type values in {t:presetParam.h}, {t:presetParam.gx}, {t:presetParam.gz} and {t:presetParam.mw}.
+3. Type values in {t:presetParam.h}, {t:presetParam.gx}, {t:presetParam.gz} and {t:presetParam.mw}. Only {t:presetParam.mw} is typed in mm.
 4. {t:lib.curtain.line}: click points on the floor one after another, then click the last point again or press Enter to stand the curtain wall.
 5. {t:lib.curtain.wall}: click on a wall; the wall gets a hole and the curtain wall fits into it. Press Esc when you are done.
 
 ## Tips
 
 - Along a line, every straight piece gets one curtain wall panel, and all the panels are put in one group. Pieces shorter than 1 m are skipped.
-- The starting values are 3 m high, 1.5 m mullion and transom spacing and a 0.06 m mullion width. Changing the spacings changes the size of the glass panes.
+- The starting values are 3 m high, 1.5 m mullion and transom spacing and a 60 mm mullion width. Changing the spacings changes the size of the glass panes.
 - While drawing the line, {k:undo} removes the last point.
 - A curtain wall made {t:lib.curtain.line} stands on the current level's floor. To match the storey, type the storey height in {t:presetParam.h}.
 - With {t:lib.curtain.wall}, set its size along the wall in {t:presetParam.w}; the R key turns it round.
@@ -11734,7 +11754,7 @@ Fits doors and windows into walls. A door or window placed on a wall cuts a hole
 - Doors: {t:preset.door.single}, {t:preset.door.double}, {t:preset.door.sliding}, {t:preset.door.auto}, {t:preset.door.fire}, {t:preset.door.revolving}.
 - Windows: {t:preset.window.single}, {t:preset.window.double}, {t:preset.window.tall}, {t:preset.window.fixed}, {t:preset.window.casement}, {t:preset.window.sliding}, {t:preset.window.awning}, {t:preset.window.hung}, {t:preset.window.skylight}.
 - The {t:lib.group.opening} group at the top of the window switches between {t:presetCat.door}, {t:presetCat.window} and {t:presetCat.curtain}. Typing a name in the search box finds it too.
-- The size fields are {t:presetParam.w}, {t:presetParam.thick}, {t:presetParam.h} and {t:presetParam.frame}. The sizes you set are kept until the program closes.
+- The size fields are {t:presetParam.w}, {t:presetParam.thick}, {t:presetParam.h} and {t:presetParam.frame}. Only {t:presetParam.frame} is typed in mm; the others are in m. The sizes you set are kept until the program closes.
 - Doors sit on the floor. Most windows sit 0.9 m above the floor; an {t:preset.window.awning} sits at 1.5 m, a {t:preset.window.hung} at 0.8 m, and a {t:preset.window.tall} starts at the floor.
 - In a wall, the R key or the {t:opt.presetFlip} button turns the door or window round to face the other way. On the floor it turns 90°.
 - For a {t:preset.door.single}, {t:preset.door.double} or {t:preset.door.fire} in a wall, the F key or the {t:auto.door.side} button changes only the side it opens to. For a {t:preset.door.single} or {t:preset.door.fire}, the H key or the {t:auto.door.hinge} button changes only the hinge side.
@@ -11986,7 +12006,7 @@ The {c:buildFlow} window guides one building through twelve steps: site → buil
 - In a building raised with Build, the steps among outline per level, walls, slabs and roof that were done by building fold into one line, {t:fl.autoDone}. Click that line to unfold them.
 - The {t:base.button} button of step 4 opens a question. Select ‘Use the grading height’, {t:base.high}, {t:base.keep} or {t:base.typed}, then click {t:base.ok}. Moving the ground floor moves every level and part of that building with it.
 - If you place a part on terrain before the ground floor height is set, the same question opens first. On land without terrain the ground floor is at 0 m and step 4 counts as done.
-- The {c:outerWalls} button of step 7 opens the outer walls window. {t:ow.mode.all} puts walls on every side of the outline, {t:ow.mode.pick} on the sides you select or part of one. By default the walls are 0.2 m thick and rise to the floor above, and basements get a 0.3 m basement wall. Select {t:ec.allLevels} in the window to build on every level that has the same sides at once. Sides and stretches that already have walls are skipped.
+- The {c:outerWalls} button of step 7 opens the outer walls window. {t:ow.mode.all} puts walls on every side of the outline, {t:ow.mode.pick} on the sides you select or part of one. By default the walls are 200 mm thick and rise to the floor above, and basements get a 300 mm basement wall. Select {t:ec.allLevels} in the window to build on every level that has the same sides at once. Sides and stretches that already have walls are skipped.
 - The {t:fl.roofTop} button of step 12 opens the [roof](help:arch-roof) tool with the top outline already selected. The eaves sit at the top level's floor plus its storey height. Check the shape, then press Enter to make the roof.
 - If you closed the window, click the {c:buildFlow} button on the menu bar again. Clicking it while the window is in front hides the window.
 
@@ -12117,6 +12137,7 @@ Put lights on ceilings, walls and floors, then change the time and date in the {
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:light.k} and {t:light.angle} in the {c:lightPlace} window are folded under {t:ac.advanced}. Click it to open them. With the advanced menus they show from the start.
 - Sun, sky and lamps follow the time, and lamps really light their surroundings, only while {t:lt.sky} is on. The {t:lt.day}, {t:lt.evening} and {t:lt.night} buttons and turning shadows on switch it on; off, the view goes back to the even modelling light.
 - {t:lt.day} sets 13:00, {t:lt.evening} 18:45 and {t:lt.night} 22:00. The {t:lt.spring}, {t:lt.summer} and {t:lt.winter} buttons select those dates at once.
 - The sun's place is worked out for the land's position when it was selected on a map, otherwise for Seoul. {t:lt.tz} is the hours from UTC (Korea: 9).
@@ -12251,7 +12272,7 @@ A level outline is the outer shape of one level. Once it is drawn, the level's s
 - Press, wait 0.5 s and drag while clicking points to make a curved side. Edit the points and handles of a curved outline with {c:pathEdit} ([Edit Curve](help:obj-curve-edit)).
 - The window shows the outline's {t:ol.area} and {t:ol.perimeter}.
 - {t:ol.autoSlab} is on from the start. The slab's top lies on the level's floor and its thickness goes downwards.
-- On a basement, switch on {t:ol.retain} for a 0.3 m wall just inside the outline, up to the floor above.
+- On a basement, switch on {t:ol.retain} for a 300 mm wall just inside the outline, up to the floor above.
 - In a building made with Build, outer walls stand by themselves on every side of the level outline: [Per level](help:build-detailed). In other buildings, once the outline is set, {t:ow.mode.all} in {m:outerWalls} raises the outer walls along it in one go: [Outer walls](help:build-outer-walls).
 - The outline button on each level row of the {c:levelPanel} window opens the outline tool on that level too.
 - Level outlines (basements too) stay inside the building outline. One reaching outside is cut back to it, with a message; one wholly outside, or one that would fall into pieces, is not set: [Building outline](help:build-outline).
@@ -12335,8 +12356,8 @@ After you select what the roof covers, select for each side whether the roof ris
 - While {t:roof.sides.btn} is on, side numbers show in the view. They match the numbers of the {t:archedit.roofSlopes} and {t:re.eaves} fields in the Properties window.
 - The window shows how many sides slope out of how many there are.
 - Clicking a shape button ({t:opt.roofGable}, {t:opt.roofHip} …) sets the sloped sides for that shape again. Selecting the shape first and then fixing single sides is quickest.
-- {t:archedit.roofSlopes} and {t:re.eaves} in the Properties window are folded at first. Click a title to open its fields; once opened it stays open until the program is closed. When a side has a value of its own, {t:archedit.sameSlope} or {t:re.sameEave} shows beside the title even while folded.
-- While the mouse is over a side's field, or the cursor is in it, the view shows that side with a line and its number. Leave the field and they are gone.
+- {t:archedit.roofSlopes} and {t:re.eaves} in the Properties window are folded at first with the [Basic menus](help:start-level) and open from the start with the advanced menus. Click a title to open or fold its fields; a list you opened or folded stays that way until the program is closed. When a side has a value of its own, {t:archedit.sameSlope} or {t:re.sameEave} shows beside the title even while folded.
+- While the mouse is over a side's field, or the cursor is in it, the roof's edges on that side glow in the view and its number shows. Leave the field and they are gone.
 - Under {t:archedit.roofSlopes} in the Properties window, give each sloped side its own slope. Different slopes move the ridge and hip points. {t:archedit.sameSlope} gives every side the same slope again.
 - Moving a ridge point or line with {m:tweak} also changes the slopes of the sides, and the roof stays a roof you can change by its values.
 - Under {t:re.eaves} in the Properties window, give each side its own eaves. A side without its own follows {t:opt.overhang}, and {t:re.sameEave} makes every side follow {t:opt.overhang} again. Two sides with different eaves run on to the point where their eaves lines meet at the corner.
@@ -12394,6 +12415,7 @@ Cuts a roof along a straight or bent line drawn across it. Each piece becomes a 
 - Each piece is made again from its own outline. Where the slope of another edge used to run over a piece, as on a {t:opt.roofHip} roof or a concave roof, the shape changes, and a message says so.
 - A cut that leaves an inside corner straight along one of its edges: in the piece that keeps that edge, the cut edge slopes like it, as one side. The eaves of that edge stop next to the corner, so the eaves of the two pieces do not overlap.
 - With {t:rs.walls} on (it starts on), walls attached to the roof that lie across the line are cut there, and each piece is attached to the roof over it. Raising one piece of the roof raises only the walls under it.
+- The pieces are named after the roof with a number, such as \`_split1\` and \`_split2\`. The biggest piece is 1. When a piece is cut again it keeps its name and the new pieces take the next numbers, also after the screen language was changed.
 - One undo brings back the roof and the walls.
 - A roof terrace made by Build can be cut too. The pieces become roofs of your own: applying the level again makes no terrace there.
 
@@ -12434,11 +12456,12 @@ Puts a roof over a slab, a closed ring of walls or a rectangle drawn on the floo
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:ag.plane}, {t:opt.thickness}, {t:flow.roofAttach} and {t:aw.splitWalls} are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
 - There are three ways to select what the roof covers. Clicking closed walls follows the outer faces of the walls; clicking a slab follows the slab's outline. Clicking two corners where there is no part makes a rectangle, and the second corner can be typed as width and depth, for example \`@10,8\`.
 - The shape decides which sides slope. {t:opt.roofGable} slopes the longest side and the side opposite it, {t:opt.roofShed} only the longest side, {t:opt.roofHip} every side, and {t:opt.roofFlat} none. A side that does not slope ends in a gable.
 - To turn single sides on or off, or to change a roof after it is made, see [Roof sides](help:arch-roof-edit).
 - To give part of a roof its own height or slopes, cut the roof in two: [Split a roof](help:arch-roof-split).
-- {t:opt.roofPitch}: 5° to 70° (default 30°). {t:opt.overhang}: 0 to 3 m (default 0.5 m). {t:opt.thickness}: 0.05 to 1 m (default 0.2 m). Number fields take [calculations](help:input-calc).
+- {t:opt.roofPitch}: 5° to 70° (default 30°). {t:opt.overhang}: 0 to 3000 mm (default 500 mm). {t:opt.thickness}: 50 to 1000 mm (default 200 mm). Number fields take [calculations](help:input-calc).
 - The roof's underside sits at the floor of the {t:flow.roofBase} plus the {t:flow.offset}. It starts at the floor of the level above (on the top level: the current floor plus the storey height), which is the top of the top storey's walls. The window shows the {t:flow.roofEave} and {t:flow.roofRidge} heights as you change values.
 - With {t:flow.roofAttach} on (the default), the walls under the roof rise to follow its underside. See [Wall tops](help:arch-wall-top).
 - If you selected the wrong outline, click {t:opt.repick} or press Ctrl+Z and select again.
@@ -12477,10 +12500,11 @@ A slab is the plate that makes a level's floor. Its top lies on the level's floo
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:ag.plane}, {t:lv.pickLevel} and {t:flow.baseOffset} are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
 - {t:slab.way.walls} finds every closed ring of walls on the current level and lays a slab out to their outer faces. The window shows how many it found in {t:opt.closedWalls}; walls whose ends meet all the way round count as closed too.
 - The {t:opt.slabRect} shape of {t:slab.way.draw} takes two corners. Sizes typed in {t:opt.sideW} and {t:opt.sideH} make it that size.
 - {t:opt.slabPoly} takes points one after another; click the first point again or press Enter to close it. Press, wait 0.5 s and drag while clicking points for curved sides.
-- {t:opt.thickness} starts at 0.2 m and goes from 0.05 to 2 m. A value in {t:flow.baseOffset} raises the slab's top by that much.
+- {t:opt.thickness} starts at 200 mm and goes from 50 to 2000 mm. A value in {t:flow.baseOffset} raises the slab's top by that much.
 - A level with a level outline gets its slab by itself, and the slab follows the outline ([level outline](help:arch-outline)). Drawing an upper outline bigger makes a slab that overhangs the level below.
 - {t:slab.way.outline} finds the levels of this building with an outline whose outline slab is off and makes it again. A level that already has a slab in that place is skipped, with a message.
 - Holes in slabs: a stair cuts a hole its size in the slab above it by itself. The hole follows the stair when it moves and closes when the stair is deleted ([stairs](help:arch-stair)).
@@ -12524,15 +12548,16 @@ Places a stair up to the level above. Its rise and number of steps follow the fl
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:ag.plane}, {t:lv.pickLevel}, {t:stairs.maxRiser}, {t:opt.stairSteps} and {t:stairs.slabGap} are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
 - After the start, the second click sets the way up. Clicking the start point again keeps the direction shown before the start was selected (the one R turns). The tool closes after one stair.
 - Shapes: {t:opt.stairStraight}, {t:opt.stairL}, {t:opt.stairU}, {t:stairs.style.z}, {t:opt.stairSpiral} and {t:stairs.style.path}. For L, U and double switchback stairs, {t:stairs.flip} turns them the other way.
 - {t:stairs.top} starts on the level right above. A higher level or {t:stairs.top.typed} can be selected instead.
 - Selecting an edge or point of the floor above with the second click makes the stair rise to that height; a {t:opt.stairStraight} stair then fits its treads to end there.
-- The number of steps is the {t:opt.stairRise} divided by {t:stairs.maxRiser} (0.18 m at first), rounded up. A 3 m storey gives 17 steps of about 0.176 m. You can also type {t:opt.stairSteps} yourself.
-- {t:opt.stairWidth} starts at 1 m (0.5 to 5 m) and {t:opt.stairGoing} at 0.27 m (0.15 to 0.6 m). Risers higher than the max riser, or treads narrower than 0.26 m, show a warning in the window.
+- The number of steps is the {t:opt.stairRise} divided by {t:stairs.maxRiser} (180 mm at first), rounded up. A 3 m storey gives 17 steps of about 176 mm. You can also type {t:opt.stairSteps} yourself.
+- {t:opt.stairWidth} starts at 1 m (0.5 to 5 m) and {t:opt.stairGoing} at 270 mm (150 to 600 mm). Risers higher than the max riser, or treads narrower than 260 mm, show a warning in the window.
 - {t:stairs.style.path}: draw the line you walk along, in the middle of the stair. Every turn gets a landing; Enter or a double click finishes. Press, wait 0.5 s and drag while clicking points for a curved stair.
 - Under {t:stairs.rails} select {t:stairs.rails.none}, {t:stairs.rails.left}, {t:stairs.rails.right} or {t:stairs.rails.both}, and set {t:stairs.railHeight} (0.9 m at first). These railings are part of the stair and change with it. Spiral stairs do not have them.
-- {t:stairs.slabCut} is on from the start and cuts {t:stairs.slabGap} (0.1 m at first) wider than the stair.
+- {t:stairs.slabCut} is on from the start and cuts {t:stairs.slabGap} (100 mm at first) wider than the stair.
 - Select a placed stair to change its shape, width, rise, steps, railings and hole in the Properties window. A stair drawn {t:stairs.style.path} can have its walking line reshaped with {c:pathEdit} ([Edit Curve](help:obj-curve-edit)).
 - A stair tied to the level above changes its rise and number of steps when storey heights change.
 - More on columns in [columns](help:arch-column) and on railings in [railings](help:arch-railing).
@@ -12570,7 +12595,8 @@ How far up a wall goes. Its height can be typed, tied to the floor of a level ab
 
 ## Tips
 
-- A wall tied to a level stops at the underside of that level's slab. With a 3 m storey and a 0.2 m slab, the wall is 2.8 m where the slab covers it and reaches 3 m only where there is no slab. The slab rests on the walls.
+- With the [Basic menus](help:start-level), {t:flow.top}, {t:flow.topLevel} and {t:flow.stopAtSlabs} in the wall tool's window are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
+- A wall tied to a level stops at the underside of that level's slab. With a 3 m storey and a 200 mm slab, the wall is 2.8 m where the slab covers it and reaches 3 m only where there is no slab. The slab rests on the walls.
 - Example: tie a ground floor wall to level 3 and switch on {t:flow.stopAtSlabs}. The part under the level 2 slab stops at the level 2 floor; only the part with no level 2 slab above it goes up to the level 3 floor. Use it for the outer walls of a building whose level 2 is smaller than level 3.
 - {t:flow.stopAtSlabs} can only be switched on when there is a level in between. With the level right above selected, it stays off.
 - Without a level above, {t:flow.top.aboveNone} is shown and the height is typed. Add a level with {c:levelAdd} to reach up to it.
@@ -12615,8 +12641,9 @@ Click points on the floor one after another to put up walls, or put them up alon
 
 ## Tips
 
+- With the [Basic menus](help:start-level), {t:ag.plane}, {t:lv.pickLevel}, {t:flow.baseOffset}, {t:flow.top} and {t:archedit.wallJoin} are folded under {t:ac.advanced} at the bottom of the window. Click it to open them. With the advanced menus they show from the start.
 - Select where the drawn line lies in the wall with the picture buttons in the window: {t:flow.justify.center}, {t:flow.justify.left} or {t:flow.justify.right}. Typing \`f\` in the command line moves the wall to the other side of the drawn line.
-- The thickness starts at 0.2 m and goes from 0.05 to 2 m. Without a level above, the height equals the storey height and goes from 0.1 to 30 m.
+- The thickness starts at 200 mm and goes from 50 to 2000 mm. Thickness is typed in mm, heights in m. Without a level above, the height equals the storey height and goes from 0.1 to 30 m.
 - With a level above, {t:flow.top} is set to {t:flow.top.toFloor}, so the wall height follows storey height changes. To type a height, click {t:flow.top.height}. More in [wall tops](help:arch-wall-top).
 - The pointer snaps to wall ends, wall corners and wall lines on the same level, showing {t:flow.snap.end}, {t:flow.snap.corner} or {t:flow.snap.line}.
 - Values in the {t:opt.segLength} and {t:opt.angle} fields of the window set the length and direction of the next wall. You can also type \`@5<90\` in the command line ([coordinates and lengths](help:input-coords)).
@@ -12664,7 +12691,7 @@ Build works out the roofs from the level outlines alone. The part of a level's t
 ## Tips
 
 - The top level has nothing above it, so its whole top is roof. That roof's top sits one storey height above the top level's floor.
-- {t:aw.roofOffset} goes from -3 m to 3 m; 0 is flush with the floor above. The roof is 0.2 m thick and is placed by its top.
+- {t:aw.roofOffset} goes from -3 m to 3 m; 0 is flush with the floor above. The roof is 200 mm thick and is placed by its top.
 - When storey heights change, the roof terraces follow the floor above.
 - Changing the roof height moves the walls attached to that roof along with its underside. Walls that reach the floor above stay: [Automatic wall splitting](help:build-wall-split).
 - An underside the level below does not support (exposed underside) gets no part of its own: the level's slab covers it. That happens when an upper level is wider than the level below, and above a [piloti](help:build-piloti) level.
@@ -12805,7 +12832,7 @@ Set the number of floors and the storey height, and the levels, level outlines, 
 - When raising again changes the walls so that a door or window has no wall left to sit in, it is deleted, and a message gives the number with a {t:cmd.undo} button.
 - For an empty building, {t:ab.easy} first holds 3 floors, 0 basements and a 3 m storey height; after that it keeps the values you used last.
 - With {t:ceil.build} on (it starts on), every level except piloti levels gets a ceiling too.
-- Basements get a 0.3 m basement wall along their outline instead of outer walls. Every level gets a slab; the top level gets the flat roof.
+- Basements get a 300 mm basement wall along their outline instead of outer walls. Every level gets a slab; the top level gets the flat roof.
 - The ground floor height follows the grading of that place if it has one, else the highest ground there (0 without terrain). Change it later in the {t:fl.step.base} step of [Build Progress](help:arch-flow).
 - For a building made this way, change the floors and the storey height under {t:ab.easy} in the {t:fl.step.levels} step of the {c:buildFlow} window and click {t:aw.easyAgain}. New levels take the outline of the level next to them.
 - When the building outline is changed, the outer walls are made again along the new outline: [Building outline](help:build-outline).
@@ -12899,8 +12926,9 @@ One window for the outer walls along the building outline. The three ways at its
 ## Tips
 
 - {t:opt.wallJustify} says which face of the wall lies on the outline. With {t:flow.justify.left}, the first choice, the wall stands inside the outline.
+- With the [Basic menus](help:start-level), {t:flow.top} is folded under {t:ac.advanced} below the settings. Click it to open it.
 - With {t:flow.top.toFloor} under {t:flow.top}, the walls reach the floor above and follow storey height changes. Without a level above, type the {t:param.h}.
-- {t:ec.allLevels} raises the walls on every level with the same side at once. {t:ow.mode.all} gives basements their 0.3 m basement wall and skips sides and stretches that have walls already. One wall on a level does not make the whole level skipped.
+- {t:ec.allLevels} raises the walls on every level with the same side at once. {t:ow.mode.all} gives basements their 300 mm basement wall and skips sides and stretches that have walls already. One wall on a level does not make the whole level skipped.
 - On a basement, {t:ow.mode.pick} makes nothing and shows the message {t:ew.basementPick}. Raise basement walls with {t:ow.mode.all}.
 - The window is named {t:cmd.outerWalls} whichever way is selected. The way in use shows in the buttons on top.
 - Dragging along a side snaps to its ends and its middle, and to the grid step elsewhere. Start and length show next to the cursor in mm while you drag.
@@ -13363,9 +13391,9 @@ Build an 8 × 6 m one-storey house by drawing its walls one by one, without Buil
 
 ## Tips
 
-- Walls start 0.2 m thick, and with no level above they are as high as the storey height (3 m). The roof's eaves sit at the ground floor plus the storey height too.
+- Walls start 200 mm thick, and with no level above they are as high as the storey height (3 m). The roof's eaves sit at the ground floor plus the storey height too.
 - To divide rooms, draw more inner walls with {c:wall}. Wall ends snap to other walls and join by themselves: [Walls](help:arch-wall).
-- Change the {t:opt.roofPitch} (30° by default) and the {t:opt.overhang} (0.5 m by default) in the roof tool window: [Roofs](help:arch-roof).
+- Change the {t:opt.roofPitch} (30° by default) and the {t:opt.overhang} (500 mm by default) in the roof tool window: [Roofs](help:arch-roof).
 - On land with terrain, a window asking for the ground floor height opens before the first wall goes in. Select the suggested height and click {t:base.ok}.
 - For a second floor, click {m:levelAdd} and draw the walls on Level 2 the same way. Walls drawn on a level with a level above reach up to its floor, so making the levels first and drawing the walls afterwards saves work: [Levels](help:arch-levels).
 - A building with walls drawn by hand cannot be raised again with {t:ab.easy} of Build. For buildings with many floors, [Quick Building](help:build-easy) is faster.
@@ -14955,7 +14983,7 @@ This page covers a view that stutters while you turn it or move objects. Check t
 3. In the {c:visual} menu, select a style without edges such as {t:vis.shaded}.
 4. Hide objects you are not using. In 3D Building, dim or hide the upper levels with {c:upperLevels}.
 5. Objects with many faces, such as threaded bolts or gears with many teeth, can be hidden or reduced in number once they are finished.
-6. If many objects take long to compute, set {t:set.engines} in {c:settings} → {t:set.options} to {t:set.engines.auto}. More engines compute faster but use more memory.
+6. If many objects take long to compute, set {t:set.engines} in {c:settings} → {t:set.options} to {t:set.engines.auto}. More engines compute faster but use more memory. At the {t:level.basic} level this setting is under {t:ac.advanced}.
 
 ## Tips
 
