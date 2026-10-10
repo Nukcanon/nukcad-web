@@ -1,0 +1,1 @@
+import{Nt as e,Wn as t}from"./sketchTools-Bfmin9lt.js";var n=t();function r(){return(0,n.jsx)(`p`,{className:`hint pen-hint`,"data-tip":e(`dragclick.penShortTip`),children:e(`dragclick.penShort`)})}export{r as t};

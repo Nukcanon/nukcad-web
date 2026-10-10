@@ -4329,7 +4329,8 @@ order: 155
 - 상태 표시줄에는 **오류 개수만** 보입니다. 오류가 없으면 칸이 사라지고, 주의는 창에서만 보입니다. {c:buildFlow} 창 맨 아래 줄도 오류 개수만 보여 줍니다.
 - 창 안에서는 오류가 먼저, 주의가 그 아래에 따로 나옵니다. 같은 종류가 여러 개이면 「문장 · n개」 한 줄로 묶이고, 여러 층에 걸친 큰 묶음은 층마다 다시 묶입니다.
 - 범위에서 건물을 체크하면 그 건물의 모든 층이 선택됩니다. 선택한 범위는 다음에 점검할 때도 그대로 쓰입니다.
-- 작업을 하면 바뀐 부재와 그 주변, 그리고 이미 나와 있는 줄의 부재만 작업 직후 한 번, 컴퓨터가 쉬는 때에 다시 점검합니다. 문서 전체를 계속 점검하지 않으므로 큰 건물에서도 느려지지 않습니다.
+- 작업을 하면 바뀐 부재와 그 주변, 그리고 이미 나와 있는 줄의 부재만 한 번 다시 점검합니다. 문서 전체를 계속 점검하지 않으므로 큰 건물에서도 느려지지 않습니다.
+- 화면을 움직이거나 작업하는 동안에는 점검하지 않습니다. 마우스와 키보드를 잠시 멈추면 조금씩 나눠 점검하고, 다시 움직이면 바로 멈췄다가 이어서 합니다. 그래서 상태 표시줄의 오류 개수는 작업을 멈춘 뒤에 바뀝니다.
 - 한 부재에는 한 줄만 나옵니다. 벽 위가 천장이나 위층 바닥판, 지붕 가운데 하나에 닿아 있으면 다른 것과 떨어져 있어도 나오지 않습니다. 바닥판이 층 선에서 어긋나면 그 바닥판 한 줄만 나오고 그 위아래 부재는 따로 세지 않습니다.
 - {t:pfit.fix} 단추로 고친 것은 몇 개든 되돌리기 한 번으로 모두 되돌아갑니다. 고치기가 새 오류를 만들지 않도록 점검되어 있습니다.
 - 줄 오른쪽에 단추가 없는 것(받치는 것이 없는 부재, 모양을 만들지 못한 부재 등)은 부재를 직접 고칩니다.
@@ -11764,7 +11765,8 @@ order: 155
 - The status bar shows **the number of errors only**. With no error it goes away; warnings are in the window alone. The last line of the {c:buildFlow} window shows the errors only too.
 - In the window errors come first, warnings below them. Several lines of one kind fold into one line, sentence · count; a big group over several levels holds a line per level.
 - Ticking a building in the range selects all its levels. The range is kept for the next check.
-- After each change only the parts that changed, their neighbours and the parts already listed are checked again, once, when the computer is idle. The whole document is never checked over and over, so a big building stays fast.
+- After each change only the parts that changed, their neighbours and the parts already listed are checked again, once. The whole document is never checked over and over, so a big building stays fast.
+- Nothing is checked while you turn the view or work. When the mouse and keyboard rest for a moment the check runs a little at a time; it stops as soon as you move again and goes on later. So the error count in the status bar changes after you pause.
 - One part, one line. A wall top that meets a ceiling, the slab above or a roof is not listed for missing another. A slab off its level line is one line; the parts over and under it are not counted again.
 - However many lines {t:pfit.fix} fixed, one undo takes them all back. The fixes are checked not to make new errors.
 - A line with no buttons (nothing under it, a shape that could not be made) is fixed by hand.
