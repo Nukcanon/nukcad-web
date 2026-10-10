@@ -4808,7 +4808,7 @@ title: 지붕 변 선택
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: 지붕 변, 경사 변, 지붕 고치기, 지붕 수정, 지붕 편집, 변 켜기, 변 끄기, 박공 벽, 박공면, 상자 끌기, 곡선 지붕, 둥근 지붕, 곡선 변, 변마다 경사, 용마루 옮기기, 추녀, 천창, 지붕 창, 지붕 구멍, 채광창, roof edge, roof side, sloped side, gable end, skylight, roof edit
+keywords: 지붕 변, 경사 변, 지붕 고치기, 지붕 수정, 지붕 편집, 변 켜기, 변 끄기, 박공 벽, 박공면, 상자 끌기, 곡선 지붕, 둥근 지붕, 곡선 변, 변마다 경사, 변마다 처마, 처마 길이, 처마 내밀기, 처마 높이, 용마루 높이, 지붕 높이, 지붕 올리기, 지붕 내리기, 용마루 옮기기, 추녀, 천창, 지붕 창, 지붕 구멍, 채광창, roof edge, roof side, sloped side, gable end, skylight, roof edit, eaves, ridge height
 commands: roof, tweak, window
 order: 130
 ---
@@ -4829,12 +4829,16 @@ order: 130
 ## 팁
 
 - 곡선 변은 잘게 나뉘어 있어도 한 변으로 셉니다. 클릭 한 번이나 상자 한 번으로 곡선 변 전체가 함께 켜지거나 꺼집니다.
-- {t:roof.sides.btn} 중에는 화면에 변 번호가 보입니다. 속성 창의 {t:archedit.roofSlopes} 칸 번호와 같습니다.
+- {t:roof.sides.btn} 중에는 화면에 변 번호가 보입니다. 속성 창의 {t:archedit.roofSlopes}와 {t:re.eaves} 칸 번호와 같습니다.
 - 창에는 켜진 경사 변 수와 전체 변 수가 함께 보입니다.
 - 지붕 모양 단추({t:opt.roofGable}, {t:opt.roofHip} 등)를 누르면 그 모양에 맞게 경사 변이 다시 정해집니다. 모양을 먼저 선택한 뒤 필요한 변만 하나씩 고치면 빠릅니다.
 - 속성 창의 {t:archedit.roofSlopes}에서 켜진 변마다 경사를 따로 정합니다. 경사를 다르게 하면 용마루와 추녀 점이 이동됩니다. {t:archedit.sameSlope}를 누르면 모든 변이 다시 같은 경사가 됩니다.
 - {m:tweak}으로 지붕의 용마루 점이나 선을 이동해도 변마다 경사 값이 바뀌고, 지붕 설정으로 계속 고칠 수 있습니다.
-- 속성 창에서는 지붕 모양, {t:opt.roofPitch}, {t:opt.overhang}, {t:opt.thickness}도 바꾸고 {t:flow.roofEave}와 {t:flow.roofRidge}를 확인합니다.
+- 속성 창의 {t:re.eaves}에서 변마다 처마 길이를 따로 정합니다. 따로 정하지 않은 변은 {t:opt.overhang} 값을 따르고, {t:re.sameEave}를 누르면 모든 변이 다시 {t:opt.overhang} 값을 따릅니다. 처마 길이가 다른 두 변은 모서리에서 두 처마선이 만나는 점까지 이어집니다.
+- 속성 창에서는 지붕 모양, {t:opt.roofPitch}, {t:opt.overhang}, {t:opt.thickness}도 바꿉니다.
+- {t:flow.roofEave}는 지붕 아랫면이 외곽선과 만나는 높이입니다. 값을 입력하면 지붕이 그 높이로 이동되고, 지붕에 붙은 벽도 따라갑니다.
+- {t:flow.roofRidge}는 지붕 아랫면에서 가장 높은 곳의 높이이고, {t:opt.roofShed} 지붕에서는 높은 쪽의 높이입니다. 값을 입력하면 변들의 경사 비율을 유지한 채 경사가 바뀝니다. 경사는 5°~70° 안에서만 바뀌므로, 그 범위를 벗어나는 높이는 입력되지 않습니다.
+- 평지붕은 {t:re.roofHeight} 칸 하나만 나옵니다. 지붕 아랫면의 높이입니다.
 - 천창: {m:window}에서 {t:preset.window.skylight}을 선택하고 지붕 경사면 위를 클릭하면 경사면 기울기대로 놓이고 지붕에 그만큼 구멍이 뚫립니다. 지붕 경사나 높이를 바꾸면 천창이 지붕을 따라 이동되고, 천창을 삭제하면 구멍도 없어집니다.
 
 ## 자주 하는 실수
@@ -4843,7 +4847,55 @@ order: 130
 - 모든 변을 끄면 경사 없는 평지붕이 됩니다. 경사가 필요한 변을 다시 켭니다.
 - 경사 변이 많고 외곽선이 복잡하면 평지붕으로 만든다는 안내가 나옵니다. 경사 변을 줄이거나 외곽선을 단순하게 합니다.
 - 천창을 지붕 밖이나 지붕에서 떨어진 곳에 놓으면 구멍이 나지 않습니다. 지붕이 없는 곳에서는 천창이 바닥 위에 놓입니다.
+- 건물 세우기가 만든 옥상은 {t:re.roofHeight}를 입력할 수 없습니다. 옥상의 높이는 속성 창의 {t:aw.roofOffset}로 정합니다.
 `,ot=`---
+id: arch-roof-split
+title: 지붕 나누기
+분류: 건축 부재
+난이도: 중급
+workspace: 3D 건설
+keywords: 지붕 나누기, 지붕 자르기, 지붕 분할, 지붕 둘로, 지붕 일부만 높게, 지붕 한 단 높게, 지붕 조각, 높이가 다른 지붕, 단차 지붕, 지붕나누기, split roof, cut roof, roof pieces, raised roof part, stepped roof
+commands: roofSplit, roof, wallSplit
+context: roofSplit
+order: 135
+---
+
+## 무엇
+
+지붕 위에 선을 그어 지붕을 둘로 나누는 도구입니다. 나뉜 조각은 저마다 지붕이 되어 높이, 경사, 처마를 따로 정할 수 있습니다. 지붕의 일부만 한 단 높게 만들 때 씁니다.
+
+## 하는 순서
+
+1. {m:roofSplit} 단추를 누릅니다.
+2. 나눌 지붕을 누릅니다.
+3. 지붕 위에서 나누는 선의 첫 점과 끝 점을 누릅니다. 끝 점을 누르기 전에 나뉠 자리가 실선으로 보입니다.
+4. 나뉜 지붕 가운데 하나를 선택하고 속성 창에서 {t:flow.roofEave}나 {t:re.roofHeight}를 바꿉니다.
+5. 다음 지붕을 이어서 나누거나 Esc로 마칩니다.
+
+## 팁
+
+- 선은 지붕 안에서 끝나도 외곽선까지 이어서 나눕니다. 두 점은 방향과 자리만 정합니다.
+- 오목한 지붕에서 선이 파인 곳을 건너가면 선이 지나는 자리마다 나뉘어 조각이 셋 이상이 됩니다. 한쪽만 나누려면 그쪽 안에서 두 점을 누릅니다.
+- 지붕을 선택한 채로 도구를 열거나 지붕을 오른쪽 클릭해 {c:roofSplit}를 누르면 그 지붕이 바로 잡힙니다.
+- 점은 명령줄에 \`@0,3\`처럼 입력해도 됩니다. Esc나 Ctrl+Z는 첫 점, 그다음 지붕 선택을 차례로 취소합니다.
+- 나눈 변은 경사 없이 세운 면이 되고 처마가 없습니다. 그래서 두 조각이 겹치지 않고 맞닿습니다. 원래 변은 경사와 처마를 그대로 가집니다.
+- 평지붕, 그리고 용마루를 가로질러 나눈 {t:opt.roofGable}·{t:opt.roofShed} 지붕은 나눈 뒤에도 모양이 같습니다.
+- 조각은 자기 외곽선에서 모양을 다시 만듭니다. {t:opt.roofHip} 지붕이나 오목한 지붕처럼 다른 변의 경사면이 넘어와 있던 곳은 모양이 달라지고, 그때는 알림이 나옵니다.
+- 안쪽 모서리에서 한 변을 따라 곧게 나누면, 그 변이 있는 조각에서는 나눈 변도 그 변과 같은 경사가 되어 한 변처럼 이어집니다. 그 변의 처마는 모서리 옆에서 없어져 두 조각의 처마가 겹치지 않습니다.
+- {t:rs.walls}가 켜져 있으면(처음에 켜져 있습니다) 지붕에 붙은 벽이 선에 걸칠 때 그 자리에서 나누고, 조각마다 그 위의 지붕에 붙입니다. 지붕 한 조각을 올리면 그 아래 벽만 따라 올라갑니다.
+- 나눈 것은 되돌리기 한 번으로 지붕과 벽이 모두 돌아옵니다.
+- 건물 세우기가 만든 옥상도 나눌 수 있습니다. 나눈 조각은 직접 만든 지붕이 되어, 층을 다시 적용해도 그 자리에 옥상이 다시 생기지 않습니다.
+
+## 자주 하는 실수
+
+- 선이 지붕을 지나지 않으면 나뉘지 않습니다. 지붕 밖에서만 두 점을 누르면 선을 이어도 나누지 않습니다. 한 점은 지붕 위나 지붕 건너편에 둡니다.
+- 선이 천창을 지나면 나눌 수 없습니다. 천창을 피해서 긋습니다.
+- 조각의 폭이 100 mm보다 좁아지는 자리는 나눌 수 없습니다.
+- 안쪽 모서리에서 비스듬하게 나누어 두 조각의 처마가 겹치게 되면 나눌 수 없다는 안내가 나옵니다. 모서리의 한 변을 따라 곧게 긋거나 다른 자리에 긋습니다.
+- 가로·세로 크기로 만든 지붕, 연결 복사한 지붕, 기울인 지붕, {m:tweak} 같은 수정 단계가 붙은 지붕은 나눌 수 없습니다.
+- 닫힌 벽, 곡선 벽, 높이가 바뀌는 벽은 나눌 수 없어 벽 전체가 한쪽 지붕에 붙어 있습니다. 다른 조각을 올려도 그 벽은 따라가지 않습니다.
+- {c:roofSplit}가 메뉴에 없습니다. 고급 메뉴에만 있으므로 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다: [일반·고급 메뉴](help:start-level).
+`,st=`---
 id: arch-roof
 title: 지붕 얹기
 분류: 건축 부재
@@ -4871,6 +4923,7 @@ order: 120
 - 지붕 아래 모양을 선택하는 방법은 세 가지입니다. 닫힌 벽을 클릭하면 벽 바깥면을 따라, 바닥판을 클릭하면 바닥판 외곽선을 따라 정해집니다. 부재가 없는 빈 곳에서 두 모서리를 클릭하면 사각형이 되고, 두 번째 모서리는 \`@10,8\`처럼 가로·세로 길이로 입력해도 됩니다.
 - 지붕 모양에 따라 경사지게 올라가는 변이 정해집니다. {t:opt.roofGable}은 가장 긴 변과 그 맞은편 변, {t:opt.roofShed}은 가장 긴 변 하나, {t:opt.roofHip}은 모든 변이 경사지고, {t:opt.roofFlat}은 경사가 없습니다. 경사지지 않는 변은 박공(세운 면)이 됩니다.
 - 경사 변을 하나씩 켜고 끄거나 만든 지붕을 고치는 방법은 [지붕 변 선택](help:arch-roof-edit)에 있습니다.
+- 지붕의 일부만 높이나 경사를 다르게 하려면 지붕을 둘로 나눕니다: [지붕 나누기](help:arch-roof-split).
 - {t:opt.roofPitch}는 5°~70°(기본 30°), {t:opt.overhang}는 0~3 m(기본 0.5 m), {t:opt.thickness}는 0.05~1 m(기본 0.2 m)입니다. 숫자 칸에는 [계산식](help:input-calc)을 쓸 수 있습니다.
 - 지붕 아랫면 높이는 {t:flow.roofBase} 바닥 + {t:flow.offset}입니다. 처음에는 바로 위층 바닥(맨 위층이면 지금 층 바닥 + 층고), 곧 맨 위층 벽의 위로 정해집니다. 창에서 {t:flow.roofEave}와 {t:flow.roofRidge}를 바로 확인합니다.
 - {t:flow.roofAttach}가 켜져 있으면(기본) 지붕 아래 벽의 위쪽이 지붕 아랫면을 따라 올라갑니다. 자세한 내용은 [벽 위쪽 맞추기](help:arch-wall-top)에 있습니다.
@@ -4885,7 +4938,7 @@ order: 120
 - 다른 건물의 벽이나 바닥판은 선택할 수 없습니다. {c:levelPanel}에서 그 건물을 눌러 작업할 건물을 바꾼 뒤 다시 클릭합니다.
 - 지붕이 벽 위에 떠 있거나 벽에 묻힙니다. {t:flow.roofBase}과 {t:flow.offset}을 확인합니다.
 - 지붕 아래 모양을 선택한 뒤 Esc를 눌렀더니 지붕이 생기지 않았습니다. Esc는 취소입니다. 지붕은 적용 (Enter)을 눌러야 만들어집니다.
-`,st=`---
+`,ct=`---
 id: arch-slab
 title: 바닥판 깔기
 분류: 건축 부재
@@ -4932,7 +4985,7 @@ order: 60
 - 바닥판 하나를 만들면 {c:slab} 도구는 닫힙니다. 다음 바닥판은 단추를 다시 누르거나 Enter를 눌러 도구를 다시 엽니다.
 - 바닥판이 바닥 위로 떠 보입니다. {t:flow.baseOffset} 값이 0인지 확인합니다.
 - 계단 위에 구멍이 나지 않습니다. 계단의 {t:stairs.slabCut} 스위치가 켜져 있는지, 바닥판 높이가 계단 꼭대기와 맞는지 확인합니다.
-`,ct=`---
+`,lt=`---
 id: arch-stair
 title: 계단 놓기
 분류: 건축 부재
@@ -4977,7 +5030,7 @@ order: 100
 - {t:stairs.style.path}가 아닌 계단은 {c:pathEdit}으로 고칠 수 없습니다. 속성 창의 값으로 바꿉니다.
 - R 키는 시작점을 찍기 전의 방향을 회전합니다. 시작점을 찍은 뒤에는 두 번째 클릭이 방향을 정합니다.
 - 경고가 나오는 계단은 오르기 힘듭니다. 단 수를 늘리거나 걷는 선을 길게 그립니다.
-`,lt=`---
+`,ut=`---
 id: arch-wall-top
 title: 벽 위쪽 맞추기
 분류: 건축 부재
@@ -5021,7 +5074,7 @@ order: 50
 - 벽 위가 바닥판 윗면까지 올라오지 않는 것은 잘못이 아닙니다. 벽은 바닥판 아랫면에서 멈춥니다.
 - 벽을 묶어 둔 층을 삭제하면, 그 자리로 내려온 위층에 다시 묶입니다. 그 위에 층이 없으면 지금 높이 그대로 남고 묶임이 풀립니다.
 - 지붕을 만들 때 {t:flow.roofAttach} 스위치를 껐으면 벽이 지붕에 붙지 않습니다. 나중에 벽마다 속성 창의 {t:flow.props.attach} 칸에서 그 지붕을 선택합니다.
-`,ut=`---
+`,dt=`---
 id: arch-wall
 title: 벽 그리기
 분류: 건축 부재
@@ -5071,7 +5124,7 @@ order: 40
 - 벽 높이가 2.8 m처럼 층고보다 조금 낮습니다. 벽이 위층 바닥판 아랫면에서 멈추기 때문이며 정상입니다 ([벽 위쪽 맞추기](help:arch-wall-top)).
 - 창에 높이 칸이 없습니다. {t:flow.top}이 {t:flow.top.toFloor}로 되어 있으면 높이는 위층에 맞춰 저절로 정해집니다. {t:flow.top.height} 단추를 누르면 칸이 나옵니다.
 - {t:flow.justify.left}을 선택하고 건물 둘레를 시계 반대 방향으로 돌며 그리면 벽이 바깥쪽으로 두꺼워집니다. 시계 방향으로 돌며 그리거나, 명령줄에 \`f\`를 입력하거나, 그린 뒤 속성 창의 {t:opt.flip} 단추로 뒤집습니다.
-`,dt=`---
+`,ft=`---
 id: build-auto-roof
 title: 자동 옥상과 옥상 높이
 분류: 건물 세우기
@@ -5111,7 +5164,7 @@ order: 40
 - 위층 외곽선을 아래층과 조금 어긋나게 그리면 아주 좁은 옥상 조각이 생길 수 있습니다. 넓이 0.01 m² 미만이거나 평균 폭 20 mm 미만인 조각에는 지붕을 만들지 않고, 버린 넓이가 한 층에서 1 m²를 넘으면 {c:buildFlow} 창에 안내가 나옵니다. 모서리를 맞추려면 외곽선 도구의 {t:ol.sameBelow}로 시작해 고칩니다.
 - 자동으로 생긴 지붕을 삭제하면 그 층을 다시 적용해도 그 자리에 다시 생기지 않습니다. 되살리려면 {c:levelPanel}에서 그 층 행을 오른쪽 클릭해 {t:lt.reviveAuto}를 선택하거나, {t:ab.detailed}의 그 층 행에서 {t:lt.reviveAuto}를 누릅니다. 외곽선을 바꿔 그 자리가 달라지면 새 지붕은 저절로 생깁니다.
 - {m:roof}으로 직접 만든 지붕에는 {t:aw.roofOffset} 칸이 없습니다. 건물 세우기가 만든 지붕에만 나옵니다.
-`,ft=`---
+`,pt=`---
 id: build-courtyard
 title: 중정
 분류: 건물 세우기
@@ -5153,7 +5206,7 @@ order: 70
 - 외곽선 밖에 그린 중정은 만들어지지 않고 알림이 나옵니다.
 - 손으로 시작한 건물에서 {c:levelPanel}이나 메뉴로 연 외곽선 도구로 중정을 그리면 바닥판 구멍만 생기고 안쪽 벽은 생기지 않습니다. 안쪽 벽까지 만들려면 {t:ab.detailed}의 외곽선 단추로 엽니다.
 - {t:ol.clear}를 누르면 그 층의 중정도 함께 삭제됩니다.
-`,pt=`---
+`,mt=`---
 id: build-detailed
 title: 층마다 건물 세우기
 분류: 건물 세우기
@@ -5202,7 +5255,7 @@ order: 30
 - 외곽선을 바꾸면 그 층의 자동 벽이 새로 만들어지므로, 새 벽이 옛 벽 자리에 서지 않으면 그 벽의 문·창이 삭제됩니다. 외곽선을 정한 뒤 문·창을 넣습니다. 잘못 삭제됐으면 {c:undo} ({k:undo})로 되돌립니다.
 - 삭제하거나 손으로 고친 자동 지붕·기둥(바깥벽이 아닌 자동 벽 포함)은 다시 적용해도 그 자리에 새로 생기지 않습니다. 손으로 고친 부재는 내 부재로 남습니다. 자동 부재를 되살리려면 그 층 행의 {t:lt.reviveAuto}를 누르거나, {c:levelPanel}에서 층 행을 오른쪽 클릭해 {t:lt.reviveAuto}를 선택합니다.
 - {t:ab.kind.piloti}로 바꾸면 그 층의 바깥벽이 모두 삭제되고 기둥이 섭니다. 벽에 넣은 문·창도 함께 삭제됩니다.
-`,mt=`---
+`,ht=`---
 id: build-easy
 title: 건물 바로 세우기
 분류: 건물 세우기
@@ -5253,7 +5306,7 @@ order: 20
 - 건물 외곽선을 저절로 만들지는 않습니다. 세울 건물이 없으면 건물 외곽선 도구가 열리니 외곽선을 그립니다.
 - 삭제한 바깥벽은 {t:aw.easyAgain}를 눌러도 다시 생기지 않습니다. 벽이 필요하면 그 층의 삭제한 자리를 클릭해 되살립니다.
 - 일부 삭제한 구간 끝이 변의 끝에서 0.3 m보다 가까우면 그 사이의 짧은 벽은 만들지 않습니다.
-`,ht=`---
+`,gt=`---
 id: build-names-tree
 title: 건물 이름·색·전체 목록
 분류: 건물 세우기
@@ -5303,7 +5356,7 @@ order: 90
 - 물체가 있는 층을 삭제하면 물체도 삭제할지, 다른 층에 남길지 묻습니다.
 - 다른 건물이 흐리게만 보이면 작업 범위 밖이기 때문입니다. 그 건물에서 작업하려면 목록에서 그 건물 행을 두 번 클릭합니다.
 - 건물 행을 한 번 클릭했더니 부재가 모두 선택되었습니다. 클릭은 선택만 합니다. 작업 위치를 이동하려면 두 번 클릭합니다.
-`,gt=`---
+`,_t=`---
 id: build-outer-walls
 title: 외벽 세우기
 분류: 건물 세우기
@@ -5355,7 +5408,7 @@ order: 35
 - 문·창이 구간 끝에 걸렸다는 알림이 뜹니다. 문·창이 반쯤 걸친 구간은 삭제하지 않습니다. 구간을 문·창 밖으로 이동하거나 문·창까지 넣습니다.
 - 닫힌 벽, 높이가 바뀌는 벽, 연결 복사한 벽은 일부만 삭제할 수 없습니다. 닫힌 곡선 벽도 같습니다. 건물 세우기로 만든 바깥벽은 닫힌 벽이라도 일부를 삭제할 수 있습니다.
 - 100 mm보다 짧은 구간은 삭제할 수 없습니다. 끝에서 100 mm 안쪽까지 끌면 그 끝까지 삭제합니다.
-`,_t=`---
+`,vt=`---
 id: build-outline
 title: 건물 외곽선
 분류: 건물 세우기
@@ -5402,7 +5455,7 @@ order: 15
 - 외곽선을 줄였더니 바뀌지 않았습니다. 층 외곽선이 둘로 나뉘거나 없어지게 되는 모양은 받아들이지 않습니다. 층 외곽선을 먼저 고칩니다.
 - 위층을 외곽선보다 넓게 내밀 수 없습니다. 건물 외곽선을 가장 넓은 층에 맞춰 그리고, 아래층을 [층마다](help:build-detailed)에서 줄입니다.
 - 다른 대지로 끌었더니 들어가지 않는다는 알림이 뜹니다. 그 대지가 건물보다 작거나 빈자리가 없는 경우입니다. 알림에 건물과 대지의 가로×세로 크기가 함께 나옵니다.
-`,vt=`---
+`,yt=`---
 id: build-overview
 title: 건물 세우기
 분류: 건물 세우기
@@ -5441,7 +5494,7 @@ order: 10
 - 자동으로 만든 벽·지붕을 하나씩 삭제하고 다시 그리는 경우가 많습니다. 모양을 바꿀 때는 그 층의 외곽선을 고치면 벽과 지붕이 함께 다시 만들어집니다.
 - 손으로 벽을 그린 층에는 바깥벽이 자동으로 생기지 않고 지붕만 생깁니다.
 - 삭제한 바깥벽은 다시 세워도 생기지 않습니다. 되살리려면 그 층의 삭제한 자리를 클릭합니다: [건물 바로 세우기](help:build-easy).
-- 외곽선을 바꾸면 그 층의 자동 벽이 다시 만들어집니다. 새 벽이 옛 벽 자리에 서지 않으면 그 벽에 넣은 문·창은 삭제되므로, 외곽선을 먼저 정하고 문·창을 넣습니다.`,yt=`---
+- 외곽선을 바꾸면 그 층의 자동 벽이 다시 만들어집니다. 새 벽이 옛 벽 자리에 서지 않으면 그 벽에 넣은 문·창은 삭제되므로, 외곽선을 먼저 정하고 문·창을 넣습니다.`,bt=`---
 id: build-piloti
 title: 필로티
 분류: 건물 세우기
@@ -5483,7 +5536,7 @@ order: 60
 - 손으로 벽을 그린 층을 {t:ab.kind.piloti}로 바꾸면 그 벽은 그대로 남고 기둥은 생기지 않습니다.
 - {t:ab.columnSpacing}을 기둥 크기의 2배보다 작게 넣어도 기둥 사이는 기둥 크기의 2배보다 가까워지지 않습니다.
 - {t:ab.kind.normal}으로 되돌리면 기둥이 삭제되고 바깥벽이 다시 생깁니다. 기둥에 맞춰 놓은 물체는 위치를 다시 확인합니다.
-`,bt=`---
+`,xt=`---
 id: build-shared-levels
 title: 붙은 건물
 분류: 건물 세우기
@@ -5523,7 +5576,7 @@ order: 80
 - 오가는 길이 없습니다. 맞닿은 선의 벽에 문을 넣습니다.
 - 두 건물의 층고가 달라 바닥 높이가 어긋난 층은 서로 덮지 않습니다. 그때는 옆 건물의 위층이 덮는 곳에도 옥상이 생깁니다.
 - 두 건물이 다른 대지에 있으면 맞닿아도 붙은 건물로 보지 않습니다. 같은 대지에 둡니다.
-`,xt=`---
+`,St=`---
 id: build-wall-split
 title: 벽 자동 나누기
 분류: 건물 세우기
@@ -5565,7 +5618,7 @@ order: 50
 - 나뉜 자동 벽 가운데 하나를 삭제하면 다음에 그 층을 적용해도 그 자리에는 벽이 다시 생기지 않습니다. 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다: [건물 바로 세우기](help:build-easy).
 - 곡선 벽, 닫힌 벽, 높이가 바뀌는 벽, 연결 복사한 벽은 {c:wallSplit}로 나눌 수 없고, 벽 끝에서 0.1 m 안쪽은 나눌 수 없습니다.
 - {c:wallSplit}가 메뉴에 없습니다. 고급 메뉴에만 있으므로 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다: [일반·고급 메뉴](help:start-level).
-`,St=`---
+`,Ct=`---
 id: brec-atrium
 title: 여러 층이 트인 아트리움
 분류: 건물 예제
@@ -5608,7 +5661,7 @@ order: 70
 - 2층과 3층의 구멍 자리가 다르면 아트리움이 이어지지 않습니다. 두 층 모두 같은 모서리에서 같은 간격으로 찍습니다.
 - 8에서 {t:flow.topLevel}을 2층으로 두면 벽이 한 층 높이로만 섭니다. 4층을 선택합니다.
 - 난간은 작업 층의 바닥판 모서리만 선택할 수 있습니다. 난간을 세울 층을 먼저 작업 층으로 선택합니다.
-`,Ct=`---
+`,wt=`---
 id: brec-courtyard-house
 title: 중정 주택
 분류: 건물 예제
@@ -5650,7 +5703,7 @@ order: 40
 - 외곽선 도구의 {t:ol.sameBelow}는 바깥 외곽선만 받고 중정은 받지 않습니다.
 - 중정이 외곽선에 닿거나 밖으로 나가면 외곽선 안쪽 부분만 중정이 됩니다. 사방에 벽이 설 자리를 남깁니다.
 - 중정을 그리기 전에 넣은 문·창은 외곽선을 고칠 때 자동 벽과 함께 삭제될 수 있습니다. 중정을 먼저 그립니다.
-`,wt=`---
+`,Tt=`---
 id: brec-curved-site
 title: 곡선 대지 위 건물
 분류: 건물 예제
@@ -5689,7 +5742,7 @@ order: 80
 - 곡선 건물 외곽선이 다른 건물의 외곽선과 겹치면 만들어지지 않습니다. 떨어뜨리거나 맞닿게만 그립니다.
 - 곡선 벽은 {c:wallSplit}로 나눌 수 없습니다.
 - 끌지 않고 클릭만 하거나 누르자마자 끌면 꺾인 점이 되어 삼각형이 됩니다. 마우스를 누른 채 0.5초 기다린 뒤 움직이고 놓습니다.
-`,Tt=`---
+`,Et=`---
 id: brec-piloti-overhang
 title: ③ 1층 필로티 + 위층 돌출
 분류: 건물 예제
@@ -5728,7 +5781,7 @@ order: 30
 - {t:ol.shrink}는 모든 변을 함께 이동합니다. 한쪽만 줄이려면 점을 이동하거나 새로 그립니다.
 - 1층을 {t:ab.kind.piloti}로 바꾸기 전에 1층 바깥벽에 문·창을 넣었다면 그 문·창은 벽과 함께 삭제됩니다.
 - 1층 대신 2층을 {t:ab.kind.piloti}로 바꾸면 2층이 기둥만 남은 열린 층이 됩니다. 종류는 기둥만 세울 층의 행에서 선택합니다.
-`,Et=`---
+`,Dt=`---
 id: brec-setback
 title: ② 3층만 좁게
 분류: 건물 예제
@@ -5768,7 +5821,7 @@ order: 20
 - {t:aw.roofOffset}는 3층 행이 아니라 옥상이 생긴 2층 행에 있습니다.
 - {t:ol.mode.edit}로 점을 하나씩 이동해도 됩니다. 벽과 지붕은 도구를 닫을 때 마지막 모양으로 한 번만 다시 만들어집니다.
 - 3층에 문·창을 먼저 넣고 외곽선을 바꾸면 새 벽이 옛 벽 자리에 서지 않는 곳의 문·창은 삭제될 수 있습니다. 그때는 {k:undo}로 되돌립니다.
-`,Dt=`---
+`,Ot=`---
 id: brec-small-house
 title: 벽부터 그리는 작은 집
 분류: 건물 예제
@@ -5810,7 +5863,7 @@ order: 100
 - 좌표에 mm 값을 넣는 실수가 많습니다. \`@8000,0\`이 아니라 \`@8,0\`입니다.
 - 닫히지 않은 벽 하나를 클릭해 지붕을 만들면 그 벽 하나의 둘레 사각형만 잡힙니다. 벽을 닫거나 바닥판을 클릭합니다.
 - 문·창을 바닥에 놓으면 벽에 구멍이 나지 않습니다. 벽 면 위를 클릭합니다.
-`,Ot=`---
+`,kt=`---
 id: brec-stepped-tower
 title: 위로 갈수록 좁아지는 탑
 분류: 건물 예제
@@ -5848,7 +5901,7 @@ order: 90
 - 줄이기는 모든 변을 함께 이동하므로 2 m를 넣으면 가로·세로가 각각 4 m씩 줄어듭니다.
 - 위층 외곽선 도구에서 {t:ol.sameBelow}를 누르면 아래층 모양으로 되돌아갑니다. 줄인 뒤에는 누르지 않습니다.
 - 줄이는 거리가 너무 커서 모양이 뒤집히면 바뀌지 않고 알림이 나옵니다. 20 m 층은 10 m보다 작게 줄입니다.
-`,kt=`---
+`,At=`---
 id: brec-terraced-slope
 title: 경사지 계단식 건물
 분류: 건물 예제
@@ -5890,7 +5943,7 @@ order: 60
 - 지형이 없는 평평한 땅에서는 평탄화 단계가 없고 두 건물이 같은 높이에 섭니다. 먼저 [건설 지역](help:site-map)에서 지형을 가져옵니다.
 - {c:retainingWall}은 땅 모양을 바꾸지 않습니다. 높이 차이는 평탄화로 먼저 만듭니다.
 - {c:retainingWall}이 메뉴에 없으면 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
-`,At=`---
+`,jt=`---
 id: brec-two-buildings
 title: 붙은 건물 둘
 분류: 건물 예제
@@ -5929,7 +5982,7 @@ order: 50
 - 오가는 길이 없습니다. 맞닿는 선의 벽에 문을 넣습니다.
 - 건물 B의 층고를 다르게 넣으면 바닥 높이가 어긋나 서로 덮고 받치지 않습니다.
 - 두 건물을 서로 다른 대지에 두면 맞닿아도 붙은 건물이 되지 않습니다.
-`,jt=`---
+`,Mt=`---
 id: brec-u-shape
 title: ① ㄷ자 건물 한 번에
 분류: 건물 예제
@@ -5969,7 +6022,7 @@ order: 10
 - 첫 구석을 기존 건물 외곽선 안에서 찍으면 새로 그리지 않고 그 외곽선이 선택됩니다. 다른 건물과 겹치게 그리면 만들어지지 않습니다.
 - 좌표에 mm 값을 넣는 실수가 많습니다. 3D 건설에서는 m 단위이므로 \`@20000,0\`이 아니라 \`@20,0\`입니다.
 - 외곽선만 그리고 세우지 않은 건물이 이미 있으면 {m:buildingEasy}가 외곽선 도구 대신 그 건물의 {t:ab.easy}를 엽니다. 새 외곽선은 {c:buildingOutline}으로 그립니다.
-`,Mt=`---
+`,Nt=`---
 id: civil-bridge
 title: 교량
 분류: 토목
@@ -6028,7 +6081,7 @@ order: 30
 - 땅을 고쳤는데 교량이 그대로이고 창에 빨간 글이 있습니다. 새 땅에 맞추면 위의 두 경우가 되어 그대로 둔 것입니다. 상판 높이를 고친 뒤 {t:civil.refit}를 누릅니다.
 - {t:cf.bridge.pier}을 바꿨는데 사장교·현수교의 주탑 아래 교각이 그대로입니다. 주탑 아래 교각은 늘 벽식입니다.
 - {c:bridge}이 메뉴에 없습니다. 토목 도구는 고급 메뉴에서 보입니다. 메뉴 줄에서 {t:level.advanced}을 선택하거나 명령줄에 \`bridge\`를 입력합니다.
-`,Nt=`---
+`,Pt=`---
 id: civil-dam
 title: 댐·보
 분류: 토목
@@ -6085,7 +6138,7 @@ order: 70
 - 물이 댐 아래쪽(하류)에 찹니다. 상류가 반대로 그려졌습니다. 댐을 삭제하고 반대 방향으로 다시 그립니다.
 - 댐 뒤에 물이 생기지 않습니다. {t:cf.dam.reservoir}가 꺼져 있거나 지형이 없는 평평한 땅입니다. 평평한 땅에서는 {c:water}로 물 높이를 정합니다.
 - {c:dam}이 메뉴에 없습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택하거나 명령줄에 \`dam\`을 입력합니다.
-`,Pt=`---
+`,Ft=`---
 id: civil-drainage
 title: 배수 시설
 분류: 토목
@@ -6133,7 +6186,7 @@ order: 55
 - 측구를 놓았는데 땅이 파이지 않습니다. 배수 시설은 땅 모양을 바꾸지 않습니다. 땅을 파야 하는 물길은 [물길·못](help:civil-waterway)으로 만듭니다.
 - 선이 자기 자신과 엇갈리면 만들어지지 않습니다. 엇갈리지 않게 다시 그립니다.
 - {c:drain}이 메뉴에 없습니다. 토목 탭은 고급 메뉴에만 있으므로 {t:level.advanced}을 선택하거나 명령줄에 \`drain\`을 입력합니다.
-`,Ft=`---
+`,It=`---
 id: civil-grading
 title: 평탄화와 토목
 분류: 토목
@@ -6186,7 +6239,7 @@ order: 100
 - 평탄화를 바꿨는데 교량이 그대로이고 창에 빨간 글이 있습니다. 새 땅에 맞추면 만들 수 없는 모양이 되어 그대로 둔 것입니다. 상판 높이를 고친 뒤 {t:civil.refit}를 누릅니다.
 - 평탄화를 바꿨는데 하천 물 높이가 그대로입니다. 하천은 평탄화 전의 원래 땅을 따르므로 평탄화로는 바뀌지 않습니다.
 - 토목 탭이 보이지 않습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
-`,It=`---
+`,Lt=`---
 id: civil-levee
 title: 제방
 분류: 토목
@@ -6234,7 +6287,7 @@ order: 65
 - 폭에 비해 너무 급하게 꺾였다는 빨간 글이 나옵니다. 마루 폭에 비해 급하게 꺾인 경우입니다. 꺾는 각을 줄이거나 마루 폭을 줄입니다.
 - 선이 자기 자신과 엇갈리면 만들어지지 않습니다. 엇갈리지 않게 다시 그립니다.
 - {c:levee}이 메뉴에 없습니다. 토목 탭은 고급 메뉴에만 있으므로 {t:level.advanced}을 선택하거나 명령줄에 \`levee\`를 입력합니다.
-`,Lt=`---
+`,Rt=`---
 id: civil-my-civil
 title: 내 토목 구조물
 분류: 토목
@@ -6277,7 +6330,7 @@ order: 90
 - 크기가 너무 크거나 작게 들어왔습니다. 1:100 모형을 실제 크기로 보냈거나 그 반대입니다. {t:tc.scale}을 맞게 선택해 {t:tc.howUpdate}로 다시 보냅니다(가장 긴 변 1 cm ~ 2 km).
 - 비탈에서 구조물 한쪽이 뜨거나 땅에 묻힙니다. 내 토목 구조물은 땅을 깎거나 채우지 않고 지형을 따라 휘지도 않습니다. 땅을 따라가야 하는 길·다리·댐은 [도로](help:civil-road), [교량](help:civil-bridge), [댐·보](help:civil-dam) 도구로 만듭니다.
 - {c:myCivil}이 메뉴에 없습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
-`,Rt=`---
+`,zt=`---
 id: civil-overview
 title: 토목
 분류: 토목
@@ -6328,7 +6381,7 @@ order: 10
 - {t:group.civil} 탭이 보이지 않습니다. 일반 메뉴에는 토목 탭이 없습니다. {t:level.advanced}을 선택하거나 명령줄에 \`road\`처럼 명령 이름을 입력합니다.
 - 빨간 글이 나오고 만들어지지 않습니다. 선이 자기 자신과 엇갈리거나, 폭에 비해 너무 급하게 꺾였거나, 교량·터널이 형식에 비해 짧은 경우입니다. 창에 나온 이유대로 선을 고칩니다.
 - 땅을 고쳤는데 교량이나 댐이 그대로이고 창에 빨간 글이 있습니다. 새 땅에 맞추면 만들 수 없는 모양(교각 200 m 초과, 상판이 땅속)이 되어 그대로 둔 경우입니다. 창에 나온 이유대로 높이나 선을 고칩니다.
-`,zt=`---
+`,Bt=`---
 id: civil-rec-river-crossing
 title: 예제: 강을 건너는 길
 분류: 토목
@@ -6372,7 +6425,7 @@ order: 110
 - 길과 다리 사이에 턱이 생깁니다. 길의 마지막 점이 다리 끝 가운데에서 5 m보다 멀리 찍힌 경우입니다. 길을 삭제하고 다리 끝 가까이에 다시 찍습니다.
 - 다리가 너무 짧다고 나옵니다. 형식마다 가장 짧은 길이가 있으므로 다리를 길게 그리거나 {t:civil.type.bridge.beam}를 씁니다.
 - 옹벽 윗면이 길보다 많이 높습니다. 한 옹벽은 처음부터 끝까지 땅 위로 같은 높이이므로 길둑이 낮아지는 곳은 옹벽을 나눠 그립니다.
-`,Bt=`---
+`,Vt=`---
 id: civil-retaining
 title: 옹벽
 분류: 토목
@@ -6428,7 +6481,7 @@ order: 50
 - {t:civil.type.retaining.cantilever}인데 저판이 보이지 않습니다. {t:civil.base}이 0입니다. {t:civil.more}에서 폭을 넣습니다(예: \`1.8 m\`).
 - 선이 자기 자신과 엇갈리면 만들어지지 않습니다. 엇갈리지 않게 다시 그립니다.
 - {c:retainingWall}이 메뉴에 없습니다. 토목 탭은 고급 메뉴에만 있으므로 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다. [일반·고급 메뉴](help:start-level)를 봅니다.
-`,Vt=`---
+`,Ht=`---
 id: civil-road
 title: 도로
 분류: 토목
@@ -6482,7 +6535,7 @@ order: 20
 - 도로가 건물을 지나간다는 알림이 뜹니다. 도로는 만들어지지만 겹친 곳이 빨갛게 보입니다. 선을 이동하거나 [작업 범위](help:site-scope)의 건물 위치를 확인합니다.
 - {t:civil.grade}으로 두었더니 길이 땅속으로 들어가거나 높이 뜹니다. 땅을 따라가지 않으므로 {t:civil.z0}·{t:civil.z1}를 땅 높이에 맞추거나 {t:civil.follow}로 바꿉니다.
 - 보도를 켰더니 차로가 좁아졌습니다. 보도는 길 폭 안에 들어가므로 길 폭을 그만큼 넓힙니다.
-`,Ht=`---
+`,Ut=`---
 id: civil-tunnel
 title: 터널
 분류: 토목
@@ -6533,7 +6586,7 @@ order: 40
 - 부분들을 하나로 이을 수 없어 만들지 않았다는 글이 나옵니다. 갱문 가까이에 선의 꺾인 점이 있으면 생길 수 있습니다. 갱문 근처를 곧게 그립니다.
 - 입구 앞이 파이지 않습니다. {t:cfit.dig}가 꺼져 있거나, 갱문 앞의 땅이 이미 노면보다 낮은 경우입니다.
 - 터널을 만들었는데 산 속이 비어 보이지 않습니다. 산 속의 땅은 파지 않습니다. {c:sectionView}로 확인합니다.
-`,Ut=`---
+`,Wt=`---
 id: civil-water
 title: 물 높이
 분류: 토목
@@ -6598,7 +6651,7 @@ order: 80
 - 지형이 없는 평평한 땅에서는 물 높이가 0보다 높아야 물이 보이고, 땅 전체가 한 덩어리로 잠깁니다.
 - 물 도구는 땅을 파지 않습니다. 땅을 파서 호수나 하천을 만들려면 [물길·못](help:civil-waterway)을 씁니다.
 - {c:water}이 메뉴에 없습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
-`,Wt=`---
+`,Gt=`---
 id: civil-waterway
 title: 물길·못
 분류: 토목
@@ -6643,7 +6696,7 @@ order: 60
 - 외곽선이 자기 자신과 엇갈리면 만들어지지 않습니다. 엇갈리지 않게 다시 그립니다.
 - 지형이 없는 평평한 땅에서는 땅이 파이지 않습니다. 먼저 [건설 지역](help:site-map)에서 지형을 받습니다.
 - {c:waterBody}이 메뉴에 없습니다. 메뉴 줄 오른쪽에서 {t:level.advanced}을 선택합니다.
-`,Gt="---\nid: more-ai-ask\ntitle: AI에게 만들기 부탁하기\n분류: 그 밖의 기능\n난이도: 중급\nworkspace: 공통\nkeywords: AI, 인공지능, 만들어 줘, 만들어줘, 만들기 부탁, 부탁하기, 말로 만들기, 문장으로 만들기, 자동으로 만들기, Cadoo에게 부탁, 카두, 책상 만들어, 의자 만들어, 집 만들어, 계단 만들어, 위에, 옆에, 둘레에, 사이에, 일렬로, 원형으로, 간격, 개수, 크기 말하기, 색 바꿔 줘, 옮겨 줘, 지워 줘, 키워 줘, 줄여 줘, 되돌리기, 하는 법 물어보기, 어떻게 해, 어디 있어, 단축키 물어보기, AI make, make it for me, ask to make, natural language, chat command, undo\ncommands: cadooChat, undo\norder: 50\n---\n\n## 무엇\n\n{c:cadooChat} 창에 만들 것을 말로 적으면 Cadoo가 알아들은 대로 바로 만들거나 바꿉니다. 크기, 개수, 위치(위에, 옆에, 둘레에, 사이에), 배치(일렬로, 원형으로)를 함께 말할 수 있습니다. 만든 것은 되돌리기 한 단계로 들어가므로 마음에 들지 않으면 바로 되돌릴 수 있습니다. AI가 연결되어 있지 않아도 이 기능은 동작합니다.\n\n## 하는 순서\n\n1. Cadoo를 두 번 클릭해 {c:cadooChat} 창을 엽니다.\n2. 만들 것을 크기, 개수, 위치와 함께 한 문장으로 적고 Enter를 누릅니다. 예: `의자 4개를 책상 둘레에 만들어 줘`\n3. Cadoo가 알아들은 것은 바로 만들어지고, 답에 무엇을 어디에 만들었는지 나옵니다.\n4. 결과가 마음에 들지 않으면 답 아래의 {t:aimake.undo} 단추를 누릅니다. Cadoo가 한 그 한 단계만 되돌아갑니다.\n5. 이미 있는 물체를 바꾸려면 이름으로 가리켜 말합니다. 예: `직육면체 1을 빨간색으로 칠해 줘`\n\n## 팁\n\n### 만들 수 있는 것\n\n- 기본 도형: 직육면체(상자, 정육면체), 원기둥, 구(공), 원뿔, 도넛, 쐐기, 각기둥(육각기둥 등), 피라미드, 반구\n- 물체: 책상, 탁자, 의자, 스툴, 벤치, 침대, 소파, 책장, 계단, 집, 탑, 나무, 눈사람, 자동차, 버스, 컵, 병, 판, 그릇, 파이프, 로켓, 로봇, 사람, 동물, 다리, 성, 울타리, 스탠드, 가로등, 연필, 비행기, 보트\n- 3D 건설에서는 벽, 방, 기둥, 창문, 문도 만듭니다. 집은 벽 4개와 지붕으로 만들어집니다.\n- 모르는 것을 부탁하면 아직 만들 줄 모른다고 답하고 만들 수 있는 것을 알려 줍니다.\n\n### 크기, 개수, 모양\n\n- 크기는 `가로`, `세로`, `높이`, `지름`, `반지름`과 함께 말합니다. 단위(`mm`, `cm`, `m`)를 붙이지 않으면 3D 물체는 mm, 3D 건설은 m로 읽습니다.\n- 책상, 의자 같은 물체는 크기를 하나만 말해도 나머지를 그 물체의 실제 비율에 맞춰 정합니다. 크기를 말하지 않으면 3D 건설에서는 실제 크기로, 3D 물체에서는 긴 변 약 80 mm의 모형으로 만듭니다. 컵, 연필처럼 작은 것은 3D 물체에서도 실제 크기입니다.\n- 개수는 `4개`, `3그루`, `네 개`처럼 말합니다. 한 번에 50개까지 만듭니다.\n- 모양을 정하는 말: `계단 10단`, `책장 5칸`, `2층 집`, `평지붕`·`박공지붕`·`모임지붕`·`외쪽지붕`, `구멍 뚫린`, `속이 빈`, `등받이 없는 의자`, `손잡이 없는 컵`, `큰`·`작은`, `빨간`·`파란` 같은 색\n\n| 이렇게 말하면 | 이렇게 만듭니다 |\n|---|---|\n| `가로 2m 세로 1m 높이 75cm 책상` | 그 크기의 책상 하나 |\n| `탁자 하나와 의자 4개 만들어 줘` | 탁자 1개와 의자 4개 |\n| `평지붕 2층 집` | 평지붕을 얹은 2층 집 |\n| `구멍 뚫린 컵` | 속이 빈 컵 |\n\n### 위치와 배치\n\n| 이렇게 말하면 | 이렇게 놓습니다 |\n|---|---|\n| `이 상자 위에 원기둥 올려` | 선택한 상자 위에 원기둥 |\n| `그 위에 공 올려 줘` | 방금 만든 것 위에 공 |\n| `의자 4개를 책상 둘레에` | 책상을 바라보게 둘레에 의자 4개 |\n| `두 상자 사이에 원기둥 놓아 줘` | 두 상자 사이에 원기둥 |\n| `상자 1과 상자 2 사이에 공` | 이름으로 가리킨 두 물체 사이에 공 |\n| `나무 3그루를 일렬로` | 한 줄로 나무 3그루 |\n| `원기둥 6개를 원형으로 배치해 줘` | 원 모양으로 원기둥 6개 |\n| `상자 2개를 10 간격으로 나란히` | 10씩 띄워 한 줄로 상자 2개 |\n| `x로 3m 떨어진 곳에 지름 1m 공` | 원점에서 x 방향으로 3 m 떨어진 곳에 공 |\n| `남쪽 벽에 창문 2개` | (3D 건설) 남쪽 벽에 같은 간격으로 창문 2개 |\n| `의자를 책상 옆으로 옮겨 줘` | 있는 의자를 책상 옆으로 이동함 |\n\n- 쓸 수 있는 위치 말: `위에`, `아래에`, `옆에`, `왼쪽에`, `오른쪽에`, `앞에`, `뒤에`, `안에`, `사이에`, `둘레에`(`주위에`), `원점에`\n- 쓸 수 있는 배치 말: `일렬로`(`한 줄로`, `나란히`), `앞뒤로`, `원형으로`, `쌓아서`, `10 간격으로`, `같은 간격으로`\n- `이 상자`, `이거`는 지금 선택한 물체를, `그`는 방금 만든 것을 가리킵니다. 이름은 객체 목록에 보이는 이름(예: `직육면체 1`)을 씁니다.\n\n### 있는 물체 바꾸기\n\n- 크기: `직육면체 2 반으로 줄여 줘`, `이거 2배로 키워줘`, `높이를 5cm로 바꿔 줘`, `지름을 20mm로 바꿔줘`\n- 이동·회전: `위로 10 올려줘`, `오른쪽으로 20mm 옮겨줘`, `원점으로 옮겨줘`, `90도 돌려줘`, `x축으로 45도 회전해줘`\n- 색·재질: `파란색으로 칠해줘`, `유리로 바꿔줘`, `나무 재질로 해줘`\n- 그 밖에: `3개 복사해줘`, `하나 더 만들어줘`, `숨겨줘`, `이거 삭제해`\n- 어느 물체인지는 이름, 지금 선택한 물체, 또는 그 모양이 하나뿐일 때 그 물체로 정합니다.\n\n### 되돌리기\n\n- {t:aimake.undo} 단추는 Cadoo가 한 그 한 단계만 되돌리고, 누르면 {t:aimake.undone}로 바뀝니다.\n- 그 뒤에 다른 작업을 했으면 단추가 흐려집니다. 이때는 Ctrl+Z로 한 단계씩 되돌립니다. 뒤의 작업을 Ctrl+Z로 되돌려 Cadoo의 작업이 다시 마지막 단계가 되면 단추를 다시 쓸 수 있습니다. [되돌리기](help:start-undo)를 봅니다.\n\n### 사용법 묻기\n\n- `구멍 뚫는 법`, `돌출은 어떻게 해?`처럼 물으면 이 도움말에서 맞는 쪽을 찾아 하는 순서를 보여 줍니다. 답 아래 단추로 그 도구를 바로 열거나, 그 도움말 쪽을 엽니다.\n- `모깎기 어디 있어?`처럼 물으면 메뉴 위치를, `저장 단축키`처럼 물으면 단축키를 알려 줍니다.\n- AI가 연결되어 있으면 규칙으로 알아듣지 못한 부탁은 AI가 맡아 만듭니다. AI가 만든 것에도 같은 {t:aimake.undo} 단추가 붙습니다. 연결 방법은 [AI 연결](help:more-ai-setup)에 있습니다.\n\n## 자주 하는 실수\n\n- 같은 모양이 여러 개 있어 어느 것인지 모른다고 답합니다. 바꿀 물체를 먼저 선택하거나 `직육면체 2`처럼 이름을 말합니다.\n- 없는 이름을 말하면 그런 물체가 없다고 답합니다. 이름은 객체 목록에서 확인합니다.\n- `책상 둘레에`처럼 가리킨 물체가 없으면 만들지 않습니다. 가리킬 물체를 먼저 만듭니다.\n- 문장의 일부를 알아듣지 못하면 알아들은 것만 만들고, 반영하지 못한 말을 답에 적습니다. 그 부분은 직접 고칩니다.\n- 3D 물체에서 크기 없이 `집 만들어 줘`라고 하면 실제 크기가 아닌 작은 모형으로 만듭니다. 크기를 함께 말합니다.\n- 허용 범위를 벗어난 크기는 만들지 않습니다. 다른 크기로 다시 말합니다.\n- `상자 만드는 법`처럼 묻는 문장은 만들기 부탁이 아니라 사용법 질문으로 읽습니다. 바로 만들려면 `상자 만들어 줘`처럼 말합니다.\n- 위험한 물건은 만들지 않습니다. [AI가 못 하는 것·안전](help:more-ai-limits)을 봅니다.\n",Kt=`---
+`,Kt="---\nid: more-ai-ask\ntitle: AI에게 만들기 부탁하기\n분류: 그 밖의 기능\n난이도: 중급\nworkspace: 공통\nkeywords: AI, 인공지능, 만들어 줘, 만들어줘, 만들기 부탁, 부탁하기, 말로 만들기, 문장으로 만들기, 자동으로 만들기, Cadoo에게 부탁, 카두, 책상 만들어, 의자 만들어, 집 만들어, 계단 만들어, 위에, 옆에, 둘레에, 사이에, 일렬로, 원형으로, 간격, 개수, 크기 말하기, 색 바꿔 줘, 옮겨 줘, 지워 줘, 키워 줘, 줄여 줘, 되돌리기, 하는 법 물어보기, 어떻게 해, 어디 있어, 단축키 물어보기, AI make, make it for me, ask to make, natural language, chat command, undo\ncommands: cadooChat, undo\norder: 50\n---\n\n## 무엇\n\n{c:cadooChat} 창에 만들 것을 말로 적으면 Cadoo가 알아들은 대로 바로 만들거나 바꿉니다. 크기, 개수, 위치(위에, 옆에, 둘레에, 사이에), 배치(일렬로, 원형으로)를 함께 말할 수 있습니다. 만든 것은 되돌리기 한 단계로 들어가므로 마음에 들지 않으면 바로 되돌릴 수 있습니다. AI가 연결되어 있지 않아도 이 기능은 동작합니다.\n\n## 하는 순서\n\n1. Cadoo를 두 번 클릭해 {c:cadooChat} 창을 엽니다.\n2. 만들 것을 크기, 개수, 위치와 함께 한 문장으로 적고 Enter를 누릅니다. 예: `의자 4개를 책상 둘레에 만들어 줘`\n3. Cadoo가 알아들은 것은 바로 만들어지고, 답에 무엇을 어디에 만들었는지 나옵니다.\n4. 결과가 마음에 들지 않으면 답 아래의 {t:aimake.undo} 단추를 누릅니다. Cadoo가 한 그 한 단계만 되돌아갑니다.\n5. 이미 있는 물체를 바꾸려면 이름으로 가리켜 말합니다. 예: `직육면체 1을 빨간색으로 칠해 줘`\n\n## 팁\n\n### 만들 수 있는 것\n\n- 기본 도형: 직육면체(상자, 정육면체), 원기둥, 구(공), 원뿔, 도넛, 쐐기, 각기둥(육각기둥 등), 피라미드, 반구\n- 물체: 책상, 탁자, 의자, 스툴, 벤치, 침대, 소파, 책장, 계단, 집, 탑, 나무, 눈사람, 자동차, 버스, 컵, 병, 판, 그릇, 파이프, 로켓, 로봇, 사람, 동물, 다리, 성, 울타리, 스탠드, 가로등, 연필, 비행기, 보트\n- 3D 건설에서는 벽, 방, 기둥, 창문, 문도 만듭니다. 집은 벽 4개와 지붕으로 만들어집니다.\n- 모르는 것을 부탁하면 아직 만들 줄 모른다고 답하고 만들 수 있는 것을 알려 줍니다.\n\n### 크기, 개수, 모양\n\n- 크기는 `가로`, `세로`, `높이`, `지름`, `반지름`과 함께 말합니다. 단위(`mm`, `cm`, `m`)를 붙이지 않으면 3D 물체는 mm, 3D 건설은 m로 읽습니다.\n- 책상, 의자 같은 물체는 크기를 하나만 말해도 나머지를 그 물체의 실제 비율에 맞춰 정합니다. 크기를 말하지 않으면 3D 건설에서는 실제 크기로, 3D 물체에서는 긴 변 약 80 mm의 모형으로 만듭니다. 컵, 연필처럼 작은 것은 3D 물체에서도 실제 크기입니다.\n- 개수는 `4개`, `3그루`, `네 개`처럼 말합니다. 한 번에 50개까지 만듭니다.\n- 모양을 정하는 말: `계단 10단`, `책장 5칸`, `2층 집`, `평지붕`·`박공지붕`·`모임지붕`·`외쪽지붕`, `구멍 뚫린`, `속이 빈`, `등받이 없는 의자`, `손잡이 없는 컵`, `큰`·`작은`, `빨간`·`파란` 같은 색\n\n| 이렇게 말하면 | 이렇게 만듭니다 |\n|---|---|\n| `가로 2m 세로 1m 높이 75cm 책상` | 그 크기의 책상 하나 |\n| `탁자 하나와 의자 4개 만들어 줘` | 탁자 1개와 의자 4개 |\n| `평지붕 2층 집` | 평지붕을 얹은 2층 집 |\n| `구멍 뚫린 컵` | 속이 빈 컵 |\n\n### 위치와 배치\n\n| 이렇게 말하면 | 이렇게 놓습니다 |\n|---|---|\n| `이 상자 위에 원기둥 올려` | 선택한 상자 위에 원기둥 |\n| `그 위에 공 올려 줘` | 방금 만든 것 위에 공 |\n| `의자 4개를 책상 둘레에` | 책상을 바라보게 둘레에 의자 4개 |\n| `두 상자 사이에 원기둥 놓아 줘` | 두 상자 사이에 원기둥 |\n| `상자 1과 상자 2 사이에 공` | 이름으로 가리킨 두 물체 사이에 공 |\n| `나무 3그루를 일렬로` | 한 줄로 나무 3그루 |\n| `원기둥 6개를 원형으로 배치해 줘` | 원 모양으로 원기둥 6개 |\n| `상자 2개를 10 간격으로 나란히` | 10씩 띄워 한 줄로 상자 2개 |\n| `x로 3m 떨어진 곳에 지름 1m 공` | 원점에서 x 방향으로 3 m 떨어진 곳에 공 |\n| `남쪽 벽에 창문 2개` | (3D 건설) 남쪽 벽에 같은 간격으로 창문 2개 |\n| `의자를 책상 옆으로 옮겨 줘` | 있는 의자를 책상 옆으로 이동함 |\n\n- 쓸 수 있는 위치 말: `위에`, `아래에`, `옆에`, `왼쪽에`, `오른쪽에`, `앞에`, `뒤에`, `안에`, `사이에`, `둘레에`(`주위에`), `원점에`\n- 쓸 수 있는 배치 말: `일렬로`(`한 줄로`, `나란히`), `앞뒤로`, `원형으로`, `쌓아서`, `10 간격으로`, `같은 간격으로`\n- `이 상자`, `이거`는 지금 선택한 물체를, `그`는 방금 만든 것을 가리킵니다. 이름은 객체 목록에 보이는 이름(예: `직육면체 1`)을 씁니다.\n\n### 있는 물체 바꾸기\n\n- 크기: `직육면체 2 반으로 줄여 줘`, `이거 2배로 키워줘`, `높이를 5cm로 바꿔 줘`, `지름을 20mm로 바꿔줘`\n- 이동·회전: `위로 10 올려줘`, `오른쪽으로 20mm 옮겨줘`, `원점으로 옮겨줘`, `90도 돌려줘`, `x축으로 45도 회전해줘`\n- 색·재질: `파란색으로 칠해줘`, `유리로 바꿔줘`, `나무 재질로 해줘`\n- 그 밖에: `3개 복사해줘`, `하나 더 만들어줘`, `숨겨줘`, `이거 삭제해`\n- 어느 물체인지는 이름, 지금 선택한 물체, 또는 그 모양이 하나뿐일 때 그 물체로 정합니다.\n\n### 되돌리기\n\n- {t:aimake.undo} 단추는 Cadoo가 한 그 한 단계만 되돌리고, 누르면 {t:aimake.undone}로 바뀝니다.\n- 그 뒤에 다른 작업을 했으면 단추가 흐려집니다. 이때는 Ctrl+Z로 한 단계씩 되돌립니다. 뒤의 작업을 Ctrl+Z로 되돌려 Cadoo의 작업이 다시 마지막 단계가 되면 단추를 다시 쓸 수 있습니다. [되돌리기](help:start-undo)를 봅니다.\n\n### 사용법 묻기\n\n- `구멍 뚫는 법`, `돌출은 어떻게 해?`처럼 물으면 이 도움말에서 맞는 쪽을 찾아 하는 순서를 보여 줍니다. 답 아래 단추로 그 도구를 바로 열거나, 그 도움말 쪽을 엽니다.\n- `모깎기 어디 있어?`처럼 물으면 메뉴 위치를, `저장 단축키`처럼 물으면 단축키를 알려 줍니다.\n- AI가 연결되어 있으면 규칙으로 알아듣지 못한 부탁은 AI가 맡아 만듭니다. AI가 만든 것에도 같은 {t:aimake.undo} 단추가 붙습니다. 연결 방법은 [AI 연결](help:more-ai-setup)에 있습니다.\n\n## 자주 하는 실수\n\n- 같은 모양이 여러 개 있어 어느 것인지 모른다고 답합니다. 바꿀 물체를 먼저 선택하거나 `직육면체 2`처럼 이름을 말합니다.\n- 없는 이름을 말하면 그런 물체가 없다고 답합니다. 이름은 객체 목록에서 확인합니다.\n- `책상 둘레에`처럼 가리킨 물체가 없으면 만들지 않습니다. 가리킬 물체를 먼저 만듭니다.\n- 문장의 일부를 알아듣지 못하면 알아들은 것만 만들고, 반영하지 못한 말을 답에 적습니다. 그 부분은 직접 고칩니다.\n- 3D 물체에서 크기 없이 `집 만들어 줘`라고 하면 실제 크기가 아닌 작은 모형으로 만듭니다. 크기를 함께 말합니다.\n- 허용 범위를 벗어난 크기는 만들지 않습니다. 다른 크기로 다시 말합니다.\n- `상자 만드는 법`처럼 묻는 문장은 만들기 부탁이 아니라 사용법 질문으로 읽습니다. 바로 만들려면 `상자 만들어 줘`처럼 말합니다.\n- 위험한 물건은 만들지 않습니다. [AI가 못 하는 것·안전](help:more-ai-limits)을 봅니다.\n",qt=`---
 id: more-ai-limits
 title: AI가 못 하는 것·안전
 분류: 그 밖의 기능
@@ -6704,7 +6757,7 @@ Cadoo 대화와 도움말의 AI는 만들기, NukCAD 사용법, 학교 공부, �
 - 질문에 집 주소나 전화번호를 적습니다. 적지 않아도 답할 수 있습니다.
 - AI의 답을 그대로 따랐는데 메뉴가 없습니다. 메뉴 이름은 도움말이나 Cadoo의 오른쪽 클릭 메뉴의 물어보기 창에서 다시 찾습니다. [Cadoo와 대화](help:more-cadoo)를 봅니다.
 - AI가 쉬는 중이라는 답이 나옵니다. 몇 분 기다린 뒤 만들기나 NukCAD 이야기로 다시 묻습니다.
-`,qt=`---
+`,Jt=`---
 id: more-ai-offline
 title: 학교용 AI 묶음(인터넷 없이 설치)
 분류: 그 밖의 기능
@@ -6743,7 +6796,7 @@ desktop: true
 - 설치 프로그램만 다른 폴더에 복사합니다. NukCAD-models 폴더가 설치 프로그램 옆에 없으면 모델을 복사하지 않습니다.
 - 다른 버전의 NukCAD로 만든 묶음을 씁니다. 모델 파일이 이 버전과 다르면 쓰지 않습니다. NukCAD를 새 버전으로 바꾸면 묶음도 새로 만듭니다.
 - 저장 공간이 부족합니다. 기본 묶음은 PC마다 약 5.5 GB가 더 필요합니다.
-`,Jt=`---
+`,Yt=`---
 id: more-ai-setup
 title: AI 연결
 분류: 그 밖의 기능
@@ -6784,7 +6837,7 @@ Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다
 - 컴퓨터 메모리에 비해 큰 모델을 선택합니다. 목록에 실행 가능 여부가 표시되므로 '추천' 모델부터 씁니다.
 - 멘토 서버 주소를 틀리게 입력합니다. 예처럼 숫자 주소와 포트를 그대로 입력하고 {t:ai.teacher.test} 단추로 확인합니다.
 - 웹판에서 멘토 서버를 찾습니다. 멘토 서버 연결은 설치판에서만 됩니다.
-`,Yt=`---
+`,Xt=`---
 id: more-cadoo
 title: Cadoo와 대화
 분류: 그 밖의 기능
@@ -6847,7 +6900,7 @@ Cadoo는 3D 화면 아래쪽, 명령줄 바로 위를 걸어 다니는 도우미
 - 내역에서 삭제한 대화는 되돌릴 수 없습니다. 삭제 전에 확인을 한 번 더 묻습니다.
 - 입력 칸에 글자를 적는 동안에는 단축키가 3D 화면에 닿지 않습니다. 대화 창 밖을 클릭한 뒤 작업합니다.
 - Cadoo가 단추를 가리면 Cadoo를 끌어 다른 곳에 놓습니다.
-`,Xt=`---
+`,Zt=`---
 id: more-disaster
 title: 재난 시뮬레이션
 분류: 그 밖의 기능
@@ -6887,7 +6940,7 @@ order: 20
 - 클릭해도 시작되지 않습니다. 폭심지는 불러온 땅 안에서 선택해야 합니다.
 - 시뮬레이션 뒤에 건물이 부서진 채로 남을까 걱정됩니다. 문서는 처음부터 바뀌지 않습니다. {t:nuke3.restore}를 누르거나 Esc를 누르면 폭발 전 모습으로 돌아옵니다.
 - 화면이 끊깁니다. 느린 컴퓨터에서는 주변 지형과 효과가 저절로 간단하게 그려집니다. 환경 설정의 {t:set.drawQuality}을 {t:set.drawQuality.fast}로 바꾸면 더 가볍게 그립니다.
-`,Zt=`---
+`,Qt=`---
 id: more-mentor-admin
 title: 멘토 관리
 분류: 그 밖의 기능
@@ -6936,7 +6989,7 @@ desktop: true
 - {t:tapp.err.startFailed}이 보입니다. 다른 프로그램이 8765 포트를 쓰고 있는지 확인합니다.
 - 학생이 연결되지 않습니다. 학생 PC의 멘토 서버 주소가 {t:tapp.addr}와 같은지, 같은 학교 네트워크인지, 번호가 차단되지 않았는지 확인합니다.
 - API 키를 학생에게 알려 주지 않습니다. 키는 멘토 서버의 설정 파일에만 저장되고, 창에는 가린 모양만 보입니다.
-`,Qt=`---
+`,$t=`---
 id: more-mentor-help
 title: 멘토 도움 요청
 분류: 그 밖의 기능
@@ -6982,7 +7035,7 @@ desktop: true
 - {t:tapp.link.range}이 보입니다. 학년·반·번호를 다시 선택합니다.
 - 멘토가 고치는 동안 내가 고치려고 하면 막힙니다. {t:cohelp.takeBack}를 누른 뒤 고칩니다.
 - 메모에 이름이나 전화번호 같은 개인 정보는 적지 않습니다. 메모는 멘토 목록에 보이는 짧은 말입니다.
-`,$t=`---
+`,en=`---
 id: more-screenshot
 title: 화면 저장
 분류: 그 밖의 기능
@@ -7021,7 +7074,7 @@ order: 30
 - 저장한 파일을 찾지 못합니다. 브라우저의 다운로드 목록이나 다운로드 폴더에서 \`Image_\`로 시작하는 파일을 찾습니다.
 - 숨긴 물체는 그림에 나오지 않습니다. 필요한 물체를 다시 보이게 한 뒤 저장합니다. [숨기기·보이기](help:start-hide)를 봅니다.
 - 메뉴와 창까지 함께 찍으려면 이 기능 대신 컴퓨터의 화면 캡처 기능을 씁니다.
-`,en=`---
+`,tn=`---
 id: more-send-to-building
 title: 건설 물체로 보내기
 분류: 그 밖의 기능
@@ -7075,7 +7128,7 @@ order: 10
 - 물체가 엉뚱한 층에 놓였습니다. {t:tc2.dest} 줄의 {t:tc2.change}로 층을 선택하거나, 3D 건설에서 작업 범위의 층을 먼저 선택합니다.
 - 물체가 너무 복잡해서 보낼 수 없다고 나옵니다. 물체를 나눠서 보냅니다.
 - 3D 건설에는 이 단추가 없습니다. 3D 물체에서 보냅니다.
-`,tn=`---
+`,nn=`---
 id: faq-black-screen
 title: 3D 화면이 검거나 아주 느릴 때
 분류: 문제 해결
@@ -7111,7 +7164,7 @@ order: 20
 - 설정을 켜고 '다시 시작'을 누르지 않습니다. 브라우저를 다시 시작해야 바뀝니다.
 - 창 하나만 닫고 다시 엽니다. 브라우저는 창이 모두 닫혀야 끝납니다.
 - 띠의 {t:gpuhint.banner.never} 단추를 눌러 안내를 숨긴 뒤 원인을 잊습니다. 상태는 {c:settings} → {t:set.options}의 {t:gpuhint.set.label} 줄에서 다시 볼 수 있습니다.
-`,nn=`---
+`,rn=`---
 id: faq-boolean-fail
 title: 합치기·빼기가 안 될 때
 분류: 문제 해결
@@ -7147,7 +7200,7 @@ order: 70
 - 그룹으로 묶은 것을 합친 것으로 생각합니다. 그룹은 함께 움직일 뿐 하나의 물체가 아닙니다. [그룹·분리](help:obj-group)를 봅니다.
 - 빼기에서 순서를 반대로 클릭합니다. 결과가 이상하면 Ctrl+Z로 되돌리고 남길 물체부터 다시 클릭합니다.
 - 스케치(평면 도형)를 합치려고 합니다. 스케치는 먼저 {c:extrude} 명령으로 입체로 만듭니다.
-`,rn=`---
+`,an=`---
 id: faq-clicks
 title: 클릭이 안 먹을 때
 분류: 문제 해결
@@ -7184,7 +7237,7 @@ order: 40
 - 도구를 연 채로 물체를 선택하려고 합니다. 도구 창의 안내 문장이 무엇을 클릭할지 알려 줍니다. 선택만 하려면 Esc로 도구를 끝냅니다.
 - 숫자 칸이나 명령줄에 커서가 있어 단축키가 듣지 않습니다. 3D 화면의 빈 곳을 한 번 클릭해 입력 칸에서 나옵니다.
 - 다른 건물의 벽을 선택하려고 합니다. 경로 막대에서 선택하거나 전체 목록에서 그 건물 행을 두 번 클릭해 작업 범위를 이동합니다.
-`,an=`---
+`,on=`---
 id: faq-file-open
 title: 파일이 안 열릴 때
 분류: 문제 해결
@@ -7219,7 +7272,7 @@ order: 60
 - 처음 화면의 {t:start.recoverDiscard} 단추를 눌러 복구 사본을 삭제합니다. 삭제한 사본은 되살릴 수 없습니다.
 - 지금 문서에 더하려던 파일을 {c:open} 명령으로 엽니다. 새 문서로 열리므로, 더하려면 {c:importFile} 명령을 씁니다.
 - 웹판에서 저장한 위치를 잊습니다. 브라우저의 다운로드 폴더를 확인합니다.
-`,on=`---
+`,sn=`---
 id: faq-lost-view
 title: 물체가 안 보일 때
 분류: 문제 해결
@@ -7256,7 +7309,7 @@ order: 80
 - 3D 물체에서 만든 물체를 3D 건설에서 찾습니다. 두 작업 공간은 문서가 따로입니다. 3D 건설로 가져가려면 [건설 물체로 보내기](help:more-send-to-building)를 씁니다.
 - 땅 아래에 놓인 물체를 찾지 못합니다. {c:dropGround} 명령이나 속성 창의 높이로 땅 위로 올립니다.
 - 숨긴 물체를 삭제한 줄 압니다. 물체 창에 이름이 있으면 삭제한 것이 아닙니다.
-`,sn=`---
+`,cn=`---
 id: faq-shortcuts
 title: 단축키
 분류: 문제 해결
@@ -7366,7 +7419,7 @@ order: 10
 - {c:settings} 같은 창이 열려 있으면 단축키가 작업에 닿지 않습니다({c:save} 키는 됩니다). 창을 닫은 뒤 누릅니다.
 - 노트북에서 F 키가 화면 밝기나 소리 키로 쓰이면 Fn 키를 함께 누릅니다.
 - 다른 사람이 쓰던 컴퓨터에서 키가 다르게 동작합니다. 상태 표시줄 오른쪽에서 단축키 방식을 확인합니다.
-`,cn=`---
+`,ln=`---
 id: faq-slow
 title: 화면이 느릴 때
 분류: 문제 해결
@@ -7403,7 +7456,7 @@ order: 50
 - {t:set.drawQuality}을 {t:set.drawQuality.fine}로 둔 채 큰 모델을 엽니다. 발표용 화면 캡처가 끝나면 {t:set.drawQuality.auto}로 회전합니다.
 - 패턴으로 수백 개를 만든 뒤 하나씩 고칩니다. 하나를 고친 뒤 다시 패턴을 만들면 빠릅니다.
 - 반투명 표시 방식을 계속 씁니다. 반투명은 그리는 양이 많아 느립니다.
-`,ln=`---
+`,un=`---
 id: faq-terrain-pits
 title: 땅에 구덩이나 솟은 곳이 보일 때
 분류: 문제 해결
@@ -7438,7 +7491,7 @@ order: 30
 - 평탄화를 삭제한 줄 알았는데 남아 있습니다. {c:grade} 창의 목록에서 남은 평탄화를 확인합니다.
 - 평탄화를 바꾼 뒤 도로가 공중에 떠 보입니다. {t:civil.refit} 단추를 누르면 지금 땅에 맞춰집니다.
 - 땅을 반투명으로 보고 있어 구멍처럼 보입니다. {c:terrainView}에서 비침 정도를 확인합니다.
-`,un=`---
+`,dn=`---
 id: start-delete
 title: Delete
 분류: 시작하기
@@ -7481,7 +7534,7 @@ Deletes the selected objects, sketches or lines. When only faces, edges or verti
 - Faces and edges of mesh objects imported from other programs cannot be deleted one by one. Click {t:btn.meshToSolid} in the {t:panel.props} window first.
 - If you only want it out of sight for a while, hide it instead: [hide and show](help:start-hide).
 - Even after other changes, pressing Ctrl+Z several times brings a deleted object back: [undo and redo](help:start-undo).
-`,dn=`---
+`,fn=`---
 id: start-export
 title: Export and 3D printing
 분류: 시작하기
@@ -7564,7 +7617,7 @@ Writes your objects to files that 3D printers and other programs read. Use STL o
 - An STL exported from 3D Building is scaled down, not real size. Check the {t:sc.outSize} in the window.
 - A plain number such as \`50\` in the scale field makes the file 50 times larger. To make it smaller, type \`1:50\`. In a drawing's scale field, a plain number means 1:number.
 - A typed scale is not used until you press Enter or click elsewhere; until then {t:sc.pending} shows under the field.
-`,fn=`---
+`,pn=`---
 id: start-hide
 title: Hide and show
 분류: 시작하기
@@ -7605,7 +7658,7 @@ Hides objects that are in the way for a while and shows them again. Hidden objec
 - After {c:isolate} the other objects stay hidden. Use {c:unhideAll} when you are done.
 - Hidden objects are not exported and are not selected by {c:selectAll}.
 - An object may also be out of sight: [moving the view](help:start-view), [when objects are not visible](help:faq-lost-view).
-`,pn=`---
+`,mn=`---
 id: start-level
 title: Basic and Advanced menus
 분류: 시작하기
@@ -7649,7 +7702,7 @@ The {t:level.basic} | {t:level.advanced} switch at the right of the menu bar set
 - If a menu described in the help does not have the tool, check whether the {t:level.basic} menus are on. At {t:level.basic} the same tool can be on another tab.
 - If a tool window lacks an option, click {t:ac.advanced} to open the folded options.
 - Switching to {t:level.advanced} does not change your objects. Only the menus and tool windows change.
-`,mn=`---
+`,hn=`---
 id: start-modes
 title: 3D Object and 3D Building
 분류: 시작하기
@@ -7695,7 +7748,7 @@ NukCAD has two kinds of work. {t:mode.print} makes hand-sized objects in millime
 - The switch does not move objects. To put a 3D Object part into a building, use {c:sendToBuilding}.
 - Saving writes only the work you are looking at. To keep both, save each one.
 - In 3D Building a plain number is in metres. Type 30 cm as \`0.3\` or \`30cm\`.
-`,hn=`---
+`,gn=`---
 id: start-open
 title: Open and import files
 분류: 시작하기
@@ -7746,7 +7799,7 @@ Opens a NukCAD file you saved, or brings 3D and 2D files from other programs int
 - The web version cannot import DWG. Save it as DXF in AutoCAD and import that.
 - Meshes with more than 1,500,000 triangles are not read. Reduce them in the program they came from.
 - If a file does not open, see [when a file does not open](help:faq-file-open).
-`,gn=`---
+`,_n=`---
 id: start-save
 title: Save
 분류: 시작하기
@@ -7787,7 +7840,7 @@ Saves your work as a NukCAD file (.nkx). When you open the file again, the objec
 - An STL alone cannot be edited step by step later. Save the work you want to change as .nkx.
 - Saving writes only the kind of work you are looking at. Save 3D Object and 3D Building work separately: [3D Object and 3D Building](help:start-modes).
 - Closing the save window saves nothing. If the • after the file name is still there, save again.
-`,_n=`---
+`,vn=`---
 id: start-screen
 title: Screen layout
 분류: 시작하기
@@ -7856,7 +7909,7 @@ The NukCAD screen has the menu bar at the top, the 3D view in the middle, window
 - If a tool is not where you expect, the {t:level.basic} menus may have it on another tab or not at all. The menu paths in the help follow the level you use. Select {t:level.advanced} at the right of the menu bar to see every tool: [Basic and Advanced menus](help:start-level).
 - The menus of 3D Building differ from 3D Object (tabs such as {t:group.site} and {t:group.build}). The 3D object tools are inside the {t:archui.tab.model} tab.
 - There is no language button in the status bar. Change the language with the globe button next to {c:save} at the left of the menu bar.
-`,vn=`---
+`,yn=`---
 id: start-select
 title: Selecting
 분류: 시작하기
@@ -7906,7 +7959,7 @@ Select objects, sketches, faces or edges before using a tool or deleting. What i
 - While a tool is open, clicks go to the tool. Press Esc to end the tool before selecting.
 - With {t:pf.title} on, whole objects may not be selected. Check the status bar.
 - Hidden objects are not selected by {c:selectAll}: [hide and show](help:start-hide).
-`,yn=`---
+`,bn=`---
 id: start-settings
 title: Preferences
 분류: 시작하기
@@ -7955,7 +8008,7 @@ order: 140
 - If pressing a letter runs a tool at once, the shortcut style is {t:set.keymap.fusion} or {t:set.keymap.blender}. Select {t:set.keymap.autocad} to type in the command line.
 - The {t:set.map} tab is not shown in 3D Object; that is normal.
 - Clearing the browser's site data can put the settings back to their defaults.
-`,bn=`---
+`,xn=`---
 id: start-undo
 title: Undo and redo
 분류: 시작하기
@@ -7993,7 +8046,7 @@ Takes back the last change to return to the state before it, and redoes what you
 - Turning the view or selecting objects are not undo steps.
 - Opening a file or starting with {c:new} starts a new history.
 - When the history takes too much memory, its oldest steps are let go and you are told.
-`,xn=`---
+`,Sn=`---
 id: start-units
 title: Units and sizes
 분류: 시작하기
@@ -8039,7 +8092,7 @@ The kind of work sets the unit: {t:mode.short.print} uses mm and {t:mode.short.a
 - Units such as \`km\` or \`ft\` are not read. Use mm, cm, m or in.
 - There is no setting that changes mm to m. The kind of work sets the unit.
 - If an imported STL is about 10 or 25.4 times too big or too small, the file has another unit. Change the {t:imp.unit} while placing it.
-`,Sn=`---
+`,Cn=`---
 id: start-view
 title: Moving the view
 분류: 시작하기
@@ -8087,7 +8140,7 @@ Turn, move and zoom the 3D view to see your objects from the direction you want.
 - With the {c:pan} or {c:orbit} button left on, clicks do not select objects. Press Esc to switch it off.
 - A right click without dragging does not orbit: it opens a menu, or applies (Enter) while a tool is open.
 - In the {t:view.persp} view lengths are hard to compare by eye. Use the {t:view.ortho} view when matching sizes.
-`,Cn=`---
+`,wn=`---
 id: start-windows
 title: Working with windows
 분류: 시작하기
@@ -8133,7 +8186,7 @@ Windows such as {t:panel.objects}, {t:panel.props} and {t:win.toolPanel} can be 
 - If the {t:panel.props} window is missing, it is closed or collapsed. Switch it on in the {t:win.menu} menu or press {k:toggleRight}.
 - {c:winReset} resets only the layout of the current kind of work.
 - {t:set.reset} in {c:settings} also resets the window layout, together with the other settings: [preferences](help:start-settings).
-`,wn=`---
+`,Tn=`---
 id: obj-align
 title: Align
 분류: 3D 물체 도구
@@ -8178,7 +8231,7 @@ Lines up the ends or the middles of several objects, axis by axis. Click the dot
 - Centring without a reference can move every object. To keep one object still, make it the reference.
 - Clicking empty space ends the tool. Click on a dot or an object.
 - With only flat sketches selected there are no Z dots, because they have no height.
-`,Tn=`---
+`,En=`---
 id: obj-annotate
 title: 3D dimensions
 분류: 3D 물체 도구
@@ -8226,7 +8279,7 @@ Puts dimensions such as lengths, diameters and radii on 3D objects. A dimension 
 - You wanted two points, but the first click took the whole edge. Click when the corner marker shows to select a point.
 - {t:tab.dimArc} and {t:tab.dimJogged} take round edges only. Clicking a straight edge only shows a message.
 - Typing over the number of a 3D dimension does not resize the object. Change sizes with [Smart Scale](help:obj-smart-scale) or in the Properties window.
-`,En=`---
+`,Dn=`---
 id: obj-box
 title: Make a box
 분류: 3D 물체 도구
@@ -8268,7 +8321,7 @@ Places a box with a set length, width and height. Many models start from one box
 - Values outside 0.1 to 2000 mm (3D objects) or 0.01 to 500 m (3D construction) are refused, and the allowed range is shown.
 - In 3D construction the numbers are metres: \`box 30 20 10\` makes a box 30 m long.
 - One click places one box and the tool ends. The new box is selected, so further clicks do not add more boxes.
-`,Dn=`---
+`,On=`---
 id: obj-chamfer
 title: Chamfer
 분류: 3D 물체 도구
@@ -8305,7 +8358,7 @@ Cuts the edges of a solid at a slant, the same distance back on both sides. Use 
 - A distance that is too large gives the error {t:err.chamfer-failed} and nothing is applied. The arrow stops at half the object's thinnest size.
 - Clicking an edge of another object lets go of the earlier edges and starts again with that object. Select edges of one object at a time.
 - To take a chamfer back, press Ctrl+Z, or delete the chamfer step in the list of steps in the {c:toggleLeft} window.
-`,On=`---
+`,kn=`---
 id: obj-curve-edit
 title: Edit Curve
 분류: 3D 물체 도구
@@ -8350,7 +8403,7 @@ Reshapes a line by dragging its points and handles, like Illustrator's direct se
 - Removing points that would leave too few is refused; those points stay.
 - A curved road that bends more sharply than half its width is refused. Shorten the handles for a gentler curve.
 - Walls, roads and similar objects that have been tilted do not open in Edit Curve.
-`,kn=`---
+`,An=`---
 id: obj-dimension
 title: 2D dimensions
 분류: 3D 물체 도구
@@ -8395,7 +8448,7 @@ Puts length, diameter, radius and angle dimensions on the lines, circles and arc
 - A reference dimension only shows the size, so its value cannot be changed.
 - Clicking something that does not fit the tab shows {t:msg.dimWrongKind}. For example, {c:dimArc} needs an arc.
 - Angle dimensions take only values above 0° and below 180°.
-`,An=`---
+`,jn=`---
 id: obj-drawing-sheet
 title: Drawing sheet, title block and export
 분류: 3D 물체 도구
@@ -8479,7 +8532,7 @@ Covers the paper of a projection drawing (size, direction, scale), the title blo
 - Looking for a PDF button: click {t:dv.print} and select "Save as PDF" in the print window.
 - The DXF holds only one page. Save every page with {t:dp.dxfAll}.
 - Deleting a page deletes its views too. Press Ctrl+Z if it was a mistake.
-`,jn=`---
+`,Mn=`---
 id: obj-drawing
 title: Projection drawings
 분류: 3D 물체 도구
@@ -8541,7 +8594,7 @@ Turns 3D objects into front, top, side and other views on a sheet of paper. Hidd
 - Mesh objects such as STL files are left out. Use {t:btn.meshToSolid} in the Properties window to include them.
 - A size dimensioned on the front view does not appear again on the top view. That is the KS rule of giving each size only once.
 - {t:dp.byLine} works only on orthographic views such as the front, top or side view, not on an isometric view.
-`,Mn=`---
+`,Nn=`---
 id: obj-drop
 title: Drop to floor
 분류: 3D 물체 도구
@@ -8581,7 +8634,7 @@ Puts an object that floats, or sinks below the floor, down onto the floor (Z=0).
 - {c:drop} with nothing selected only shows a message. Click the object first.
 - {c:drop} only goes to the floor (Z=0). To put an object on top of another, use {c:faceSnap} or [align](help:obj-align).
 - In {c:faceSnap}, clicking a face of the same object as the second select does nothing. Click a face of the other object.
-`,Nn=`---
+`,Pn=`---
 id: obj-duplicate
 title: Duplicate, copy and linked copy
 분류: 3D 물체 도구
@@ -8628,7 +8681,7 @@ Makes an identical copy of the selected objects. {c:duplicate} makes an independ
 - Ctrl+D with nothing selected only shows a message. Click the object first.
 - A hole drilled into one linked copy appeared in all of them. To change only one copy, click {c:unlink} first.
 - Ctrl+C alone makes nothing appear. Press Ctrl+V to place the copy.
-`,Pn=`---
+`,Fn=`---
 id: obj-extrude
 title: Extrude
 분류: 3D 물체 도구
@@ -8674,7 +8727,7 @@ Gives a closed area of a sketch thickness to make a solid. Use it to stand up a 
 - With {t:op.subtract} or {t:op.union} selected but no {t:role.target}, a separate new object is made.
 - When the preview has an error, nothing is made and {t:msg.fixErrorFirst} is shown. Try another distance or direction.
 - One extrude takes areas of one sketch only. Clicking an area of another sketch lets go of the earlier areas and takes that sketch instead.
-`,Fn=`---
+`,In=`---
 id: obj-fillet
 title: Fillet
 분류: 3D 물체 도구
@@ -8713,7 +8766,7 @@ Rounds the edges of a solid with a set radius. Use it to soften edges you touch,
 - A radius that is too large gives the error {t:err.fillet-failed} and nothing is applied. The arrow stops at half the object's thinnest size, so stay below that.
 - Only the edges of one object can be selected at a time. Clicking an edge of another object lets go of the earlier edges and starts again with that object.
 - Clicking the middle of a face selects nothing. Click right on the edge line.
-`,In=`---
+`,Ln=`---
 id: obj-group
 title: Group and separate
 분류: 3D 물체 도구
@@ -8770,7 +8823,7 @@ Groups several objects so they are selected and moved together. Their shapes do 
 - On an object without loose pieces, {c:separate} only shows {t:msg.nothingToSeparate}.
 - In 3D Building a part cannot be dropped into a group on another level. Drag and drop never changes a part's level.
 - {t:obj.mDelete} on a group row deletes the objects in it too. To remove only the group, select {t:ot.mUngroup}.
-`,Ln=`---
+`,Rn=`---
 id: obj-hole
 title: Make a hole
 분류: 3D 물체 도구
@@ -8813,7 +8866,7 @@ Drills a hole into a face at a point you select. Holes can be round or rectangul
 - A depth smaller than the part's thickness leaves a blind hole. Set the depth to 0 to go all the way through.
 - A {t:opt.cbDiameter} or {t:opt.csDiameter} that is not larger than the hole is not applied. Make it larger than the hole diameter.
 - Clicking empty space does nothing. Click on a face of an object.
-`,Rn=`---
+`,zn=`---
 id: obj-image-relief
 title: Relief
 분류: 3D 물체 도구
@@ -8870,7 +8923,7 @@ Turns a picture into a solid: a closed object with the picture's shape standing 
 - {t:img.reliefMethod.shade} expects a photo lit from one side. A frontal flash, backlight, mixed lights or strong patterns come out wrong; use {t:img.reliefMethod.depth} then.
 - With {t:img.reliefMethod.bright}, see-through parts of a picture count as white and rise high. Turn {t:img.invert} on if needed.
 - To use union, fillet or other tools on a relief, first press {t:btn.meshToSolid} in the Properties window. With too many triangles this is not possible: make it again with a larger {t:img.reliefRes}.
-`,zn=`---
+`,Bn=`---
 id: obj-image-trace
 title: Trace outline
 분류: 3D 물체 도구
@@ -8909,7 +8962,7 @@ Finds the edges of the dark parts of a picture (or the light ones, inverted) and
 - 3D construction has no trace outline. Make it in 3D objects.
 - No outline appears: the picture is too light or too dark. Move {t:img.threshold} or switch {t:img.invert}.
 - Very small specks are taken as noise and get no lines. Place the picture larger or raise its contrast.
-`,Bn=`---
+`,Vn=`---
 id: obj-image-underlay
 title: Underlay
 분류: 3D 물체 도구
@@ -8946,7 +8999,7 @@ While a sketch is edited, lays a picture on the sketch plane so you can draw ove
 - {c:imageUnderlay} works only while a sketch is edited. Make or edit a sketch first.
 - While a sketch is edited the underlay cannot be clicked on the view: the lines come first. Click its row in the Objects window.
 - The calibration is off: a photo taken at an angle has different scales across and down. Use a photo taken straight on, or a scanned drawing.
-`,Vn=`---
+`,Hn=`---
 id: obj-image
 title: Place image
 분류: 3D 물체 도구
@@ -8992,7 +9045,7 @@ Lays a picture file (PNG, JPG, WebP, GIF, BMP, SVG) on a face of an object, a wa
 - While another tool is open, images cannot be clicked: the tool selects the face under them. Press Esc to end the tool first.
 - An image is not shown: the eye menu's {t:vis.images} is set to hide, or its object is hidden.
 - The STL file has no picture: an image is like paint and does not change the shape. To turn a picture into a solid, use [Relief](help:obj-image-relief) or [Trace outline](help:obj-image-trace).
-`,Hn=`---
+`,Un=`---
 id: obj-intersect
 title: Intersect objects
 분류: 3D 물체 도구
@@ -9028,7 +9081,7 @@ A Boolean tool that keeps only the part where objects overlap and removes the re
 - An object that does not touch the base object cannot be selected. Move them so they really overlap first.
 - Objects whose faces only touch, without overlapping inside, leave nothing, so no result can be made.
 - Surfaces without thickness cannot be used. Make them solid first with [Thicken or Fill Faces](help:obj-tweak).
-`,Un=`---
+`,Wn=`---
 id: obj-line-style
 title: 2D line weight, colour and type
 분류: 3D 물체 도구
@@ -9070,7 +9123,7 @@ Sets the colour, weight and type (continuous, hidden, centre, phantom) of sketch
 - A field shows {t:ls.mixed}: the selected lines have different values. Selecting a value makes them all the same.
 - The colour of 3D objects is not set here. See [colours and materials](help:obj-material).
 - Line weights and types in a projection drawing follow the KS rules by themselves; they are not set here ([drawing](help:obj-drawing)).
-`,Wn=`---
+`,Gn=`---
 id: obj-loft
 title: Loft
 분류: 3D 물체 도구
@@ -9111,7 +9164,7 @@ Joins several profiles at different heights, in the order you select them, into 
 - Profiles with different numbers of holes cannot be joined ({t:err.loft-holes}).
 - Selecting the profiles out of order joins them crosswise. Take them out with Ctrl+Z and select again from the bottom.
 - With all profiles drawn in one sketch, only one can be selected. Draw each profile in its own sketch on its own plane.
-`,Gn=`---
+`,Kn=`---
 id: obj-material
 title: Colours and materials
 분류: 3D 물체 도구
@@ -9151,7 +9204,7 @@ Changes the colour and the material (plastic, metal, wood, glass …) of the sel
 - {c:material} with nothing selected only shows a message and does not open the material box. Select the object first.
 - The selected colour does not show and the material keeps its own colour: {t:mat.overlay} is off. Turn it on.
 - Sketch line colours are not set here. See [2D line weight and colour](help:obj-line-style).
-`,Kn=`---
+`,qn=`---
 id: obj-measure
 title: Measure
 분류: 3D 물체 도구
@@ -9195,7 +9248,7 @@ Click points, edges, faces or objects to read distances, angles, areas and volum
 - No volume appears. Clicking a face gives only its area. Switch to {t:m.filterBody} and click the object.
 - No angle appears. Angles between curved faces or curved edges are not worked out. Select flat faces or straight edges.
 - You wanted a corner but got an edge length. Move closer to the corner until the point marker shows, then click.
-`,qn=`---
+`,Jn=`---
 id: obj-mirror
 title: Mirror
 분류: 3D 물체 도구
@@ -9237,7 +9290,7 @@ Makes a mirrored copy of solids about a plane. For an object whose left and righ
 - With {t:opt.planeFace}, a curved face such as the side of a cylinder cannot be selected. Click a flat face.
 - With {t:opt.atCenter}, the copy of a symmetric object lies exactly on the original, so it seems nothing happened. Select {t:opt.atSide} to put the copy beside it.
 - For many copies at equal spacing, do not repeat the mirror: use a [pattern](help:obj-pattern).
-`,Jn=`---
+`,Yn=`---
 id: obj-move
 title: Move and rotate
 분류: 3D 물체 도구
@@ -9306,7 +9359,7 @@ Moves and turns the selected objects with arrow, square and ring handles. Distan
 - Clicking empty space ends the tool. Click on the object itself.
 - A square handle takes no typed value. For an exact distance, click an arrow.
 - In local, the arrows of a turned object point at a slant. To move along the ground's X, Y and Z, switch the handle axes to world in the status bar.
-`,Yn=`---
+`,Xn=`---
 id: obj-partial-delete
 title: Partial delete and splitting
 분류: 3D 물체 도구
@@ -9353,7 +9406,7 @@ Deletes only the selected faces, edges or vertices of an object instead of the w
 - Objects brought in as triangle meshes (STL and similar) cannot have faces, edges or vertices deleted separately.
 - Vertices and edges that touch a curved face cannot be deleted. Select the curved face and delete it instead.
 - With nothing selected, only {t:err.sub-none} appears. Select the object, then click it again to select a face, edge or vertex.
-`,Xn=`---
+`,Zn=`---
 id: obj-parts
 title: Machine parts
 분류: 3D 물체 도구
@@ -9395,7 +9448,7 @@ Makes machine parts such as bolts, nuts, spur gears, racks, cams, springs and he
 - Pressing Esc before clicking in the 3D view or pressing Enter places nothing.
 - The {t:group.parts} menu is only in 3D Object Modeling. To use a part in 3D Building Modeling, make it there and use [Send to Building](help:more-send-to-building).
 - Two gears with different modules do not mesh. Make them with the same module.
-`,Zn=`---
+`,Qn=`---
 id: obj-pattern
 title: Patterns
 분류: 3D 물체 도구
@@ -9454,7 +9507,7 @@ Makes several evenly spaced copies of the selected objects. {c:rectPattern} lays
 - With every count of a rectangular pattern at 1 there is no copy, so Apply stays off. Set at least one direction to 2 or more.
 - A spacing smaller than the object makes the copies overlap. Type a spacing larger than the object.
 - A pattern on a path takes sketch lines only. Clicking an edge of a 3D object does not make a path.
-`,Qn=`---
+`,$n=`---
 id: obj-presspull
 title: Press Pull
 분류: 3D 물체 도구
@@ -9491,7 +9544,7 @@ Pushes or pulls one face of a solid square to itself to change its thickness or 
 - A distance of 0 cannot be used. If {t:msg.notZero} appears, type a value other than 0.
 - Only one face moves at a time. Clicking another face makes that face the one selected.
 - A preview that shows an error is not applied. Try a shorter distance or the other direction.
-`,$n=`---
+`,er=`---
 id: obj-primitives
 title: Primitives
 분류: 3D 물체 도구
@@ -9550,7 +9603,7 @@ Type the numbers in this order. The first sizes are those of 3D objects; 3D cons
 - The tube radius of a torus must be smaller than its ring radius; a larger one is refused.
 - Values outside 0.1 to 2000 mm (3D objects) or 0.01 to 500 m (3D construction) are refused, and the allowed range is shown. The number of sides must be a whole number.
 - One click places one shape and the tool ends. To place more of the same, press Enter to open the tool again.
-`,er=`---
+`,tr=`---
 id: obj-revolve
 title: Revolve
 분류: 3D 물체 도구
@@ -9592,7 +9645,7 @@ Spins half of a profile around an axis to make round objects such as cups, bottl
 - The axis line must be in the same sketch as the profile; lines of another sketch cannot be the axis.
 - The angle cannot be 0.
 - For a hollow object such as a cup, draw a half profile with a wall thickness (an L shape), or revolve a solid one and use [Shell](help:obj-shell).
-`,tr=`---
+`,nr=`---
 id: obj-section
 title: Section View
 분류: 3D 물체 도구
@@ -9633,7 +9686,7 @@ Cuts the view of the objects with a plane so you can look inside. Only what you 
 - {t:btn.close} or Esc in the tool window closes it and turns the section off as well. To keep the section, press Apply (Enter).
 - The section only cuts the view. Exported or 3D-printed objects are not cut.
 - Clicking a curved face with {t:opt.sectionPick} shows {t:msg.flatFaceOnly}. Click a flat face or a work plane.
-`,nr=`---
+`,rr=`---
 id: obj-select-similar
 title: Select Similar
 분류: 3D 물체 도구
@@ -9672,7 +9725,7 @@ Selects everything alike to an example object or 2D line in one go: things of th
 - Hidden objects are never selected. Show them first if they should be included ([hide and show](help:start-hide)).
 - {t:sel.by.color} selects only exactly the same colour. Colours that look alike but have another colour code are left out.
 - Selecting an object that belongs to a group selects the whole group.
-`,rr=`---
+`,ir=`---
 id: obj-shell
 title: Shell
 분류: 3D 물체 도구
@@ -9710,7 +9763,7 @@ Opens the selected faces of a solid and hollows it out, leaving walls of a set t
 - Walls that are too thick give the error {t:err.shell-failed} and nothing is applied. The arrow stops at half the object's thinnest size.
 - Nothing can be applied until at least one face is selected: this tool always opens a face.
 - Clicking a face of another object lets go of the earlier faces and starts again with that object.
-`,ir=`---
+`,ar=`---
 id: obj-sketch-draw
 title: Sketch drawing tools
 분류: 3D 물체 도구
@@ -9774,7 +9827,7 @@ AutoCAD-style tools that draw 2D shapes such as lines, rectangles, circles, arcs
 - You cannot draw on a curved face. With {t:plane3.auto}, clicking a curved face starts the three-point plane method ([three-point plane](help:obj-sketch-plane3)).
 - If the plane is seen almost edge-on, no point is placed. Use {c:faceView} to see the plane from the front.
 - A sketch made by a drawing tool stops being edited when the tool closes. To keep drawing in it, start with {c:newSketch} or press {c:editSketch}.
-`,ar=`---
+`,or=`---
 id: obj-sketch-edit
 title: 2D Edit
 분류: 3D 물체 도구
@@ -9831,7 +9884,7 @@ AutoCAD-style 2D tools that trim, extend, offset, move and rotate the lines in a
 - With no line in the way, {c:extend} does nothing. Set the length with {c:lengthen} instead.
 - Curves such as splines can only be shortened with {c:lengthen}.
 - When an edit makes a line disappear, dimensions measuring it are removed too and you are told how many. Add them again if needed.
-`,or=`---
+`,sr=`---
 id: obj-sketch-plane3
 title: Sketch on a plane through three points
 분류: 3D 물체 도구
@@ -9874,7 +9927,7 @@ Fixes a plane through three points on different faces or objects and sketches on
 - Pressing Enter in {c:newSketch} before there are three points asks for one more point.
 - Fixing the plane does not turn the view. Use {c:faceView} to see the plane from the front.
 - Starting a line on a corner makes no sketch until the third point. To draw on that face at once, select {t:plane3.face} or click inside the face.
-`,sr=`---
+`,cr=`---
 id: obj-sketch
 title: Draw a sketch and make it 3D
 분류: 3D 물체 도구
@@ -9917,7 +9970,7 @@ The basic workflow of drawing a 2D sketch (lines, rectangles, circles) on a face
 - A curved face (the side of a cylinder) cannot hold a sketch. Select a flat face or a [workplane](help:obj-workplane).
 - A sketch drawn on a face of an object is extruded into that object, not as a new one. To keep it separate, select {t:op.new} in the [Extrude](help:obj-extrude) window.
 - Starting a drawing tool on a corner or an edge begins the three-point plane method. Click inside a face to draw on that face at once ([three-point plane](help:obj-sketch-plane3)).
-`,cr=`---
+`,lr=`---
 id: obj-smart-scale
 title: Smart Scale
 분류: 3D 물체 도구
@@ -9961,7 +10014,7 @@ Changes the size of an object by dragging the handles around it. Stretch one sid
 - A yellow handle made the object grow to one side only. That is how it works: the opposite side stays. To grow about the middle, use {t:opt.factor}.
 - Smart Scale works on one object at a time. To scale several together, use {c:scale}.
 - Scaling changes hole diameters and wall thicknesses in the same proportion. Check parts with a fixed size, such as screw holes, after scaling ([measure](help:obj-measure)).
-`,lr=`---
+`,ur=`---
 id: obj-split
 title: Split Body
 분류: 3D 물체 도구
@@ -10000,7 +10053,7 @@ Cuts one solid with a plane into two objects that can be moved apart. Use it to 
 - Clicking a face of the solid being split does not make a cutting plane. Click a face of another object or a [work plane](help:obj-workplane), or set the plane with {t:split.draw}.
 - Curved faces cannot be the cutting plane. If {t:msg.flatFaceOnly} appears, select a flat face.
 - With {t:split.by3}, three points in one line make no plane.
-`,ur=`---
+`,dr=`---
 id: obj-subtract
 title: Subtract objects
 분류: 3D 물체 도구
@@ -10039,7 +10092,7 @@ A Boolean tool that carves the shape of overlapping objects out of the object yo
 - Clicking the two objects the wrong way round gives the opposite result. Check the {t:role.keep} list before applying, and click {t:opt.swapRoles} if needed.
 - If the result falls apart into separate pieces, use [Separate](help:obj-group) to make each piece its own object.
 - If an error appears, see [when merge or subtract fails](help:faq-boolean-fail).
-`,dr=`---
+`,fr=`---
 id: obj-sweep
 title: Sweep and pipe
 분류: 3D 물체 도구
@@ -10083,7 +10136,7 @@ order: 19
 - If {t:err.sweep-failed} appears, round the sharp bends of the path with {c:fillet2d} or make the profile smaller.
 - The {t:opt.pipeInner} of {c:pipe} must be smaller than its {t:opt.pipeDiameter}.
 - Select the profile before the path. Clicking a line with no profile selected is not taken as the path.
-`,fr=`---
+`,pr=`---
 id: obj-text
 title: Text
 분류: 3D 물체 도구
@@ -10129,7 +10182,7 @@ Turns letter outlines into a sketch, then engraves them into an object or raises
 - {c:editText} works only on sketches made with the text tool; with another sketch selected it shows {t:msg.pickText}.
 - Pushing the extrude deeper than the object is thick cuts the letters right through. Keep the engraving depth less than the thickness.
 - The 3D construction menus have no {c:text}; type \`text\` in the command line to use it there.
-`,pr=`---
+`,mr=`---
 id: obj-tweak
 title: Tweak, Thicken and Fill Faces
 분류: 3D 물체 도구
@@ -10183,7 +10236,7 @@ Moves vertices, edges and faces of a solid with arrows to change its shape, for 
 - Moving too far makes faces pass through each other and the move is not applied. Move less or the other way.
 - Points and lines cannot be added on a face with holes.
 - {c:thicken} and {c:capSolid} do not work on a closed solid. They are only for surfaces without thickness and open objects.
-`,mr=`---
+`,hr=`---
 id: obj-union
 title: Merge objects
 분류: 3D 물체 도구
@@ -10220,7 +10273,7 @@ A Boolean tool that joins several touching or overlapping solids into one solid.
 - Objects that do not touch cannot be merged. A selected object that does not touch is dropped from the list with a message. Move them together first with [align](help:obj-align) or [move](help:obj-move).
 - Surfaces without thickness cannot be merged. Make them solid first with [Thicken or Fill Faces](help:obj-tweak).
 - If the result looks wrong or an error appears, see [when merge or subtract fails](help:faq-boolean-fail).
-`,hr=`---
+`,gr=`---
 id: obj-workplane
 title: Workplane
 분류: 3D 물체 도구
@@ -10260,7 +10313,7 @@ Makes a plane at a set distance from a face or the ground, or midway between two
 - {t:opt.wpMid} takes only faces parallel to each other ({t:msg.parallelOnly}).
 - {t:opt.wpMid} cannot use empty space (the ground). Click faces of objects or workplanes.
 - A workplane is not an object: it is not 3D-printed or merged. It only serves as a base for drawing and cutting.
-`,gr="---\nid: rec-bookshelf\ntitle: Bookshelf\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: bookshelf, bookcase, book shelf, shelf, shelves, cabinet, display case, compartments, furniture, furniture model, miniature, shell, rectangular pattern, array\ncommands: box, shell, rectPattern, union\norder: 50\n---\n\n## What\n\nMakes a bookshelf model 60 mm wide, 20 mm deep and 80 mm tall. A box is opened at the front and hollowed with [Shell](help:obj-shell) to make the frame, and one shelf is repeated upwards with a [rectangular pattern](help:obj-pattern) to give four compartments of equal height.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `60`, {t:param.y} `20`, {t:param.z} `80` and {t:panel.position} X, Y and Z to `0`.\n2. Click {m:shell} and click the front face (the low-Y side, where the books go in). Set {t:opt.thickness} to `2` and click {t:btn.apply}. The inside is now 56 wide, 18 deep and 76 mm high.\n3. Place a box for a shelf and set {t:param.x} `56`, {t:param.y} `18`, {t:param.z} `2` and {t:panel.position} X `0`, Y `-1`, Z `19.5`. The shelf touches both side walls and the back.\n4. With the shelf selected, click {m:rectPattern}. Set {t:opt.count} X `1`, Y `1`, Z `3` and {t:opt.spacing} Z `19.5`, then click {t:btn.apply}. All four compartments are 17.5 mm high.\n5. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- Compartment height: (inside height 76 − shelf thickness 2 × 3 shelves) ÷ 4 compartments = 17.5 mm; shelf spacing = compartment height + shelf thickness = 19.5 mm. You can type a [calculation](help:input-calc) such as `(76-2*3)/4+2` straight into the field.\n- [Subtract](help:obj-subtract) gives the same bookshelf. Into an unhollowed box put a 56 × 19 × 17.5 box at X `0`, Y `-1.5`, Z `2`, repeat it 4 times along Z with {c:rectPattern} (spacing 19.5), then in {c:subtract} click the bookshelf first, click the four boxes and press Enter. The cutters stick out 1 mm past the front, so the cut comes out clean.\n- For an open display case with no back, click both the front and the back face in {c:shell}. Several faces can be left open.\n- For 3D printing, lay it on its back with {c:dropFace}: every shelf becomes a standing wall and it prints easily without supports.\n- To divide the compartments sideways too, make one upright divider (2 × 18 × 76) and repeat it along X with {c:rectPattern}.\n\n## Common mistakes\n\n- Selecting the top face in {c:shell} gives a box open at the top. Select the front face, where the books go in.\n- The default {t:opt.count} X in {c:rectPattern} is 3. Unless X is set to `1`, the shelves also repeat sideways, outside the bookshelf.\n- A shelf that does not touch the walls cannot be merged; a message says the objects do not touch. Make the shelf length equal to the inside width (56).\n- Changing the shell thickness changes the inside size too. If you change it, work out the shelf size and spacing again.\n",_r="---\nid: rec-car\ntitle: Simple car\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: car, toy car, vehicle, auto, automobile, model car, wheels, four wheels, tyre, tire, car body, mirror, fillet\ncommands: box, fillet, cylinder, mirror3d, union\norder: 100\n---\n\n## What\n\nMakes a toy car 80 mm long, 46 mm wide and 34 mm tall. The body and the roof are boxes with rounded edges; the wheels are one cylinder copied twice with [Mirror](help:obj-mirror) to make four.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `80`, {t:param.y} `36`, {t:param.z} `14` and {t:panel.position} X `0`, Y `0`, Z `8`. This is the body.\n2. Place another box and set {t:param.x} `40`, {t:param.y} `30`, {t:param.z} `12` and {t:panel.position} X `-6`, Y `0`, Z `22`. This is the roof (cabin).\n3. Select the body and click {m:fillet}. In the window click the button that selects every edge of the object, set {t:opt.radius} to `3` and click {t:btn.apply}. Round the roof the same way.\n4. Click {m:cylinder} and place it on the floor. In the Properties window set {t:param.r} `9` and {t:param.h} `6`, type `90` in the X field of {t:panel.rotation} and set {t:panel.position} to X `25`, Y `23`, Z `9`. Stood up this way, the cylinder reaches 6 mm towards −Y from its position and sinks 1 mm into the side of the body.\n5. With the wheel selected, click {m:mirror3d}, select the {t:opt.planeYZ} plane, change {t:opt.mirrorAt} to {t:opt.atOrigin} and click {t:btn.apply}. This makes the rear wheel.\n6. Hold Shift, select both wheels and click {c:mirror3d} again. Select the {t:opt.planeXZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin} and click {t:btn.apply}: the two wheels on the other side appear.\n7. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- A [rectangular pattern](help:obj-pattern) works instead of Mirror: put the first wheel at X `-25`, Y `-17` and use {c:rectPattern} with {t:opt.count} X and Y `2` and {t:opt.spacing} X `50`, Y `40`.\n- For tyres, make a {c:torus} with {t:param.R} `7` and {t:param.r2} `2.5`, and set {t:panel.rotation} X `90` and {t:panel.position} X `25`, Y `25.5`, Z `9`: the ring sits on the outer face of the wheel. It reaches 0.5 mm below the floor, so after merging use {c:drop} to put the car back on the floor.\n- Windows: overlap a thin box 1 mm into the side of the roof and carve it out with {c:subtract}. Make one side and use {c:mirror3d} for the other.\n- Fillet the body and the roof separately before merging. After merging there are many more edges and they are hard to select.\n- The underside of the body is 8 mm above the floor, so switch on supports in your slicer when printing.\n- To resize, switch on {t:opt.keepRatio} in [Smart Scale](help:obj-smart-scale) and type the length. Combining Mirror and Align is covered in [Quick layout with Align and Mirror](help:rec-trick-align-mirror).\n\n## Common mistakes\n\n- Without the rotation (X 0) the wheel is a disc lying on the floor.\n- With {t:opt.mirrorAt} left at {t:opt.atSide}, the copy appears right next to the original. The body is centred on the origin, so select {t:opt.atOrigin}.\n- A wheel set apart from the body (for example Y `24`) only just touches it or floats, and they do not merge into one piece. Let the wheel sink into the body a little.\n- A fillet radius larger than half the roof height (6 mm) cannot be made.\n",vr="---\nid: rec-chair\ntitle: Chair\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: chair, stool, seat, backrest, furniture, furniture model, chair legs, four legs, miniature, doll chair, dollhouse\ncommands: box, align, rectPattern, union, fillet\norder: 30\n---\n\n## What\n\nBuilds a 1:10 model of a chair (seat 45 × 45 mm, 90 mm tall) from five boxes. One leg is lined up with the corner of the seat with [Align](help:obj-align), and a [rectangular pattern](help:obj-pattern) makes the other legs in one go.\n\n## Steps\n\n1. Click {m:box} and click the floor to place it. In the Properties window set {t:param.x} `45`, {t:param.y} `45`, {t:param.z} `4` and {t:panel.position} X `0`, Y `0`, Z `41`. This is the seat.\n2. Place another box and set {t:param.x} `4`, {t:param.y} `4`, {t:param.z} `41`. This is a leg.\n3. Hold Shift, select the seat and the leg, and click {m:align}. Click the {t:align2.ref} field in its window and click the seat.\n4. In the window click {t:opt.alignLeft} in the X row and {t:opt.alignFront} in the Y row, then click {t:btn.apply}. The leg moves under the front left corner of the seat. Press Esc to close the window.\n5. Select only the leg and click {m:rectPattern}. Set {t:opt.count} X `2`, Y `2`, Z `1` and {t:opt.spacing} X `41`, Y `41`, then click {t:btn.apply}. 41 is the seat width 45 minus the leg width 4.\n6. Place another box and set {t:param.x} `45`, {t:param.y} `4`, {t:param.z} `45` and {t:panel.position} X `0`, Y `20.5`, Z `45`. This is the backrest standing on the back of the seat.\n7. Press {k:selectAll} to select everything and click {m:union}.\n8. Click {m:fillet} and click the two long top edges of the backrest. Set {t:opt.radius} to `1.5` and click {t:btn.apply}.\n\n## Tips\n\n- [Mirror](help:obj-mirror) makes the four legs too: mirror one leg on the {t:opt.planeYZ} plane with {t:opt.mirrorAt} set to {t:opt.atOrigin}, then select both legs and mirror them on the {t:opt.planeXZ} plane. This works while the seat is centred on the origin.\n- With {t:opt.linkedCopies} on in the {c:rectPattern} window, changing the size of one leg changes all four until they are merged.\n- To tilt the backrest back, select it alone and type a small angle such as `-8` in the X field of {t:panel.rotation}. It tilts about its bottom and still overlaps the seat.\n- You can also build it at real size (a 450 mm seat) and shrink it with {t:opt.factor} `0.1` in [Smart Scale](help:obj-smart-scale).\n- Typing `box 45 45 4` (length, width, height) in the command line makes a box of that size straight away.\n- More on using Align and Mirror together: [Quick layout with Align and Mirror](help:rec-trick-align-mirror). A [table](help:rec-table) is built the same way.\n\n## Common mistakes\n\n- Without a reference object, {c:align} lines things up with the box around both objects, and the seat may move too. Make the seat the reference.\n- The default {t:opt.count} X in {c:rectPattern} is 3. Left as it is, it makes a row of three legs; set X and Y to `2`.\n- Typing the seat width (45) as the spacing puts the legs outside the seat. The spacing is the distance between leg centres.\n- If the leg height and the seat Z do not match, there is a gap and a message says the objects do not touch. Keep the leg height 41 and the seat Z 41 equal.\n",yr=`---
+`,_r="---\nid: rec-bookshelf\ntitle: Bookshelf\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: bookshelf, bookcase, book shelf, shelf, shelves, cabinet, display case, compartments, furniture, furniture model, miniature, shell, rectangular pattern, array\ncommands: box, shell, rectPattern, union\norder: 50\n---\n\n## What\n\nMakes a bookshelf model 60 mm wide, 20 mm deep and 80 mm tall. A box is opened at the front and hollowed with [Shell](help:obj-shell) to make the frame, and one shelf is repeated upwards with a [rectangular pattern](help:obj-pattern) to give four compartments of equal height.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `60`, {t:param.y} `20`, {t:param.z} `80` and {t:panel.position} X, Y and Z to `0`.\n2. Click {m:shell} and click the front face (the low-Y side, where the books go in). Set {t:opt.thickness} to `2` and click {t:btn.apply}. The inside is now 56 wide, 18 deep and 76 mm high.\n3. Place a box for a shelf and set {t:param.x} `56`, {t:param.y} `18`, {t:param.z} `2` and {t:panel.position} X `0`, Y `-1`, Z `19.5`. The shelf touches both side walls and the back.\n4. With the shelf selected, click {m:rectPattern}. Set {t:opt.count} X `1`, Y `1`, Z `3` and {t:opt.spacing} Z `19.5`, then click {t:btn.apply}. All four compartments are 17.5 mm high.\n5. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- Compartment height: (inside height 76 − shelf thickness 2 × 3 shelves) ÷ 4 compartments = 17.5 mm; shelf spacing = compartment height + shelf thickness = 19.5 mm. You can type a [calculation](help:input-calc) such as `(76-2*3)/4+2` straight into the field.\n- [Subtract](help:obj-subtract) gives the same bookshelf. Into an unhollowed box put a 56 × 19 × 17.5 box at X `0`, Y `-1.5`, Z `2`, repeat it 4 times along Z with {c:rectPattern} (spacing 19.5), then in {c:subtract} click the bookshelf first, click the four boxes and press Enter. The cutters stick out 1 mm past the front, so the cut comes out clean.\n- For an open display case with no back, click both the front and the back face in {c:shell}. Several faces can be left open.\n- For 3D printing, lay it on its back with {c:dropFace}: every shelf becomes a standing wall and it prints easily without supports.\n- To divide the compartments sideways too, make one upright divider (2 × 18 × 76) and repeat it along X with {c:rectPattern}.\n\n## Common mistakes\n\n- Selecting the top face in {c:shell} gives a box open at the top. Select the front face, where the books go in.\n- The default {t:opt.count} X in {c:rectPattern} is 3. Unless X is set to `1`, the shelves also repeat sideways, outside the bookshelf.\n- A shelf that does not touch the walls cannot be merged; a message says the objects do not touch. Make the shelf length equal to the inside width (56).\n- Changing the shell thickness changes the inside size too. If you change it, work out the shelf size and spacing again.\n",vr="---\nid: rec-car\ntitle: Simple car\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: car, toy car, vehicle, auto, automobile, model car, wheels, four wheels, tyre, tire, car body, mirror, fillet\ncommands: box, fillet, cylinder, mirror3d, union\norder: 100\n---\n\n## What\n\nMakes a toy car 80 mm long, 46 mm wide and 34 mm tall. The body and the roof are boxes with rounded edges; the wheels are one cylinder copied twice with [Mirror](help:obj-mirror) to make four.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `80`, {t:param.y} `36`, {t:param.z} `14` and {t:panel.position} X `0`, Y `0`, Z `8`. This is the body.\n2. Place another box and set {t:param.x} `40`, {t:param.y} `30`, {t:param.z} `12` and {t:panel.position} X `-6`, Y `0`, Z `22`. This is the roof (cabin).\n3. Select the body and click {m:fillet}. In the window click the button that selects every edge of the object, set {t:opt.radius} to `3` and click {t:btn.apply}. Round the roof the same way.\n4. Click {m:cylinder} and place it on the floor. In the Properties window set {t:param.r} `9` and {t:param.h} `6`, type `90` in the X field of {t:panel.rotation} and set {t:panel.position} to X `25`, Y `23`, Z `9`. Stood up this way, the cylinder reaches 6 mm towards −Y from its position and sinks 1 mm into the side of the body.\n5. With the wheel selected, click {m:mirror3d}, select the {t:opt.planeYZ} plane, change {t:opt.mirrorAt} to {t:opt.atOrigin} and click {t:btn.apply}. This makes the rear wheel.\n6. Hold Shift, select both wheels and click {c:mirror3d} again. Select the {t:opt.planeXZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin} and click {t:btn.apply}: the two wheels on the other side appear.\n7. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- A [rectangular pattern](help:obj-pattern) works instead of Mirror: put the first wheel at X `-25`, Y `-17` and use {c:rectPattern} with {t:opt.count} X and Y `2` and {t:opt.spacing} X `50`, Y `40`.\n- For tyres, make a {c:torus} with {t:param.R} `7` and {t:param.r2} `2.5`, and set {t:panel.rotation} X `90` and {t:panel.position} X `25`, Y `25.5`, Z `9`: the ring sits on the outer face of the wheel. It reaches 0.5 mm below the floor, so after merging use {c:drop} to put the car back on the floor.\n- Windows: overlap a thin box 1 mm into the side of the roof and carve it out with {c:subtract}. Make one side and use {c:mirror3d} for the other.\n- Fillet the body and the roof separately before merging. After merging there are many more edges and they are hard to select.\n- The underside of the body is 8 mm above the floor, so switch on supports in your slicer when printing.\n- To resize, switch on {t:opt.keepRatio} in [Smart Scale](help:obj-smart-scale) and type the length. Combining Mirror and Align is covered in [Quick layout with Align and Mirror](help:rec-trick-align-mirror).\n\n## Common mistakes\n\n- Without the rotation (X 0) the wheel is a disc lying on the floor.\n- With {t:opt.mirrorAt} left at {t:opt.atSide}, the copy appears right next to the original. The body is centred on the origin, so select {t:opt.atOrigin}.\n- A wheel set apart from the body (for example Y `24`) only just touches it or floats, and they do not merge into one piece. Let the wheel sink into the body a little.\n- A fillet radius larger than half the roof height (6 mm) cannot be made.\n",yr="---\nid: rec-chair\ntitle: Chair\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: chair, stool, seat, backrest, furniture, furniture model, chair legs, four legs, miniature, doll chair, dollhouse\ncommands: box, align, rectPattern, union, fillet\norder: 30\n---\n\n## What\n\nBuilds a 1:10 model of a chair (seat 45 × 45 mm, 90 mm tall) from five boxes. One leg is lined up with the corner of the seat with [Align](help:obj-align), and a [rectangular pattern](help:obj-pattern) makes the other legs in one go.\n\n## Steps\n\n1. Click {m:box} and click the floor to place it. In the Properties window set {t:param.x} `45`, {t:param.y} `45`, {t:param.z} `4` and {t:panel.position} X `0`, Y `0`, Z `41`. This is the seat.\n2. Place another box and set {t:param.x} `4`, {t:param.y} `4`, {t:param.z} `41`. This is a leg.\n3. Hold Shift, select the seat and the leg, and click {m:align}. Click the {t:align2.ref} field in its window and click the seat.\n4. In the window click {t:opt.alignLeft} in the X row and {t:opt.alignFront} in the Y row, then click {t:btn.apply}. The leg moves under the front left corner of the seat. Press Esc to close the window.\n5. Select only the leg and click {m:rectPattern}. Set {t:opt.count} X `2`, Y `2`, Z `1` and {t:opt.spacing} X `41`, Y `41`, then click {t:btn.apply}. 41 is the seat width 45 minus the leg width 4.\n6. Place another box and set {t:param.x} `45`, {t:param.y} `4`, {t:param.z} `45` and {t:panel.position} X `0`, Y `20.5`, Z `45`. This is the backrest standing on the back of the seat.\n7. Press {k:selectAll} to select everything and click {m:union}.\n8. Click {m:fillet} and click the two long top edges of the backrest. Set {t:opt.radius} to `1.5` and click {t:btn.apply}.\n\n## Tips\n\n- [Mirror](help:obj-mirror) makes the four legs too: mirror one leg on the {t:opt.planeYZ} plane with {t:opt.mirrorAt} set to {t:opt.atOrigin}, then select both legs and mirror them on the {t:opt.planeXZ} plane. This works while the seat is centred on the origin.\n- With {t:opt.linkedCopies} on in the {c:rectPattern} window, changing the size of one leg changes all four until they are merged.\n- To tilt the backrest back, select it alone and type a small angle such as `-8` in the X field of {t:panel.rotation}. It tilts about its bottom and still overlaps the seat.\n- You can also build it at real size (a 450 mm seat) and shrink it with {t:opt.factor} `0.1` in [Smart Scale](help:obj-smart-scale).\n- Typing `box 45 45 4` (length, width, height) in the command line makes a box of that size straight away.\n- More on using Align and Mirror together: [Quick layout with Align and Mirror](help:rec-trick-align-mirror). A [table](help:rec-table) is built the same way.\n\n## Common mistakes\n\n- Without a reference object, {c:align} lines things up with the box around both objects, and the seat may move too. Make the seat the reference.\n- The default {t:opt.count} X in {c:rectPattern} is 3. Left as it is, it makes a row of three legs; set X and Y to `2`.\n- Typing the seat width (45) as the spacing puts the legs outside the seat. The spacing is the distance between leg centres.\n- If the leg height and the seat Z do not match, there is a gap and a message says the objects do not touch. Keep the leg height 41 and the seat Z 41 equal.\n",br=`---
 id: rec-chess
 title: Chess pieces
 분류: 3D 물체 예제
@@ -10301,7 +10354,7 @@ Makes a chess pawn 44 mm tall with a 30 mm base. The base and body are a half pr
 - Clicking a slanted line as the axis spins the profile into a strange shape. The axis is the vertical line at X 0.
 - The solid lies half under the floor because the profile was drawn on the floor and spun there. {c:dropFace} stands it up.
 - With the sphere at Z 30 or higher it only just touches the body or floats, and they do not become one piece. Let the ball sink into the body a little.
-`,br=`---
+`,xr=`---
 id: rec-cup-handle
 title: Mug with a handle
 분류: 3D 물체 예제
@@ -10343,7 +10396,7 @@ Makes a mug 80 mm across and 90 mm tall. A standing torus (ring) is merged with 
 - Without the rotation the ring lies flat on the floor around the mug. Set {t:panel.rotation} X to \`90\`.
 - If the cylinder and the torus do not touch, a message says the object cannot be selected because it does not touch. Check that the torus X equals the mug radius (40).
 - Clicking the two objects the other way round in Subtract keeps the inner cylinder instead of the mug. Click the object to keep (the mug) first.
-`,xr="---\nid: rec-gear\ntitle: Meshing gears\n분류: 3D 물체 예제\n난이도: 심화\nworkspace: 3D 물체\nkeywords: gear, gears, spur gear, meshing gears, gear pair, gear train, rack, rack and pinion, pinion, module, teeth, pitch circle, centre distance, center distance, gear ratio, machine parts, cog, cogwheel\ncommands: gearPart, rack, editPart\norder: 60\n---\n\n## What\n\nUses the spur gear of the {t:group.parts} tab to make a large gear (module 2, 24 teeth) and a small gear (12 teeth) and sets them in mesh (ratio 2:1). The distance between their centres is module × (sum of teeth) ÷ 2 = 2 × 36 ÷ 2 = 36 mm.\n\n## Steps\n\n1. Click {m:gearPart}. In its window select {t:opt.byModule} and set {t:opt.module} `2`, {t:opt.teeth} `24`, {t:opt.faceWidth} `6` and {t:opt.boreDia} `5`. Leave {t:opt.pressureAngle} at 20°. Check that {t:opt.pitchDia} in the table below reads 48 mm.\n2. Click the floor to place it, then set {t:panel.position} in the Properties window to X `0`, Y `0`, Z `0`.\n3. Click {c:gearPart} again, set {t:opt.module} `2`, {t:opt.teeth} `12`, {t:opt.faceWidth} `6` and {t:opt.boreDia} `5`, and click the floor to place it. Its {t:opt.pitchDia} is 24 mm.\n4. In the Properties window of the small gear set {t:panel.position} to X `36`, Y `0`, Z `0`.\n5. In the same window type `15` in the Z field of {t:panel.rotation}. This turns it by half a tooth (360 ÷ 12 ÷ 2 = 15°), so a gap between its teeth faces a tooth of the large gear. Look from above and check that no teeth overlap.\n\n## Tips\n\n- The {t:group.parts} tab is on the [advanced menu](help:start-level). With the basic menu, type `gear` in the command line to open it.\n- The first tooth of a gear points along +X. The large gear already has a tooth facing the small one, so only the small gear is turned, by 180 ÷ its number of teeth. With an odd number of teeth on the small gear, a gap already faces the large gear and no turn is needed.\n- Gears that mesh need the same {t:opt.module} and {t:opt.pressureAngle}. The centre distance is half the sum of the two {t:opt.pitchDia} values.\n- If printed gears bind, open the {t:opt.advanced} part of the window and raise {t:opt.backlash} to 0.1 to 0.2 mm, or move the gears about 0.2 mm further apart.\n- A stand to turn them on: put a box 100 × 56 × 3 at X `13`, Y `0`, Z `-3`, stand two cylinders of radius 2.3 mm (4.6 mm across) and height 12 mm at X `0` and X `36` (Y `0`, Z `-3`), and merge them with the box. They are thinner than the 5 mm bore, so the gears turn. Print the gears and the stand separately.\n- Selecting a gear shows a small bar with {c:editPart}: change the module, teeth or thickness later there.\n- A {m:rack} made with the same {t:opt.module} meshes with these gears. Its length (teeth × 3.14 × module) shows as {t:opt.rackLength} in the window. The rack lies with its teeth pointing up, so to mesh with it a gear is stood up with {t:panel.rotation} X `90`.\n- For a laser cutter or a drawing, select {t:opt.out2d} at the top of the window: the gear outline is placed as a sketch. For the other parts see [Machine parts](help:obj-parts).\n\n## Common mistakes\n\n- When you place the second gear, the window is back at its first values (module 1 and so on). Set the module, thickness and bore again.\n- Gears with different modules have different tooth sizes and do not mesh.\n- If the small gear is not turned, teeth hit teeth head-on and overlap.\n- Working out the centre distance from the outside diameters instead of the pitch circles leaves the gears apart. Use the pitch diameters.\n- If the two gears have different Z values, they miss each other vertically.\n",Sr=`---
+`,Sr="---\nid: rec-gear\ntitle: Meshing gears\n분류: 3D 물체 예제\n난이도: 심화\nworkspace: 3D 물체\nkeywords: gear, gears, spur gear, meshing gears, gear pair, gear train, rack, rack and pinion, pinion, module, teeth, pitch circle, centre distance, center distance, gear ratio, machine parts, cog, cogwheel\ncommands: gearPart, rack, editPart\norder: 60\n---\n\n## What\n\nUses the spur gear of the {t:group.parts} tab to make a large gear (module 2, 24 teeth) and a small gear (12 teeth) and sets them in mesh (ratio 2:1). The distance between their centres is module × (sum of teeth) ÷ 2 = 2 × 36 ÷ 2 = 36 mm.\n\n## Steps\n\n1. Click {m:gearPart}. In its window select {t:opt.byModule} and set {t:opt.module} `2`, {t:opt.teeth} `24`, {t:opt.faceWidth} `6` and {t:opt.boreDia} `5`. Leave {t:opt.pressureAngle} at 20°. Check that {t:opt.pitchDia} in the table below reads 48 mm.\n2. Click the floor to place it, then set {t:panel.position} in the Properties window to X `0`, Y `0`, Z `0`.\n3. Click {c:gearPart} again, set {t:opt.module} `2`, {t:opt.teeth} `12`, {t:opt.faceWidth} `6` and {t:opt.boreDia} `5`, and click the floor to place it. Its {t:opt.pitchDia} is 24 mm.\n4. In the Properties window of the small gear set {t:panel.position} to X `36`, Y `0`, Z `0`.\n5. In the same window type `15` in the Z field of {t:panel.rotation}. This turns it by half a tooth (360 ÷ 12 ÷ 2 = 15°), so a gap between its teeth faces a tooth of the large gear. Look from above and check that no teeth overlap.\n\n## Tips\n\n- The {t:group.parts} tab is on the [advanced menu](help:start-level). With the basic menu, type `gear` in the command line to open it.\n- The first tooth of a gear points along +X. The large gear already has a tooth facing the small one, so only the small gear is turned, by 180 ÷ its number of teeth. With an odd number of teeth on the small gear, a gap already faces the large gear and no turn is needed.\n- Gears that mesh need the same {t:opt.module} and {t:opt.pressureAngle}. The centre distance is half the sum of the two {t:opt.pitchDia} values.\n- If printed gears bind, open the {t:opt.advanced} part of the window and raise {t:opt.backlash} to 0.1 to 0.2 mm, or move the gears about 0.2 mm further apart.\n- A stand to turn them on: put a box 100 × 56 × 3 at X `13`, Y `0`, Z `-3`, stand two cylinders of radius 2.3 mm (4.6 mm across) and height 12 mm at X `0` and X `36` (Y `0`, Z `-3`), and merge them with the box. They are thinner than the 5 mm bore, so the gears turn. Print the gears and the stand separately.\n- Selecting a gear shows a small bar with {c:editPart}: change the module, teeth or thickness later there.\n- A {m:rack} made with the same {t:opt.module} meshes with these gears. Its length (teeth × 3.14 × module) shows as {t:opt.rackLength} in the window. The rack lies with its teeth pointing up, so to mesh with it a gear is stood up with {t:panel.rotation} X `90`.\n- For a laser cutter or a drawing, select {t:opt.out2d} at the top of the window: the gear outline is placed as a sketch. For the other parts see [Machine parts](help:obj-parts).\n\n## Common mistakes\n\n- When you place the second gear, the window is back at its first values (module 1 and so on). Set the module, thickness and bore again.\n- Gears with different modules have different tooth sizes and do not mesh.\n- If the small gear is not turned, teeth hit teeth head-on and overlap.\n- Working out the centre distance from the outside diameters instead of the pitch circles leaves the gears apart. Use the pitch diameters.\n- If the two gears have different Z values, they miss each other vertically.\n",Cr=`---
 id: rec-hollow-boolean
 title: Hollow objects with Booleans
 분류: 3D 물체 예제
@@ -10384,7 +10437,7 @@ Subtracting a slightly smaller copy from an object leaves it hollow. Unlike [She
 - If the copy does not overlap the block, {c:subtract} says it cannot be selected. Check the alignment from step 5.
 - If {c:smartScale} from step 4 is still open, clicking the block in step 5 makes the block the object being resized. Close it with Esc first.
 - When a Boolean does not work, see [When Union or Subtract fails](help:faq-boolean-fail).
-`,Cr="---\nid: rec-house-model\ntitle: House model\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: house, house model, home, cottage, hut, building model, gable roof, pitched roof, roof, wedge, chimney, door, window, miniature, printable house\ncommands: box, mirror3d, subtract, wedge, union\norder: 110\n---\n\n## What\n\nMakes a house model at a good size for a 3D printer (64 × 44 × 56 mm). The main block is a box, the gable roof is one wedge joined to its [mirror](help:obj-mirror) copy, the door and windows are 2 mm deep recesses cut with [Subtract](help:obj-subtract), and the chimney is a small box pushed into the roof.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `60`, {t:param.y} `40`, {t:param.z} `35` and {t:panel.position} X, Y and Z to `0`. This is the main block.\n2. Place another box and set {t:param.x} `12`, {t:param.y} `4`, {t:param.z} `20` and {t:panel.position} X `0`, Y `-20`, Z `0`. This is the door, half sunk into the front wall (Y −20).\n3. Place another box and set {t:param.x} `10`, {t:param.y} `4`, {t:param.z} `10` and {t:panel.position} X `18`, Y `-20`, Z `14`. With the window selected, click {m:mirror3d}, select the {t:opt.planeYZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin} and click {t:btn.apply} for the left window.\n4. Click {m:subtract}, click the main block, then click the door and both windows and press Enter.\n5. Click {m:wedge}, place it on the floor and set {t:param.x} `32`, {t:param.y} `44`, {t:param.z} `20` and {t:panel.position} X `16`, Y `0`, Z `35`. This is the right half of the roof, with its high side in the middle of the house (X 0).\n6. With the wedge selected, click {c:mirror3d} and mirror it on the {t:opt.planeYZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin}, then click {t:btn.apply} for the left half of the roof.\n7. Place another box and set {t:param.x} `6`, {t:param.y} `6`, {t:param.z} `18` and {t:panel.position} X `-15`, Y `8`, Z `38`. This is the chimney; its lower part is buried in the roof.\n8. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- A wedge is high on its −X side and slopes down towards +X, so at X `16` its high side is in the middle. The roof height is the wedge's {t:param.z}; the eaves are its {t:param.x} minus half the wall width (30), so 2 mm.\n- A {c:prism} with {t:param.n} `3` laid down also makes a roof, but it is an equilateral triangle with a fixed slope. Two wedges let you set the height and the eaves separately.\n- To make windows you can see through, first hollow the block with {c:shell} (open the bottom face, 2 mm thick), then make the window boxes `6` or more in {t:param.y} so they go right through the wall.\n- Square recesses can also be cut with {c:hole}: select {t:mo.holeRect}, click the wall and type {t:mo.holeWidth}, {t:mo.holeLength} and {t:opt.holeDepth} `2`.\n- For many windows, repeat one with {c:rectPattern} and subtract them all at once.\n- To scale the finished house in proportion, switch on {t:opt.keepRatio} in [Smart Scale](help:obj-smart-scale). To put it on land in the building workspace, use [Send to Building](help:more-send-to-building).\n\n## Common mistakes\n\n- A wedge at X `-16` has its high side outwards and the roof becomes a V. Put it at X `16` so the high side is in the middle, and make the other half by mirroring.\n- Merging everything before subtracting glues the door and window boxes onto the house. Subtract first, then merge the roof and chimney.\n- If the door or window boxes do not touch the wall, Subtract says they cannot be selected. Set their Y to the front wall (`-20`).\n- With {t:opt.mirrorAt} left at {t:opt.atSide}, the copy appears next to the original. Select {t:opt.atOrigin}.\n",wr="---\nid: rec-knot\ntitle: Knot shapes: a chain of linked rings\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: knot, knots, chain, chain link, linked rings, interlocking rings, trefoil, twisted, rope, braid, torus, donut, ring chain, knotted\ncommands: torus, duplicate, rectPattern, group, helix, pipe\norder: 150\n---\n\n## What\n\nA true knot such as a trefoil needs a closed path that bends through space and passes over itself. Sketches in NukCAD always lie on one plane and there is no tool for space curves (3D splines), so such a knot path cannot be drawn and wrapped with [Sweep or Pipe](help:obj-sweep). Instead, flat rings threaded through each other make a chain that cannot come apart, and twisted rope is made with {c:helix}. The example is a chain of six rings, about 114 mm long, each ring 29 mm across.\n\n## Steps\n\n1. In a new document, type `torus 12 2.5` in the command line (ring radius 12, tube radius 2.5). In the Properties window set {t:panel.position} Z to `12`. This flat ring floats 12 mm above the floor.\n2. With the ring selected, press {k:duplicate} to {c:duplicate} it.\n3. In the copy's Properties window set {t:panel.rotation} X to `90` and {t:panel.position} to X `17`, Y `2.5`, Z `14.5`. The standing ring now passes through the hole of the flat ring.\n4. Turn the view and check that the two rings are threaded and do not touch. The smallest gap is 2 mm.\n5. Click the flat ring, hold Shift and click the standing ring, then click {m:rectPattern}. Set {t:opt.count} X to `3` and {t:opt.spacing} X to `34`, and press Enter.\n6. Press {k:selectAll} to select everything and click {m:group} to make one group.\n\n## Tips\n\n- For a longer chain, raise {t:opt.count} X in step 5. Every 34 mm adds one flat and one standing ring.\n- The rings do not touch, so the print is a real chain whose links move. The flat rings float, so switch on supports in the slicer.\n- Twisted rope: place a {m:helix} with {t:opt.coilRadius} `6`, {t:opt.pitch} `16`, {t:opt.turns} `3`, {t:opt.wireSize} `4`. Put a copy at the same {t:panel.position} and set its {t:panel.rotation} Z to `180`: the two strands wind between each other. Place a `cylinder 5 52` at the same position and {c:union} all three for a twisted column.\n- {c:pipe} takes the edges of an object as its path, not only sketch lines, and some edges bend through space. For example, two cylinders of radius 20 and 12 crossed at a right angle and merged with {c:union} meet in a closed edge bent like a saddle, which can be selected as the path of {c:pipe}. Depending on the edge, the pipe may not be made.\n- To change the size, change every value by the same factor. Twice the size is `torus 24 5`, Z `24` in step 1, X `34`, Y `5`, Z `29` in step 3 and spacing `68` in step 5.\n- Related tools: [Primitives](help:obj-primitives), [Duplicate](help:obj-duplicate), [Pattern](help:obj-pattern), [Machine parts](help:obj-parts).\n\n## Common mistakes\n\n- The rings do not touch, so {c:union} says they are not touching. To move them together, group them with {c:group} as in step 6.\n- If the position in step 3 is not exact, the rings cut into each other or are not threaded. A duplicate appears next to the original, so type all of X, Y and Z again.\n- A figure eight or knot-like line drawn in a sketch and wrapped with {c:pipe} crosses itself on one plane, so the tube runs into itself. It does not become a knot and may not be made at all.\n- {c:rotX} turns a ring about its middle, which moves it away from the values of step 3. Type the angle in {t:panel.rotation} in the Properties window instead.\n",Tr=`---
+`,wr="---\nid: rec-house-model\ntitle: House model\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: house, house model, home, cottage, hut, building model, gable roof, pitched roof, roof, wedge, chimney, door, window, miniature, printable house\ncommands: box, mirror3d, subtract, wedge, union\norder: 110\n---\n\n## What\n\nMakes a house model at a good size for a 3D printer (64 × 44 × 56 mm). The main block is a box, the gable roof is one wedge joined to its [mirror](help:obj-mirror) copy, the door and windows are 2 mm deep recesses cut with [Subtract](help:obj-subtract), and the chimney is a small box pushed into the roof.\n\n## Steps\n\n1. Click {m:box} and place it on the floor. In the Properties window set {t:param.x} `60`, {t:param.y} `40`, {t:param.z} `35` and {t:panel.position} X, Y and Z to `0`. This is the main block.\n2. Place another box and set {t:param.x} `12`, {t:param.y} `4`, {t:param.z} `20` and {t:panel.position} X `0`, Y `-20`, Z `0`. This is the door, half sunk into the front wall (Y −20).\n3. Place another box and set {t:param.x} `10`, {t:param.y} `4`, {t:param.z} `10` and {t:panel.position} X `18`, Y `-20`, Z `14`. With the window selected, click {m:mirror3d}, select the {t:opt.planeYZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin} and click {t:btn.apply} for the left window.\n4. Click {m:subtract}, click the main block, then click the door and both windows and press Enter.\n5. Click {m:wedge}, place it on the floor and set {t:param.x} `32`, {t:param.y} `44`, {t:param.z} `20` and {t:panel.position} X `16`, Y `0`, Z `35`. This is the right half of the roof, with its high side in the middle of the house (X 0).\n6. With the wedge selected, click {c:mirror3d} and mirror it on the {t:opt.planeYZ} plane with {t:opt.mirrorAt} at {t:opt.atOrigin}, then click {t:btn.apply} for the left half of the roof.\n7. Place another box and set {t:param.x} `6`, {t:param.y} `6`, {t:param.z} `18` and {t:panel.position} X `-15`, Y `8`, Z `38`. This is the chimney; its lower part is buried in the roof.\n8. Press {k:selectAll} to select everything and click {m:union}.\n\n## Tips\n\n- A wedge is high on its −X side and slopes down towards +X, so at X `16` its high side is in the middle. The roof height is the wedge's {t:param.z}; the eaves are its {t:param.x} minus half the wall width (30), so 2 mm.\n- A {c:prism} with {t:param.n} `3` laid down also makes a roof, but it is an equilateral triangle with a fixed slope. Two wedges let you set the height and the eaves separately.\n- To make windows you can see through, first hollow the block with {c:shell} (open the bottom face, 2 mm thick), then make the window boxes `6` or more in {t:param.y} so they go right through the wall.\n- Square recesses can also be cut with {c:hole}: select {t:mo.holeRect}, click the wall and type {t:mo.holeWidth}, {t:mo.holeLength} and {t:opt.holeDepth} `2`.\n- For many windows, repeat one with {c:rectPattern} and subtract them all at once.\n- To scale the finished house in proportion, switch on {t:opt.keepRatio} in [Smart Scale](help:obj-smart-scale). To put it on land in the building workspace, use [Send to Building](help:more-send-to-building).\n\n## Common mistakes\n\n- A wedge at X `-16` has its high side outwards and the roof becomes a V. Put it at X `16` so the high side is in the middle, and make the other half by mirroring.\n- Merging everything before subtracting glues the door and window boxes onto the house. Subtract first, then merge the roof and chimney.\n- If the door or window boxes do not touch the wall, Subtract says they cannot be selected. Set their Y to the front wall (`-20`).\n- With {t:opt.mirrorAt} left at {t:opt.atSide}, the copy appears next to the original. Select {t:opt.atOrigin}.\n",Tr="---\nid: rec-knot\ntitle: Knot shapes: a chain of linked rings\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: knot, knots, chain, chain link, linked rings, interlocking rings, trefoil, twisted, rope, braid, torus, donut, ring chain, knotted\ncommands: torus, duplicate, rectPattern, group, helix, pipe\norder: 150\n---\n\n## What\n\nA true knot such as a trefoil needs a closed path that bends through space and passes over itself. Sketches in NukCAD always lie on one plane and there is no tool for space curves (3D splines), so such a knot path cannot be drawn and wrapped with [Sweep or Pipe](help:obj-sweep). Instead, flat rings threaded through each other make a chain that cannot come apart, and twisted rope is made with {c:helix}. The example is a chain of six rings, about 114 mm long, each ring 29 mm across.\n\n## Steps\n\n1. In a new document, type `torus 12 2.5` in the command line (ring radius 12, tube radius 2.5). In the Properties window set {t:panel.position} Z to `12`. This flat ring floats 12 mm above the floor.\n2. With the ring selected, press {k:duplicate} to {c:duplicate} it.\n3. In the copy's Properties window set {t:panel.rotation} X to `90` and {t:panel.position} to X `17`, Y `2.5`, Z `14.5`. The standing ring now passes through the hole of the flat ring.\n4. Turn the view and check that the two rings are threaded and do not touch. The smallest gap is 2 mm.\n5. Click the flat ring, hold Shift and click the standing ring, then click {m:rectPattern}. Set {t:opt.count} X to `3` and {t:opt.spacing} X to `34`, and press Enter.\n6. Press {k:selectAll} to select everything and click {m:group} to make one group.\n\n## Tips\n\n- For a longer chain, raise {t:opt.count} X in step 5. Every 34 mm adds one flat and one standing ring.\n- The rings do not touch, so the print is a real chain whose links move. The flat rings float, so switch on supports in the slicer.\n- Twisted rope: place a {m:helix} with {t:opt.coilRadius} `6`, {t:opt.pitch} `16`, {t:opt.turns} `3`, {t:opt.wireSize} `4`. Put a copy at the same {t:panel.position} and set its {t:panel.rotation} Z to `180`: the two strands wind between each other. Place a `cylinder 5 52` at the same position and {c:union} all three for a twisted column.\n- {c:pipe} takes the edges of an object as its path, not only sketch lines, and some edges bend through space. For example, two cylinders of radius 20 and 12 crossed at a right angle and merged with {c:union} meet in a closed edge bent like a saddle, which can be selected as the path of {c:pipe}. Depending on the edge, the pipe may not be made.\n- To change the size, change every value by the same factor. Twice the size is `torus 24 5`, Z `24` in step 1, X `34`, Y `5`, Z `29` in step 3 and spacing `68` in step 5.\n- Related tools: [Primitives](help:obj-primitives), [Duplicate](help:obj-duplicate), [Pattern](help:obj-pattern), [Machine parts](help:obj-parts).\n\n## Common mistakes\n\n- The rings do not touch, so {c:union} says they are not touching. To move them together, group them with {c:group} as in step 6.\n- If the position in step 3 is not exact, the rings cut into each other or are not threaded. A duplicate appears next to the original, so type all of X, Y and Z again.\n- A figure eight or knot-like line drawn in a sketch and wrapped with {c:pipe} crosses itself on one plane, so the tube runs into itself. It does not become a knot and may not be made at all.\n- {c:rotX} turns a ring about its middle, which moves it away from the values of step 3. Type the angle in {t:panel.rotation} in the Properties window instead.\n",Er=`---
 id: rec-nameplate
 title: Name tag
 분류: 3D 물체 예제
@@ -10425,7 +10478,7 @@ Makes a name tag: an 80 × 25 × 3 mm plate with rounded corners, a hole for a s
 - Editing the text sketch after extruding does not change the letters on the plate. Check the text and its place before extruding.
 - Letters running off the plate leave floating pieces. Keep the letter height and start point inside the plate.
 - If the short upright edges are hard to click, zoom in. Selecting the top rim instead rounds only the top.
-`,Er=`---
+`,Dr=`---
 id: rec-pencil-holder
 title: Pencil holder with a hole pattern
 분류: 3D 물체 예제
@@ -10466,7 +10519,7 @@ order: 130
 - Without the group from step 5, step 6 selects only one small cylinder.
 - With {t:panel.rotation} Y set to \`-90\` the small cylinder lies towards the inside, does not touch the wall, and {c:subtract} says it cannot be selected.
 - A small cylinder that does not go all the way through the wall leaves a dent instead of a hole. The wall is 37.6 to 40 mm from the centre, so place the cylinder across 25 to 45 mm as in step 3.
-`,Dr="---\nid: rec-phone-stand\ntitle: Phone stand\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: phone stand, phone holder, smartphone stand, mobile stand, phone dock, tablet stand, cradle, charging cable slot, cable notch, side profile, extrude profile, phonestand\ncommands: extrude, newSketch, line, fillet, subtract, rotX, drop\norder: 120\n---\n\n## What\n\nDraws the side profile of a phone stand in a floor sketch and [extrudes](help:obj-extrude) it. A slot in the front ledge lets the charging cable through, and the inner corners that carry the load are rounded with a [fillet](help:obj-fillet) to make them stronger. The finished stand is 70 mm wide, 100 mm deep and 80 mm high, and the back rest leans at about 72° from the floor.\n\n## Steps\n\n1. Click {m:newSketch} and click an empty spot on the floor. A floor sketch starts at the origin.\n2. Click {m:line} and type these points in the command line, pressing Enter after each: `0,0` → `100,0` → `100,20` → `94,20` → `94,6` → `74,6` → `50,80` → `44,80` → `68,6` → `0,6` → `c` (closes back to the first point).\n3. Click {c:exitSketch}.\n4. Click {m:extrude}, click the profile area, type `70` and press Enter. The stand is made lying on its side.\n5. Click {m:fillet}, click the two inner corner edges where the back rest meets the base (at sketch points `74,6` and `68,6`), type `3` and press Enter.\n6. Type `box 26 22 12` in the command line to make a box, then set its {t:panel.position} in the Properties window to X `89`, Y `10`, Z `29`. This box covers the middle of the front ledge and marks the cable slot.\n7. Click the stand, hold Shift and click the box, then click {m:subtract} and press Enter.\n8. With the stand selected, click {m:rotX} to stand it up, then click {m:drop} to put it on the floor.\n\n## Tips\n\n- The 20 mm from `74,6` to `94,6` is the ledge the phone stands on; the front lip rises 14 mm above it. For a thick case, take the same amount off the X of the four back rest points (`74,6`, `50,80`, `44,80`, `68,6`). Taking 4 off each gives a 24 mm ledge.\n- The two top points set the angle of the back rest. Typing `44,80` and `38,80` instead of `50,80` and `44,80` leans it back further. Keep the 6 mm difference in X between them: it is the thickness of the back rest.\n- For a tablet, extrude `120` in step 4 and set the box's Z to `54` in step 6 so the slot stays in the middle.\n- To type the points in the value box next to the cursor instead of the command line, start each with `#`, as in `#100,0`, so they are read as X and Y. See [Coordinates and lengths](help:input-coords) and [Command line](help:input-cmdline).\n- Printed standing up as after step 8, the back rest is only about 18° off vertical, so it usually prints without supports.\n- To round every edge a little, use the button in the {c:fillet} window that selects all edges of the selected object, and type `1`.\n- To save material, extrude `50` in step 4 and set the box's Z to `19` in step 6.\n\n## Common mistakes\n\n- Without the final `c` the line is not closed and there is no area to extrude. If you finished without it, join the two ends with {m:closeOpen} in the sketch.\n- Typing `100,0` without `#` in the value box next to the cursor reads it as length 100 at angle 0, and the shape goes wrong. Use the command line, or add `#`.\n- If a wrong position in step 6 leaves the box away from the stand, {c:subtract} says it cannot be selected. Check the position in the Properties window.\n- {c:rotX} turns 90° each time it is pressed. If the stand ends up upside down, use {k:undo}.\n",Or=`---
+`,Or="---\nid: rec-phone-stand\ntitle: Phone stand\n분류: 3D 물체 예제\n난이도: 중급\nworkspace: 3D 물체\nkeywords: phone stand, phone holder, smartphone stand, mobile stand, phone dock, tablet stand, cradle, charging cable slot, cable notch, side profile, extrude profile, phonestand\ncommands: extrude, newSketch, line, fillet, subtract, rotX, drop\norder: 120\n---\n\n## What\n\nDraws the side profile of a phone stand in a floor sketch and [extrudes](help:obj-extrude) it. A slot in the front ledge lets the charging cable through, and the inner corners that carry the load are rounded with a [fillet](help:obj-fillet) to make them stronger. The finished stand is 70 mm wide, 100 mm deep and 80 mm high, and the back rest leans at about 72° from the floor.\n\n## Steps\n\n1. Click {m:newSketch} and click an empty spot on the floor. A floor sketch starts at the origin.\n2. Click {m:line} and type these points in the command line, pressing Enter after each: `0,0` → `100,0` → `100,20` → `94,20` → `94,6` → `74,6` → `50,80` → `44,80` → `68,6` → `0,6` → `c` (closes back to the first point).\n3. Click {c:exitSketch}.\n4. Click {m:extrude}, click the profile area, type `70` and press Enter. The stand is made lying on its side.\n5. Click {m:fillet}, click the two inner corner edges where the back rest meets the base (at sketch points `74,6` and `68,6`), type `3` and press Enter.\n6. Type `box 26 22 12` in the command line to make a box, then set its {t:panel.position} in the Properties window to X `89`, Y `10`, Z `29`. This box covers the middle of the front ledge and marks the cable slot.\n7. Click the stand, hold Shift and click the box, then click {m:subtract} and press Enter.\n8. With the stand selected, click {m:rotX} to stand it up, then click {m:drop} to put it on the floor.\n\n## Tips\n\n- The 20 mm from `74,6` to `94,6` is the ledge the phone stands on; the front lip rises 14 mm above it. For a thick case, take the same amount off the X of the four back rest points (`74,6`, `50,80`, `44,80`, `68,6`). Taking 4 off each gives a 24 mm ledge.\n- The two top points set the angle of the back rest. Typing `44,80` and `38,80` instead of `50,80` and `44,80` leans it back further. Keep the 6 mm difference in X between them: it is the thickness of the back rest.\n- For a tablet, extrude `120` in step 4 and set the box's Z to `54` in step 6 so the slot stays in the middle.\n- To type the points in the value box next to the cursor instead of the command line, start each with `#`, as in `#100,0`, so they are read as X and Y. See [Coordinates and lengths](help:input-coords) and [Command line](help:input-cmdline).\n- Printed standing up as after step 8, the back rest is only about 18° off vertical, so it usually prints without supports.\n- To round every edge a little, use the button in the {c:fillet} window that selects all edges of the selected object, and type `1`.\n- To save material, extrude `50` in step 4 and set the box's Z to `19` in step 6.\n\n## Common mistakes\n\n- Without the final `c` the line is not closed and there is no area to extrude. If you finished without it, join the two ends with {m:closeOpen} in the sketch.\n- Typing `100,0` without `#` in the value box next to the cursor reads it as length 100 at angle 0, and the shape goes wrong. Use the command line, or add `#`.\n- If a wrong position in step 6 leaves the box away from the stand, {c:subtract} says it cannot be selected. Check the position in the Properties window.\n- {c:rotX} turns 90° each time it is pressed. If the stand ends up upside down, use {k:undo}.\n",kr=`---
 id: rec-pipe-sweep
 title: Bent pipe
 분류: 3D 물체 예제
@@ -10507,7 +10560,7 @@ Makes an L-shaped bent tube, 12 mm outside and 8 mm inside, along a path drawn o
 - A bend whose radius is smaller than the tube radius (6 mm) makes the tube run into itself and it is not made. Keep bends generously large.
 - Straight lines joined at a sharp corner, with no arc, may not give a good tube at the corner. Round corners with an arc.
 - The inner diameter must be smaller than the outer one, and the window does not take a larger value. Change the outer diameter (4 mm at first) before typing the inner one.
-`,kr=`---
+`,Ar=`---
 id: rec-shell-lamp
 title: Hollow lampshade
 분류: 3D 물체 예제
@@ -10547,7 +10600,7 @@ order: 160
 - Near the top of a hemisphere the inside surface is almost flat, so without supports it sags when printed. Switch on supports in the slicer or use a cone-shaped shade.
 - If the hemisphere from step 1 is not at the origin, the socket hole and the ring of holes are off centre. Set its position to \`0\`.
 - Selecting one small cylinder that is not grouped in step 7 cuts only one hole. Make the group in step 6 first.
-`,Ar=`---
+`,jr=`---
 id: rec-spiral
 title: Spirals: helix, spring and flat spiral
 분류: 3D 물체 예제
@@ -10588,7 +10641,7 @@ A spiral that winds up in space is made at once from [machine parts](help:obj-pa
 - A spiral is an open line, so on its own it has no area to extrude. Offset it and join the two ends to close it into a strip.
 - A strip wider than the gap between turns runs into the next turn, and the area does not come out right.
 - Placing with {t:opt.out2d} selected in the window of step 1 gives a wavy 2D side drawing. Select {t:opt.out3d} for a solid.
-`,jr=`---
+`,Mr=`---
 id: rec-table
 title: Table
 분류: 3D 물체 예제
@@ -10624,7 +10677,7 @@ Makes a round table model 80 mm across and 50 mm tall. The top sits centred on t
 - A leg on the origin (X 0, Y 0) makes every copy land in the same place. Put the leg away from the origin (X 30).
 - If the leg height (46) and the top's Z (46) differ, there is a gap and they do not merge, or the legs poke through the top.
 - Keep the fillet radius under half the top thickness (2 mm). With both edges rounded, the two radii together must stay below the thickness.
-`,Mr=`---
+`,Nr=`---
 id: rec-trick-align-mirror
 title: Trick: align and mirror for symmetric parts
 분류: 3D 물체 예제
@@ -10665,7 +10718,7 @@ For an object whose two sides are the same, build one side and copy the other wi
 - With {t:opt.mirrorAt} left at {t:opt.atSide} and only the handle selected, the copy appears right next to the handle. Select {t:opt.atOrigin} to put it on the other side of the tray.
 - A handle that does not touch the tray is left out of {c:union}. Check the distance in step 5.
 - Without a {t:align2.ref} in step 4, everything lines up with the box around both objects, so the tray may move too.
-`,Nr=`---
+`,Pr=`---
 id: rec-trick-carve
 title: Trick: carve and reshape with lines and moves
 분류: 3D 물체 예제
@@ -10705,7 +10758,7 @@ Put lines on a box to split its faces, then move those lines or push the split p
 - Clicking a face instead of the line in step 3 lifts the whole half of the top. Click exactly on the line.
 - A preview that turns red is a move that cannot keep the faces flat, and it is not applied. Use a smaller value or select {t:tweakflat.bend}.
 - Vertices and edges of objects with curved faces, such as cylinders or filleted objects, cannot be moved. Start such shapes from a box, carve them, and fillet last.
-`,Pr="---\nid: rec-trick-fence\ntitle: Trick: fences, railings, combs and grilles with patterns\n분류: 3D 물체 예제\n난이도: 심화\nworkspace: 3D 물체\nkeywords: pattern, array, repeat, fence, picket fence, railing, balusters, comb, grille, grid, vent, bars, rectangular pattern, path pattern, circular pattern, diorama, evenly spaced\ncommands: rectPattern, circPattern, pathPattern, box, chamfer, union, dropFace\norder: 210\n---\n\n## What\n\nLaying out the same part at equal spacing is done in one go with {c:rectPattern}. The spacing is the part's width plus the gap. The example is a fence for a diorama with fifteen pointed pickets and two rails (180 mm long, 50 mm high). Combs, vent grilles and curved railings are made the same way.\n\n## Steps\n\n1. In a new document, type `box 6 3 50` in the command line for a picket.\n2. With the picket selected, click {m:chamfer}, click the two short edges of the top face (left and right), type `2.5` and press Enter. The picket now ends in a point.\n3. With the picket selected, click {m:rectPattern}, set {t:opt.count} X to `15` and {t:opt.spacing} X to `12`, and press Enter.\n4. Type `box 180 2 6` in the command line and set its {t:panel.position} in the Properties window to X `84`, Y `2`, Z `10`. This is the lower rail, overlapping the back of the pickets by 0.5 mm.\n5. With the rail selected, press {k:duplicate} and set the copy's {t:panel.position} to X `84`, Y `2`, Z `34`. This is the upper rail.\n6. Press {k:selectAll} to select everything and click {m:union}. It becomes one piece.\n7. Before printing, click {m:dropFace} and click the front face of a picket to lay the fence down.\n\n## Tips\n\n- Comb: in a new document make the back with `box 100 12 4`, and a tooth with `box 1.6 25 4` at {t:panel.position} X `-48`, Y `-18`, Z `0`. Pattern the tooth with {t:opt.count} X `30` and {t:opt.spacing} X `3`, then {c:union} everything. The gap between teeth is 1.4 mm.\n- Vent grille: on a `box 60 60 3` plate made in a new document, place a `box 50 3 10` cutter at {t:panel.position} X `0`, Y `-21`, Z `-2` and pattern it with {t:opt.count} Y `8` and {t:opt.spacing} Y `6`. Group the eight cutters and {c:subtract} them from the plate for eight 3 mm slots.\n- A round fence or a toothed rim is made with {m:circPattern}.\n- For a curved railing, draw an arc or a spline in a sketch and lay the posts along it with {m:pathPattern}. Put the post at one end of the line and switch on {t:opt.alignPath} so the posts turn with the line.\n- Using X and Y of {t:opt.count} together lays parts out in a grid, for example the feet of a stand or the studs of a building block.\n- With {t:opt.linkedCopies} on in the pattern window, the copies share the original's shape: change one picket and all of them change.\n- Related tools: [Pattern](help:obj-pattern), [Chamfer](help:obj-chamfer), [Union](help:obj-union), [Drop to floor](help:obj-drop).\n\n## Common mistakes\n\n- A spacing smaller than the part's width makes the copies overlap into one solid plate. Make the spacing larger than the part.\n- A rail that does not overlap the pickets is left out of {c:union}. Check the Y value in step 4.\n- Printed standing, the 3 mm thin fence wobbles and falls over easily. Lay it down as in step 7.\n- A chamfer of half the picket width (3 mm) or more removes the whole top face and may not be made. Keep it a little under half.\n",Fr=`---
+`,Fr="---\nid: rec-trick-fence\ntitle: Trick: fences, railings, combs and grilles with patterns\n분류: 3D 물체 예제\n난이도: 심화\nworkspace: 3D 물체\nkeywords: pattern, array, repeat, fence, picket fence, railing, balusters, comb, grille, grid, vent, bars, rectangular pattern, path pattern, circular pattern, diorama, evenly spaced\ncommands: rectPattern, circPattern, pathPattern, box, chamfer, union, dropFace\norder: 210\n---\n\n## What\n\nLaying out the same part at equal spacing is done in one go with {c:rectPattern}. The spacing is the part's width plus the gap. The example is a fence for a diorama with fifteen pointed pickets and two rails (180 mm long, 50 mm high). Combs, vent grilles and curved railings are made the same way.\n\n## Steps\n\n1. In a new document, type `box 6 3 50` in the command line for a picket.\n2. With the picket selected, click {m:chamfer}, click the two short edges of the top face (left and right), type `2.5` and press Enter. The picket now ends in a point.\n3. With the picket selected, click {m:rectPattern}, set {t:opt.count} X to `15` and {t:opt.spacing} X to `12`, and press Enter.\n4. Type `box 180 2 6` in the command line and set its {t:panel.position} in the Properties window to X `84`, Y `2`, Z `10`. This is the lower rail, overlapping the back of the pickets by 0.5 mm.\n5. With the rail selected, press {k:duplicate} and set the copy's {t:panel.position} to X `84`, Y `2`, Z `34`. This is the upper rail.\n6. Press {k:selectAll} to select everything and click {m:union}. It becomes one piece.\n7. Before printing, click {m:dropFace} and click the front face of a picket to lay the fence down.\n\n## Tips\n\n- Comb: in a new document make the back with `box 100 12 4`, and a tooth with `box 1.6 25 4` at {t:panel.position} X `-48`, Y `-18`, Z `0`. Pattern the tooth with {t:opt.count} X `30` and {t:opt.spacing} X `3`, then {c:union} everything. The gap between teeth is 1.4 mm.\n- Vent grille: on a `box 60 60 3` plate made in a new document, place a `box 50 3 10` cutter at {t:panel.position} X `0`, Y `-21`, Z `-2` and pattern it with {t:opt.count} Y `8` and {t:opt.spacing} Y `6`. Group the eight cutters and {c:subtract} them from the plate for eight 3 mm slots.\n- A round fence or a toothed rim is made with {m:circPattern}.\n- For a curved railing, draw an arc or a spline in a sketch and lay the posts along it with {m:pathPattern}. Put the post at one end of the line and switch on {t:opt.alignPath} so the posts turn with the line.\n- Using X and Y of {t:opt.count} together lays parts out in a grid, for example the feet of a stand or the studs of a building block.\n- With {t:opt.linkedCopies} on in the pattern window, the copies share the original's shape: change one picket and all of them change.\n- Related tools: [Pattern](help:obj-pattern), [Chamfer](help:obj-chamfer), [Union](help:obj-union), [Drop to floor](help:obj-drop).\n\n## Common mistakes\n\n- A spacing smaller than the part's width makes the copies overlap into one solid plate. Make the spacing larger than the part.\n- A rail that does not overlap the pickets is left out of {c:union}. Check the Y value in step 4.\n- Printed standing, the 3 mm thin fence wobbles and falls over easily. Lay it down as in step 7.\n- A chamfer of half the picket width (3 mm) or more removes the whole top face and may not be made. Keep it a little under half.\n",Ir=`---
 id: rec-trick-smart-scale
 title: Trick: exact sizes with Smart Scale
 분류: 3D 물체 예제
@@ -10746,7 +10799,7 @@ order: 190
 - To change only the height of a hollowed box, use {m:presspull} on the top face of the rim instead of Smart Scale. The walls keep their thickness.
 - An inside that is exactly card size (85.6 × 54 mm) does not take the card. Leave about 1 mm all round for printing tolerance.
 - Clicking empty space after a drag applies the size so far and ends the tool. If you did not mean it, use {k:undo}.
-`,Ir=`---
+`,Lr=`---
 id: rec-vase-revolve
 title: Revolved vase
 분류: 3D 물체 예제
@@ -10788,7 +10841,7 @@ Makes a vase 120 mm tall and 80 mm across at its widest. You draw the right half
 - Clicking the curve as the axis shows a message that only a line or a construction line can be the axis. Click the straight vertical line at X 0.
 - Clicking an area that is already selected lets it go. If it is coloured, click the axis straight away.
 - Clicking the bottom face in Shell gives a tube open at the bottom. Select the top face, the opening.
-`,Lr="---\nid: input-calc\ntitle: Calculations in number fields\n분류: 스냅과 입력\n난이도: 중급\nworkspace: 공통\nkeywords: formula, formulas, calculate, calculation, calculations, expression, arithmetic, excel, excel functions, calculator, square root, sqrt, round, power, trigonometry, sine, cosine, radians, degrees, units, mixed units, add, subtract, multiply, divide, hypotenuse, number field, maths, math\ncommands: toggleCommand\nhowto: calc\norder: 90\n---\n\n## What\n\nFields for numbers and sizes take calculations instead of plain numbers. Starting with `=` also gives functions with the same names as in Excel.\n\n## Steps\n\n1. Type a calculation straight into any number or size field (Properties, tool windows, the command line, the value box by the cursor, Preferences): `10/3`, `(20+5)*2`, `2^3`. Multiply with `*` or `×`, divide with `/` or `÷`.\n2. Units can be mixed: `3m+20cm`. A number without a unit is in the field's own unit (mm or m).\n3. Start with `=` for Excel functions: `=ROUND(10/3,2)`, `=SQRT(2)*10`, `=SUM(10,20,30)`, `=MAX(5,8)`, `=IF(5>3,1,0)`, `=PI()`.\n4. Trigonometry works in radians as in Excel: `=SIN(RADIANS(30))`. For degrees directly: `=SIND(30)`, `=COSD(60)`, `=TAND(45)`.\n5. While typing, the result shows under the field (`= 3.333`). A wrong formula shows why in red and the value stays as it was.\n6. Points in the command line take calculations in each part: `@10/3,5*2` or `=@SQRT(200)<45`. With no tool open the command line is a calculator.\n\n## Tips\n\n- Functions: `SUM`, `PRODUCT`, `AVERAGE`, `MIN`, `MAX`, `ROUND`, `ROUNDUP`, `ROUNDDOWN`, `TRUNC`, `INT`, `ABS`, `SIGN`, `SQRT`, `POWER`, `MOD`, `PI`, `SIN`, `COS`, `TAN`, `ASIN`, `ACOS`, `ATAN`, `ATAN2`, `RADIANS`, `DEGREES`, `SIND`, `COSD`, `TAND`, `HYPOT`, `EXP`, `LN`, `LOG10`, `LOG`, `CEILING`, `FLOOR`, `IF`, `AND`, `OR`, `NOT`, `TRUE`, `FALSE`. Upper and lower case both work.\n- `=HYPOT(30,40)` gives 50, the diagonal of a 30 by 40 rectangle.\n- Formulas starting with `=` also take comparisons (`=`, `<>`, `<`, `>`, `<=`, `>=`) and percentages (`50%` is 0.5).\n- The units you can add are `mm`, `cm`, `m`, `in` and `\"` (inches). `°` or `deg` may be added but change nothing.\n- Powers are worked out as in school maths: `-2^2` is -4, and `2^3^2` is 2 to the 9th power.\n- With no tool open, type `10/3` in the command line and press Enter to get the answer to six decimals, such as `= 3.333333`.\n- For typing points see [typing coordinates and lengths](help:input-coords); for the command line see [command line](help:input-cmdline).\n\n## Common mistakes\n\n- Multiplying with `x`. Use `*` or `×`.\n- A function without `=` (`SQRT(2)`). Functions only work in a formula starting with `=`.\n- Brackets left out, as in `=PI`. Write `=PI()`.\n- `=SIN(30)` does not give 0.5, because it works in radians. Use `=SIND(30)`.\n- `3,5` in a single number field is read as 3.5, and `1,000` as 1000. Use `.` for the decimal point. In a point in the command line, the comma separates X and Y.\n",Rr=`---
+`,Rr="---\nid: input-calc\ntitle: Calculations in number fields\n분류: 스냅과 입력\n난이도: 중급\nworkspace: 공통\nkeywords: formula, formulas, calculate, calculation, calculations, expression, arithmetic, excel, excel functions, calculator, square root, sqrt, round, power, trigonometry, sine, cosine, radians, degrees, units, mixed units, add, subtract, multiply, divide, hypotenuse, number field, maths, math\ncommands: toggleCommand\nhowto: calc\norder: 90\n---\n\n## What\n\nFields for numbers and sizes take calculations instead of plain numbers. Starting with `=` also gives functions with the same names as in Excel.\n\n## Steps\n\n1. Type a calculation straight into any number or size field (Properties, tool windows, the command line, the value box by the cursor, Preferences): `10/3`, `(20+5)*2`, `2^3`. Multiply with `*` or `×`, divide with `/` or `÷`.\n2. Units can be mixed: `3m+20cm`. A number without a unit is in the field's own unit (mm or m).\n3. Start with `=` for Excel functions: `=ROUND(10/3,2)`, `=SQRT(2)*10`, `=SUM(10,20,30)`, `=MAX(5,8)`, `=IF(5>3,1,0)`, `=PI()`.\n4. Trigonometry works in radians as in Excel: `=SIN(RADIANS(30))`. For degrees directly: `=SIND(30)`, `=COSD(60)`, `=TAND(45)`.\n5. While typing, the result shows under the field (`= 3.333`). A wrong formula shows why in red and the value stays as it was.\n6. Points in the command line take calculations in each part: `@10/3,5*2` or `=@SQRT(200)<45`. With no tool open the command line is a calculator.\n\n## Tips\n\n- Functions: `SUM`, `PRODUCT`, `AVERAGE`, `MIN`, `MAX`, `ROUND`, `ROUNDUP`, `ROUNDDOWN`, `TRUNC`, `INT`, `ABS`, `SIGN`, `SQRT`, `POWER`, `MOD`, `PI`, `SIN`, `COS`, `TAN`, `ASIN`, `ACOS`, `ATAN`, `ATAN2`, `RADIANS`, `DEGREES`, `SIND`, `COSD`, `TAND`, `HYPOT`, `EXP`, `LN`, `LOG10`, `LOG`, `CEILING`, `FLOOR`, `IF`, `AND`, `OR`, `NOT`, `TRUE`, `FALSE`. Upper and lower case both work.\n- `=HYPOT(30,40)` gives 50, the diagonal of a 30 by 40 rectangle.\n- Formulas starting with `=` also take comparisons (`=`, `<>`, `<`, `>`, `<=`, `>=`) and percentages (`50%` is 0.5).\n- The units you can add are `mm`, `cm`, `m`, `in` and `\"` (inches). `°` or `deg` may be added but change nothing.\n- Powers are worked out as in school maths: `-2^2` is -4, and `2^3^2` is 2 to the 9th power.\n- With no tool open, type `10/3` in the command line and press Enter to get the answer to six decimals, such as `= 3.333333`.\n- For typing points see [typing coordinates and lengths](help:input-coords); for the command line see [command line](help:input-cmdline).\n\n## Common mistakes\n\n- Multiplying with `x`. Use `*` or `×`.\n- A function without `=` (`SQRT(2)`). Functions only work in a formula starting with `=`.\n- Brackets left out, as in `=PI`. Write `=PI()`.\n- `=SIN(30)` does not give 0.5, because it works in radians. Use `=SIND(30)`.\n- `3,5` in a single number field is read as 3.5, and `1,000` as 1000. Use `.` for the decimal point. In a point in the command line, the comma separates X and Y.\n",zr=`---
 id: input-cmdline
 title: Command line and autocomplete
 분류: 스냅과 입력
@@ -10834,7 +10887,7 @@ The command line is where you type a command name to open a tool. While a tool i
 - Esc in the command line: with no tool open it clears the text and leaves the command line. With a tool open, the first Esc clears only the typed text and the next one ends the tool.
 - Numbers go into the fields next to the cursor instead of the command line. With {t:dyn.setting} on, numbers typed while placing a point go there. Click the command line first to type there.
 - The command line is gone. Press {k:toggleCommand} to bring it back.
-`,zr=`---
+`,Br=`---
 id: input-coords
 title: Typing coordinates and lengths
 분류: 스냅과 입력
@@ -10890,7 +10943,7 @@ Instead of clicking a point, you can type coordinates or a length to put it exac
 | \`50<30\` | 50 from the origin of the plane at 30° |
 | \`50\` | 50 from the previous point toward the cursor |
 | \`@3cm,2cm\` | relative coordinates with units (the same as \`@30,20\` in 3D objects) |
-`,Br=`---
+`,Vr=`---
 id: snap-from
 title: From and Mid between 2 points
 분류: 스냅과 입력
@@ -10938,7 +10991,7 @@ order: 40
 - After the base point, a second click puts the point right where you clicked. Type the offset instead.
 - The offset goes the wrong way. It is measured along the X and Y axes of the work plane; type a negative value, such as \`@-10,5\`, for the other side.
 - Opening another tool cancels the selected aid.
-`,Vr=`---
+`,Hr=`---
 id: snap-grid
 title: Grid and grid snap
 분류: 스냅과 입력
@@ -11011,7 +11064,7 @@ order: 50
 - Turning still jumps in steps after pressing {k:snap}. {k:snap} changes only the {t:grid.linear} snap. To turn freely, select {t:grid.off} under {t:grid.angular}.
 - In 3D Building a wall is drawn at an odd height. Check that the {t:ag.plane} in the tool window is {t:ag.kind.level}.
 - A step that is not in the list, such as \`snap 3\`, is refused. Select one of the listed steps.
-`,Hr=`---
+`,Ur=`---
 id: snap-ortho
 title: Ortho
 분류: 스냅과 입력
@@ -11050,7 +11103,7 @@ With {c:ortho} ({k:ortho}) on, the next point only goes where it lines up across
 - Lines still come out diagonal. With the cursor on a snap point, the object snap comes first. Click where no snap mark shows, or switch object snaps off for a moment with {k:osnap}.
 - The first point is not kept in line. Ortho needs a previous point to line up with.
 - The switch is hard to find. It is the {t:grid.ortho} button in the status bar, next to {c:otrack}.
-`,Ur=`---
+`,Wr=`---
 id: snap-osnap
 title: Object snaps
 분류: 스냅과 입력
@@ -11117,7 +11170,7 @@ Object snaps pull the cursor onto exact points such as the end of a line, the mi
 | {t:osnap.parallel} | {t:osnap.ex.parallel} |
 | {t:osnap.node} | {t:osnap.ex.node} |
 | {t:osnap.nearest} | {t:osnap.ex.nearest} |
-`,Wr=`---
+`,Gr=`---
 id: snap-temp-track
 title: Temporary track point
 분류: 스냅과 입력
@@ -11156,7 +11209,7 @@ A temporary track point is a point input aid: you click one point, and the next 
 - The first click does not place the tool's point. It only sets the point to track from; the tool's point comes from the next click or typed value.
 - Clicking far away from the line places the point right there. Click while the dotted line shows.
 - Opening another tool cancels the temporary track point.
-`,Gr=`---
+`,Kr=`---
 id: snap-track
 title: Snap tracking
 분류: 스냅과 입력
@@ -11200,7 +11253,7 @@ Snap tracking selects up a snap point (an endpoint, midpoint, centre and so on) 
 - The cursor passed over the snap point too quickly to select it up. Wait a moment after the snap mark shows.
 - Looking straight down, no Z path appears. Paths pointing almost straight at the viewer are not offered; turn the view a little.
 - Points selected up on hidden objects or hidden sketches are not used.
-`,Kr=`---
+`,qr=`---
 id: site-area-table
 title: Area table
 분류: 땅과 대지
@@ -11250,7 +11303,7 @@ A table showing site area, building area, floor area by floor, gross floor area,
 - The coverage is higher than expected. The building area is all levels above ground put together, so an upper floor that sticks out counts too. Basements do not: [Building outline](help:build-outline).
 - A ratio shows "—". That group has no site area (outside the sites), so no ratio is worked out.
 - The table is a study calculation. Check the real rules for counting areas (balconies, pilotis and so on) separately.
-`,qr=`---
+`,Jr=`---
 id: site-area
 title: Site, building outline and area table
 분류: 땅과 대지
@@ -11291,7 +11344,7 @@ The process of drawing the boundary of the land a building goes on (the site) in
 - The polygon does not close. Click the first point again or press Enter. It needs at least three points.
 - Clicking inside a site selects it instead of starting a new one. Start a new site outside the existing ones.
 - An area drawn too small is not made.
-`,Jr=`---
+`,Yr=`---
 id: site-grade
 title: Grading and earthwork
 분류: 땅과 대지
@@ -11337,7 +11390,7 @@ The tool that levels a site to one height. Inside the site the ground becomes fl
 - The site was deleted but its grading stayed. If you chose to keep the grading when deleting the site, it stays in the list marked ‘no site’. Select it to change it or click {t:grade.remove}. The basin of a lake or pond that was made a plain solid with {t:cfit.unlink} shows the same way.
 - A cut slope of 0 cut the ground straight down. 0 means an upright wall, as a retaining wall. Values around 1 to 2 are usual.
 - Esc left the new height out. Enter puts it in.
-`,Yr=`---
+`,Xr=`---
 id: site-land-edit
 title: Edit a site
 분류: 땅과 대지
@@ -11378,7 +11431,7 @@ The tool that reshapes a site you drew by dragging its corners, and edits its cu
 - A site with curves has no corner handles. Move its points and handles with {c:pathEdit}.
 - Two sites became one after a drag. Overlapping sites are joined; Ctrl+Z separates them again. When both are graded, you are asked which height stays.
 - Deleting a site deletes the water level filling it. With buildings on it, or with grading, you are asked first. The buildings stay where they are on the whole land, and the next steps of [Construction progress](help:arch-flow) do not wait. With its grading deleted, a building already built counts as left on the ground as it is.
-`,Xr=`---
+`,Zr=`---
 id: site-map
 title: Set the site location
 분류: 땅과 대지
@@ -11424,7 +11477,7 @@ The window where you select the land everything in 3D Building stands on, as a r
 - The photo arrived but the ground is flat. The heights did not arrive. Open this window and select the area again, or load a height file under {t:hs.title}.
 - The height file does not overlap the land. Usually {t:tf.coords} does not match the file. Select another coordinate system or {t:tf.centre}.
 - Screenshots of Google Maps may not be used. Use V-World or photos you took yourself.
-`,Zr=`---
+`,Qr=`---
 id: site-scope
 title: Work scope
 분류: 땅과 대지
@@ -11469,7 +11522,7 @@ The work scope is which site, which building and which level you are working on.
 - A wall appeared on the wrong level. New parts go on the scope's level. Check the level step of the path before drawing.
 - The view is too faded to see while a tool is in use. Switch {t:bo.fade} off in the status bar.
 - After an undo, a notice says the scope moved. Its level or building was gone, so it moved to the nearest one. Select again in the path if needed.
-`,Qr=`---
+`,$r=`---
 id: site-terrain-view
 title: Terrain view, contours and drop on ground
 분류: 땅과 대지
@@ -11513,7 +11566,7 @@ Settings for how the ground (terrain) is shown. {c:terrainView} sets the ground'
 - {t:tv.base} or {t:tv.cadastral} does not appear. There is no V-World key or no internet. Land not selected on the map (a photo file or flat land) can only show its own loaded picture.
 - {c:dropGround} changes nothing. Select the objects first.
 - A large object dropped on a slope is half buried or floating. It is matched to the height of one point under its middle. Grade the ground for large buildings first ([grading](help:site-grade)).
-`,$r=`---
+`,ei=`---
 id: arch-ceiling
 title: Ceilings, ceiling view and cut away above
 분류: 건축 부재
@@ -11561,7 +11614,7 @@ order: 180
 - With {t:ceil.how.level}, a message says the level already has a ceiling. A level takes one whole-level ceiling. Select the one that is there and change it in the Properties window.
 - With {t:ceil.how.room}, a message says it is not a room. The walls there are not closed. Join the walls, or draw the ceiling with {t:ceil.how.draw}.
 - Clicking parts in the cut-away region does not select them. What is cut away cannot be selected; turn the view off to select it.
-`,ei=`---
+`,ti=`---
 id: arch-column
 title: Columns
 분류: 건축 부재
@@ -11602,7 +11655,7 @@ Puts up a square or round column wherever you click. A column starts on the curr
 - A column goes through the floor above. Check whether its height was typed with {t:flow.top.height}, and switch it to {t:flow.top.toFloor}.
 - A column floats above the floor. Check that {t:flow.baseOffset} is 0.
 - Columns are an {t:fl.state.optional} step of [Build Progress](help:arch-flow). You can go on to the next step without them.
-`,ti=`---
+`,ni=`---
 id: arch-curtain-wall
 title: Curtain Wall
 분류: 건축 부재
@@ -11641,7 +11694,7 @@ A glass wall with panes set between mullions (upright bars) and transoms (cross 
 - Finishing after one point makes nothing. Click at least two points.
 - A curtain wall made {t:lib.curtain.line} does not cut a hole in a wall. To put it inside a wall, use {t:lib.curtain.wall}.
 - To move one panel of a curtain wall made along a line, first ungroup them with {c:ungroup}.
-`,ni=`---
+`,ri=`---
 id: arch-door-window
 title: Doors and windows
 분류: 건축 부재
@@ -11686,7 +11739,7 @@ Fits doors and windows into walls. A door or window placed on a wall cuts a hole
 - Clicking the floor places the door or window on the floor, without a wall and without a hole. Click on a wall face.
 - A door is pushed in from the end of a wall. Doors and windows are kept inside one straight piece of the wall; a piece shorter than the door gets it in its middle.
 - A door taller than the wall only cuts the hole up to the wall's height. Make the door lower or the wall higher.
-`,ri=`---
+`,ii=`---
 id: arch-drawing
 title: Building Drawings
 분류: 건축 부재
@@ -11735,7 +11788,7 @@ Draws a floor plan of each level and the four elevations of the building to scal
 - Upper levels do not show on a floor plan. A plan is the level cut 1.2 m above its floor, so levels above are not drawn.
 - A door shows no swing on the plan. It lies on the floor instead of sitting in a wall; delete it and fit it again by clicking on the face of a wall.
 - Every sheet was printed when only one was wanted: {t:dv.print} prints them all; {t:dv.printPage} prints the sheet shown.
-`,ii=`---
+`,ai=`---
 id: arch-error-check
 title: Error check
 분류: 건축 부재
@@ -11782,7 +11835,7 @@ order: 155
 - Some lines are left after {t:pfit.fix}. Cleared lines and lines with no automatic fix stay as they are.
 - A click on a line shows no part. A part on another level makes that level the working level; if the level is hidden, show it in {c:levelPanel}.
 - A wall that does not reach the slab is not listed. A typed height is taken as meant; only a miss of a few mm is a warning.
-`,ai=`---
+`,oi=`---
 id: arch-face-paint
 title: Paint faces
 분류: 건축 부재
@@ -11824,7 +11877,7 @@ Colours single faces instead of the whole object. The inside and the outside fac
 - {t:opt.paintOuter} is greyed out. The work scope is not a building; double-click inside a building to move the scope there.
 - With the {t:opt.eraser} on, clicked faces lose their colour. Click a colour first to paint.
 - Only one side of a wall changed colour. The inside and the outside of a wall are separate faces; click each one.
-`,oi=`---
+`,si=`---
 id: arch-fill-area
 title: Fill an area
 분류: 건축 부재
@@ -11870,7 +11923,7 @@ Draw an area on the floor and the selected objects fill it in a grid. Use it for
 - Fewer objects than expected. Check the room from edges and walls, the skipping of taken spots and {t:fa.max}.
 - A very small area is not made. Draw it larger.
 - Objects go on the floor of the level you are working on. Change the level first to fill another one.
-`,si=`---
+`,ci=`---
 id: arch-flow
 title: Build Progress
 분류: 건축 부재
@@ -11933,7 +11986,7 @@ The {c:buildFlow} window guides one building through twelve steps: site → buil
 - Fewer levels were set, but some levels stay. Levels with parts or an outline are never removed. Empty them, or delete them with {t:levels.delete} in the {c:levelPanel} window.
 - Step 10 shows {t:fl.state.done} as soon as there is one door or window. Check yourself that every room has its doors and windows.
 - In a building raised by hand, changing an outline does not move the outer walls raised in step 7. Edit those walls, or delete them and raise them again. Walls made by Build are made again along the outline.
-`,ci=`---
+`,li=`---
 id: arch-furniture
 title: Furniture, landscape and the object library
 분류: 건축 부재
@@ -11975,7 +12028,7 @@ Places ready-made objects on the floor: furniture, kitchen and bathroom fittings
 - {c:myObjects} is empty. Nothing has been sent from 3D object modelling yet.
 - Pressing Delete with the pointer over the pictures takes the selected objects of your own out of the library (after asking). Objects already placed stay, and {t:li.undo} just below brings them back.
 - In the web version your objects are kept only in this browser and can disappear when the browser's data is cleared or they are not used for a long time. Keep a bundle (.nklib) with {c:libExport}. Placed objects are also stored in the project file.
-`,li=`---
+`,ui=`---
 id: arch-levels
 title: Levels
 분류: 건축 부재
@@ -12025,7 +12078,7 @@ A building is made of levels. Each level has a name and a storey height; its flo
 - Deleting a level that holds objects asks whether to delete them too or keep them on the level below (the level above for the lowest one). Undo a mistake with {k:undo}.
 - An upper level is not shown. Check whether {t:levels.upper} is set to {t:upper.hide}, or whether that level's view button is on hidden. Working on a basement, or the {t:bv.toggle} switch on, hides the levels above too.
 - The storey height changed but a wall kept its height. That wall's {t:flow.top} is set to a typed height. Tie it to the level above in the Properties window.
-`,ui=`---
+`,di=`---
 id: arch-lighting
 title: Lights, time of day and night
 분류: 건축 부재
@@ -12072,7 +12125,7 @@ Put lights on ceilings, walls and floors, then change the time and date in the {
 - A light cannot be fixed onto another light.
 - The view gets slow. Turn shadows off or set {t:lt.quality} to {t:lt.q.low}. See also [When it is slow](help:faq-slow).
 - The night scene is too dark or too bright. Change the lights' brightness (lm) or adjust {t:lt.exposure}.
-`,di=`---
+`,fi=`---
 id: arch-my-arch
 title: My buildings
 분류: 건축 부재
@@ -12114,7 +12167,7 @@ Keeps a building you made in the object library under {t:lib.group.mine} → {t:
 - Hidden parts and works on the land (roads, bridges …) are not saved with the building. Show hidden parts first.
 - A building that is too complex cannot be saved. Try fewer levels or parts.
 - A message says no more buildings can be added. Delete a building you do not use, then place it again.
-`,fi=`---
+`,pi=`---
 id: arch-new-building
 title: New building
 분류: 건축 부재
@@ -12152,7 +12205,7 @@ Makes one more building. {c:buildingOutline} opens the [building outline](help:b
 - Walls or slabs go into another building. Parts go on the levels of the building you are working in, so click the building in the {c:levelPanel} first.
 - The only building cannot be deleted. Use {t:lt.clearBuilding} to empty it instead.
 - No more than 30 buildings can be made. Delete buildings you do not use.
-`,pi=`---
+`,mi=`---
 id: arch-outline
 title: Level Outline
 분류: 건축 부재
@@ -12201,7 +12254,7 @@ A level outline is the outer shape of one level. Once it is drawn, the level's s
 - An outline with fewer than 3 points, or a very small one, is not set.
 - {t:ol.clear} also deletes the level's automatic slab.
 - Changing the level you work on while drawing drops the points clicked so far and shows the new level's outline.
-`,mi=`---
+`,hi=`---
 id: arch-railing
 title: Railings
 분류: 건축 부재
@@ -12241,13 +12294,13 @@ Puts up railings through clicked points, along edges and lines. Joining points a
 
 - A railing put beside a stair with points does not follow later changes to the stair. After changing the stair, delete the railing and make it again, or use the stair's own {t:stairs.rails} setting.
 - The railing lies flat on the floor instead of following the slope. The points went on the floor, not onto the object. Put the points on stair edge ends or corners; with object snap ({k:osnap}) on they are easy to hit ([object snap](help:snap-osnap)).
-`,hi=`---
+`,gi=`---
 id: arch-roof-edit
 title: Roof sides
 분류: 건축 부재
 난이도: 중급
 workspace: 3D 건설
-keywords: roof side, roof edge, sloped side, sloped edge, gable end, edit roof, change roof, box select sides, curved roof, round roof, curved side, slope of each edge, ridge, hip, skylight, roof window, roof opening
+keywords: roof side, roof edge, sloped side, sloped edge, gable end, edit roof, change roof, box select sides, curved roof, round roof, curved side, slope of each edge, eaves of each edge, eaves, overhang, eaves height, ridge height, roof height, raise roof, lower roof, ridge, hip, skylight, roof window, roof opening
 commands: roof, tweak, window
 order: 130
 ---
@@ -12268,12 +12321,16 @@ After you select what the roof covers, select for each side whether the roof ris
 ## Tips
 
 - A curved side counts as one side, however many small steps it is made of. One click or one box turns the whole curved side on or off.
-- While {t:roof.sides.btn} is on, side numbers show in the view. They match the numbers of the {t:archedit.roofSlopes} fields in the Properties window.
+- While {t:roof.sides.btn} is on, side numbers show in the view. They match the numbers of the {t:archedit.roofSlopes} and {t:re.eaves} fields in the Properties window.
 - The window shows how many sides slope out of how many there are.
 - Clicking a shape button ({t:opt.roofGable}, {t:opt.roofHip} …) sets the sloped sides for that shape again. Selecting the shape first and then fixing single sides is quickest.
 - Under {t:archedit.roofSlopes} in the Properties window, give each sloped side its own slope. Different slopes move the ridge and hip points. {t:archedit.sameSlope} gives every side the same slope again.
 - Moving a ridge point or line with {m:tweak} also changes the slopes of the sides, and the roof stays a roof you can change by its values.
-- The Properties window also changes the shape, {t:opt.roofPitch}, {t:opt.overhang} and {t:opt.thickness}, and shows the {t:flow.roofEave} and {t:flow.roofRidge} heights.
+- Under {t:re.eaves} in the Properties window, give each side its own eaves. A side without its own follows {t:opt.overhang}, and {t:re.sameEave} makes every side follow {t:opt.overhang} again. Two sides with different eaves run on to the point where their eaves lines meet at the corner.
+- The Properties window also changes the shape, {t:opt.roofPitch}, {t:opt.overhang} and {t:opt.thickness}.
+- {t:flow.roofEave} is the height where the roof's underside meets the outline. Typing a value moves the roof there, and the walls attached to it follow.
+- {t:flow.roofRidge} is the height of the highest point of the underside; on a {t:opt.roofShed} roof it is the high side. Typing a value changes the slopes together, keeping their ratios. Slopes stay between 5° and 70°, so a height outside what they allow is not taken.
+- A flat roof shows one {t:re.roofHeight} field only: the height of its underside.
 - Skylights: select {t:preset.window.skylight} in {m:window} and click a roof slope. It lies on the slope, tilted with it, and cuts its hole in the roof. When the roof's slope or height changes the skylight moves with it, and deleting the skylight closes the hole.
 
 ## Common mistakes
@@ -12282,7 +12339,55 @@ After you select what the roof covers, select for each side whether the roof ris
 - With every side off the roof is flat. Turn the sides that should slope back on.
 - With many sloped sides on a complex outline, a message says the roof is made flat. Slope fewer sides or simplify the outline.
 - A skylight placed off the roof, or away from its top surface, cuts no hole. Where there is no roof it lies on the floor.
-`,gi=`---
+- The {t:re.roofHeight} of a roof terrace made by Build cannot be typed. Its height is set with {t:aw.roofOffset} in the Properties window.
+`,_i=`---
+id: arch-roof-split
+title: Split a roof
+분류: 건축 부재
+난이도: 중급
+workspace: 3D 건설
+keywords: split roof, cut roof, divide roof, roof in two, roof pieces, raise part of a roof, roof one step higher, roofs at different heights, stepped roof
+commands: roofSplit, roof, wallSplit
+context: roofSplit
+order: 135
+---
+
+## What
+
+Cuts a roof in two along a line drawn across it. Each piece becomes a roof of its own, with its own height, slopes and eaves. Use it to make part of a roof one step higher.
+
+## Steps
+
+1. Click {m:roofSplit}.
+2. Click the roof to cut.
+3. Click the first and the end point of the cut line on the roof. Before the second click, the place of the cut shows as a solid line.
+4. Select one of the pieces and change its {t:flow.roofEave} or {t:re.roofHeight} in the Properties window.
+5. Go on with the next roof, or press Esc to finish.
+
+## Tips
+
+- A line that ends inside the roof runs on to the outline. The two points only give its place and direction.
+- On a concave roof, a line that crosses the notch cuts every stretch it passes over, so there are three pieces or more. To cut one side only, click both points inside that side.
+- With a roof selected when the tool opens, or with {c:roofSplit} on the roof's right-click menu, that roof is taken at once.
+- Points can be typed on the command line, for example \`@0,3\`. Esc or Ctrl+Z takes back the first point, then the roof.
+- The cut edge stands upright, without a slope and without eaves, so the two pieces meet without overlapping. The original edges keep their slopes and eaves.
+- A flat roof, and a {t:opt.roofGable} or {t:opt.roofShed} roof cut across its ridge, look the same after the cut.
+- Each piece is made again from its own outline. Where the slope of another edge used to run over a piece, as on a {t:opt.roofHip} roof or a concave roof, the shape changes, and a message says so.
+- A cut that leaves an inside corner straight along one of its edges: in the piece that keeps that edge, the cut edge slopes like it, as one side. The eaves of that edge stop next to the corner, so the eaves of the two pieces do not overlap.
+- With {t:rs.walls} on (it starts on), walls attached to the roof that lie across the line are cut there, and each piece is attached to the roof over it. Raising one piece of the roof raises only the walls under it.
+- One undo brings back the roof and the walls.
+- A roof terrace made by Build can be cut too. The pieces become roofs of your own: applying the level again makes no terrace there.
+
+## Common mistakes
+
+- A line that does not cross the roof cuts nothing. Two points outside the roof on the same side do not cut it even though the line would reach it. Put one point on the roof or beyond it.
+- A line through a skylight cannot cut. Draw it clear of the skylight.
+- A cut that would leave a piece narrower than 100 mm is not made.
+- A slanted cut from an inside corner that would make the eaves of the two pieces overlap is refused with a message. Draw it straight along one of the corner's edges, or somewhere else.
+- A roof made by width and depth, a linked copy, a tilted roof and a roof with editing steps such as {m:tweak} cannot be cut.
+- Closed walls, curved walls and walls with a stepped top cannot be cut, so the whole wall stays attached to one of the roofs. Raising the other piece does not move it.
+- {c:roofSplit} is not on the menu. It is on the advanced menus only: select {t:level.advanced} at the right of the menu bar: [Basic and advanced menus](help:start-level).
+`,vi=`---
 id: arch-roof
 title: Put on a roof
 분류: 건축 부재
@@ -12310,6 +12415,7 @@ Puts a roof over a slab, a closed ring of walls or a rectangle drawn on the floo
 - There are three ways to select what the roof covers. Clicking closed walls follows the outer faces of the walls; clicking a slab follows the slab's outline. Clicking two corners where there is no part makes a rectangle, and the second corner can be typed as width and depth, for example \`@10,8\`.
 - The shape decides which sides slope. {t:opt.roofGable} slopes the longest side and the side opposite it, {t:opt.roofShed} only the longest side, {t:opt.roofHip} every side, and {t:opt.roofFlat} none. A side that does not slope ends in a gable.
 - To turn single sides on or off, or to change a roof after it is made, see [Roof sides](help:arch-roof-edit).
+- To give part of a roof its own height or slopes, cut the roof in two: [Split a roof](help:arch-roof-split).
 - {t:opt.roofPitch}: 5° to 70° (default 30°). {t:opt.overhang}: 0 to 3 m (default 0.5 m). {t:opt.thickness}: 0.05 to 1 m (default 0.2 m). Number fields take [calculations](help:input-calc).
 - The roof's underside sits at the floor of the {t:flow.roofBase} plus the {t:flow.offset}. It starts at the floor of the level above (on the top level: the current floor plus the storey height), which is the top of the top storey's walls. The window shows the {t:flow.roofEave} and {t:flow.roofRidge} heights as you change values.
 - With {t:flow.roofAttach} on (the default), the walls under the roof rise to follow its underside. See [Wall tops](help:arch-wall-top).
@@ -12324,7 +12430,7 @@ Puts a roof over a slab, a closed ring of walls or a rectangle drawn on the floo
 - Walls and slabs of another building cannot be selected. Click that building in the {c:levelPanel} to work in it, then click again.
 - The roof floats above the walls or cuts into them. Check the {t:flow.roofBase} and the {t:flow.offset}.
 - Esc after the outline is selected made no roof. Esc cancels: the roof is made only with Apply (Enter).
-`,_i=`---
+`,yi=`---
 id: arch-slab
 title: Lay a floor slab
 분류: 건축 부재
@@ -12371,7 +12477,7 @@ A slab is the plate that makes a level's floor. Its top lies on the level's floo
 - The {c:slab} tool closes after one slab. For the next one click the button again, or press Enter to open the tool again.
 - The slab seems to float above the floor. Check that {t:flow.baseOffset} is 0.
 - No hole appears over a stair. Check that the stair's {t:stairs.slabCut} switch is on and that the slab is at the height of the stair's top.
-`,vi=`---
+`,bi=`---
 id: arch-stair
 title: Stairs
 분류: 건축 부재
@@ -12416,7 +12522,7 @@ Places a stair up to the level above. Its rise and number of steps follow the fl
 - Only a stair drawn {t:stairs.style.path} can be reshaped with {c:pathEdit}. Change other stairs with the values in the Properties window.
 - R turns the direction used before the start is selected. Once the start is selected, the second click sets the direction.
 - A stair with a warning is hard to climb. Use more steps or draw a longer walking line.
-`,yi=`---
+`,xi=`---
 id: arch-wall-top
 title: Wall tops
 분류: 건축 부재
@@ -12460,7 +12566,7 @@ How far up a wall goes. Its height can be typed, tied to the floor of a level ab
 - A wall top that does not reach the top of the slab is not a mistake: walls stop at the slab's underside.
 - Deleting the level a wall is tied to ties it to the level that comes down in its place. With no level above, the wall keeps its current height and is no longer tied.
 - With {t:flow.roofAttach} switched off when the roof was made, no wall is attached. Select that roof later in {t:flow.props.attach} for each wall.
-`,bi=`---
+`,Si=`---
 id: arch-wall
 title: Draw walls
 분류: 건축 부재
@@ -12510,7 +12616,7 @@ Click points on the floor one after another to put up walls, or put them up alon
 - A wall is a little lower than the storey height, such as 2.8 m. It stops under the slab of the level above; this is correct ([wall tops](help:arch-wall-top)).
 - There is no height field in the window. With {t:flow.top} set to {t:flow.top.toFloor}, the height follows the level above. Click {t:flow.top.height} to get the field.
 - With {t:flow.justify.left} selected, drawing round the building counter-clockwise makes the walls grow outwards. Draw clockwise, type \`f\` in the command line, or flip it afterwards with {t:opt.flip} in the Properties window.
-`,xi=`---
+`,Ci=`---
 id: build-auto-roof
 title: Automatic roofs and roof height
 분류: 건물 세우기
@@ -12550,7 +12656,7 @@ Build works out the roofs from the level outlines alone. The part of a level's t
 - An upper outline drawn slightly off the lower one can leave very narrow roof slivers. Pieces under 0.01 m² or under 20 mm wide on average get no roof, and when more than 1 m² is left out on one level the {c:buildFlow} window shows a note. To line corners up, start from {t:ol.sameBelow} in the outline tool and edit.
 - A deleted automatic roof is not made in that place again when the level is applied. To bring it back, right-click that level's row in the {c:levelPanel} and select {t:lt.reviveAuto}, or click {t:lt.reviveAuto} in its row under {t:ab.detailed}. A changed outline that moves that place makes a new roof by itself.
 - A roof made with {m:roof} has no {t:aw.roofOffset} field. Only roofs made by Build have it.
-`,Si=`---
+`,wi=`---
 id: build-courtyard
 title: Courtyards
 분류: 건물 세우기
@@ -12592,7 +12698,7 @@ Draws a hole inside a level outline to leave an open yard (courtyard) in the mid
 - A courtyard drawn outside the outline is not made, and a message says so.
 - In a building started by hand, a courtyard drawn with the outline tool opened from the {c:levelPanel} or the menu cuts the slab only, with no inner walls. To get the inner walls, open the tool with the outline button under {t:ab.detailed}.
 - {t:ol.clear} removes the level's courtyards too.
-`,Ci=`---
+`,Ti=`---
 id: build-detailed
 title: Building Per Level
 분류: 건물 세우기
@@ -12641,7 +12747,7 @@ Builds by giving each level its own outline and {t:ab.kind} ({t:ab.kind.normal} 
 - A changed outline makes the level's automatic walls new, so a door or window whose new wall does not stand where the old one did is deleted. Settle the outlines before adding doors and windows. If one went by mistake, undo with {c:undo} ({k:undo}).
 - Automatic roofs and columns (and automatic walls other than outer walls) that were deleted or edited by hand are not made there again when the level is applied. An edited part stays as your own. To bring the automatic parts back, click {t:lt.reviveAuto} in that level's row, or right-click the level row in the {c:levelPanel} and select {t:lt.reviveAuto}.
 - Changing a level to {t:ab.kind.piloti} deletes all of its outer walls and puts up columns. Doors and windows in those walls go too.
-`,wi=`---
+`,Ei=`---
 id: build-easy
 title: Quick Building
 분류: 건물 세우기
@@ -12692,7 +12798,7 @@ Set the number of floors and the storey height, and the levels, level outlines, 
 - No building outline is made up for you. With no building to raise, the building outline tool opens: draw the outline.
 - A deleted outer wall does not come back with {t:aw.easyAgain}. For a wall there, click the place where it was on that level to bring it back.
 - When a stretch deleted in part ends less than 0.3 m from the end of its side, the short wall left between is not made.
-`,Ti=`---
+`,Di=`---
 id: build-names-tree
 title: Building names, colours and the project tree
 분류: 건물 세우기
@@ -12742,7 +12848,7 @@ New buildings are named **Building A, Building B …** and each gets its own col
 - Deleting a level that holds objects asks whether to delete them too or keep them on another level.
 - Another building only shows faded: it is outside the work scope. To work on it, double-click its row in the list.
 - Clicking a building row selected all its parts. A click only selects; double-click to move work there.
-`,Ei=`---
+`,Oi=`---
 id: build-outer-walls
 title: Outer walls
 분류: 건물 세우기
@@ -12794,7 +12900,7 @@ One window for the outer walls along the building outline. The three ways at its
 - A message says a door or window lies across an end of the stretch. A stretch cutting through a door or window is not deleted. Move the stretch clear of it, or take the door or window in.
 - Closed, stepped-top and linked walls cannot lose only a part; nor can a closed curved wall. An outer wall made by building can, even a closed one.
 - A stretch shorter than 100 mm cannot be deleted. Dragging to within 100 mm of an end deletes up to that end.
-`,Di=`---
+`,ki=`---
 id: build-outline
 title: Building outline
 분류: 건물 세우기
@@ -12841,7 +12947,7 @@ The tool that draws the most ground a building may take up. Drawing an outline m
 - An outline made smaller does not change. A shape that would split a level outline in two, or leave a level with none, is not taken. Change the level outlines first.
 - An upper level cannot overhang past the outline. Draw the building outline as large as the widest level, then shrink the lower levels under [Per level](help:build-detailed).
 - Dragged onto another site, a message says it does not fit. That site is smaller than the building or has no free place left. The message gives both sizes, width × depth.
-`,Oi=`---
+`,Ai=`---
 id: build-overview
 title: Building a Building
 분류: 건물 세우기
@@ -12880,7 +12986,7 @@ Makes the levels, level outlines, outer walls, slabs and roofs in one go instead
 - Deleting automatic walls and roofs one by one and drawing them again. To change the shape, edit that level's outline: its walls and roofs are made again with it.
 - A level with walls drawn by hand gets no automatic outer walls, only its roofs.
 - A deleted outer wall does not come back when the building is raised again. To bring it back, click the place where it was on that level: [Quick Building](help:build-easy).
-- Changing an outline makes that level's automatic walls again. A door or window whose new wall does not stand where the old one did is deleted, so settle the outlines before adding doors and windows.`,ki=`---
+- Changing an outline makes that level's automatic walls again. A door or window whose new wall does not stand where the old one did is deleted, so settle the outlines before adding doors and windows.`,ji=`---
 id: build-piloti
 title: Piloti
 분류: 건물 세우기
@@ -12922,7 +13028,7 @@ A level that stands on columns, with no outer walls. Set its {t:ab.kind} to {t:a
 - A level with walls drawn by hand keeps those walls when set to {t:ab.kind.piloti}, and no columns are made.
 - A {t:ab.columnSpacing} smaller than twice the column size does not bring the columns closer than twice the column size.
 - Setting the level back to {t:ab.kind.normal} deletes the columns and makes the outer walls again. Check the place of anything you lined up with the columns.
-`,Ai=`---
+`,Mi=`---
 id: build-shared-levels
 title: Joined buildings
 분류: 건물 세우기
@@ -12962,7 +13068,7 @@ Each building has its own [building outline](help:build-outline). Buildings on t
 - There is no way through. Put a door in the wall on the line where they touch.
 - Levels whose floor heights differ because the storey heights differ do not cover each other. Then a roof terrace is made even where the neighbour's upper level covers it.
 - Buildings on different sites are not joined even when they touch. Put them on the same site.
-`,ji=`---
+`,Ni=`---
 id: build-wall-split
 title: Automatic wall splitting
 분류: 건물 세우기
@@ -13004,7 +13110,7 @@ When one side's outer wall lies partly under the level above and partly under a 
 - A cut automatic wall that you delete stays deleted: applying the level again makes no wall there. To bring it back, click that place on the level while no tool is in use: [Quick Building](help:build-easy).
 - Curved walls, closed walls, walls with a stepped top and linked copies cannot be cut with {c:wallSplit}, and a wall cannot be cut within 0.1 m of its ends.
 - {c:wallSplit} is not on the menu. It is on the advanced menus only: select {t:level.advanced} at the right of the menu bar: [Basic and advanced menus](help:start-level).
-`,Mi=`---
+`,Pi=`---
 id: brec-atrium
 title: Atrium through several levels
 분류: 건물 예제
@@ -13047,7 +13153,7 @@ Cut an 8 × 6 m hole in the Level 2 and Level 3 slabs of a 24 × 18 m 4-storey b
 - Holes at different places on Level 2 and Level 3 do not make one atrium. Start both from the same corner with the same offset.
 - Leaving {t:flow.topLevel} at Level 2 in step 8 makes the wall one storey high only. Select Level 4.
 - Railings select only the slab edges of the working level. Make the level for the railing the working level first.
-`,Ni=`---
+`,Fi=`---
 id: brec-courtyard-house
 title: Courtyard house
 분류: 건물 예제
@@ -13089,7 +13195,7 @@ An 18 × 18 m 2-storey house with an 8 × 8 m courtyard open to the sky in the m
 - {t:ol.sameBelow} in the outline tool takes the outer outline only, not the courtyards.
 - A courtyard touching or crossing the outline keeps only its part inside the outline. Leave room for the walls on every side.
 - Doors and windows put in before the courtyard is drawn may be deleted with the automatic walls when the outline changes. Draw the courtyard first.
-`,Pi=`---
+`,Ii=`---
 id: brec-curved-site
 title: Building on a curved site
 분류: 건물 예제
@@ -13128,7 +13234,7 @@ Draw a building outline with one straight 18 m side and a round arch opposite, t
 - A curved building outline overlapping another building's outline is not made. Keep them apart, or let them only touch.
 - Curved walls cannot be cut with {c:wallSplit}.
 - Clicking without dragging, or dragging at once, makes a sharp corner, giving a triangle. Press, wait 0.5 s, move the mouse, then let go.
-`,Fi=`---
+`,Li=`---
 id: brec-piloti-overhang
 title: ③ Piloti ground floor with an overhang
 분류: 건물 예제
@@ -13167,7 +13273,7 @@ Raise a 2-storey building on a 23 × 13 m building outline, then shrink the grou
 - {t:ol.shrink} moves every side together. To shrink one side only, move points or draw a new outline.
 - Doors and windows put into the ground floor walls before switching to {t:ab.kind.piloti} are deleted with those walls.
 - Setting Level 2 to {t:ab.kind.piloti} instead of Level 1 turns Level 2 into an open level of columns. Select the kind in the row of the level that should stand on columns.
-`,Ii=`---
+`,Ri=`---
 id: brec-setback
 title: ② Narrower third floor
 분류: 건물 예제
@@ -13207,7 +13313,7 @@ Raise a 20 × 10 m 3-storey building with {t:ab.easy}, then narrow only the thir
 - {t:aw.roofOffset} is in the Level 2 row, the level with the terrace, not in the Level 3 row.
 - Moving points one by one with {t:ol.mode.edit} works too. Walls and roofs are made again once, for the last shape, when the tool closes.
 - Doors or windows put into Level 3 before changing its outline may be deleted where a new wall does not stand where the old one did. Undo with {k:undo} then.
-`,Li=`---
+`,zi=`---
 id: brec-small-house
 title: Small house from walls
 분류: 건물 예제
@@ -13249,7 +13355,7 @@ Build an 8 × 6 m one-storey house by drawing its walls one by one, without Buil
 - Typing millimetres by mistake: \`@8,0\`, not \`@8000,0\`.
 - Clicking one wall that is not closed makes the roof over that wall's bounding rectangle only. Close the walls, or click the slab.
 - A door or window placed on the floor makes no hole in a wall. Click on the face of a wall.
-`,Ri=`---
+`,Bi=`---
 id: brec-stepped-tower
 title: Stepped tower narrowing upwards
 분류: 건물 예제
@@ -13287,7 +13393,7 @@ Raise a 20 × 20 m 4-storey building with {t:ab.easy}, then under {t:ab.detailed
 - Shrinking moves every side together, so 2 m makes the width and the depth each 4 m smaller.
 - Clicking {t:ol.sameBelow} in an upper level's outline tool brings back the shape of the level below. Do not click it after shrinking.
 - A shrink so large that the shape would turn inside out is not made, and a message says so. Shrink a 20 m level by less than 10 m.
-`,zi=`---
+`,Vi=`---
 id: brec-terraced-slope
 title: Terraced building on a slope
 분류: 건물 예제
@@ -13329,7 +13435,7 @@ Seat two buildings on sloping ground like steps, one storey apart. Grading gives
 - On flat land without terrain there is no grading step and both buildings stand at the same height. Load terrain in [Construction area](help:site-map) first.
 - {c:retainingWall} does not change the ground. Make the step in the ground with grading first.
 - If {c:retainingWall} is not on the menu, select {t:level.advanced} at the right of the menu bar.
-`,Bi=`---
+`,Hi=`---
 id: brec-two-buildings
 title: Two joined buildings
 분류: 건물 예제
@@ -13368,7 +13474,7 @@ Raise two 3-storey buildings side by side, with touching outlines. Building A ta
 - There is no way through. Put a door in the wall on the line where they touch.
 - A different storey height for Building B puts its floors at other heights, so they no longer cover and support each other.
 - Buildings on different sites are not joined, even when they touch.
-`,Vi=`---
+`,Ui=`---
 id: brec-u-shape
 title: ① U-shaped building in one go
 분류: 건물 예제
@@ -13408,7 +13514,7 @@ Draw a U-shaped building outline, then raise a 3-storey building on it at once w
 - Clicking the first corner inside an existing building outline selects that outline instead of drawing a new one. An outline overlapping another building is not made.
 - Typing millimetres by mistake. The 3D construction workspace works in metres: \`@20,0\`, not \`@20000,0\`.
 - When a building with only its outline drawn is already there, {m:buildingEasy} opens {t:ab.easy} of that building instead of the outline tool. Draw a new outline with {c:buildingOutline}.
-`,Hi=`---
+`,Wi=`---
 id: civil-bridge
 title: Bridge
 분류: 토목
@@ -13467,7 +13573,7 @@ The tool that lays a deck along a line, with piers going down to the footing dep
 - After the ground changed, the bridge stayed as it was and its window shows red text. Fitted to the new ground it would hit one of the two cases above. Change the deck heights, then click {t:civil.refit}.
 - Changing {t:cf.bridge.pier} does not change the piers under the pylons of a cable-stayed or suspension bridge. Those are always walls.
 - {c:bridge} is not on the menu. The civil tools are on the Advanced menus. Select {t:level.advanced} on the menu bar or type \`bridge\` in the command line.
-`,Ui=`---
+`,Gi=`---
 id: civil-dam
 title: Dam and weir
 분류: 토목
@@ -13524,7 +13630,7 @@ Draw an axis across a valley to build a dam from its crest down into the ground.
 - The water fills the downstream side. The dam was drawn the wrong way round; delete it and draw it the other way.
 - No water appears behind the dam. {t:cf.dam.reservoir} is off, or the land is flat with no terrain. On flat land, set a water level with {c:water}.
 - {c:dam} is not on the menu. Select {t:level.advanced} at the right of the menu bar, or type \`dam\` in the command line.
-`,Wi=`---
+`,Ki=`---
 id: civil-drainage
 title: Drainage
 분류: 토목
@@ -13572,7 +13678,7 @@ The tool that lays side ditches, box culverts, buried pipes and manholes along a
 - A ditch was laid but the ground is not dug. Drainage does not change the ground. A channel that digs the ground is a [water body](help:civil-waterway).
 - A line that crosses itself makes nothing. Draw it again without crossings.
 - {c:drain} is not on the menu. The civil tab is on the Advanced menus only: select {t:level.advanced}, or type \`drain\` in the command line.
-`,Gi=`---
+`,qi=`---
 id: civil-grading
 title: Grading and civil works
 분류: 토목
@@ -13625,7 +13731,7 @@ Grading, roads, water bodies and tunnel portals change the shape of the ground; 
 - After changing the grading, a bridge stayed as it was and its window shows red text. Fitted to the new ground it could not be made, so it was left. Change the deck heights, then click {t:civil.refit}.
 - After changing the grading, a river's water level did not move. Rivers follow the original ground before grading, so grading does not change them.
 - The civil tab is missing. Select {t:level.advanced} at the right of the menu bar.
-`,Ki=`---
+`,Ji=`---
 id: civil-levee
 title: Levee
 분류: 토목
@@ -13673,7 +13779,7 @@ The tool that builds a bank of earth with a trapezoid section (a levee) along a 
 - Red text says it bends too sharply for its width. The bend is tight for the crest width. Turn less, or make the crest narrower.
 - A line that crosses itself makes nothing. Draw it again without crossings.
 - {c:levee} is not on the menu. The civil tab is on the Advanced menus only: select {t:level.advanced}, or type \`levee\` in the command line.
-`,qi=`---
+`,Yi=`---
 id: civil-my-civil
 title: My civil structures
 분류: 토목
@@ -13716,7 +13822,7 @@ The tool that places structures you modelled yourself in 3D objects, such as bri
 - It came in far too large or too small. A 1:100 model was sent at real size, or the other way round. Select the right {t:tc.scale} and send again with {t:tc.howUpdate} (longest side 1 cm to 2 km).
 - On a slope one side of the structure floats or is buried. Your own civil structures do not cut or fill the ground and do not bend with the terrain. Roads, bridges and dams that must follow the ground are made with [Road](help:civil-road), [Bridge](help:civil-bridge) and [Dam and weir](help:civil-dam).
 - {c:myCivil} is not on the menu. Select {t:level.advanced} at the right of the menu bar.
-`,Ji=`---
+`,Xi=`---
 id: civil-overview
 title: Civil works
 분류: 토목
@@ -13767,7 +13873,7 @@ Building structures such as roads, bridges, tunnels, retaining walls, drainage, 
 - The {t:group.civil} tab is missing. The Basic menus have no civil tab. Select {t:level.advanced}, or type the command name, such as \`road\`, in the command line.
 - Red text appears and nothing is made. The line crosses itself, bends too sharply for its width, or a bridge or tunnel is too short for its type. Fix the line as the message says.
 - After the ground was changed, a bridge or dam stayed as it was and its window shows red text. Fitted to the new ground it could not be made (piers over 200 m, a deck in the ground), so it was left as it was. Change its heights or line as the message says.
-`,Yi=`---
+`,Zi=`---
 id: civil-rec-river-crossing
 title: Example: a road across a river
 분류: 토목
@@ -13811,7 +13917,7 @@ Dig a river through a valley, lay a girder bridge over it, and build a road on e
 - There is a step between the road and the bridge. The road's last point was more than 5 m from the middle of the bridge end. Delete the road and draw it again with its end closer to the bridge end.
 - The message says the bridge is too short. Each type has a shortest length; draw the bridge longer or use {t:civil.type.bridge.beam}.
 - The top of a retaining wall is far above the road. One wall keeps the same height above the ground from start to end, so split it where the embankment gets lower.
-`,Xi=`---
+`,Qi=`---
 id: civil-retaining
 title: Retaining wall
 분류: 토목
@@ -13867,7 +13973,7 @@ The tool that builds a wall holding back the earth along the edge between two gr
 - A {t:civil.type.retaining.cantilever} wall shows no base slab. Its {t:civil.base} is 0; type a width under {t:civil.more} (for example \`1.8 m\`).
 - A line that crosses itself makes nothing. Draw it again without crossings.
 - {c:retainingWall} is not on the menu. The civil tab is on the Advanced menus only: select {t:level.advanced} at the right of the menu bar. See [Basic and Advanced menus](help:start-level).
-`,Zi=`---
+`,$i=`---
 id: civil-road
 title: Road
 분류: 토목
@@ -13921,7 +14027,7 @@ The tool that makes a road by clicking the points of its centre line on the grou
 - A notice says the road passes through a building. The road is made, but the overlap shows red. Move the line, or check where the building is in the [work scope](help:site-scope).
 - With {t:civil.grade} the road dives into the ground or floats high. It does not follow the ground: set {t:civil.z0} and {t:civil.z1} to the ground heights or switch to {t:civil.follow}.
 - Turning on sidewalks made the lanes narrower. Sidewalks go inside the road's width; widen the road by that much.
-`,Qi=`---
+`,ea=`---
 id: civil-tunnel
 title: Tunnel
 분류: 토목
@@ -13972,7 +14078,7 @@ Draw a centre line from one portal to the other to make the lining (tunnel wall)
 - Text says the parts could not be joined into one. A bend in the line close to a portal can cause this. Draw the line straight near the portals.
 - Nothing is dug in front of a portal. {t:cfit.dig} is off, or the ground there is already lower than the road.
 - The inside of the hill does not look hollow. The ground inside the hill is not dug. Check with {c:sectionView}.
-`,$i=`---
+`,ta=`---
 id: civil-water
 title: Water Level
 분류: 토목
@@ -14037,7 +14143,7 @@ Set a water level and the ground lower than it shows under water. Use it to see 
 - On flat land without terrain, the level must be above 0 for water to show, and then the whole land is one body under water.
 - The water tool does not dig the ground. To dig a lake or river, use [Water body](help:civil-waterway).
 - {c:water} is not on the menu. Select {t:level.advanced} at the right of the menu bar.
-`,ea=`---
+`,na=`---
 id: civil-waterway
 title: Water Bodies
 분류: 토목
@@ -14082,7 +14188,7 @@ Digs the ground and fills it with water: draw an outline for a lake or a pond, o
 - An outline that crosses itself makes nothing. Draw it again without crossings.
 - On flat land without terrain nothing is dug. Load terrain in [Site location](help:site-map) first.
 - {c:waterBody} is not on the menu. Select {t:level.advanced} at the right of the menu bar.
-`,ta="---\nid: more-ai-ask\ntitle: Ask the AI to make things\n분류: 그 밖의 기능\n난이도: 중급\nworkspace: 공통\nkeywords: AI, make it for me, ask to make, make a desk, make a chair, make a house, natural language, sentence, chat command, on top of, next to, around, between, in a row, in a circle, spacing, count, size, change colour, move it, delete it, make it bigger, make it smaller, undo, how do I, where is, shortcut question\ncommands: cadooChat, undo\norder: 50\n---\n\n## What\n\nWrite what you want in the {c:cadooChat} window and Cadoo makes it, or changes it, as it understood. You can give sizes, counts, places (on top of, next to, around, between) and arrangements (in a row, in a circle) in the same sentence. What Cadoo makes is one step of the undo history, so it can be taken back at once. This works without any AI connected.\n\n## Steps\n\n1. Double-click Cadoo to open the {c:cadooChat} window.\n2. Write what to make with its size, count and place in one sentence and press Enter. For example: `의자 4개를 책상 둘레에 만들어 줘` (four chairs around the desk)\n3. What Cadoo understood is made at once, and the answer says what was made and where.\n4. If you do not like the result, press {t:aimake.undo} under the answer. Exactly that one step of Cadoo's is taken back.\n5. To change an object that is there, name it. For example: `직육면체 1을 빨간색으로 칠해 줘` (paint Box 1 red)\n\n## Tips\n\n### What it can make\n\n- Basic shapes: box (cube), cylinder, sphere (ball), cone, torus, wedge, prism (such as a hexagonal prism), pyramid, hemisphere\n- Objects: desk, table, chair, stool, bench, bed, sofa, bookshelf, stairs, house, tower, tree, snowman, car, bus, cup, bottle, plate, tray, pipe, rocket, robot, person, animal, bridge, castle, fence, lamp, streetlight, pencil, airplane, boat\n- In 3D building it also makes walls, rooms, columns, windows and doors. A house is made of four walls and a roof.\n- For something it does not know, it says so and lists what it can make.\n- The rules read Korean sentences best. Simple English such as `make a desk` or `make a red ball` also works; for sizes, counts and places use the Korean forms below.\n\n### Size, count and shape\n\n- Give sizes with `가로` (width), `세로` (depth), `높이` (height), `지름` (diameter) or `반지름` (radius). Without a unit (`mm`, `cm`, `m`), numbers are mm in 3D objects and m in 3D building.\n- For objects such as a desk or a chair, one size is enough: the others follow the object's real proportions. With no size at all, 3D building makes them full size and 3D objects make a model with a longest side of about 80 mm. Small things such as a cup or a pencil keep their real size in 3D objects too.\n- Give counts as `4개`, `3그루` or `네 개`. Up to 50 are made at once.\n- Words that shape it: `계단 10단` (10 steps), `책장 5칸` (5 shelves), `2층 집` (two storeys), `평지붕` (flat roof), `박공지붕` (gable roof), `구멍 뚫린` (with a hole), `속이 빈` (hollow), `등받이 없는 의자` (chair without a back), `큰` / `작은` (big / small), colours such as `빨간` (red) or `파란` (blue)\n\n| Write | It makes |\n|---|---|\n| `가로 2m 세로 1m 높이 75cm 책상` | a desk of that size |\n| `탁자 하나와 의자 4개 만들어 줘` | one table and four chairs |\n| `평지붕 2층 집` | a two-storey house with a flat roof |\n| `구멍 뚫린 컵` | a hollow cup |\n\n### Places and arrangements\n\n| Write | It places |\n|---|---|\n| `이 상자 위에 원기둥 올려` | a cylinder on the selected box |\n| `그 위에 공 올려 줘` | a ball on what was just made |\n| `의자 4개를 책상 둘레에` | four chairs around the desk, facing it |\n| `두 상자 사이에 원기둥 놓아 줘` | a cylinder between the two boxes |\n| `상자 1과 상자 2 사이에 공` | a ball between the two named objects |\n| `나무 3그루를 일렬로` | three trees in a row |\n| `원기둥 6개를 원형으로 배치해 줘` | six cylinders in a circle |\n| `상자 2개를 10 간격으로 나란히` | two boxes in a row, 10 apart |\n| `x로 3m 떨어진 곳에 지름 1m 공` | a ball 3 m from the origin along x |\n| `남쪽 벽에 창문 2개` | (3D building) two windows evenly spaced in the south wall |\n| `의자를 책상 옆으로 옮겨 줘` | moves the chair that is there next to the desk |\n\n- Place words: `위에` (on), `아래에` (under), `옆에` (next to), `왼쪽에` (left of), `오른쪽에` (right of), `앞에` (in front of), `뒤에` (behind), `안에` (inside), `사이에` (between), `둘레에` / `주위에` (around), `원점에` (at the origin)\n- Arrangement words: `일렬로` / `한 줄로` / `나란히` (in a row), `앞뒤로` (front to back), `원형으로` (in a circle), `쌓아서` (stacked), `10 간격으로` (10 apart), `같은 간격으로` (evenly spaced)\n- `이 상자` (this box) and `이거` (this) mean the object selected now; `그` (that) means what was just made. Names are the ones in the object list, such as `직육면체 1`.\n\n### Changing objects that are there\n\n- Size: `직육면체 2 반으로 줄여 줘` (halve Box 2), `이거 2배로 키워줘` (double this), `높이를 5cm로 바꿔 줘` (height 5 cm), `지름을 20mm로 바꿔줘` (diameter 20 mm)\n- Move and turn: `위로 10 올려줘` (up 10), `오른쪽으로 20mm 옮겨줘` (right 20 mm), `원점으로 옮겨줘` (to the origin), `90도 돌려줘` (turn 90°), `x축으로 45도 회전해줘` (45° about x)\n- Colour and material: `파란색으로 칠해줘` (paint blue), `유리로 바꿔줘` (glass), `나무 재질로 해줘` (wood)\n- Others: `3개 복사해줘` (three copies), `하나 더 만들어줘` (one more), `숨겨줘` (hide), `이거 삭제해` (delete this)\n- The object is the one named, the one selected now, or the only object of that shape.\n\n### Undo\n\n- {t:aimake.undo} takes back exactly that one step of Cadoo's, then reads {t:aimake.undone}.\n- If anything changed after it, the button is greyed out. Then use Ctrl+Z to undo step by step. Once Ctrl+Z has taken back the later steps and Cadoo's step is the latest again, the button works again. See [Undo](help:start-undo).\n\n### Asking how to\n\n- Ask `구멍 뚫는 법` (how to make a hole) or `돌출은 어떻게 해?` (how do I extrude?) and Cadoo finds the matching page of this help and shows its steps. The buttons under the answer open the tool or the help page.\n- Ask `모깎기 어디 있어?` (where is fillet?) for the menu place, or `저장 단축키` (save shortcut) for the key.\n- With an AI connected, requests the rules cannot read go to the AI, which makes them itself. What the AI makes gets the same {t:aimake.undo} button. See [AI connection](help:more-ai-setup).\n\n## Common mistakes\n\n- Cadoo says there are several objects of that shape. Select the one to change first, or say its name, such as `직육면체 2`.\n- A name that does not exist gets the answer that there is no such object. Check the names in the object list.\n- If the object a sentence points at is missing (`책상 둘레에`, around the desk), nothing is made. Make that object first.\n- If part of a sentence is not understood, only the understood part is made and the answer names the words it could not use. Change that part yourself.\n- In 3D objects, `집 만들어 줘` (make a house) without a size gives a small model, not a full-size house. Give the size too.\n- Sizes out of the allowed range are not made. Try another size.\n- A question such as `상자 만드는 법` (how to make a box) is read as a how-to question, not a request. To have it made, write `상자 만들어 줘` (make a box).\n- Dangerous things are never made. See [What the AI cannot do, and safety](help:more-ai-limits).\n",na=`---
+`,ra="---\nid: more-ai-ask\ntitle: Ask the AI to make things\n분류: 그 밖의 기능\n난이도: 중급\nworkspace: 공통\nkeywords: AI, make it for me, ask to make, make a desk, make a chair, make a house, natural language, sentence, chat command, on top of, next to, around, between, in a row, in a circle, spacing, count, size, change colour, move it, delete it, make it bigger, make it smaller, undo, how do I, where is, shortcut question\ncommands: cadooChat, undo\norder: 50\n---\n\n## What\n\nWrite what you want in the {c:cadooChat} window and Cadoo makes it, or changes it, as it understood. You can give sizes, counts, places (on top of, next to, around, between) and arrangements (in a row, in a circle) in the same sentence. What Cadoo makes is one step of the undo history, so it can be taken back at once. This works without any AI connected.\n\n## Steps\n\n1. Double-click Cadoo to open the {c:cadooChat} window.\n2. Write what to make with its size, count and place in one sentence and press Enter. For example: `의자 4개를 책상 둘레에 만들어 줘` (four chairs around the desk)\n3. What Cadoo understood is made at once, and the answer says what was made and where.\n4. If you do not like the result, press {t:aimake.undo} under the answer. Exactly that one step of Cadoo's is taken back.\n5. To change an object that is there, name it. For example: `직육면체 1을 빨간색으로 칠해 줘` (paint Box 1 red)\n\n## Tips\n\n### What it can make\n\n- Basic shapes: box (cube), cylinder, sphere (ball), cone, torus, wedge, prism (such as a hexagonal prism), pyramid, hemisphere\n- Objects: desk, table, chair, stool, bench, bed, sofa, bookshelf, stairs, house, tower, tree, snowman, car, bus, cup, bottle, plate, tray, pipe, rocket, robot, person, animal, bridge, castle, fence, lamp, streetlight, pencil, airplane, boat\n- In 3D building it also makes walls, rooms, columns, windows and doors. A house is made of four walls and a roof.\n- For something it does not know, it says so and lists what it can make.\n- The rules read Korean sentences best. Simple English such as `make a desk` or `make a red ball` also works; for sizes, counts and places use the Korean forms below.\n\n### Size, count and shape\n\n- Give sizes with `가로` (width), `세로` (depth), `높이` (height), `지름` (diameter) or `반지름` (radius). Without a unit (`mm`, `cm`, `m`), numbers are mm in 3D objects and m in 3D building.\n- For objects such as a desk or a chair, one size is enough: the others follow the object's real proportions. With no size at all, 3D building makes them full size and 3D objects make a model with a longest side of about 80 mm. Small things such as a cup or a pencil keep their real size in 3D objects too.\n- Give counts as `4개`, `3그루` or `네 개`. Up to 50 are made at once.\n- Words that shape it: `계단 10단` (10 steps), `책장 5칸` (5 shelves), `2층 집` (two storeys), `평지붕` (flat roof), `박공지붕` (gable roof), `구멍 뚫린` (with a hole), `속이 빈` (hollow), `등받이 없는 의자` (chair without a back), `큰` / `작은` (big / small), colours such as `빨간` (red) or `파란` (blue)\n\n| Write | It makes |\n|---|---|\n| `가로 2m 세로 1m 높이 75cm 책상` | a desk of that size |\n| `탁자 하나와 의자 4개 만들어 줘` | one table and four chairs |\n| `평지붕 2층 집` | a two-storey house with a flat roof |\n| `구멍 뚫린 컵` | a hollow cup |\n\n### Places and arrangements\n\n| Write | It places |\n|---|---|\n| `이 상자 위에 원기둥 올려` | a cylinder on the selected box |\n| `그 위에 공 올려 줘` | a ball on what was just made |\n| `의자 4개를 책상 둘레에` | four chairs around the desk, facing it |\n| `두 상자 사이에 원기둥 놓아 줘` | a cylinder between the two boxes |\n| `상자 1과 상자 2 사이에 공` | a ball between the two named objects |\n| `나무 3그루를 일렬로` | three trees in a row |\n| `원기둥 6개를 원형으로 배치해 줘` | six cylinders in a circle |\n| `상자 2개를 10 간격으로 나란히` | two boxes in a row, 10 apart |\n| `x로 3m 떨어진 곳에 지름 1m 공` | a ball 3 m from the origin along x |\n| `남쪽 벽에 창문 2개` | (3D building) two windows evenly spaced in the south wall |\n| `의자를 책상 옆으로 옮겨 줘` | moves the chair that is there next to the desk |\n\n- Place words: `위에` (on), `아래에` (under), `옆에` (next to), `왼쪽에` (left of), `오른쪽에` (right of), `앞에` (in front of), `뒤에` (behind), `안에` (inside), `사이에` (between), `둘레에` / `주위에` (around), `원점에` (at the origin)\n- Arrangement words: `일렬로` / `한 줄로` / `나란히` (in a row), `앞뒤로` (front to back), `원형으로` (in a circle), `쌓아서` (stacked), `10 간격으로` (10 apart), `같은 간격으로` (evenly spaced)\n- `이 상자` (this box) and `이거` (this) mean the object selected now; `그` (that) means what was just made. Names are the ones in the object list, such as `직육면체 1`.\n\n### Changing objects that are there\n\n- Size: `직육면체 2 반으로 줄여 줘` (halve Box 2), `이거 2배로 키워줘` (double this), `높이를 5cm로 바꿔 줘` (height 5 cm), `지름을 20mm로 바꿔줘` (diameter 20 mm)\n- Move and turn: `위로 10 올려줘` (up 10), `오른쪽으로 20mm 옮겨줘` (right 20 mm), `원점으로 옮겨줘` (to the origin), `90도 돌려줘` (turn 90°), `x축으로 45도 회전해줘` (45° about x)\n- Colour and material: `파란색으로 칠해줘` (paint blue), `유리로 바꿔줘` (glass), `나무 재질로 해줘` (wood)\n- Others: `3개 복사해줘` (three copies), `하나 더 만들어줘` (one more), `숨겨줘` (hide), `이거 삭제해` (delete this)\n- The object is the one named, the one selected now, or the only object of that shape.\n\n### Undo\n\n- {t:aimake.undo} takes back exactly that one step of Cadoo's, then reads {t:aimake.undone}.\n- If anything changed after it, the button is greyed out. Then use Ctrl+Z to undo step by step. Once Ctrl+Z has taken back the later steps and Cadoo's step is the latest again, the button works again. See [Undo](help:start-undo).\n\n### Asking how to\n\n- Ask `구멍 뚫는 법` (how to make a hole) or `돌출은 어떻게 해?` (how do I extrude?) and Cadoo finds the matching page of this help and shows its steps. The buttons under the answer open the tool or the help page.\n- Ask `모깎기 어디 있어?` (where is fillet?) for the menu place, or `저장 단축키` (save shortcut) for the key.\n- With an AI connected, requests the rules cannot read go to the AI, which makes them itself. What the AI makes gets the same {t:aimake.undo} button. See [AI connection](help:more-ai-setup).\n\n## Common mistakes\n\n- Cadoo says there are several objects of that shape. Select the one to change first, or say its name, such as `직육면체 2`.\n- A name that does not exist gets the answer that there is no such object. Check the names in the object list.\n- If the object a sentence points at is missing (`책상 둘레에`, around the desk), nothing is made. Make that object first.\n- If part of a sentence is not understood, only the understood part is made and the answer names the words it could not use. Change that part yourself.\n- In 3D objects, `집 만들어 줘` (make a house) without a size gives a small model, not a full-size house. Give the size too.\n- Sizes out of the allowed range are not made. Try another size.\n- A question such as `상자 만드는 법` (how to make a box) is read as a how-to question, not a request. To have it made, write `상자 만들어 줘` (make a box).\n- Dangerous things are never made. See [What the AI cannot do, and safety](help:more-ai-limits).\n",ia=`---
 id: more-ai-limits
 title: What the AI will not do, and safety
 분류: 그 밖의 기능
@@ -14143,7 +14249,7 @@ The AI in the Cadoo chat and in the help assists with making things, using NukCA
 - Typing a home address or phone number into a question. The AI does not need them.
 - Following the AI's answer and not finding the menu. Look the name up in this help or in Cadoo's question window. See [Cadoo and chat](help:more-cadoo).
 - Getting an answer that the AI is pausing. Wait a few minutes, then ask about making things or NukCAD again.
-`,ra=`---
+`,aa=`---
 id: more-ai-offline
 title: School AI bundle (install without internet)
 분류: 그 밖의 기능
@@ -14182,7 +14288,7 @@ How to install NukCAD together with a big AI model on school PCs with no or slow
 - Moving only the installer. Without the NukCAD-models folder next to it, no model is copied.
 - Using a bundle made for another NukCAD version. Model files that differ from this version are not used; after updating NukCAD, make a new bundle.
 - Not enough free space. The default bundle needs about 5.5 GB more on each PC.
-`,ia=`---
+`,oa=`---
 id: more-ai-setup
 title: Connecting an AI
 분류: 그 밖의 기능
@@ -14223,7 +14329,7 @@ Cadoo answers from this help and its own rules and can make objects without an A
 - Selecting a model too large for the computer's memory. The list shows whether each model can run; start with the recommended one.
 - Typing the mentor server address wrongly. Type the numeric address and port exactly as given and check with {t:ai.teacher.test}.
 - Looking for the mentor server in the web version. It can only be reached from the installed app.
-`,aa=`---
+`,sa=`---
 id: more-cadoo
 title: Chat with Cadoo
 분류: 그 밖의 기능
@@ -14286,7 +14392,7 @@ Cadoo is the helper character that walks along the bottom of the 3D view, just a
 - A chat deleted from the history cannot be brought back. You are asked once more before it is deleted.
 - While you type in the chat box, shortcuts do not reach the 3D view. Click outside the chat window before you go on working.
 - If Cadoo covers a button, drag it somewhere else.
-`,oa=`---
+`,ca=`---
 id: more-disaster
 title: Disaster simulation
 분류: 그 밖의 기능
@@ -14326,7 +14432,7 @@ A simulation that shows, in the 3D view, the damage ranges of a nuclear weapon t
 - Clicking does not start it. Ground zero must be inside the loaded land.
 - Worried that the buildings stay broken afterwards: the document is never changed. Click {t:nuke3.restore} or press Esc to bring back the scene before the burst.
 - The view stutters. On a slow computer the surroundings and effects are drawn simpler by themselves. Setting {t:set.drawQuality} in Preferences to {t:set.drawQuality.fast} draws it lighter still.
-`,sa=`---
+`,la=`---
 id: more-mentor-admin
 title: Mentor management
 분류: 그 밖의 기능
@@ -14375,7 +14481,7 @@ On a PC installed for the mentor, one window turns the mentor server on and off 
 - {t:tapp.err.startFailed} shows. Check whether another program uses port 8765.
 - A student cannot connect. Check that the student PC uses the address in {t:tapp.addr}, that it is on the same school network, and that the number is not blocked.
 - Never give the API key to students. It is kept only in the mentor server's settings file, and the window shows it masked.
-`,ca=`---
+`,ua=`---
 id: more-mentor-help
 title: Ask the mentor for help
 분류: 그 밖의 기능
@@ -14421,7 +14527,7 @@ When you are stuck in class, send the mentor a help request. The mentor can then
 - {t:tapp.link.range} shows. Select your grade, class and number again.
 - Editing is blocked while the mentor edits. Press {t:cohelp.takeBack} first.
 - Do not put personal details such as your name or phone number in the note. The note is a few words for the mentor's list.
-`,la=`---
+`,da=`---
 id: more-screenshot
 title: Screenshot
 분류: 그 밖의 기능
@@ -14460,7 +14566,7 @@ Saves the 3D view as it is now as one picture file (PNG). Use it to put a pictur
 - The saved file cannot be found. Look in the browser's download list or the downloads folder for a file starting with \`Image_\`.
 - Hidden objects are not in the picture. Show the objects you need first; see [Hide and show](help:start-hide).
 - To capture the menus and windows as well, use your computer's own screen capture instead.
-`,ua=`---
+`,fa=`---
 id: more-send-to-building
 title: Send to building
 분류: 그 밖의 기능
@@ -14514,7 +14620,7 @@ Turns objects modelled in 3D objects into real size and puts them into the My ob
 - The object landed on the wrong level. Select the level with {t:tc2.change} on the {t:tc2.dest} line, or select the level of the work scope in 3D construction first.
 - It says the object is too complex to send. Send it in parts.
 - 3D construction has no such button. Send from 3D objects.
-`,da=`---
+`,pa=`---
 id: faq-black-screen
 title: Black or very slow 3D view
 분류: 문제 해결
@@ -14550,7 +14656,7 @@ If the 3D view is black, the message {t:gl.none} appears, or the {t:gpuhint.bann
 - Turning the setting on without restarting. The browser has to restart for it to apply.
 - Closing only one window. The browser ends only when all its windows are closed.
 - Hiding the bar with {t:gpuhint.banner.never} and forgetting the cause. The state is still shown in {c:settings} → {t:set.options} on the {t:gpuhint.set.label} line.
-`,fa=`---
+`,ma=`---
 id: faq-boolean-fail
 title: Union or subtract fails
 분류: 문제 해결
@@ -14586,7 +14692,7 @@ This page covers {c:union}, {c:subtract} or {c:intersect} showing {t:err.boolean
 - Taking a group for a union. A group only moves together; it is not one object. See [Groups and separate](help:obj-group).
 - Clicking the objects of a subtraction in the wrong order. If the result is wrong, undo with Ctrl+Z and click the object to keep first.
 - Trying to combine a sketch (a flat shape). Make it a solid with {c:extrude} first.
-`,pa=`---
+`,ha=`---
 id: faq-clicks
 title: Clicks do not work
 분류: 문제 해결
@@ -14623,7 +14729,7 @@ This page covers clicks that select nothing or do nothing. Usually another tool 
 - Trying to select while a tool is open. The tool window's prompt says what to click; to only select, end the tool with Esc.
 - Shortcuts do nothing because the cursor is in a number field or the command line. Click empty space in the 3D view to leave the field.
 - Trying to select a wall of another building. Select that building in the path bar, or double-click its row in the project tree, to move the work scope there.
-`,ma=`---
+`,ga=`---
 id: faq-file-open
 title: A file will not open
 분류: 문제 해결
@@ -14658,7 +14764,7 @@ This page covers a file that shows a message and does not open, and work that se
 - Clicking {t:start.recoverDiscard} on the start screen. A discarded recovery copy cannot be brought back.
 - Opening a file with {c:open} when it should be added to the current document. {c:open} makes a new document; use {c:importFile} to add it.
 - Forgetting where the web version saved the file. Check the browser's download folder.
-`,ha=`---
+`,_a=`---
 id: faq-lost-view
 title: Objects not visible
 분류: 문제 해결
@@ -14695,7 +14801,7 @@ This page covers an object you made that does not show in the view. Usually the 
 - Looking in 3D Building for an object made in 3D Objects. The two workspaces have separate documents. To take an object across, use [Send to building](help:more-send-to-building).
 - Not finding an object placed below the ground. Lift it with {c:dropGround} or with the height in the Properties window.
 - Thinking a hidden object was deleted. If its name is in the objects window, it is still there.
-`,ga=`---
+`,va=`---
 id: faq-shortcuts
 title: Keyboard shortcuts
 분류: 문제 해결
@@ -14805,7 +14911,7 @@ The keyboard shortcuts used most often, in one place. The keys in the tables bel
 - While a window such as {c:settings} is open, shortcuts do not reach your work (the {c:save} key still works). Close the window first.
 - On a laptop where the F keys control brightness or sound, hold Fn as well.
 - Keys act differently on a computer someone else used. Check the shortcut style at the right of the status bar.
-`,_a=`---
+`,ya=`---
 id: faq-slow
 title: Slow screen
 분류: 문제 해결
@@ -14842,7 +14948,7 @@ This page covers a view that stutters while you turn it or move objects. Check t
 - Opening a large model with {t:set.drawQuality} set to {t:set.drawQuality.fine}. After taking presentation screenshots, set it back to {t:set.drawQuality.auto}.
 - Making hundreds of copies with a pattern and then editing them one by one. Edit one and make the pattern again.
 - Keeping an X-ray display style on. See-through drawing is heavier.
-`,va=`---
+`,ba=`---
 id: faq-terrain-pits
 title: Pits or spikes in the ground
 분류: 문제 해결
@@ -14877,4 +14983,4 @@ This page covers sudden deep pits or sharp spikes in the ground. They usually ha
 - A grading pad thought to be deleted is still there. Check the list in the {c:grade} window.
 - A road looks as if it floats after a grading change. Press {t:civil.refit} to fit it to the current ground.
 - The ground is shown see-through, so it looks like a hole. Check the setting in {c:terrainView}.
-`,ya=Object.assign({"../../docs/help/ko/01-start/start-delete.md":e,"../../docs/help/ko/01-start/start-export.md":t,"../../docs/help/ko/01-start/start-hide.md":n,"../../docs/help/ko/01-start/start-level.md":r,"../../docs/help/ko/01-start/start-modes.md":i,"../../docs/help/ko/01-start/start-open.md":a,"../../docs/help/ko/01-start/start-save.md":o,"../../docs/help/ko/01-start/start-screen.md":s,"../../docs/help/ko/01-start/start-select.md":c,"../../docs/help/ko/01-start/start-settings.md":l,"../../docs/help/ko/01-start/start-undo.md":u,"../../docs/help/ko/01-start/start-units.md":d,"../../docs/help/ko/01-start/start-view.md":f,"../../docs/help/ko/01-start/start-windows.md":p,"../../docs/help/ko/02-object/obj-align.md":m,"../../docs/help/ko/02-object/obj-annotate.md":h,"../../docs/help/ko/02-object/obj-box.md":g,"../../docs/help/ko/02-object/obj-chamfer.md":_,"../../docs/help/ko/02-object/obj-curve-edit.md":v,"../../docs/help/ko/02-object/obj-dimension.md":y,"../../docs/help/ko/02-object/obj-drawing-sheet.md":b,"../../docs/help/ko/02-object/obj-drawing.md":x,"../../docs/help/ko/02-object/obj-drop.md":S,"../../docs/help/ko/02-object/obj-duplicate.md":C,"../../docs/help/ko/02-object/obj-extrude.md":w,"../../docs/help/ko/02-object/obj-fillet.md":T,"../../docs/help/ko/02-object/obj-group.md":E,"../../docs/help/ko/02-object/obj-hole.md":D,"../../docs/help/ko/02-object/obj-image-relief.md":O,"../../docs/help/ko/02-object/obj-image-trace.md":k,"../../docs/help/ko/02-object/obj-image-underlay.md":A,"../../docs/help/ko/02-object/obj-image.md":j,"../../docs/help/ko/02-object/obj-intersect.md":M,"../../docs/help/ko/02-object/obj-line-style.md":N,"../../docs/help/ko/02-object/obj-loft.md":P,"../../docs/help/ko/02-object/obj-material.md":F,"../../docs/help/ko/02-object/obj-measure.md":I,"../../docs/help/ko/02-object/obj-mirror.md":L,"../../docs/help/ko/02-object/obj-move.md":R,"../../docs/help/ko/02-object/obj-partial-delete.md":z,"../../docs/help/ko/02-object/obj-parts.md":B,"../../docs/help/ko/02-object/obj-pattern.md":V,"../../docs/help/ko/02-object/obj-presspull.md":H,"../../docs/help/ko/02-object/obj-primitives.md":U,"../../docs/help/ko/02-object/obj-revolve.md":W,"../../docs/help/ko/02-object/obj-section.md":G,"../../docs/help/ko/02-object/obj-select-similar.md":K,"../../docs/help/ko/02-object/obj-shell.md":q,"../../docs/help/ko/02-object/obj-sketch-draw.md":J,"../../docs/help/ko/02-object/obj-sketch-edit.md":Y,"../../docs/help/ko/02-object/obj-sketch-plane3.md":X,"../../docs/help/ko/02-object/obj-sketch.md":Z,"../../docs/help/ko/02-object/obj-smart-scale.md":Q,"../../docs/help/ko/02-object/obj-split.md":$,"../../docs/help/ko/02-object/obj-subtract.md":ee,"../../docs/help/ko/02-object/obj-sweep.md":te,"../../docs/help/ko/02-object/obj-text.md":ne,"../../docs/help/ko/02-object/obj-tweak.md":re,"../../docs/help/ko/02-object/obj-union.md":ie,"../../docs/help/ko/02-object/obj-workplane.md":ae,"../../docs/help/ko/03-objrec/rec-bookshelf.md":oe,"../../docs/help/ko/03-objrec/rec-car.md":se,"../../docs/help/ko/03-objrec/rec-chair.md":ce,"../../docs/help/ko/03-objrec/rec-chess.md":le,"../../docs/help/ko/03-objrec/rec-cup-handle.md":ue,"../../docs/help/ko/03-objrec/rec-gear.md":de,"../../docs/help/ko/03-objrec/rec-hollow-boolean.md":fe,"../../docs/help/ko/03-objrec/rec-house-model.md":pe,"../../docs/help/ko/03-objrec/rec-knot.md":me,"../../docs/help/ko/03-objrec/rec-nameplate.md":he,"../../docs/help/ko/03-objrec/rec-pencil-holder.md":ge,"../../docs/help/ko/03-objrec/rec-phone-stand.md":_e,"../../docs/help/ko/03-objrec/rec-pipe-sweep.md":ve,"../../docs/help/ko/03-objrec/rec-shell-lamp.md":ye,"../../docs/help/ko/03-objrec/rec-spiral.md":be,"../../docs/help/ko/03-objrec/rec-table.md":xe,"../../docs/help/ko/03-objrec/rec-trick-align-mirror.md":Se,"../../docs/help/ko/03-objrec/rec-trick-carve.md":Ce,"../../docs/help/ko/03-objrec/rec-trick-fence.md":we,"../../docs/help/ko/03-objrec/rec-trick-smart-scale.md":Te,"../../docs/help/ko/03-objrec/rec-vase-revolve.md":Ee,"../../docs/help/ko/04-snap/input-calc.md":De,"../../docs/help/ko/04-snap/input-cmdline.md":Oe,"../../docs/help/ko/04-snap/input-coords.md":ke,"../../docs/help/ko/04-snap/snap-from.md":Ae,"../../docs/help/ko/04-snap/snap-grid.md":je,"../../docs/help/ko/04-snap/snap-ortho.md":Me,"../../docs/help/ko/04-snap/snap-osnap.md":Ne,"../../docs/help/ko/04-snap/snap-temp-track.md":Pe,"../../docs/help/ko/04-snap/snap-track.md":Fe,"../../docs/help/ko/05-site/site-area-table.md":Ie,"../../docs/help/ko/05-site/site-area.md":Le,"../../docs/help/ko/05-site/site-grade.md":Re,"../../docs/help/ko/05-site/site-land-edit.md":ze,"../../docs/help/ko/05-site/site-map.md":Be,"../../docs/help/ko/05-site/site-scope.md":Ve,"../../docs/help/ko/05-site/site-terrain-view.md":He,"../../docs/help/ko/06-arch/arch-ceiling.md":Ue,"../../docs/help/ko/06-arch/arch-column.md":We,"../../docs/help/ko/06-arch/arch-curtain-wall.md":Ge,"../../docs/help/ko/06-arch/arch-door-window.md":Ke,"../../docs/help/ko/06-arch/arch-drawing.md":qe,"../../docs/help/ko/06-arch/arch-error-check.md":Je,"../../docs/help/ko/06-arch/arch-face-paint.md":Ye,"../../docs/help/ko/06-arch/arch-fill-area.md":Xe,"../../docs/help/ko/06-arch/arch-flow.md":Ze,"../../docs/help/ko/06-arch/arch-furniture.md":Qe,"../../docs/help/ko/06-arch/arch-levels.md":$e,"../../docs/help/ko/06-arch/arch-lighting.md":et,"../../docs/help/ko/06-arch/arch-my-arch.md":tt,"../../docs/help/ko/06-arch/arch-new-building.md":nt,"../../docs/help/ko/06-arch/arch-outline.md":rt,"../../docs/help/ko/06-arch/arch-railing.md":it,"../../docs/help/ko/06-arch/arch-roof-edit.md":at,"../../docs/help/ko/06-arch/arch-roof.md":ot,"../../docs/help/ko/06-arch/arch-slab.md":st,"../../docs/help/ko/06-arch/arch-stair.md":ct,"../../docs/help/ko/06-arch/arch-wall-top.md":lt,"../../docs/help/ko/06-arch/arch-wall.md":ut,"../../docs/help/ko/07-build/build-auto-roof.md":dt,"../../docs/help/ko/07-build/build-courtyard.md":ft,"../../docs/help/ko/07-build/build-detailed.md":pt,"../../docs/help/ko/07-build/build-easy.md":mt,"../../docs/help/ko/07-build/build-names-tree.md":ht,"../../docs/help/ko/07-build/build-outer-walls.md":gt,"../../docs/help/ko/07-build/build-outline.md":_t,"../../docs/help/ko/07-build/build-overview.md":vt,"../../docs/help/ko/07-build/build-piloti.md":yt,"../../docs/help/ko/07-build/build-shared-levels.md":bt,"../../docs/help/ko/07-build/build-wall-split.md":xt,"../../docs/help/ko/08-buildrec/brec-atrium.md":St,"../../docs/help/ko/08-buildrec/brec-courtyard-house.md":Ct,"../../docs/help/ko/08-buildrec/brec-curved-site.md":wt,"../../docs/help/ko/08-buildrec/brec-piloti-overhang.md":Tt,"../../docs/help/ko/08-buildrec/brec-setback.md":Et,"../../docs/help/ko/08-buildrec/brec-small-house.md":Dt,"../../docs/help/ko/08-buildrec/brec-stepped-tower.md":Ot,"../../docs/help/ko/08-buildrec/brec-terraced-slope.md":kt,"../../docs/help/ko/08-buildrec/brec-two-buildings.md":At,"../../docs/help/ko/08-buildrec/brec-u-shape.md":jt,"../../docs/help/ko/09-civil/civil-bridge.md":Mt,"../../docs/help/ko/09-civil/civil-dam.md":Nt,"../../docs/help/ko/09-civil/civil-drainage.md":Pt,"../../docs/help/ko/09-civil/civil-grading.md":Ft,"../../docs/help/ko/09-civil/civil-levee.md":It,"../../docs/help/ko/09-civil/civil-my-civil.md":Lt,"../../docs/help/ko/09-civil/civil-overview.md":Rt,"../../docs/help/ko/09-civil/civil-rec-river-crossing.md":zt,"../../docs/help/ko/09-civil/civil-retaining.md":Bt,"../../docs/help/ko/09-civil/civil-road.md":Vt,"../../docs/help/ko/09-civil/civil-tunnel.md":Ht,"../../docs/help/ko/09-civil/civil-water.md":Ut,"../../docs/help/ko/09-civil/civil-waterway.md":Wt,"../../docs/help/ko/10-more/more-ai-ask.md":Gt,"../../docs/help/ko/10-more/more-ai-limits.md":Kt,"../../docs/help/ko/10-more/more-ai-offline.md":qt,"../../docs/help/ko/10-more/more-ai-setup.md":Jt,"../../docs/help/ko/10-more/more-cadoo.md":Yt,"../../docs/help/ko/10-more/more-disaster.md":Xt,"../../docs/help/ko/10-more/more-mentor-admin.md":Zt,"../../docs/help/ko/10-more/more-mentor-help.md":Qt,"../../docs/help/ko/10-more/more-screenshot.md":$t,"../../docs/help/ko/10-more/more-send-to-building.md":en,"../../docs/help/ko/11-faq/faq-black-screen.md":tn,"../../docs/help/ko/11-faq/faq-boolean-fail.md":nn,"../../docs/help/ko/11-faq/faq-clicks.md":rn,"../../docs/help/ko/11-faq/faq-file-open.md":an,"../../docs/help/ko/11-faq/faq-lost-view.md":on,"../../docs/help/ko/11-faq/faq-shortcuts.md":sn,"../../docs/help/ko/11-faq/faq-slow.md":cn,"../../docs/help/ko/11-faq/faq-terrain-pits.md":ln}),ba=Object.assign({"../../docs/help/en/01-start/start-delete.md":un,"../../docs/help/en/01-start/start-export.md":dn,"../../docs/help/en/01-start/start-hide.md":fn,"../../docs/help/en/01-start/start-level.md":pn,"../../docs/help/en/01-start/start-modes.md":mn,"../../docs/help/en/01-start/start-open.md":hn,"../../docs/help/en/01-start/start-save.md":gn,"../../docs/help/en/01-start/start-screen.md":_n,"../../docs/help/en/01-start/start-select.md":vn,"../../docs/help/en/01-start/start-settings.md":yn,"../../docs/help/en/01-start/start-undo.md":bn,"../../docs/help/en/01-start/start-units.md":xn,"../../docs/help/en/01-start/start-view.md":Sn,"../../docs/help/en/01-start/start-windows.md":Cn,"../../docs/help/en/02-object/obj-align.md":wn,"../../docs/help/en/02-object/obj-annotate.md":Tn,"../../docs/help/en/02-object/obj-box.md":En,"../../docs/help/en/02-object/obj-chamfer.md":Dn,"../../docs/help/en/02-object/obj-curve-edit.md":On,"../../docs/help/en/02-object/obj-dimension.md":kn,"../../docs/help/en/02-object/obj-drawing-sheet.md":An,"../../docs/help/en/02-object/obj-drawing.md":jn,"../../docs/help/en/02-object/obj-drop.md":Mn,"../../docs/help/en/02-object/obj-duplicate.md":Nn,"../../docs/help/en/02-object/obj-extrude.md":Pn,"../../docs/help/en/02-object/obj-fillet.md":Fn,"../../docs/help/en/02-object/obj-group.md":In,"../../docs/help/en/02-object/obj-hole.md":Ln,"../../docs/help/en/02-object/obj-image-relief.md":Rn,"../../docs/help/en/02-object/obj-image-trace.md":zn,"../../docs/help/en/02-object/obj-image-underlay.md":Bn,"../../docs/help/en/02-object/obj-image.md":Vn,"../../docs/help/en/02-object/obj-intersect.md":Hn,"../../docs/help/en/02-object/obj-line-style.md":Un,"../../docs/help/en/02-object/obj-loft.md":Wn,"../../docs/help/en/02-object/obj-material.md":Gn,"../../docs/help/en/02-object/obj-measure.md":Kn,"../../docs/help/en/02-object/obj-mirror.md":qn,"../../docs/help/en/02-object/obj-move.md":Jn,"../../docs/help/en/02-object/obj-partial-delete.md":Yn,"../../docs/help/en/02-object/obj-parts.md":Xn,"../../docs/help/en/02-object/obj-pattern.md":Zn,"../../docs/help/en/02-object/obj-presspull.md":Qn,"../../docs/help/en/02-object/obj-primitives.md":$n,"../../docs/help/en/02-object/obj-revolve.md":er,"../../docs/help/en/02-object/obj-section.md":tr,"../../docs/help/en/02-object/obj-select-similar.md":nr,"../../docs/help/en/02-object/obj-shell.md":rr,"../../docs/help/en/02-object/obj-sketch-draw.md":ir,"../../docs/help/en/02-object/obj-sketch-edit.md":ar,"../../docs/help/en/02-object/obj-sketch-plane3.md":or,"../../docs/help/en/02-object/obj-sketch.md":sr,"../../docs/help/en/02-object/obj-smart-scale.md":cr,"../../docs/help/en/02-object/obj-split.md":lr,"../../docs/help/en/02-object/obj-subtract.md":ur,"../../docs/help/en/02-object/obj-sweep.md":dr,"../../docs/help/en/02-object/obj-text.md":fr,"../../docs/help/en/02-object/obj-tweak.md":pr,"../../docs/help/en/02-object/obj-union.md":mr,"../../docs/help/en/02-object/obj-workplane.md":hr,"../../docs/help/en/03-objrec/rec-bookshelf.md":gr,"../../docs/help/en/03-objrec/rec-car.md":_r,"../../docs/help/en/03-objrec/rec-chair.md":vr,"../../docs/help/en/03-objrec/rec-chess.md":yr,"../../docs/help/en/03-objrec/rec-cup-handle.md":br,"../../docs/help/en/03-objrec/rec-gear.md":xr,"../../docs/help/en/03-objrec/rec-hollow-boolean.md":Sr,"../../docs/help/en/03-objrec/rec-house-model.md":Cr,"../../docs/help/en/03-objrec/rec-knot.md":wr,"../../docs/help/en/03-objrec/rec-nameplate.md":Tr,"../../docs/help/en/03-objrec/rec-pencil-holder.md":Er,"../../docs/help/en/03-objrec/rec-phone-stand.md":Dr,"../../docs/help/en/03-objrec/rec-pipe-sweep.md":Or,"../../docs/help/en/03-objrec/rec-shell-lamp.md":kr,"../../docs/help/en/03-objrec/rec-spiral.md":Ar,"../../docs/help/en/03-objrec/rec-table.md":jr,"../../docs/help/en/03-objrec/rec-trick-align-mirror.md":Mr,"../../docs/help/en/03-objrec/rec-trick-carve.md":Nr,"../../docs/help/en/03-objrec/rec-trick-fence.md":Pr,"../../docs/help/en/03-objrec/rec-trick-smart-scale.md":Fr,"../../docs/help/en/03-objrec/rec-vase-revolve.md":Ir,"../../docs/help/en/04-snap/input-calc.md":Lr,"../../docs/help/en/04-snap/input-cmdline.md":Rr,"../../docs/help/en/04-snap/input-coords.md":zr,"../../docs/help/en/04-snap/snap-from.md":Br,"../../docs/help/en/04-snap/snap-grid.md":Vr,"../../docs/help/en/04-snap/snap-ortho.md":Hr,"../../docs/help/en/04-snap/snap-osnap.md":Ur,"../../docs/help/en/04-snap/snap-temp-track.md":Wr,"../../docs/help/en/04-snap/snap-track.md":Gr,"../../docs/help/en/05-site/site-area-table.md":Kr,"../../docs/help/en/05-site/site-area.md":qr,"../../docs/help/en/05-site/site-grade.md":Jr,"../../docs/help/en/05-site/site-land-edit.md":Yr,"../../docs/help/en/05-site/site-map.md":Xr,"../../docs/help/en/05-site/site-scope.md":Zr,"../../docs/help/en/05-site/site-terrain-view.md":Qr,"../../docs/help/en/06-arch/arch-ceiling.md":$r,"../../docs/help/en/06-arch/arch-column.md":ei,"../../docs/help/en/06-arch/arch-curtain-wall.md":ti,"../../docs/help/en/06-arch/arch-door-window.md":ni,"../../docs/help/en/06-arch/arch-drawing.md":ri,"../../docs/help/en/06-arch/arch-error-check.md":ii,"../../docs/help/en/06-arch/arch-face-paint.md":ai,"../../docs/help/en/06-arch/arch-fill-area.md":oi,"../../docs/help/en/06-arch/arch-flow.md":si,"../../docs/help/en/06-arch/arch-furniture.md":ci,"../../docs/help/en/06-arch/arch-levels.md":li,"../../docs/help/en/06-arch/arch-lighting.md":ui,"../../docs/help/en/06-arch/arch-my-arch.md":di,"../../docs/help/en/06-arch/arch-new-building.md":fi,"../../docs/help/en/06-arch/arch-outline.md":pi,"../../docs/help/en/06-arch/arch-railing.md":mi,"../../docs/help/en/06-arch/arch-roof-edit.md":hi,"../../docs/help/en/06-arch/arch-roof.md":gi,"../../docs/help/en/06-arch/arch-slab.md":_i,"../../docs/help/en/06-arch/arch-stair.md":vi,"../../docs/help/en/06-arch/arch-wall-top.md":yi,"../../docs/help/en/06-arch/arch-wall.md":bi,"../../docs/help/en/07-build/build-auto-roof.md":xi,"../../docs/help/en/07-build/build-courtyard.md":Si,"../../docs/help/en/07-build/build-detailed.md":Ci,"../../docs/help/en/07-build/build-easy.md":wi,"../../docs/help/en/07-build/build-names-tree.md":Ti,"../../docs/help/en/07-build/build-outer-walls.md":Ei,"../../docs/help/en/07-build/build-outline.md":Di,"../../docs/help/en/07-build/build-overview.md":Oi,"../../docs/help/en/07-build/build-piloti.md":ki,"../../docs/help/en/07-build/build-shared-levels.md":Ai,"../../docs/help/en/07-build/build-wall-split.md":ji,"../../docs/help/en/08-buildrec/brec-atrium.md":Mi,"../../docs/help/en/08-buildrec/brec-courtyard-house.md":Ni,"../../docs/help/en/08-buildrec/brec-curved-site.md":Pi,"../../docs/help/en/08-buildrec/brec-piloti-overhang.md":Fi,"../../docs/help/en/08-buildrec/brec-setback.md":Ii,"../../docs/help/en/08-buildrec/brec-small-house.md":Li,"../../docs/help/en/08-buildrec/brec-stepped-tower.md":Ri,"../../docs/help/en/08-buildrec/brec-terraced-slope.md":zi,"../../docs/help/en/08-buildrec/brec-two-buildings.md":Bi,"../../docs/help/en/08-buildrec/brec-u-shape.md":Vi,"../../docs/help/en/09-civil/civil-bridge.md":Hi,"../../docs/help/en/09-civil/civil-dam.md":Ui,"../../docs/help/en/09-civil/civil-drainage.md":Wi,"../../docs/help/en/09-civil/civil-grading.md":Gi,"../../docs/help/en/09-civil/civil-levee.md":Ki,"../../docs/help/en/09-civil/civil-my-civil.md":qi,"../../docs/help/en/09-civil/civil-overview.md":Ji,"../../docs/help/en/09-civil/civil-rec-river-crossing.md":Yi,"../../docs/help/en/09-civil/civil-retaining.md":Xi,"../../docs/help/en/09-civil/civil-road.md":Zi,"../../docs/help/en/09-civil/civil-tunnel.md":Qi,"../../docs/help/en/09-civil/civil-water.md":$i,"../../docs/help/en/09-civil/civil-waterway.md":ea,"../../docs/help/en/10-more/more-ai-ask.md":ta,"../../docs/help/en/10-more/more-ai-limits.md":na,"../../docs/help/en/10-more/more-ai-offline.md":ra,"../../docs/help/en/10-more/more-ai-setup.md":ia,"../../docs/help/en/10-more/more-cadoo.md":aa,"../../docs/help/en/10-more/more-disaster.md":oa,"../../docs/help/en/10-more/more-mentor-admin.md":sa,"../../docs/help/en/10-more/more-mentor-help.md":ca,"../../docs/help/en/10-more/more-screenshot.md":la,"../../docs/help/en/10-more/more-send-to-building.md":ua,"../../docs/help/en/11-faq/faq-black-screen.md":da,"../../docs/help/en/11-faq/faq-boolean-fail.md":fa,"../../docs/help/en/11-faq/faq-clicks.md":pa,"../../docs/help/en/11-faq/faq-file-open.md":ma,"../../docs/help/en/11-faq/faq-lost-view.md":ha,"../../docs/help/en/11-faq/faq-shortcuts.md":ga,"../../docs/help/en/11-faq/faq-slow.md":_a,"../../docs/help/en/11-faq/faq-terrain-pits.md":va});export{ba as RAW_EN,ya as RAW_KO};
+`,xa=Object.assign({"../../docs/help/ko/01-start/start-delete.md":e,"../../docs/help/ko/01-start/start-export.md":t,"../../docs/help/ko/01-start/start-hide.md":n,"../../docs/help/ko/01-start/start-level.md":r,"../../docs/help/ko/01-start/start-modes.md":i,"../../docs/help/ko/01-start/start-open.md":a,"../../docs/help/ko/01-start/start-save.md":o,"../../docs/help/ko/01-start/start-screen.md":s,"../../docs/help/ko/01-start/start-select.md":c,"../../docs/help/ko/01-start/start-settings.md":l,"../../docs/help/ko/01-start/start-undo.md":u,"../../docs/help/ko/01-start/start-units.md":d,"../../docs/help/ko/01-start/start-view.md":f,"../../docs/help/ko/01-start/start-windows.md":p,"../../docs/help/ko/02-object/obj-align.md":m,"../../docs/help/ko/02-object/obj-annotate.md":h,"../../docs/help/ko/02-object/obj-box.md":g,"../../docs/help/ko/02-object/obj-chamfer.md":_,"../../docs/help/ko/02-object/obj-curve-edit.md":v,"../../docs/help/ko/02-object/obj-dimension.md":y,"../../docs/help/ko/02-object/obj-drawing-sheet.md":b,"../../docs/help/ko/02-object/obj-drawing.md":x,"../../docs/help/ko/02-object/obj-drop.md":S,"../../docs/help/ko/02-object/obj-duplicate.md":C,"../../docs/help/ko/02-object/obj-extrude.md":w,"../../docs/help/ko/02-object/obj-fillet.md":T,"../../docs/help/ko/02-object/obj-group.md":E,"../../docs/help/ko/02-object/obj-hole.md":D,"../../docs/help/ko/02-object/obj-image-relief.md":O,"../../docs/help/ko/02-object/obj-image-trace.md":k,"../../docs/help/ko/02-object/obj-image-underlay.md":A,"../../docs/help/ko/02-object/obj-image.md":j,"../../docs/help/ko/02-object/obj-intersect.md":M,"../../docs/help/ko/02-object/obj-line-style.md":N,"../../docs/help/ko/02-object/obj-loft.md":P,"../../docs/help/ko/02-object/obj-material.md":F,"../../docs/help/ko/02-object/obj-measure.md":I,"../../docs/help/ko/02-object/obj-mirror.md":L,"../../docs/help/ko/02-object/obj-move.md":R,"../../docs/help/ko/02-object/obj-partial-delete.md":z,"../../docs/help/ko/02-object/obj-parts.md":B,"../../docs/help/ko/02-object/obj-pattern.md":V,"../../docs/help/ko/02-object/obj-presspull.md":H,"../../docs/help/ko/02-object/obj-primitives.md":U,"../../docs/help/ko/02-object/obj-revolve.md":W,"../../docs/help/ko/02-object/obj-section.md":G,"../../docs/help/ko/02-object/obj-select-similar.md":K,"../../docs/help/ko/02-object/obj-shell.md":q,"../../docs/help/ko/02-object/obj-sketch-draw.md":J,"../../docs/help/ko/02-object/obj-sketch-edit.md":Y,"../../docs/help/ko/02-object/obj-sketch-plane3.md":X,"../../docs/help/ko/02-object/obj-sketch.md":Z,"../../docs/help/ko/02-object/obj-smart-scale.md":Q,"../../docs/help/ko/02-object/obj-split.md":$,"../../docs/help/ko/02-object/obj-subtract.md":ee,"../../docs/help/ko/02-object/obj-sweep.md":te,"../../docs/help/ko/02-object/obj-text.md":ne,"../../docs/help/ko/02-object/obj-tweak.md":re,"../../docs/help/ko/02-object/obj-union.md":ie,"../../docs/help/ko/02-object/obj-workplane.md":ae,"../../docs/help/ko/03-objrec/rec-bookshelf.md":oe,"../../docs/help/ko/03-objrec/rec-car.md":se,"../../docs/help/ko/03-objrec/rec-chair.md":ce,"../../docs/help/ko/03-objrec/rec-chess.md":le,"../../docs/help/ko/03-objrec/rec-cup-handle.md":ue,"../../docs/help/ko/03-objrec/rec-gear.md":de,"../../docs/help/ko/03-objrec/rec-hollow-boolean.md":fe,"../../docs/help/ko/03-objrec/rec-house-model.md":pe,"../../docs/help/ko/03-objrec/rec-knot.md":me,"../../docs/help/ko/03-objrec/rec-nameplate.md":he,"../../docs/help/ko/03-objrec/rec-pencil-holder.md":ge,"../../docs/help/ko/03-objrec/rec-phone-stand.md":_e,"../../docs/help/ko/03-objrec/rec-pipe-sweep.md":ve,"../../docs/help/ko/03-objrec/rec-shell-lamp.md":ye,"../../docs/help/ko/03-objrec/rec-spiral.md":be,"../../docs/help/ko/03-objrec/rec-table.md":xe,"../../docs/help/ko/03-objrec/rec-trick-align-mirror.md":Se,"../../docs/help/ko/03-objrec/rec-trick-carve.md":Ce,"../../docs/help/ko/03-objrec/rec-trick-fence.md":we,"../../docs/help/ko/03-objrec/rec-trick-smart-scale.md":Te,"../../docs/help/ko/03-objrec/rec-vase-revolve.md":Ee,"../../docs/help/ko/04-snap/input-calc.md":De,"../../docs/help/ko/04-snap/input-cmdline.md":Oe,"../../docs/help/ko/04-snap/input-coords.md":ke,"../../docs/help/ko/04-snap/snap-from.md":Ae,"../../docs/help/ko/04-snap/snap-grid.md":je,"../../docs/help/ko/04-snap/snap-ortho.md":Me,"../../docs/help/ko/04-snap/snap-osnap.md":Ne,"../../docs/help/ko/04-snap/snap-temp-track.md":Pe,"../../docs/help/ko/04-snap/snap-track.md":Fe,"../../docs/help/ko/05-site/site-area-table.md":Ie,"../../docs/help/ko/05-site/site-area.md":Le,"../../docs/help/ko/05-site/site-grade.md":Re,"../../docs/help/ko/05-site/site-land-edit.md":ze,"../../docs/help/ko/05-site/site-map.md":Be,"../../docs/help/ko/05-site/site-scope.md":Ve,"../../docs/help/ko/05-site/site-terrain-view.md":He,"../../docs/help/ko/06-arch/arch-ceiling.md":Ue,"../../docs/help/ko/06-arch/arch-column.md":We,"../../docs/help/ko/06-arch/arch-curtain-wall.md":Ge,"../../docs/help/ko/06-arch/arch-door-window.md":Ke,"../../docs/help/ko/06-arch/arch-drawing.md":qe,"../../docs/help/ko/06-arch/arch-error-check.md":Je,"../../docs/help/ko/06-arch/arch-face-paint.md":Ye,"../../docs/help/ko/06-arch/arch-fill-area.md":Xe,"../../docs/help/ko/06-arch/arch-flow.md":Ze,"../../docs/help/ko/06-arch/arch-furniture.md":Qe,"../../docs/help/ko/06-arch/arch-levels.md":$e,"../../docs/help/ko/06-arch/arch-lighting.md":et,"../../docs/help/ko/06-arch/arch-my-arch.md":tt,"../../docs/help/ko/06-arch/arch-new-building.md":nt,"../../docs/help/ko/06-arch/arch-outline.md":rt,"../../docs/help/ko/06-arch/arch-railing.md":it,"../../docs/help/ko/06-arch/arch-roof-edit.md":at,"../../docs/help/ko/06-arch/arch-roof-split.md":ot,"../../docs/help/ko/06-arch/arch-roof.md":st,"../../docs/help/ko/06-arch/arch-slab.md":ct,"../../docs/help/ko/06-arch/arch-stair.md":lt,"../../docs/help/ko/06-arch/arch-wall-top.md":ut,"../../docs/help/ko/06-arch/arch-wall.md":dt,"../../docs/help/ko/07-build/build-auto-roof.md":ft,"../../docs/help/ko/07-build/build-courtyard.md":pt,"../../docs/help/ko/07-build/build-detailed.md":mt,"../../docs/help/ko/07-build/build-easy.md":ht,"../../docs/help/ko/07-build/build-names-tree.md":gt,"../../docs/help/ko/07-build/build-outer-walls.md":_t,"../../docs/help/ko/07-build/build-outline.md":vt,"../../docs/help/ko/07-build/build-overview.md":yt,"../../docs/help/ko/07-build/build-piloti.md":bt,"../../docs/help/ko/07-build/build-shared-levels.md":xt,"../../docs/help/ko/07-build/build-wall-split.md":St,"../../docs/help/ko/08-buildrec/brec-atrium.md":Ct,"../../docs/help/ko/08-buildrec/brec-courtyard-house.md":wt,"../../docs/help/ko/08-buildrec/brec-curved-site.md":Tt,"../../docs/help/ko/08-buildrec/brec-piloti-overhang.md":Et,"../../docs/help/ko/08-buildrec/brec-setback.md":Dt,"../../docs/help/ko/08-buildrec/brec-small-house.md":Ot,"../../docs/help/ko/08-buildrec/brec-stepped-tower.md":kt,"../../docs/help/ko/08-buildrec/brec-terraced-slope.md":At,"../../docs/help/ko/08-buildrec/brec-two-buildings.md":jt,"../../docs/help/ko/08-buildrec/brec-u-shape.md":Mt,"../../docs/help/ko/09-civil/civil-bridge.md":Nt,"../../docs/help/ko/09-civil/civil-dam.md":Pt,"../../docs/help/ko/09-civil/civil-drainage.md":Ft,"../../docs/help/ko/09-civil/civil-grading.md":It,"../../docs/help/ko/09-civil/civil-levee.md":Lt,"../../docs/help/ko/09-civil/civil-my-civil.md":Rt,"../../docs/help/ko/09-civil/civil-overview.md":zt,"../../docs/help/ko/09-civil/civil-rec-river-crossing.md":Bt,"../../docs/help/ko/09-civil/civil-retaining.md":Vt,"../../docs/help/ko/09-civil/civil-road.md":Ht,"../../docs/help/ko/09-civil/civil-tunnel.md":Ut,"../../docs/help/ko/09-civil/civil-water.md":Wt,"../../docs/help/ko/09-civil/civil-waterway.md":Gt,"../../docs/help/ko/10-more/more-ai-ask.md":Kt,"../../docs/help/ko/10-more/more-ai-limits.md":qt,"../../docs/help/ko/10-more/more-ai-offline.md":Jt,"../../docs/help/ko/10-more/more-ai-setup.md":Yt,"../../docs/help/ko/10-more/more-cadoo.md":Xt,"../../docs/help/ko/10-more/more-disaster.md":Zt,"../../docs/help/ko/10-more/more-mentor-admin.md":Qt,"../../docs/help/ko/10-more/more-mentor-help.md":$t,"../../docs/help/ko/10-more/more-screenshot.md":en,"../../docs/help/ko/10-more/more-send-to-building.md":tn,"../../docs/help/ko/11-faq/faq-black-screen.md":nn,"../../docs/help/ko/11-faq/faq-boolean-fail.md":rn,"../../docs/help/ko/11-faq/faq-clicks.md":an,"../../docs/help/ko/11-faq/faq-file-open.md":on,"../../docs/help/ko/11-faq/faq-lost-view.md":sn,"../../docs/help/ko/11-faq/faq-shortcuts.md":cn,"../../docs/help/ko/11-faq/faq-slow.md":ln,"../../docs/help/ko/11-faq/faq-terrain-pits.md":un}),Sa=Object.assign({"../../docs/help/en/01-start/start-delete.md":dn,"../../docs/help/en/01-start/start-export.md":fn,"../../docs/help/en/01-start/start-hide.md":pn,"../../docs/help/en/01-start/start-level.md":mn,"../../docs/help/en/01-start/start-modes.md":hn,"../../docs/help/en/01-start/start-open.md":gn,"../../docs/help/en/01-start/start-save.md":_n,"../../docs/help/en/01-start/start-screen.md":vn,"../../docs/help/en/01-start/start-select.md":yn,"../../docs/help/en/01-start/start-settings.md":bn,"../../docs/help/en/01-start/start-undo.md":xn,"../../docs/help/en/01-start/start-units.md":Sn,"../../docs/help/en/01-start/start-view.md":Cn,"../../docs/help/en/01-start/start-windows.md":wn,"../../docs/help/en/02-object/obj-align.md":Tn,"../../docs/help/en/02-object/obj-annotate.md":En,"../../docs/help/en/02-object/obj-box.md":Dn,"../../docs/help/en/02-object/obj-chamfer.md":On,"../../docs/help/en/02-object/obj-curve-edit.md":kn,"../../docs/help/en/02-object/obj-dimension.md":An,"../../docs/help/en/02-object/obj-drawing-sheet.md":jn,"../../docs/help/en/02-object/obj-drawing.md":Mn,"../../docs/help/en/02-object/obj-drop.md":Nn,"../../docs/help/en/02-object/obj-duplicate.md":Pn,"../../docs/help/en/02-object/obj-extrude.md":Fn,"../../docs/help/en/02-object/obj-fillet.md":In,"../../docs/help/en/02-object/obj-group.md":Ln,"../../docs/help/en/02-object/obj-hole.md":Rn,"../../docs/help/en/02-object/obj-image-relief.md":zn,"../../docs/help/en/02-object/obj-image-trace.md":Bn,"../../docs/help/en/02-object/obj-image-underlay.md":Vn,"../../docs/help/en/02-object/obj-image.md":Hn,"../../docs/help/en/02-object/obj-intersect.md":Un,"../../docs/help/en/02-object/obj-line-style.md":Wn,"../../docs/help/en/02-object/obj-loft.md":Gn,"../../docs/help/en/02-object/obj-material.md":Kn,"../../docs/help/en/02-object/obj-measure.md":qn,"../../docs/help/en/02-object/obj-mirror.md":Jn,"../../docs/help/en/02-object/obj-move.md":Yn,"../../docs/help/en/02-object/obj-partial-delete.md":Xn,"../../docs/help/en/02-object/obj-parts.md":Zn,"../../docs/help/en/02-object/obj-pattern.md":Qn,"../../docs/help/en/02-object/obj-presspull.md":$n,"../../docs/help/en/02-object/obj-primitives.md":er,"../../docs/help/en/02-object/obj-revolve.md":tr,"../../docs/help/en/02-object/obj-section.md":nr,"../../docs/help/en/02-object/obj-select-similar.md":rr,"../../docs/help/en/02-object/obj-shell.md":ir,"../../docs/help/en/02-object/obj-sketch-draw.md":ar,"../../docs/help/en/02-object/obj-sketch-edit.md":or,"../../docs/help/en/02-object/obj-sketch-plane3.md":sr,"../../docs/help/en/02-object/obj-sketch.md":cr,"../../docs/help/en/02-object/obj-smart-scale.md":lr,"../../docs/help/en/02-object/obj-split.md":ur,"../../docs/help/en/02-object/obj-subtract.md":dr,"../../docs/help/en/02-object/obj-sweep.md":fr,"../../docs/help/en/02-object/obj-text.md":pr,"../../docs/help/en/02-object/obj-tweak.md":mr,"../../docs/help/en/02-object/obj-union.md":hr,"../../docs/help/en/02-object/obj-workplane.md":gr,"../../docs/help/en/03-objrec/rec-bookshelf.md":_r,"../../docs/help/en/03-objrec/rec-car.md":vr,"../../docs/help/en/03-objrec/rec-chair.md":yr,"../../docs/help/en/03-objrec/rec-chess.md":br,"../../docs/help/en/03-objrec/rec-cup-handle.md":xr,"../../docs/help/en/03-objrec/rec-gear.md":Sr,"../../docs/help/en/03-objrec/rec-hollow-boolean.md":Cr,"../../docs/help/en/03-objrec/rec-house-model.md":wr,"../../docs/help/en/03-objrec/rec-knot.md":Tr,"../../docs/help/en/03-objrec/rec-nameplate.md":Er,"../../docs/help/en/03-objrec/rec-pencil-holder.md":Dr,"../../docs/help/en/03-objrec/rec-phone-stand.md":Or,"../../docs/help/en/03-objrec/rec-pipe-sweep.md":kr,"../../docs/help/en/03-objrec/rec-shell-lamp.md":Ar,"../../docs/help/en/03-objrec/rec-spiral.md":jr,"../../docs/help/en/03-objrec/rec-table.md":Mr,"../../docs/help/en/03-objrec/rec-trick-align-mirror.md":Nr,"../../docs/help/en/03-objrec/rec-trick-carve.md":Pr,"../../docs/help/en/03-objrec/rec-trick-fence.md":Fr,"../../docs/help/en/03-objrec/rec-trick-smart-scale.md":Ir,"../../docs/help/en/03-objrec/rec-vase-revolve.md":Lr,"../../docs/help/en/04-snap/input-calc.md":Rr,"../../docs/help/en/04-snap/input-cmdline.md":zr,"../../docs/help/en/04-snap/input-coords.md":Br,"../../docs/help/en/04-snap/snap-from.md":Vr,"../../docs/help/en/04-snap/snap-grid.md":Hr,"../../docs/help/en/04-snap/snap-ortho.md":Ur,"../../docs/help/en/04-snap/snap-osnap.md":Wr,"../../docs/help/en/04-snap/snap-temp-track.md":Gr,"../../docs/help/en/04-snap/snap-track.md":Kr,"../../docs/help/en/05-site/site-area-table.md":qr,"../../docs/help/en/05-site/site-area.md":Jr,"../../docs/help/en/05-site/site-grade.md":Yr,"../../docs/help/en/05-site/site-land-edit.md":Xr,"../../docs/help/en/05-site/site-map.md":Zr,"../../docs/help/en/05-site/site-scope.md":Qr,"../../docs/help/en/05-site/site-terrain-view.md":$r,"../../docs/help/en/06-arch/arch-ceiling.md":ei,"../../docs/help/en/06-arch/arch-column.md":ti,"../../docs/help/en/06-arch/arch-curtain-wall.md":ni,"../../docs/help/en/06-arch/arch-door-window.md":ri,"../../docs/help/en/06-arch/arch-drawing.md":ii,"../../docs/help/en/06-arch/arch-error-check.md":ai,"../../docs/help/en/06-arch/arch-face-paint.md":oi,"../../docs/help/en/06-arch/arch-fill-area.md":si,"../../docs/help/en/06-arch/arch-flow.md":ci,"../../docs/help/en/06-arch/arch-furniture.md":li,"../../docs/help/en/06-arch/arch-levels.md":ui,"../../docs/help/en/06-arch/arch-lighting.md":di,"../../docs/help/en/06-arch/arch-my-arch.md":fi,"../../docs/help/en/06-arch/arch-new-building.md":pi,"../../docs/help/en/06-arch/arch-outline.md":mi,"../../docs/help/en/06-arch/arch-railing.md":hi,"../../docs/help/en/06-arch/arch-roof-edit.md":gi,"../../docs/help/en/06-arch/arch-roof-split.md":_i,"../../docs/help/en/06-arch/arch-roof.md":vi,"../../docs/help/en/06-arch/arch-slab.md":yi,"../../docs/help/en/06-arch/arch-stair.md":bi,"../../docs/help/en/06-arch/arch-wall-top.md":xi,"../../docs/help/en/06-arch/arch-wall.md":Si,"../../docs/help/en/07-build/build-auto-roof.md":Ci,"../../docs/help/en/07-build/build-courtyard.md":wi,"../../docs/help/en/07-build/build-detailed.md":Ti,"../../docs/help/en/07-build/build-easy.md":Ei,"../../docs/help/en/07-build/build-names-tree.md":Di,"../../docs/help/en/07-build/build-outer-walls.md":Oi,"../../docs/help/en/07-build/build-outline.md":ki,"../../docs/help/en/07-build/build-overview.md":Ai,"../../docs/help/en/07-build/build-piloti.md":ji,"../../docs/help/en/07-build/build-shared-levels.md":Mi,"../../docs/help/en/07-build/build-wall-split.md":Ni,"../../docs/help/en/08-buildrec/brec-atrium.md":Pi,"../../docs/help/en/08-buildrec/brec-courtyard-house.md":Fi,"../../docs/help/en/08-buildrec/brec-curved-site.md":Ii,"../../docs/help/en/08-buildrec/brec-piloti-overhang.md":Li,"../../docs/help/en/08-buildrec/brec-setback.md":Ri,"../../docs/help/en/08-buildrec/brec-small-house.md":zi,"../../docs/help/en/08-buildrec/brec-stepped-tower.md":Bi,"../../docs/help/en/08-buildrec/brec-terraced-slope.md":Vi,"../../docs/help/en/08-buildrec/brec-two-buildings.md":Hi,"../../docs/help/en/08-buildrec/brec-u-shape.md":Ui,"../../docs/help/en/09-civil/civil-bridge.md":Wi,"../../docs/help/en/09-civil/civil-dam.md":Gi,"../../docs/help/en/09-civil/civil-drainage.md":Ki,"../../docs/help/en/09-civil/civil-grading.md":qi,"../../docs/help/en/09-civil/civil-levee.md":Ji,"../../docs/help/en/09-civil/civil-my-civil.md":Yi,"../../docs/help/en/09-civil/civil-overview.md":Xi,"../../docs/help/en/09-civil/civil-rec-river-crossing.md":Zi,"../../docs/help/en/09-civil/civil-retaining.md":Qi,"../../docs/help/en/09-civil/civil-road.md":$i,"../../docs/help/en/09-civil/civil-tunnel.md":ea,"../../docs/help/en/09-civil/civil-water.md":ta,"../../docs/help/en/09-civil/civil-waterway.md":na,"../../docs/help/en/10-more/more-ai-ask.md":ra,"../../docs/help/en/10-more/more-ai-limits.md":ia,"../../docs/help/en/10-more/more-ai-offline.md":aa,"../../docs/help/en/10-more/more-ai-setup.md":oa,"../../docs/help/en/10-more/more-cadoo.md":sa,"../../docs/help/en/10-more/more-disaster.md":ca,"../../docs/help/en/10-more/more-mentor-admin.md":la,"../../docs/help/en/10-more/more-mentor-help.md":ua,"../../docs/help/en/10-more/more-screenshot.md":da,"../../docs/help/en/10-more/more-send-to-building.md":fa,"../../docs/help/en/11-faq/faq-black-screen.md":pa,"../../docs/help/en/11-faq/faq-boolean-fail.md":ma,"../../docs/help/en/11-faq/faq-clicks.md":ha,"../../docs/help/en/11-faq/faq-file-open.md":ga,"../../docs/help/en/11-faq/faq-lost-view.md":_a,"../../docs/help/en/11-faq/faq-shortcuts.md":va,"../../docs/help/en/11-faq/faq-slow.md":ya,"../../docs/help/en/11-faq/faq-terrain-pits.md":ba});export{Sa as RAW_EN,xa as RAW_KO};
