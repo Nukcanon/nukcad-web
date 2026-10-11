@@ -629,6 +629,7 @@ order: 90
 ## 팁
 
 - 보기 도구 줄에는 {t:view.ortho} | {t:view.persp} 전환, {c:pan}, {c:orbit}, {c:zoomMode}, {t:nav.zoomTitle}(%), {c:fit}, {c:fitSel}, {c:faceView}, {c:visual}, {t:vis.menu}, {c:grid}, {c:dimInfo}, {c:screenshot} 단추가 있습니다. 3D 건설에서는 {c:contours}과 {c:cutAway} 단추가 더 있고, 고급 메뉴에서는 {c:terrainView} 단추도 보입니다.
+- 켜고 끄는 단추({c:pan}, {c:orbit}, {c:zoomMode}, {c:dimInfo}, 3D 건설의 {c:cutAway}, {c:contours} 등)는 켜져 있는 동안 파란 바탕입니다. 방식이 셋 이상인 {c:visual}, {c:grid} 단추는 지금 방식의 이름이 단추 아래에 작게 적혀 있습니다. {c:contours} 단추는 창만 열고 닫으며, 선은 창 안의 {t:ct.show}로 켜고 끕니다.
 - 회전 중심: 커서 아래에 아무것도 없으면 선택한 것의 가운데, 그다음 보이는 모델의 가운데를 중심으로 돕니다. 선택한 것의 가운데를 늘 중심으로 쓰려면 {c:settings} → {t:set.options} → {t:ux.set.pivot}에서 {t:ux.set.pivot.selection}을 선택합니다.
 - {c:faceView}는 면을 선택하지 않았으면 볼 면을 클릭하게 합니다. 평면과 곡면 모두 됩니다.
 - {c:pan}·{c:orbit}·{c:zoomMode} 단추를 켜 두면 왼쪽 단추로 끌어서 그 동작을 합니다. Esc를 누르면 꺼집니다.
@@ -996,7 +997,7 @@ order: 420
 ### 그릴 물체와 양식
 
 - 그릴 물체는 {t:dp.targets}의 {t:dp.pick3d}을 눌러 3D 화면에서 선택합니다. 물체를 클릭하면 더하거나 빼고, 상자로 끌면 여러 개를 한꺼번에 선택합니다. Enter나 {t:btn.apply}을 누르면 도면으로 돌아오고, Esc를 누르면 바꾸지 않고 돌아옵니다. 다시 모두 그리려면 {t:dp.targetAll}를 누릅니다.
-- {t:dsh.show}에서 {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre}, {t:dsh.axes}을 하나씩 켜고 끕니다.
+- {t:dsh.show}에서 {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre}, {t:dsh.axes}, {t:dsh.hatch}을 하나씩 켜고 끕니다. {t:dsh.hatch}을 끄면 단면도의 빗금선이 화면·인쇄·SVG·PNG·DXF에서 모두 없어지고, 잘린 면의 옅은 채움만 남습니다.
 
 ### 표제란
 
@@ -2186,6 +2187,7 @@ order: 270
 - 물체를 선택한 채 시작하면 자르는 평면이 선택한 물체의 가운데를 지납니다. 아무것도 선택하지 않으면 보이는 물체 전체의 가운데를 지납니다.
 - 물체를 선택한 뒤 한 번 더 클릭해 평평한 면을 선택해 두고 시작하면 그 면이 자르는 평면이 됩니다.
 - 화면에 뜬 {c:sectionView} 표시의 {t:btn.sectionEdit} 단추를 누르면 창이 다시 열려 평면을 바꿀 수 있습니다.
+- 잘린 면은 물체 색으로 채워지고 빗금이 그려집니다. 화면에 뜬 {c:sectionView} 표시의 {t:av.hatch} 스위치로 빗금만 끌 수 있고, 채움 색은 남습니다. 이 설정은 저장되어 평면 보기·건물 단면 보기·천장 보기에도 똑같이 적용됩니다.
 - 도구 창이 닫힌 뒤에는 Esc를 눌러도 단면 보기가 꺼집니다. 자르는 평면이 보이는 물체를 하나도 지나지 않게 되면 저절로 꺼집니다.
 - 실제로 물체를 둘로 나누려면 [솔리드 분할](help:obj-split)을 씁니다. 3D 건설에서 방 안을 위에서 보려면 [천장 보기·위 잘라 보기](help:arch-ceiling)도 있습니다.
 - {c:sectionView}는 3D 물체와 3D 건설의 {t:level.advanced} 메뉴, {t:group.dims} 탭에 있습니다. [일반·고급 메뉴](help:start-level)를 봅니다. 단축키는 없고, 명령줄에 \`section\`이나 \`clip\`을 입력해도 열립니다. 3D 건설에서는 땅속의 터널이나 댐 속을 볼 때도 씁니다.
@@ -3845,7 +3847,7 @@ order: 30
 - 두 번째 모서리는 \`@20,25\`처럼 가로·세로 길이를 입력해도 됩니다.
 - {c:siteArea} 도구를 열면 화면이 위에서 내려다보는 평면 보기로 바뀝니다. 점은 다른 대지와 땅의 모서리에 붙고, {c:snap}({k:snap})이 켜져 있으면 격자에도 붙습니다.
 - 대지는 여러 개 그릴 수 있고, 대지마다 테두리 색이 다릅니다. 겹치거나 맞닿게 그린 대지는 하나로 합쳐집니다.
-- {c:siteArea} 도구에서 대지 안을 클릭하면 그 대지가 선택되고, 창에 {c:pathEdit}·{t:area.redraw}·{c:landEdit} 단추가 나옵니다. 도구 없이 대지를 클릭하면 대지 옆에 작은 막대가 나타납니다. 모양을 고치는 방법은 [대지 편집](help:site-land-edit)에 있습니다.
+- {c:siteArea} 도구에서 대지 안을 클릭하면 그 대지가 선택되고, 창에 {c:pathEdit}·{t:area.redraw}·{c:landEdit} 단추가 나옵니다. 도구 없이 대지를 클릭하면 대지 옆에 작은 막대가 나타납니다. 막대의 {c:grade}는 그 대지를 대상으로 [평탄화](help:site-grade) 창을 엽니다. 모양을 고치는 방법은 [대지 편집](help:site-land-edit)에 있습니다.
 - 대지가 있으면 건물 외곽선은 선택한 대지 안에 그립니다. 대지 없이 땅 전체에 그릴 수도 있습니다. 자세한 내용은 [건물 외곽선](help:build-outline)에 있습니다.
 - 면적표의 각 값이 무엇을 뜻하는지는 [면적표](help:site-area-table)에 있습니다. 건축면적은 층 모양에서 저절로 계산됩니다.
 - 땅에 높이가 있으면 대지를 그린 뒤 [평탄화](help:site-grade)로 대지를 한 높이로 선택합니다.
@@ -3885,6 +3887,8 @@ order: 70
 ## 팁
 
 - 창에서 대지를 선택하는 목록은 {t:so.target}입니다. 화면에서 대지를 클릭해도 선택할 수 있고, 대지가 없으면 {t:grade.whole}를 선택합니다. 이미 평탄화한 대지에는 {t:grade.done}이 붙습니다.
+- 도구 없이 대지나 건물 외곽선을 클릭하면 옆에 나오는 작은 막대에도 {c:grade}가 있습니다. 누르면 그 대지나 그 건물 외곽선 아래 땅을 대상으로 이 창이 열립니다. 지형(높이 자료)이 없는 땅에서는 그 단추가 꺼져 있습니다.
+- 평평한 자리는 선택한 외곽선에 정확히 맞습니다. 외곽선 안은 어디나 평탄화 높이이고, 비탈은 외곽선에서 시작합니다. 건설 지역이 넓어 지형 높이 자료의 점 간격이 커도(한 변 1.5 km 땅에서 약 6 m, 10 km 땅에서 약 39 m) 같습니다. 토공량도 그 외곽선대로 계산합니다.
 - 건물 하나 아래의 땅만 선택하려면 {t:so.target} 목록에서 건물 A 외곽선처럼 건물 외곽선을 선택합니다. 그 평탄화는 건물 외곽선을 고치거나 건물을 다른 대지로 이동하면 함께 따라갑니다. 건물을 삭제할 때는 평탄화도 삭제할지 남길지 묻고, 남기면 목록에 ‘대지 없음’이 붙은 항목으로 남습니다.
 - {t:grade.height}는 기준면 0 m에서 잰 높이이며, 원래 땅의 가장 낮은 곳보다 50 m 아래부터 가장 높은 곳보다 50 m 위까지 정할 수 있습니다. 처음에는 대지 아래 땅의 평균 높이로 정해집니다.
 - {t:grade.average}는 선택한 대지 안의 지금 땅 높이 평균으로, {t:grade.balance}은 깎는 흙과 채우는 흙이 거의 같아지는 높이로 맞춥니다. 흙을 밖으로 실어 내거나 들여오지 않으려면 {t:grade.balance}을 씁니다.
@@ -4056,7 +4060,7 @@ order: 20
 1. 뷰 큐브 옆 보기 단추 줄에서 {c:terrainView} 단추를 누릅니다 (일반 메뉴에서는 명령줄에 \`terrainview\`를 입력합니다).
 2. {t:tv.opacity}를 낮추면 땅이 비쳐 지하층과 기초가 보입니다.
 3. {t:tv.picture}에서 {t:tv.aerial}, {t:tv.base}, {t:tv.cadastral} 가운데 하나를 선택합니다.
-4. 등고선은 {m:contours} 단추를 누르면 켜지고, 옆에 열린 창에서 {t:ct.interval}과 {t:ct.color}을 정합니다.
+4. {m:contours} 단추를 누르면 옆에 등고선 창이 열립니다. 창의 {t:ct.show} 스위치를 켜면 선이 그려지고, 같은 창에서 {t:ct.interval}과 {t:ct.color}을 정합니다.
 5. 물체를 땅에 앉히려면 물체를 선택하고 {m:dropGround} 단추를 누릅니다.
 
 ## 팁
@@ -4069,7 +4073,7 @@ order: 20
 - {t:tv.cadastral}의 용도지역 색과 지번 경계는 참고용이며 법적 효력이 없습니다.
 - 등고선 간격을 자동으로 두면 땅의 높낮이에 맞춰 정해지고, 1·2·5·10·20 m 가운데에서 선택할 수도 있습니다. 해발 높이가 간격의 5배인 선은 굵게 그려집니다. {t:ct.opacity}를 낮추면 땅 위 지도가 잘 보입니다.
 - 등고선은 [평탄화](help:site-grade)한 뒤의 땅을 따라 그려지므로, 평탄화 높이를 바꾸면 선도 함께 바뀝니다.
-- 등고선이 켜진 채로 {m:contours} 단추를 다시 누르면 창이 닫히고 선도 꺼집니다.
+- {m:contours} 단추는 창만 열고 닫습니다. 선은 창의 {t:ct.show}로만 켜고 끕니다. 선이 켜져 있는 동안은 단추가 파란 바탕이고, 창이 열려 있으면 단추에 테두리가 생깁니다.
 - {c:dropGround}는 물체를 위아래로만 이동해, 물체 바닥이 물체 가운데 아래의 땅에 닿게 합니다. 한 번의 되돌리기로 돌아옵니다.
 - 3D 화면에서 땅 위에 커서를 두면 아래 상태 표시줄에 그 자리의 땅 해발 높이가 나옵니다.
 - 지형을 가져오는 방법은 [건설 지역 정하기](help:site-map)에 있습니다.
@@ -4118,6 +4122,7 @@ order: 180
 - {c:levelPanel}에서 층 행을 오른쪽 클릭해 {c:ceilingView}를 선택하면 작업 범위가 그 층으로 이동된 뒤 천장 보기가 켜집니다.
 - {c:planView}, {c:archSection}, {c:ceilingView}, {c:cutAway}는 한 번에 하나만 켜집니다. 하나를 켜면 다른 보기는 꺼집니다.
 - {c:cutAway}를 켠 채 작업 층을 바꾸면 새 작업 층의 바닥에서 {t:lt.cutHeight}만큼 위를 기준으로 다시 자릅니다. 땅은 자르지 않습니다.
+- 층 안을 내려다보며 하는 도구({c:wall}, {c:slab}, {c:ceiling}, {c:column}, {c:stair}, {c:railing}, {c:pathEdit}, {c:door}, {c:window}, 실내 물체)를 열면 {c:cutAway}가 저절로 켜집니다. 그 도구들을 모두 닫으면 도구가 켠 경우에만 다시 꺼지고, 원래 켜 두었던 것은 그대로 둡니다. 도구가 열려 있는 동안 직접 끄면 도구를 닫을 때까지 다시 켜지지 않습니다. {c:planView}, {c:archSection}, {c:ceilingView}가 켜져 있으면 건드리지 않습니다. {c:roof}처럼 위를 다루는 도구는 켜지 않습니다. {c:ceiling} 도구는 켜면서 {t:lt.cutHeight}도 위층 바닥판(맨 위층은 지붕) 밑면 바로 아래로 올려, 위층 바닥판과 지붕은 잘려 나가고 방금 단 천장은 보이게 합니다. 도구를 닫으면 켜짐과 높이가 모두 열기 전으로 돌아가고(원래 1.2 m로 켜 두었으면 1.2 m로), 열려 있는 동안 직접 높이를 바꾸면 그 높이가 사용자 것이 됩니다. 작업 층을 바꾸면 새 층 기준으로 다시 셉니다.
 - 지하층에서 켜면 지하층 드러내 보기와 함께 동작합니다. 작업 층 위의 층은 숨겨지고, 지하 자리의 땅만 잘려 보이며, 작업 층은 {t:lt.cutHeight}에서 잘립니다: [층 만들기](help:arch-levels).
 
 ## 자주 하는 실수
@@ -4575,6 +4580,7 @@ order: 20
 - 목록 아래의 {t:levels.add}, {t:levels.addBasement}, {t:levels.copy}, {t:levels.delete} 단추는 지금 작업 중인 층의 건물에 적용됩니다. {t:levels.addBasement} 단추는 맨 아래에 지하층을 만듭니다. 건물 행의 **+** 단추도 그 건물 맨 위에 층을 더합니다.
 - {c:levelCopy}는 층의 부품과 층 외곽선을 함께 바로 위에 복사하고, 그 위의 층은 한 층씩 올라갑니다. 같은 평면이 되풀이되는 건물을 빨리 쌓을 때 씁니다. 지하층을 복사하면 복사본도 지하층입니다.
 - 건물 세우기로 만든 건물에서는 층을 더하거나 복사하거나 삭제하면 자동 벽과 지붕이 새 층 구성에 맞게 다시 만들어집니다: [건물 세우기](help:build-overview).
+- 직접 그리거나 고친 지붕이 맨 위 층에 있으면, 그 위에 층을 추가하거나 맨 위 층을 복사할 때 지붕을 어떻게 할지 묻습니다. {t:lv.roofDropAdd}를 누르면 지붕을 삭제하고 층을 만들고, {t:lv.roofKeepAdd}를 누르면 지붕이 층 사이에 그대로 남습니다. {t:btn.cancel}를 누르면 아무것도 바뀌지 않습니다. 건물 세우기가 만든 지붕은 묻지 않고 새 맨 위 층으로 올라갑니다.
 - 층 행 오른쪽에는 층 외곽선 단추([층 외곽선](help:arch-outline) 도구를 엽니다), 보기 단추(누를 때마다 보이기 → 흐리게 → 숨기기), {t:lt.isolate}, {t:lt.view} 단추가 있습니다.
 - 아래층을 그릴 때 위층이 가리면 창 아래 {t:levels.upper} 칸에서 {t:upper.fade}나 {t:upper.hide}를 선택합니다. 명령줄에 \`upperlevels\`를 입력해도 {c:upperLevels}가 보이기 → 흐리게 → 숨기기 순서로 바뀝니다. 층 보기 상태는 파일에 저장되지 않습니다.
 - {t:upper.fade}는 벽·바닥판 같은 건물 도구를 쓰는 동안에만 흐리게 보이고, 보기만 할 때는 또렷합니다. 상태 표시줄의 {t:bo.fade} 스위치를 끄면 도구를 쓸 때도 흐리게 하지 않습니다: [작업 범위](help:site-scope).
@@ -5423,6 +5429,7 @@ order: 35
 - 상자 선택은 앱의 상자 선택과 같습니다. 왼쪽에서 오른쪽으로 끌면 상자 안에 다 들어간 변만, 오른쪽에서 왼쪽으로 끌면 상자에 걸친 변까지 선택됩니다. 아무 키 없이 끌면 그 변들로 바뀌고, Shift를 누른 채 끌면 더하고, Ctrl을 누른 채 끌면 뺍니다. 변을 Shift+클릭하면 더하고 Ctrl+클릭하면 뺍니다.
 - 창의 작은 평면은 변마다 번호를 붙이고, 선택한 변은 실선, 아닌 변은 점선으로 보여 줍니다. 일부만 선택한 변은 구간 양 끝의 동그라미를 끌어 구간을 바꿉니다. 작은 평면의 변에 마우스를 올리면 3D 화면에서 그 변이 번호와 함께 강조됩니다.
 - 평면 구석의 {t:ec.zoom} 단추를 누르거나 작은 평면의 빈 곳을 두 번 클릭하면 {t:ec.bigTitle} 창이 크게 열립니다. 큰 평면은 번호가 서로 겹치지 않게 변 바깥에 놓이고, 클릭과 상자로 똑같이 선택합니다. Esc나 {t:btn.close}로 닫습니다.
+- {t:ec.bigTitle} 창은 가장자리나 모서리를 끌어 크기를 바꿉니다. 평면은 창 아래의 − · + 단추나 마우스 휠로 확대·축소하고(50 %~800 %), 확대한 평면은 휠 단추로 끌어 이동합니다. {t:dv.fit}을 누르면 외곽선 전체가 다시 보입니다.
 - {t:ow.mode.cut}는 벽을 오른쪽 클릭했을 때 나오는 {c:wallCut}와 같습니다. 구간 양쪽의 벽 조각은 남고, 구간 안에 다 들어간 문·창은 함께 삭제되며 알림에 그 수가 나옵니다. 곡선 벽은 곡선이 그 자리에서 나뉘고, 남은 조각은 같은 곡선 위에 같은 두께·위쪽·기준선으로 남습니다.
 - 건물 세우기로 만든 바깥벽을 일부 삭제하거나 삭제하면, 다시 세우거나 층을 더해도 그 구간에는 벽이 생기지 않습니다. 되살리려면 도구를 쓰지 않는 상태에서 그 층의 삭제한 자리를 클릭합니다. 그 자리는 점선으로 보이고 가리키면 실선이 되며, 클릭하면 벽이 돌아오고 {t:aw.wallBack} 알림이 나옵니다.
 - 벽을 먼저 그려도 됩니다. 외곽선이 없는 건물에서 벽이 닫힌 고리가 되면 벽의 바깥면을 따라 건물 외곽선이 저절로 생기고, 알림에 {t:bo.fromWalls}가 나옵니다. 되돌리기 한 번에 벽과 외곽선이 함께 없어집니다. 알림의 {t:cmd.outlineEdit} 단추로 바로 외곽선을 고치거나 {t:cmd.undo} 단추로 되돌릴 수 있습니다. 넓이가 작거나 아주 가는 고리는 실수일 수 있어 저절로 만들지 않고, 알림의 {t:bo.fromWallsBtn} 단추로 묻습니다. 외곽선을 만든 벽을 나중에 고치면 {t:bo.refit} 단추가 있는 알림이 나옵니다.
@@ -5469,7 +5476,7 @@ order: 15
 - 건축면적은 저절로 계산됩니다. 층 외곽선이 있으면 지상층(필로티 포함, 지하층·중정 제외) 외곽선을 합친 넓이를 건물 외곽선 안에서 잽니다. 층 외곽선이 없으면 가장 넓은 층의 바닥면적을, 그것도 없으면 건물 외곽선 넓이를 씁니다. [면적표](help:site-area-table)에 {t:at.byLevels}, {t:at.largestFloor}, {t:at.byOutline}처럼 기준이 적힙니다.
 - 건폐율은 건축면적 ÷ 대지면적입니다. 예: 500 m² 대지에 12 × 12 m 건물 외곽선을 그리고, 1층 외곽선은 10 × 12 m, 2층 외곽선은 12 × 12 m로 정하면 건축면적은 두 층을 합친 144 m², 건폐율은 28.8 %입니다. 지하층이 더 넓어도 건축면적에는 들어가지 않습니다.
 - {c:buildFlow} 창의 {t:fl.step.shape} 단계에 건물 외곽선 넓이와 건축면적·건폐율이 함께 보입니다.
-- 나중에 고치기: 도구 없이 외곽선 안의 빈 땅을 클릭하면 그 건물 외곽선이 선택됩니다. 옆 막대와 오른쪽 클릭 메뉴에서 {c:areaEdit}·{c:buildingEasy}·{c:areaDelete}를 할 수 있습니다. 외곽선 안을 더블클릭하면 작업 범위가 그 건물로 이동됩니다.
+- 나중에 고치기: 도구 없이 외곽선 안의 빈 땅을 클릭하면 그 건물 외곽선이 선택됩니다. 옆 막대와 오른쪽 클릭 메뉴에서 {c:areaEdit}·{c:buildingEasy}·{c:areaDelete}를 할 수 있습니다. 옆 막대의 {c:grade}는 그 외곽선 아래 땅을 대상으로 [평탄화](help:site-grade) 창을 엽니다. 외곽선 안을 더블클릭하면 작업 범위가 그 건물로 이동됩니다.
 - {c:areaEdit}으로 꼭짓점을 끌거나 곡선을 고치거나 다시 그리면 바로 적용됩니다. 옛 외곽선을 쓰던 층은 새 외곽선을 받고, 다른 층은 새 외곽선에 맞춰 잘립니다. 건물 세우기로 만든 벽과 지붕도 새 외곽선에 맞춰 다시 만들어지고, 맞닿은 옆 건물의 벽과 지붕도 함께 맞춰집니다. 밖에 남은 손으로 그린 벽은 그대로 두고 알림에 그 수가 나옵니다.
 - 바깥벽을 통째로 삭제한 변이 길어지면 늘어난 부분까지 벽 없이 남습니다. 일부만 삭제한 구간은 변의 첫 점에서 잰 자리 그대로 남습니다.
 - {c:areaDelete}는 그 건물을 층과 부품까지 함께 삭제합니다. 건물이 하나뿐이면 삭제하는 대신 {t:lt.clearBuilding}를 권합니다. 건물 외곽선에 평탄화가 있으면 대지를 삭제할 때처럼 평탄화도 삭제할지 남길지 먼저 묻습니다.
@@ -8516,7 +8523,7 @@ Covers the paper of a projection drawing (size, direction, scale), the title blo
 ### Objects drawn and layout parts
 
 - Pick the objects to draw with {t:dp.pick3d} under {t:dp.targets}: in the 3D view a click adds or drops an object and a box takes several at once. Enter or {t:btn.apply} goes back to the drawing; Esc goes back without a change. {t:dp.targetAll} draws everything again.
-- Under {t:dsh.show}, turn the {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre} and {t:dsh.axes} on or off one by one.
+- Under {t:dsh.show}, turn the {t:ks.titleBlock}, {t:dsh.scaleBar}, {t:dsh.zones}, {t:dsh.centre}, {t:dsh.axes} and {t:dsh.hatch} on or off one by one. With {t:dsh.hatch} off, the hatch lines of the section views are gone from the screen, print, SVG, PNG and DXF, and only the pale fill of the cut faces stays.
 
 ### Title block
 
@@ -9705,6 +9712,7 @@ Cuts the view of the objects with a plane so you can look inside. Only what you 
 - If objects are selected when the tool starts, the cutting plane goes through their middle; with nothing selected, through the middle of everything shown.
 - Select the object, click it again to select a flat face, then start the tool: that face becomes the cutting plane.
 - {t:btn.sectionEdit} on the {c:sectionView} label opens the window again to change the plane.
+- Cut faces are filled in the object's colour and hatched. The {t:av.hatch} switch on the {c:sectionView} label turns the hatch lines off and leaves the fill colour. The setting is kept and applies to the plan view, the building section view and the ceiling view alike.
 - Once the tool window is closed, Esc also turns the section off. It also turns off by itself when the plane no longer cuts any object shown.
 - To really cut an object in two, use [Split Body](help:obj-split). In 3D Building Modeling, [ceiling view and cut away](help:arch-ceiling) show rooms from above.
 - {c:sectionView} is on the {t:level.advanced} menus of 3D Object and 3D Building, in the {t:group.dims} tab. See [Basic and Advanced menus](help:start-level). It has no shortcut; typing \`section\` or \`clip\` in the command line opens it too. In 3D Building it also shows a tunnel or the inside of a dam in the ground.
@@ -11364,7 +11372,7 @@ The process of drawing the boundary of the land a building goes on (the site) in
 - The second corner can be typed as width and depth, for example \`@20,25\`.
 - Opening {c:siteArea} turns the view to look straight down. Points snap to the corners of other sites and of the land, and to the grid while {c:snap} ({k:snap}) is on.
 - Several sites can be drawn, each with its own border colour. Sites drawn overlapping or touching are joined into one.
-- In the {c:siteArea} tool, clicking inside a site selects it, and the window offers {c:pathEdit}, {t:area.redraw} and {c:landEdit}. Without a tool, clicking a site shows a small bar beside it. Reshaping is explained in [Edit site](help:site-land-edit).
+- In the {c:siteArea} tool, clicking inside a site selects it, and the window offers {c:pathEdit}, {t:area.redraw} and {c:landEdit}. Without a tool, clicking a site shows a small bar beside it. {c:grade} in that bar opens the [grading](help:site-grade) window on that site. Reshaping is explained in [Edit site](help:site-land-edit).
 - With sites drawn, a building outline is drawn inside the selected site. It can also go on the whole land without a site. See [Building outline](help:build-outline).
 - What each value of the area table means is explained in [area table](help:site-area-table). The building area is worked out from the levels by itself.
 - On land with heights, level the site to one height with [grading](help:site-grade) after drawing it.
@@ -11404,6 +11412,8 @@ The tool that levels a site to one height. Inside the site the ground becomes fl
 ## Tips
 
 - In the window, the list that selects the site is called {t:so.target}. A site can also be selected by clicking it in the view; without sites, select {t:grade.whole}. Sites graded already are marked {t:grade.done}.
+- With no tool open, clicking a site or a building outline shows a small bar beside it, and {c:grade} is there too. It opens this window on that site, or on the ground under that building outline. On a land without heights that button is off.
+- The flat part fits the outline you selected exactly: everywhere inside it the ground is at the grading height, and the slopes start at the outline. That holds however far apart the points of the land's height data are (about 6 m on a land 1.5 km wide, about 39 m on one of 10 km). The earthwork is worked out for that outline too.
 - To level only the ground under one building, select its outline in the {t:so.target} list, such as Building A outline. That grading follows the building outline when it is reshaped or the building moves to another site, When the building is deleted you are asked whether its grading goes too; kept, it stays in the list marked as having no site.
 - {t:grade.height} is measured from the 0 m datum and can go from 50 m below the lowest natural ground to 50 m above the highest. It starts at the mean height of the ground under the site.
 - {t:grade.average} sets the mean height of the ground now inside the site; {t:grade.balance} finds the height where the soil cut and the soil filled are about the same. Use {t:grade.balance} to avoid carting soil away or bringing it in.
@@ -12093,6 +12103,7 @@ A building is made of levels. Each level has a name and a storey height; its flo
 - The {t:levels.add}, {t:levels.addBasement}, {t:levels.copy} and {t:levels.delete} buttons under the list work on the building of the level you work on. {t:levels.addBasement} makes a basement at the bottom. The **+** button of a building row also adds a level on top of that building.
 - {c:levelCopy} copies the level's parts and its level outline right above it, and the levels above move up one level. Use it to stack repeated floor plans quickly. A copy of a basement is a basement too.
 - In a building made with Build, adding, copying or deleting a level makes the automatic walls and roofs again to fit the new stack: [Building a building](help:build-overview).
+- When the top level carries a roof you drew or changed yourself, adding a level above it or copying the top level asks what to do with the roof first. {t:lv.roofDropAdd} deletes the roof and makes the level; {t:lv.roofKeepAdd} leaves the roof between the two floors; {t:btn.cancel} changes nothing. Roofs made by Build are not asked about: they move up to the new top level.
 - At the right of each level row are the level outline button (it opens the [level outline](help:arch-outline) tool), the view button (each click: shown → faded → hidden), {t:lt.isolate} and {t:lt.view}.
 - If upper levels hide the level you are drawing, select {t:upper.fade} or {t:upper.hide} under {t:levels.upper} at the bottom of the window. Typing \`upperlevels\` in the command line also switches {c:upperLevels} between shown, faded and hidden. How levels are shown is not saved in the file.
 - {t:upper.fade} fades the upper levels only while a building tool such as wall or slab is in use; just looking, they are clear. With the {t:bo.fade} switch in the status bar off, nothing is faded even while a tool is in use: [Work scope](help:site-scope).
@@ -12699,7 +12710,7 @@ Build works out the roofs from the level outlines alone. The part of a level's t
 - An underside the level below does not support (exposed underside) gets no part of its own: the level's slab covers it. That happens when an upper level is wider than the level below, and above a [piloti](help:build-piloti) level.
 - If the upper level sits only in the middle of the lower one, or a [courtyard](help:build-courtyard) makes the terrace a ring, the flat roof comes in several pieces.
 - Where the upper level of another building whose outline touches this one covers a level, no roof is made either: [Joined buildings](help:build-shared-levels).
-- {t:ab.kind.piloti} levels and basements get no roof. On a piloti level, the part the level above does not cover is an open floor with only its slab.
+- Levels set to {t:ab.kind.piloti} and basements get no roof. On a piloti level, the part the level above does not cover is an open floor with only its slab.
 
 ## Common mistakes
 
@@ -12772,11 +12783,11 @@ Builds by giving each level its own outline and {t:ab.kind} ({t:ab.kind.normal} 
 4. For the same shape as the level below, click {t:ol.sameBelow} in the outline tool. When no level below has an outline, {t:ol.sameShape} shows instead. To use this outline on the other levels without one, click {t:ol.toAll}.
 5. In the {t:ab.kind} field select {t:ab.kind.normal} or {t:ab.kind.piloti}. It applies as soon as it is selected.
 6. Click an outer wall that is not needed to select it and delete it with the Delete key. To open only part of a side, delete that stretch with {t:ow.mode.cut} in {m:outerWalls}: [Outer walls](help:build-outer-walls).
-7. A level with an automatic roof gets a {t:aw.roofOffset} field under its row; a {t:ab.kind.piloti} level gets its column fields there.
+7. A level with an automatic roof gets a {t:aw.roofOffset} field under its row; a level set to {t:ab.kind.piloti} gets its column fields there.
 
 ## Tips
 
-- {t:ab.kind.normal} is an ordinary level with a slab, {t:ab.kind.piloti} a level with columns only ([Piloti](help:build-piloti)).
+- {t:ab.kind.normal} gets outer walls and a slab. {t:ab.kind.piloti} gets columns in place of the outer walls, which leaves the level open: [Piloti](help:build-piloti).
 - On a basement the outline tool shows {t:ol.sameAbove}.
 - Level outlines (basements too) stay inside the building outline. A part reaching outside is cut off; an outline wholly outside, or one that would fall into pieces, is not taken. For an upper level that overhangs, draw the building outline as large as the widest level and shrink the levels below: [Building outline](help:build-outline).
 - Where an outer wall was deleted stays open when the level is applied again or a level is added. To bring it back, click that place on the level while no tool is in use. It shows as a dashed line; a click brings the wall back with the message {t:aw.wallBack}.
@@ -12828,7 +12839,7 @@ Set the number of floors and the storey height, and the levels, level outlines, 
 
 - Where {c:buildingEasy} is: the menu button, the {c:buildingEasy} button at the bottom of the {c:levelPanel} window, the side bar and right-click menu of a building outline, and the {c:buildFlow} window of a scope without a building. Clicked with a building outline selected, it raises that building.
 - To build on another site, select that site in the view and click {m:buildingEasy}, or draw an outline with {c:buildingOutline}. To change the site a building stands on, use the site list in step 1, {t:fl.step.site}, of Build Progress.
-- The outer walls always go on every side. For a side that needs no wall, click its wall after building and delete it with the Delete key; to open only part of a side, delete that stretch with {t:ow.mode.cut} in {m:outerWalls}: [Outer walls](help:build-outer-walls). {t:ab.kind.piloti} levels have no outer walls anyway.
+- The outer walls always go on every side. For a side that needs no wall, click its wall after building and delete it with the Delete key; to open only part of a side, delete that stretch with {t:ow.mode.cut} in {m:outerWalls}: [Outer walls](help:build-outer-walls). A level set to {t:ab.kind.piloti} has no outer walls anyway.
 - Walls, roofs and columns made by building that you delete or change stay so when the building is raised again or a level is added. A deleted outer wall does not come back there; a changed part becomes one drawn by hand.
 - Where an outer wall was deleted stays open when the building outline is changed later and the side gets longer.
 - To bring a deleted outer wall back, click the place where it was on that level while no tool is in use. The place shows as a dashed line that turns solid under the pointer. A click brings the wall back with the message {t:aw.wallBack}; one undo takes it away again.
@@ -12942,6 +12953,7 @@ One window for the outer walls along the building outline. The three ways at its
 - The box works as the app's box selection. Dragged left to right it selects the sides wholly inside; right to left also the sides it touches. With no key held it replaces the selection, with Shift it adds, with Ctrl it removes. Shift+click on a side adds it, Ctrl+click removes it.
 - The window's small plan numbers the sides and draws the selected ones solid, the others dashed. For a side selected in part, drag the dots at the ends of the stretch to change it. Pointing at a side of the plan shows it in the 3D view with its number.
 - The {t:ec.zoom} button in the plan's corner, or a double click on an empty spot of the small plan, opens the {t:ec.bigTitle} window large. Its numbers sit outside the sides, clear of each other, and clicks and boxes select the same way. Esc or {t:btn.close} closes it.
+- Drag an edge or a corner of the {t:ec.bigTitle} window to size it. Zoom its plan with the − and + buttons at the bottom or with the mouse wheel (50 % to 800 %), and drag a zoomed plan with the wheel button to move it. {t:dv.fit} shows the whole outline again.
 - {t:ow.mode.cut} is the same as {c:wallCut} in a wall's right-click menu. The pieces on either side stay; doors and windows wholly inside the stretch go with it, and the message gives their number. A curved wall is split on its curve there, and the pieces left keep the same curve, thickness, top and justification.
 - Deleting an outer wall made by building, or part of one, leaves that stretch open when the building is raised again or a level is added. To bring it back, click that place on the level while no tool is in use. It shows as a dashed line that turns solid under the pointer; a click brings the wall back with the message {t:aw.wallBack}.
 - Walls may come first. In a building without an outline, walls closing a ring give it its building outline along their outer faces, with the message {t:bo.fromWalls}. One undo takes the walls and the outline back. The message has {t:cmd.outlineEdit} and {t:cmd.undo} buttons. A small or very thin ring may be a slip: it is not made into the outline by itself, and the message asks with {t:bo.fromWallsBtn}. When the walls that made the outline are changed later, a message offers {t:bo.refit}.
@@ -12988,7 +13000,7 @@ The tool that draws the most ground a building may take up. Drawing an outline m
 - The building area is worked out by itself. With level outlines, it is the area of the levels above ground put together (piloti included, basements and courtyards left out), measured inside the building outline. Without level outlines it is the largest floor area measured, and without that the building outline's own area. The [area table](help:site-area-table) notes where it came from, such as {t:at.byLevels}, {t:at.largestFloor} or {t:at.byOutline}.
 - Coverage is building area ÷ site area. Example: on a 500 m² site, draw a 12 × 12 m building outline, then give Level 1 a 10 × 12 m outline and Level 2 a 12 × 12 m one. The building area is both levels together, 144 m², and the coverage is 28.8 %. A larger basement does not count.
 - The {t:fl.step.shape} step of the {c:buildFlow} window shows the outline's area with the building area and coverage.
-- Changing it later: with no tool, click the empty ground inside an outline to select it. Its side bar and right-click menu offer {c:areaEdit}, {c:buildingEasy} and {c:areaDelete}. A double click inside the outline moves the work scope into that building.
+- Changing it later: with no tool, click the empty ground inside an outline to select it. Its side bar and right-click menu offer {c:areaEdit}, {c:buildingEasy} and {c:areaDelete}. {c:grade} in the side bar opens the [grading](help:site-grade) window on the ground under that outline. A double click inside the outline moves the work scope into that building.
 - Reshaping with {c:areaEdit} (dragging corners, editing curves or drawing it again) applies at once. Levels that had the old outline take the new one; other levels are cut to it. The walls and roofs made by building are made again for the new outline, and so are those of a building touching it. Walls drawn by hand that are left outside stay, and a message counts them.
 - A side whose outer wall was deleted whole stays without a wall as a whole when it gets longer. Stretches deleted in part keep their places, measured from the side's first point.
 - {c:areaDelete} deletes the building with its levels and parts. When it is the only building, {t:lt.clearBuilding} is offered instead. When its outline has its own grading, you are asked first whether the grading goes too, as for a site.
