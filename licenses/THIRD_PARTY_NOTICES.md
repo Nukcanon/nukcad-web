@@ -31,6 +31,7 @@ NukCAD에 포함되는 외부 구성요소. 추가할 때마다 기록한다 (`n
 - DWG는 사용자가 직접 설치한 무료 ODA File Converter가 있을 때만 그것을 호출해 DXF로 바꾼다 (NukCAD에 포함하지 않음).
 - **OpenCascade (LGPL-2.1)**: replicad-opencascadejs 1.1에 든 OpenCascade Technology의 WebAssembly 빌드(`replicad_single.wasm`)를 쓴다. 이 파일은 프로그램 코드와 합치지 않은 별도 파일이며, 같은 인터페이스의 호환 빌드로 교체할 수 있다. 소스 코드는 https://dev.opencascade.org (OpenCascade)와 https://github.com/sgenoud/replicad (WebAssembly 빌드)에서 받을 수 있다. LGPL 전문: `licenses/OpenCascade-LGPL-2.1.txt`.
 - WebLLM 라이선스 전문: `licenses/web-llm-Apache-2.0.txt`.
+- **설치판의 Rust 부품** (Tauri와 그 의존성, `src-tauri/Cargo.lock`의 406개): 이름·버전·라이선스는 `licenses/RUST_CRATES.md` (저장소의 `docs/RUST_CRATES.md`)에 있다. 대부분 MIT 또는 Apache-2.0이며, MPL-2.0(cssparser, cssparser-macros, dtoa-short, option-ext, selectors)과 Unicode-3.0, Apache-2.0 WITH LLVM-exception인 부품도 있다. 모두 고치지 않고 그대로 쓰며, 원본(MPL-2.0 부품의 소스 포함)은 목록의 이름·버전으로 https://crates.io 에서 받을 수 있다.
 - **AI 모델은 NukCAD에 포함하지 않는다.** 사용자가 설정에서 "내려받기"를 누를 때 Hugging Face(mlc-ai 변환본)에서 받아 이 PC의 앱 캐시에 저장한다. 쓰는 모델은 Apache-2.0인 것만 고른다 (`src/ai/localModels.ts`):
   - Qwen2.5-1.5B-Instruct (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen2.5-1.5B-Instruct · 변환본 https://huggingface.co/mlc-ai/Qwen2.5-1.5B-Instruct-q4f16_1-MLC
   - Qwen2.5-0.5B-Instruct (Alibaba Qwen, Apache-2.0) — https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct · 변환본 https://huggingface.co/mlc-ai/Qwen2.5-0.5B-Instruct-q4f16_1-MLC

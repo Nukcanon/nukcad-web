@@ -1,7 +1,7 @@
 (function () {
   if (window.__nukcadKernel) return;
   try {
-    var w = new Worker(new URL("kernel.worker-Ds117v6m.js", document.currentScript.src), { type: "module" });
+    var w = new Worker(new URL("kernel.worker-BEGAwANi.js", document.currentScript.src), { type: "module" });
     var q = [], err = null;
     w.onmessage = function (e) { q.push(e.data); };
     w.onerror = function (e) { e.preventDefault(); err = e.message || "error"; };
