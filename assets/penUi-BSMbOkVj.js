@@ -1,0 +1,1 @@
+import{L as e,pn as t}from"./landAsk-BdwUHgUy.js";var n=t();function r(){return(0,n.jsx)(`p`,{className:`hint pen-hint`,"data-tip":e(`dragclick.penShortTip`),children:e(`dragclick.penShort`)})}export{r as t};
