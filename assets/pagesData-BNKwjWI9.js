@@ -294,9 +294,10 @@ order: 50
 | DXF | 2D 선·원·호·폴리선·블록·치수선, 3D 솔리드 |
 | SVG | 2D 선 (스케치) |
 | NukCAD (.nkx) | 지금 작업에 합쳐짐 |
-| DWG, DWS | 설치판에서만: ODA File Converter를 따로 설치해 두면 DXF로 바꿔 가져옴 |
+| DWG, DWS | 설치판에서만: 2D 도면은 바로 가져옴. 3D 솔리드는 옛 형식(R14·2000)이면 바로 가져오고, 2004 이후 형식이면 ODA File Converter를 따로 설치해 두었을 때 |
 
-- ODA File Converter는 무료로 내려받을 수 있지만, ODA 회원이 아니면 비상업 용도로만 쓸 수 있습니다(ODA 안내). 업무에 쓰려면 ODA의 조건을 확인합니다.
+- 2004 이후 형식 DWG의 3D 솔리드(입체)까지 가져오려면 ODA File Converter를 따로 설치합니다. 무료로 내려받을 수 있지만, ODA 회원이 아니면 비상업 용도로만 쓸 수 있습니다(ODA 안내). 업무에 쓰려면 ODA의 조건을 확인합니다. 쓰던 CAD 프로그램에서 DXF로 저장해 가져와도 됩니다.
+- DXF·DWG 도면의 선은 도면에 그려진 색·선 종류·굵기로 들어옵니다. 레이어를 따르는 선은 레이어의 값을, 블록 안의 선은 블록을 놓은 곳의 값을 받습니다. 흰색(7번 색)·실선·기본 굵기는 NukCAD의 기본 모양으로 들어옵니다. 레이어의 값을 빼고 가져오려면 놓을 곳을 선택하는 창에서 "레이어의 색·선 모양도 가져오기"를 끕니다.
 
 - STL·OBJ를 놓을 때 {t:imp.unit}(mm·cm·inch·m)를 선택할 수 있습니다. 크기가 이상하게 크거나 작으면 단위를 바꿉니다.
 - 메시 물체는 보기·이동·내보내기만 됩니다. 모깎기나 구멍 같은 작업을 하려면 {t:panel.props} 창의 {t:btn.meshToSolid} 단추를 누릅니다 (삼각형 30,000개 이하).
@@ -1467,6 +1468,7 @@ order: 397
 - {t:img.traceTol}를 키우면 선의 수가 줄고 매끈해집니다. 선이 너무 많으면 저절로 키우고 창에 알려 줍니다.
 - 윤곽은 직선과 곡선으로 만들어집니다. 둥근 곳은 곡선으로 이어지고 모서리는 뾰족하게 남습니다.
 - {t:img.res}는 그림을 읽는 크기(긴 변의 픽셀 수)입니다. 슬라이더를 밀거나 숫자를 넣습니다. 가는 선이나 작은 글자가 뭉개지면 키웁니다. 바로 아래 줄에 실제로 쓰인 픽셀 수가 나옵니다. 슬라이더의 오른쪽 끝이 이 그림과 이 컴퓨터에서 쓸 수 있는 최대이고, 그보다 크게 정하면 거기까지만 쓰이며 그 까닭도 같은 줄에 나옵니다. 작은 그림은 경계를 픽셀 사이에서 찾도록 원본보다 조금 크게(3배까지) 매끄럽게 키워 읽습니다.
+- {t:img.traceExtrude}는 윤곽 조각이 많으면 오래 걸립니다. 조각이 100개쯤부터 창에 안내가 나오고, 수백 개가 넘으면 돌출하지 못할 수 있습니다. 그때는 윤곽이 스케치로 남고 물체는 만들어지지 않습니다. 조각을 줄이려면 그림을 자르거나 {t:img.res}를 낮춥니다(아주 작은 조각은 빠지고 가까운 조각은 붙습니다). {t:img.traceTol}는 선의 수만 줄이고 조각 수는 그대로입니다.
 - {t:img.traceExtrude}를 켜고 {t:img.traceDepth}를 정하면 선과 돌출 입체가 한 번에 만들어집니다. 되돌리기 한 번으로 모두 없어집니다.
 - 스케치를 편집하는 중에 쓰면 선이 지금 스케치에 더해집니다. 스케치에 깐 밑그림을 따라 선을 만들 수 있습니다. [밑그림](help:obj-image-underlay)을 봅니다.
 - 그림의 밝기와 대비, 자르기는 창의 고급 설정이나 붙인 이미지의 보정에서 바꿉니다.
@@ -7826,9 +7828,10 @@ Opens a NukCAD file you saved, or brings 3D and 2D files from other programs int
 | DXF | 2D lines, circles, arcs, polylines, blocks, dimension lines, and 3D solids |
 | SVG | 2D lines (a sketch) |
 | NukCAD (.nkx) | merged into your work |
-| DWG, DWS | installed app only: converted to DXF when you have installed ODA File Converter separately |
+| DWG, DWS | installed app only: 2D drawings come in directly. 3D solids come in directly from an old format (R14, 2000); from the 2004 format or later, when you have installed ODA File Converter separately |
 
-- ODA File Converter is a free download, but ODA states that non-members may use it for non-commercial purposes only. Check ODA's terms before using it for work.
+- To bring in the 3D solids of a DWG of the 2004 format or later as well, install ODA File Converter separately. It is a free download, but ODA states that non-members may use it for non-commercial purposes only. Check ODA's terms before using it for work. Or save the drawing as DXF in the CAD program you used and import that.
+- Lines of a DXF or DWG drawing come in with the color, line type and weight the drawing draws them in. A line that follows its layer gets the layer's values, and a line inside a block gets those of the block's placement. White (color 7), solid lines and the default weight come in as NukCAD's usual look. To leave the layers' values out, turn off "Also bring layer colors and line styles" in the window where you pick the place.
 
 - When placing an STL or OBJ you can select the {t:imp.unit} (mm, cm, inch, m). If the size looks far too big or small, change the unit.
 - Mesh objects can only be viewed, moved and exported. To fillet or drill them, click {t:btn.meshToSolid} in the {t:panel.props} window (30,000 triangles or fewer).
@@ -8998,6 +9001,7 @@ Finds the edges of the dark parts of a picture (or the light ones, inverted) and
 - A larger {t:img.traceTol} gives fewer, smoother lines. Too many lines raise it by themselves, and the window says so.
 - The outline is made of straight lines and curves: round parts follow each other as curves, corners stay sharp.
 - {t:img.res} is the size the picture is read at (pixels along its long side): drag the slider or type a number. Raise it when thin lines or small letters come out blurred. The line under it shows the pixels really used. The slider's right end is the most this picture and this computer take; a value above it is used only that far, and the same line says why. A small picture is read a little larger than it is (up to three times, smoothly), so that its edges are found between its pixels.
+- {t:img.traceExtrude} takes long when the outline has many pieces. From about 100 pieces the window says so, and with several hundred the extrusion may fail. The outlines are then kept as a sketch and no body is made. For fewer pieces, crop the picture or lower {t:img.res} (very small pieces drop out and pieces close together join). {t:img.traceTol} only gives fewer lines, not fewer pieces.
 - Turn {t:img.traceExtrude} on and set {t:img.traceDepth} to make the lines and the solid at once. One undo removes both.
 - Used while editing a sketch, the lines are added to that sketch, for example following an underlay. See [Underlay](help:obj-image-underlay).
 - Change the picture's brightness, contrast and crop in the window's advanced settings or in the placed image's adjustments.
