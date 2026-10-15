@@ -1,1 +1,0 @@
-import{z as e}from"./tasks-1kbK3xmN.js";var t=[`cohelp`,`cohelpTeacher`,`teacherAdmin`,`askTeacher`],n=[`.dwg`,`.dws`];function r(){return!1}var i=()=>e()||r();function a(e,r=i()){return r?!1:t.includes(e)||n.includes(e.toLowerCase())}function o(e,t=i()){return e.filter(e=>!a(e,t))}export{o as n,a as t};
