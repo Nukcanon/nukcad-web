@@ -246,7 +246,7 @@ NukCAD에는 작업 종류가 두 가지 있습니다. {t:mode.print}은 손에 
 
 - 3D 물체에서 만든 물체를 3D 건설로 가져가려면 메뉴 줄의 {c:sendToBuilding} 단추를 씁니다: [건설 물체로 보내기](help:more-send-to-building).
 - 3D 건설에서 문·창·가구를 두 번 클릭하면 묻고 나서 그 물체만 3D 물체에서 고칠 수 있습니다.
-- 처음 화면에는 {t:start.recent} 칸(최근 연 파일 10개, 2열)과 {t:start.saves} 칸(저장하지 않은 작업의 복구본)이 나옵니다. 최근 파일 카드를 누르면 다시 열고, 파일이 이 PC에 있으면 {t:recent.local}로 표시됩니다. 학교 서버의 파일은 그 서버에 그 계정으로 로그인해 있을 때만 열립니다. 자동 저장 카드를 누르면(풍선 도움말 {t:start.recoverOpen}) 작업이 되살아나고, 카드의 × 단추로 버립니다: [저장](help:start-save). 학생용으로 설치한 PC는 처음 화면에 이 두 칸이 없고, NukCAD 메뉴의 {t:cmd.autosaves}에서 복구본을 엽니다.
+- 처음 화면에는 {t:start.recent} 칸(최근 연 파일 10개, 2열)과 {t:start.saves} 칸(저장하지 않은 작업의 복구본)이 나옵니다. 최근 파일 카드를 누르면 다시 열고, 파일이 이 PC에 있으면 {t:recent.local}로 표시됩니다. 과제 서버의 파일은 그 서버에 그 계정으로 로그인해 있을 때만 열립니다. 자동 저장 카드를 누르면(풍선 도움말 {t:start.recoverOpen}) 작업이 되살아나고, 카드의 × 단추로 버립니다: [저장](help:start-save). 학생용으로 설치한 PC는 처음 화면에 이 두 칸이 없고, NukCAD 메뉴의 {t:cmd.autosaves}에서 복구본을 엽니다.
 - 처음 화면 아래의 {c:open} 단추로 파일을 바로 엽니다. 3D 건설 파일을 열면 3D 건설로 열립니다.
 - 단위와 크기 입력은 [단위와 크기](help:start-units)를 봅니다.
 
@@ -6783,8 +6783,8 @@ Cadoo 대화와 도움말의 AI는 만들기, NukCAD 사용법, 학교 공부, �
 ### 멘토에게 가는 것
 
 - 멘토는 Cadoo 대화를 볼 수 없습니다. 멘토 서버를 거쳐 답할 때도 대화는 서버에 남지 않습니다.
-- 멘토 서버 주소가 정해져 있고 학교 서버에 로그인해 있으면, 자해, 위험한 것, 성적인 내용 이야기를 했을 때 멘토에게 **번호와 종류만** 알려집니다. 질문, 답, 대화 내용은 보내지 않습니다. 이 사실은 처음 한 번 대화 창에 안내됩니다.
-- 멘토 서버 주소가 없거나 학교 서버에 로그인하지 않았으면 아무 곳에도 알리지 않습니다. 이 컴퓨터에도 거절한 기록을 남기지 않습니다.
+- 멘토 서버 주소가 정해져 있고 과제 서버에 로그인해 있으면, 자해, 위험한 것, 성적인 내용 이야기를 했을 때 멘토에게 **번호와 종류만** 알려집니다. 질문, 답, 대화 내용은 보내지 않습니다. 이 사실은 처음 한 번 대화 창에 안내됩니다.
+- 멘토 서버 주소가 없거나 과제 서버에 로그인하지 않았으면 아무 곳에도 알리지 않습니다. 이 컴퓨터에도 거절한 기록을 남기지 않습니다.
 
 ### 답이 틀릴 때
 
@@ -6870,7 +6870,7 @@ Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다
 - {t:ai.set.local}는 질문과 답이 컴퓨터 밖으로 나가지 않습니다. 모델은 크기에 따라 수백 MB에서 수 GB입니다. 가벼운 모델일수록 빠르지만 답이 단순합니다.
 - {t:aip.advanced}의 {t:bigai.engine}에서 {t:bigai.engine.webgpu}은 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
 - 웹판 AI와 작은 모델은 그래픽 칩(WebGPU)이 있어야 합니다. 그래픽 가속이 꺼져 있으면 [3D 화면이 검거나 느릴 때](help:faq-black-screen)를 봅니다.
-- 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버를 쓸 때 학년·반·번호는 학교 서버에 로그인한 계정의 것을 씁니다([학교 서버 접속](help:more-school-server)). 멘토 도움 요청은 멘토 서버가 아니라 학교 서버로 연결합니다([멘토 도움 요청](help:more-mentor-help)).
+- 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버를 쓸 때 학년·반·번호는 과제 서버에 로그인한 계정의 것을 씁니다([과제 서버 접속](help:more-school-server)). 멘토 도움 요청은 멘토 서버가 아니라 과제 서버로 연결합니다([멘토 도움 요청](help:more-mentor-help)).
 - {t:bigai.removeAll}는 이 PC에 받은 AI 파일을 모두 삭제합니다. 설치할 때 함께 받은 공용 AI 파일도 삭제하며, 필요하면 Windows가 관리자 권한을 묻습니다. 학교 학생용 PC의 공용 AI 파일은 멘토가 관리하므로 그대로 둡니다.
 - AI가 무엇을 돕지 않는지는 [AI가 못 하는 것·안전](help:more-ai-limits)에 있습니다.
 
@@ -6879,7 +6879,7 @@ Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다
 - 모델을 받는 도중에 창을 닫습니다. 받기가 끝날 때까지 창을 열어 둡니다. 받은 모델은 다음부터 바로 쓸 수 있습니다.
 - 컴퓨터 메모리에 비해 큰 모델을 선택합니다. 목록에 실행 가능 여부가 표시되므로 '추천' 모델부터 씁니다.
 - 멘토 서버 주소를 틀리게 입력합니다. 예처럼 숫자 주소와 포트를 그대로 입력하고 {t:ai.teacher.test} 단추로 확인합니다.
-- 학교 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인하면 질문에 학년·반·번호가 함께 갑니다.
+- 과제 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인하면 질문에 학년·반·번호가 함께 갑니다.
 - 웹판에서 멘토 서버를 찾습니다. 멘토 서버 연결은 설치판에서만 됩니다.
 `,Xt=`---
 id: more-cadoo
@@ -6990,7 +6990,7 @@ title: 멘토 관리
 분류: 그 밖의 기능
 난이도: 중급
 workspace: 공통
-keywords: 교사 관리, 교사용, 교사 PC, 교사 서버, 중계 프로그램, 학생 관리, 학생 목록, 학년 반 번호, 허용, 차단, 승인, 안전 알림, 위험 알림, 자해 알림, 도움 요청, 학생 도움 요청, 같이 보기, AI 키, API 키, Claude, 사용량, 비용, 질문 수, 교사 페이지, 관리 창, 선생님 관리, 교사관리, teacher admin, teacher PC, teacher server, relay, students, block, alerts, help requests, API key, usage, cost, 멘토
+keywords: 교사 관리, 교사용, 교사 PC, 교사 서버, 중계 프로그램, 학생 관리, 학생 목록, 학년 반 번호, 허용, 차단, 승인, 안전 알림, 위험 알림, 자해 알림, 도움 요청, 멘티 도움 주기, 학생 도움 요청, 같이 보기, AI 키, API 키, Claude, 사용량, 비용, 질문 수, 교사 페이지, 관리 창, 선생님 관리, 교사관리, teacher admin, teacher PC, teacher server, relay, students, block, alerts, help requests, API key, usage, cost, 멘토
 commands: teacherAdmin, cohelpTeacher, settings
 context: teacherAdmin, cohelpTeacher
 order: 90
@@ -6999,12 +6999,12 @@ desktop: true
 
 ## 무엇
 
-멘토용으로 설치한 PC에서 멘토 서버를 켜고 끄고, 학생 목록, 안전 알림, 학생 도움 요청, AI 도우미 설정, 사용량을 한 창에서 관리하는 기능입니다. 설치판의 멘토용 PC에서, 멘토 계정으로 학교 서버에 로그인한 뒤에만 열립니다. 창에는 {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai}, {t:tapp.tab.usage} 탭이 있습니다.
+멘토용으로 설치한 PC에서 멘토 서버를 켜고 끄고, 학생 목록, 안전 알림, 멘티 도움 주기, AI 도우미 설정, 사용량을 한 창에서 관리하는 기능입니다. 설치판의 멘토용 PC에서, 멘토 계정으로 과제 서버에 로그인한 뒤에만 열립니다. 창에는 {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai}, {t:tapp.tab.usage} 탭이 있습니다.
 
 ## 하는 순서
 
 1. 멘토용으로 설치한 PC에서 NukCAD를 켭니다. 멘토 서버가 함께 켜집니다.
-2. 접속 메뉴에서 멘토 계정으로 학교 서버에 로그인합니다. [학교 서버 접속](help:more-school-server)을 봅니다.
+2. 접속 메뉴에서 멘토 계정으로 과제 서버에 로그인합니다. [과제 서버 접속](help:more-school-server)을 봅니다.
 3. 왼쪽 위 NukCAD 단추 → {c:teacherAdmin} 순서로 누릅니다.
 4. {t:tapp.tab.status} 탭에서 {t:tapp.relay}가 켜져 있는지 확인합니다. 꺼져 있으면 {t:tapp.relay.start}를 누릅니다.
 5. 같은 탭의 {t:tapp.addr}를 학생에게 알려 줍니다.
@@ -7031,7 +7031,7 @@ desktop: true
 
 ## 자주 하는 실수
 
-- 창에 {t:tapp.web} 또는 {t:sas.needLogin}가 보입니다. 멘토용으로 설치한 PC에서 멘토 계정으로 학교 서버에 로그인해야 열립니다. 일반 설치이면 멘토용으로 다시 설치합니다.
+- 창에 {t:tapp.web} 또는 {t:sas.needLogin}가 보입니다. 멘토용으로 설치한 PC에서 멘토 계정으로 과제 서버에 로그인해야 열립니다. 일반 설치이면 멘토용으로 다시 설치합니다.
 - {t:tapp.offNote}가 보입니다. {t:tapp.tab.status} 탭에서 멘토 서버를 켭니다. 멘토 서버를 끄면 학생 AI 질문, 도움 요청, 알림이 모두 멈춥니다.
 - {t:tapp.err.startFailed}이 보입니다. 다른 프로그램이 8765 포트를 쓰고 있는지 확인합니다.
 - 학생이 연결되지 않습니다. 학생 PC의 멘토 서버 주소가 {t:tapp.addr}와 같은지, 같은 학교 네트워크인지, 번호가 차단되지 않았는지 확인합니다.
@@ -7056,7 +7056,7 @@ desktop: true
 
 ## 하는 순서
 
-1. 접속 메뉴에서 학교 서버에 로그인합니다. 자세한 것은 [학교 서버 접속](help:more-school-server)을 봅니다.
+1. 접속 메뉴에서 과제 서버에 로그인합니다. 자세한 것은 [과제 서버 접속](help:more-school-server)을 봅니다.
 2. 왼쪽 위 NukCAD 단추 → {c:cohelp} 순서로 누릅니다 (설치판). 멘토 방 목록에서 내 멘토 방의 {t:cohelp.p2p.join}를 누릅니다. 목록에 없으면 멘토가 알려 준 6자리 방 번호를 적고 {t:cohelp.p2p.joinCode}를 누릅니다.
 3. 메모(선택)를 적고 {t:cohelp.request} 단추를 누릅니다.
 4. 멘토가 수락하면 뜨는 창에서 {t:cohelp.accept}을 누르면 멘토 화면에 내 모델이 보입니다. {t:cohelp.allowEdit}으로 멘토가 직접 고치게 할 수 있고, {t:cohelp.stop}로 언제든 끊을 수 있습니다.
@@ -7066,16 +7066,16 @@ desktop: true
 - 이 창은 {t:win.menu} 메뉴에서도 열 수 있고, 명령줄에 \`askteacher\`를 입력해도 됩니다.
 - 요청을 보내면 창에 {t:cohelp.requested}이 보입니다. 마음이 바뀌면 {t:cohelp.cancel}를 누릅니다.
 - 멘토가 먼저 같이 보기를 요청할 수도 있습니다. 이때도 {t:cohelp.ask.title} 창에서 {t:cohelp.accept}을 눌러야만 연결되고, {t:cohelp.refuse}을 누르면 아무것도 보내지 않습니다.
-- 수락하기 전에는 문서도 화면도 보내지 않습니다. 요청에는 학년·반·번호와 메모만 갑니다. 수락한 뒤의 문서는 학교 서버를 거치지 않고 멘토 PC로 바로 갑니다. 같은 학교 네트워크에서만 연결됩니다.
+- 수락하기 전에는 문서도 화면도 보내지 않습니다. 요청에는 학년·반·번호와 메모만 갑니다. 수락한 뒤의 문서는 과제 서버를 거치지 않고 멘토 PC로 바로 갑니다. 같은 학교 네트워크에서만 연결됩니다.
 - 연결된 동안에는 3D 화면 위에 {t:cohelp.watching} 띠가 보입니다. {t:cohelp.allowEdit}을 누르면 띠가 {t:cohelp.teacherEditing}으로 바뀌고, 그동안 나는 보기만 합니다. 다시 내가 고치려면 {t:cohelp.takeBack}를 누릅니다.
 - 멘토가 고친 것은 하나하나가 내 되돌리기 한 단계로 들어옵니다. {t:cohelp.takeBack}를 누른 뒤 Ctrl+Z로 되돌릴 수 있습니다. [되돌리기](help:start-undo)를 봅니다.
-- 학년·반·번호는 학교 서버 계정에 적힌 것을 씁니다. 이름은 받지 않습니다.
+- 학년·반·번호는 과제 서버 계정에 적힌 것을 씁니다. 이름은 받지 않습니다.
 - 연결된 동안 두 화면에 {t:cohelp.p2p.check}가 보입니다. 두 번호가 같으면 안전한 연결입니다. 다르면 {t:cohelp.stop}를 누르고 멘토에게 말합니다.
 - 직접 연결이 끊기면 같이 보기가 끝납니다. 다시 하려면 요청을 새로 보냅니다.
 
 ## 자주 하는 실수
 
-- 학교 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인합니다. 학생 계정이어야 요청할 수 있습니다.
+- 과제 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인합니다. 학생 계정이어야 요청할 수 있습니다.
 - 웹판에서는 이 기능이 없습니다. 설치판 NukCAD로만 쓸 수 있습니다.
 - 방 번호가 맞지 않습니다. 멘토가 알려 준 6자리 번호를 다시 확인합니다. 5번 틀리면 10분 동안 들어갈 수 없습니다.
 - {t:cohelp.p2p.teacherAway} 안내가 보입니다. 멘토가 도움 요청 창을 열 때까지 기다립니다.
@@ -7084,11 +7084,11 @@ desktop: true
 - 메모에 이름이나 전화번호 같은 개인 정보는 적지 않습니다. 메모는 멘토 목록에 보이는 짧은 말입니다.
 `,en=`---
 id: more-school-server
-title: 학교 서버 접속
+title: 과제 서버 접속
 분류: 그 밖의 기능
 난이도: 기초
 workspace: 공통
-keywords: 학교 서버, 과제 서버, 접속, 로그인, 로그아웃, 학교 자료, 내 저장소, 공유 자료, 과제 첨부, 로그인 유지, 서버 찾기, 서버 주소, 개인정보 동의, 학교 계정, 학번, 아이디, 비밀번호, OTP, school server, login, my storage, assignment, 멘토
+keywords: 과제 서버, 학교 서버, 접속, 로그인, 로그아웃, 학교 자료, 내 저장소, 공유 자료, 과제 첨부, 로그인 유지, 서버 찾기, 서버 주소, 개인정보 동의, 학교 계정, 학번, 아이디, 비밀번호, OTP, assignment server, login, my storage, assignment, 멘토
 commands: schoolConnect, schoolOpen, schoolSave, schoolLogout
 order: 70
 desktop: true
@@ -7101,7 +7101,7 @@ desktop: true
 ## 하는 순서
 
 1. 접속 메뉴에서 {c:schoolConnect}를 누릅니다. 학생용·멘토용으로 설치한 PC는 로그인하지 않았으면 NukCAD를 켤 때 이 창이 한 번 저절로 열립니다.
-2. {t:sas.find}를 눌러 목록에서 학교 서버를 선택합니다. 목록에 없으면 {t:sas.address}에 주소를 직접 적습니다. 한 번 접속한 주소는 {t:sas.recent}에 남습니다.
+2. {t:sas.find}를 눌러 목록에서 과제 서버를 선택합니다. 목록에 없으면 {t:sas.address}에 주소를 직접 적습니다. 한 번 접속한 주소는 {t:sas.recent}에 남습니다.
 3. 학교 계정의 아이디와 비밀번호를 적고 {t:sas.login} 단추를 누릅니다. OTP를 쓰는 계정은 OTP 6자리를 이어서 적습니다.
 4. 처음 로그인하면 {t:sas.consent.title} 화면이 나옵니다. 내용을 읽고 동의해야 쓸 수 있습니다.
 5. 접속 메뉴의 {c:schoolOpen}으로 {t:sas.files.assign}, {t:sas.files.my}, {t:sas.files.shared}의 파일을 열고, {c:schoolSave}로 지금 작업을 내 저장소에 저장합니다.
@@ -7109,7 +7109,7 @@ desktop: true
 
 ## 팁
 
-- 학교 서버는 https:// 주소만 쓸 수 있습니다. {t:sas.httpsOnly}
+- 과제 서버는 https:// 주소만 쓸 수 있습니다. {t:sas.httpsOnly}
 - 아이디와 비밀번호는 저장하지 않습니다. 저장하는 것은 로그인 뒤 서버가 준 열쇠(토큰)뿐입니다. 로그인 유지를 켜지 않으면 NukCAD를 닫을 때 로그아웃됩니다.
 - {t:sas.keep}를 켜면 NukCAD를 닫아도 로그인이 남습니다. 여러 사람이 함께 쓰는 PC에서는 켜지 않습니다. 컴퓨터를 다시 켜거나 Windows에서 로그아웃하면 로그인 유지는 저절로 풀립니다.
 - 하단 상태 표시줄에 {t:sas.chip.none} 또는 내 이름이 보입니다. 눌러서 접속 창을 엽니다.
@@ -7121,9 +7121,9 @@ desktop: true
 ## 자주 하는 실수
 
 - 서버를 찾지 못합니다. 학교 네트워크에 연결되어 있는지 확인하고, 관리자에게 받은 https:// 주소를 직접 적습니다.
-- {t:sas.apiOff} 안내가 보입니다. 학교 서버 관리자가 NukCAD 연동을 껐습니다. 관리자에게 문의합니다.
-- 서버에 연결할 수 없다고 나옵니다. 주소(https://)와 네트워크를 확인합니다. 처음 접속하는 학교 서버는 서버 코드로 이 PC에 등록해야 합니다. {t:sas.code.help}
-- 처음 비밀번호나 OTP를 정하지 않았다고 나옵니다. 학교 서버 웹 사이트에서 먼저 정한 뒤 다시 로그인합니다.
+- {t:sas.apiOff} 안내가 보입니다. 과제 서버 관리자가 NukCAD 연동을 껐습니다. 관리자에게 문의합니다.
+- 서버에 연결할 수 없다고 나옵니다. 주소(https://)와 네트워크를 확인합니다. 처음 접속하는 과제 서버는 서버 코드로 이 PC에 등록해야 합니다. {t:sas.code.help}
+- 처음 비밀번호나 OTP를 정하지 않았다고 나옵니다. 과제 서버 웹 사이트에서 먼저 정한 뒤 다시 로그인합니다.
 - 로그인이 갑자기 풀렸습니다. 로그인 기간이 끝났거나 서버가 로그인을 끊은 것입니다. 다시 로그인합니다. 작업 중인 파일은 그대로 있습니다.
 - 파일이 500개를 넘으면 일부만 보입니다. 웹에서 정리합니다.`,tn=`---
 id: more-screenshot
@@ -7829,7 +7829,7 @@ NukCAD has two kinds of work. {t:mode.print} makes hand-sized objects in millime
 
 - To take an object from 3D Object into 3D Building, use the {c:sendToBuilding} button on the menu bar: [send to building](help:more-send-to-building).
 - In 3D Building, double-click a door, window or piece of furniture to edit that object alone in 3D Object (you are asked first).
-- The start screen shows a {t:start.recent} block (the last 10 files you opened, in 2 columns) and an {t:start.saves} block (recovery copies of unsaved work). Click a recent file card to open it again; a file on this PC is marked {t:recent.local}. A file on the school server opens only while you are logged in to that server with that account. Click an autosave card (tooltip {t:start.recoverOpen}) to bring the work back, or its × to discard it: [saving](help:start-save). On a PC installed for students the start screen has neither block; open the recovery copies from {t:cmd.autosaves} in the NukCAD menu.
+- The start screen shows a {t:start.recent} block (the last 10 files you opened, in 2 columns) and an {t:start.saves} block (recovery copies of unsaved work). Click a recent file card to open it again; a file on this PC is marked {t:recent.local}. A file on the assignment server opens only while you are logged in to that server with that account. Click an autosave card (tooltip {t:start.recoverOpen}) to bring the work back, or its × to discard it: [saving](help:start-save). On a PC installed for students the start screen has neither block; open the recovery copies from {t:cmd.autosaves} in the NukCAD menu.
 - The {c:open} button under the cards opens a file directly. A 3D Building file opens in 3D Building.
 - For typing sizes and units, see [units and sizes](help:start-units).
 
@@ -14363,8 +14363,8 @@ The AI in the Cadoo chat and in the help assists with making things, using NukCA
 ### What reaches the mentor
 
 - The mentor cannot read Cadoo chats. When answers come through the mentor's server, the chat is not kept on the server.
-- If a mentor server address is set and you are logged in to the school server, the mentor is told **only your number and the kind of topic** when self-harm, dangerous things or sexual content come up. Questions, answers and the conversation are not sent. The chat window says this once.
-- Without a server address or without a school server login, nothing is reported anywhere, and no record of refusals is kept on this computer.
+- If a mentor server address is set and you are logged in to the assignment server, the mentor is told **only your number and the kind of topic** when self-harm, dangerous things or sexual content come up. Questions, answers and the conversation are not sent. The chat window says this once.
+- Without a server address or without an assignment server login, nothing is reported anywhere, and no record of refusals is kept on this computer.
 
 ### When an answer is wrong
 
@@ -14450,7 +14450,7 @@ NukCAD does not ask at the first start whether to use an AI. A choice made at in
 - With an AI on this computer, questions and answers never leave the computer. Models range from a few hundred MB to several GB. Lighter models are faster but give simpler answers.
 - Under {t:bigai.engine}, {t:bigai.engine.webgpu} runs on the graphics chip and {t:bigai.engine.cpu} on the processor. The processor option runs larger models but uses much memory and answers slowly.
 - The web AI and the small AI need a graphics chip with WebGPU. If graphics acceleration is off, see [Black or slow 3D view](help:faq-black-screen).
-- The mentor server is a program started by NukCAD on the mentor's PC. When you use it, your grade, class and number come from the school server account you logged in with ([Connect to the school server](help:more-school-server)). Asking the mentor for help connects through the school server, not the mentor server ([Ask the mentor for help](help:more-mentor-help)).
+- The mentor server is a program started by NukCAD on the mentor's PC. When you use it, your grade, class and number come from the assignment server account you logged in with ([Connect to the assignment server](help:more-school-server)). Asking the mentor for help connects through the assignment server, not the mentor server ([Ask the mentor for help](help:more-mentor-help)).
 - {t:bigai.removeAll} deletes every AI file on this PC, also the shared AI files downloaded at install time; Windows asks for administrator rights when needed. On a school student PC the shared files stay, as the mentor manages them.
 - What the AI will not help with is in [What the AI will not do, and safety](help:more-ai-limits).
 
@@ -14459,7 +14459,7 @@ NukCAD does not ask at the first start whether to use an AI. A choice made at in
 - Closing the window while a model downloads. Keep it open until the download ends. After that the model is ready at once.
 - Selecting a model too large for the computer's memory. The list shows whether each model can run; start with the recommended one.
 - Typing the mentor server address wrongly. Type the numeric address and port exactly as given and check with {t:ai.teacher.test}.
-- Not being logged in to the school server. Log in from the Connect menu and your questions carry your grade, class and number.
+- Not being logged in to the assignment server. Log in from the Connect menu and your questions carry your grade, class and number.
 - Looking for the mentor server in the web version. It can only be reached from the installed app.
 `,ca=`---
 id: more-cadoo
@@ -14570,7 +14570,7 @@ title: Mentor management
 분류: 그 밖의 기능
 난이도: 중급
 workspace: 공통
-keywords: teacher management, teacher admin, teacher PC, teacher server, relay, students, student list, grade class number, allow, block, approval, safety alerts, self-harm alert, help requests, watch a student, AI key, API key, Claude, usage, cost, questions, teacher page, mentor
+keywords: teacher management, teacher admin, teacher PC, teacher server, relay, students, student list, grade class number, allow, block, approval, safety alerts, self-harm alert, help requests, help a mentee, watch a student, AI key, API key, Claude, usage, cost, questions, teacher page, mentor
 commands: teacherAdmin, cohelpTeacher, settings
 context: teacherAdmin, cohelpTeacher
 order: 90
@@ -14579,12 +14579,12 @@ desktop: true
 
 ## What
 
-On a PC installed for the mentor, one window turns the mentor server on and off and manages the students, safety alerts, student help requests, the AI helper and the usage. It opens only in the installed app on the mentor PC, after you log in to the school server with a mentor account. The window has the tabs {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai} and {t:tapp.tab.usage}.
+On a PC installed for the mentor, one window turns the mentor server on and off and manages the students, safety alerts, helping a mentee, the AI helper and the usage. It opens only in the installed app on the mentor PC, after you log in to the assignment server with a mentor account. The window has the tabs {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai} and {t:tapp.tab.usage}.
 
 ## Steps
 
 1. Start NukCAD on the PC installed for the mentor. The mentor server starts with it.
-2. Log in to the school server with your mentor account from the Connect menu. See [Connect to the school server](help:more-school-server).
+2. Log in to the assignment server with your mentor account from the Connect menu. See [Connect to the assignment server](help:more-school-server).
 3. Click the NukCAD button at the top left → {c:teacherAdmin}.
 4. On the {t:tapp.tab.status} tab, check that the {t:tapp.relay} is on. If it is off, press {t:tapp.relay.start}.
 5. Give the students the {t:tapp.addr} shown on the same tab.
@@ -14611,7 +14611,7 @@ On a PC installed for the mentor, one window turns the mentor server on and off 
 
 ## Common mistakes
 
-- The window shows {t:tapp.web} or {t:sas.needLogin}. It opens only on a PC installed for the mentor, after logging in to the school server with a mentor account. On a general install, install it again for the mentor.
+- The window shows {t:tapp.web} or {t:sas.needLogin}. It opens only on a PC installed for the mentor, after logging in to the assignment server with a mentor account. On a general install, install it again for the mentor.
 - {t:tapp.offNote} shows. Turn the mentor server on on the {t:tapp.tab.status} tab. While it is off, student AI questions, help requests and alerts all stop.
 - {t:tapp.err.startFailed} shows. Check whether another program uses port 8765.
 - A student cannot connect. Check that the student PC uses the address in {t:tapp.addr}, that it is on the same school network, and that the number is not blocked.
@@ -14636,7 +14636,7 @@ When you are stuck in class, send the mentor a help request. The mentor can then
 
 ## Steps
 
-1. Log in to the school server from the Connect menu. See [Connect to the school server](help:more-school-server).
+1. Log in to the assignment server from the Connect menu. See [Connect to the assignment server](help:more-school-server).
 2. Click the NukCAD button at the top left → {c:cohelp} (installed app). In the list of mentor rooms press {t:cohelp.p2p.join} for your mentor. If the room is not listed, type the 6-digit room number your mentor gave you and press {t:cohelp.p2p.joinCode}.
 3. Write a note if you like and press {t:cohelp.request}.
 4. When the mentor accepts, press {t:cohelp.accept} in the window that opens: your model shows on the mentor's screen. {t:cohelp.allowEdit} lets the mentor edit; {t:cohelp.stop} ends it any time.
@@ -14646,16 +14646,16 @@ When you are stuck in class, send the mentor a help request. The mentor can then
 - The window is also on the {t:win.menu} menu, or type \`askteacher\` in the command line.
 - After sending, the window shows {t:cohelp.requested}. Press {t:cohelp.cancel} if you change your mind.
 - The mentor can also ask to watch first. You are connected only after you press {t:cohelp.accept} in the {t:cohelp.ask.title} window; {t:cohelp.refuse} sends nothing.
-- Nothing of your document or view is sent before you accept. A request carries only your grade, class, number and note. After you accept, the document goes straight to the mentor's PC, not through the school server, and only on the same school network.
+- Nothing of your document or view is sent before you accept. A request carries only your grade, class, number and note. After you accept, the document goes straight to the mentor's PC, not through the assignment server, and only on the same school network.
 - While connected, a {t:cohelp.watching} bar stays over the 3D view. After {t:cohelp.allowEdit} it reads {t:cohelp.teacherEditing} and you can only watch. Press {t:cohelp.takeBack} to edit again yourself.
 - Each change the mentor makes arrives as one step of your undo history. After {t:cohelp.takeBack}, Ctrl+Z takes it back. See [Undo](help:start-undo).
-- Your grade, class and number come from your school server account. Your name is never asked for.
+- Your grade, class and number come from your assignment server account. Your name is never asked for.
 - While connected, both screens show a {t:cohelp.p2p.check}. If the two numbers are the same, the connection is safe. If they differ, press {t:cohelp.stop} and tell the mentor.
 - If the direct connection drops, the session ends. Send a new request to start again.
 
 ## Common mistakes
 
-- You are not logged in to the school server. Log in from the Connect menu. Only a student account can send a request.
+- You are not logged in to the assignment server. Log in from the Connect menu. Only a student account can send a request.
 - The web version does not have this feature. It works in the installed NukCAD only.
 - The room number does not match. Check the 6 digits the mentor gave you. After 5 wrong tries you have to wait 10 minutes.
 - {t:cohelp.p2p.teacherAway} shows. Wait until the mentor opens the help window.
@@ -14664,11 +14664,11 @@ When you are stuck in class, send the mentor a help request. The mentor can then
 - Do not put personal details such as your name or phone number in the note. The note is a few words for the mentor's list.
 `,fa=`---
 id: more-school-server
-title: Connect to the school server
+title: Connect to the assignment server
 분류: 그 밖의 기능
 난이도: 기초
 workspace: 공통
-keywords: school server, assignment server, connect, log in, log out, school files, my storage, shared files, assignment attachment, keep me logged in, find server, server address, privacy consent, school account, id, password, OTP, mentor
+keywords: assignment server, school server, connect, log in, log out, school files, my storage, shared files, assignment attachment, keep me logged in, find server, server address, privacy consent, school account, id, password, OTP, mentor
 commands: schoolConnect, schoolOpen, schoolSave, schoolLogout
 order: 70
 desktop: true
@@ -14681,7 +14681,7 @@ Log in to the school's assignment server straight from NukCAD, open the files at
 ## Steps
 
 1. In the Connect menu press {c:schoolConnect}. On PCs installed for students or mentors the window opens once by itself at start-up when you are not logged in.
-2. Press {t:sas.find} and pick the school server from the list. If it is not listed, type its address under {t:sas.address}. An address you have used is kept under {t:sas.recent}.
+2. Press {t:sas.find} and pick the assignment server from the list. If it is not listed, type its address under {t:sas.address}. An address you have used is kept under {t:sas.recent}.
 3. Type the id and password of your school account and press {t:sas.login}. If your account uses OTP, type the 6-digit OTP next.
 4. The first time, the {t:sas.consent.title} screen appears. You must read it and agree to go on.
 5. In the Connect menu, {c:schoolOpen} opens files from {t:sas.files.assign}, {t:sas.files.my} and {t:sas.files.shared}; {c:schoolSave} saves your current work to your storage.
@@ -14701,9 +14701,9 @@ Log in to the school's assignment server straight from NukCAD, open the files at
 ## Common mistakes
 
 - The server is not found. Check that the PC is on the school network and type the https:// address you were given.
-- {t:sas.apiOff} shows. The school server's administrator has turned the NukCAD link off. Ask the administrator.
-- It says the server cannot be reached. Check the address (https://) and the network. A school server you connect to for the first time must be registered on this PC with a server code. {t:sas.code.help}
-- It says you have not set your first password or OTP. Set it first on the school server's website, then log in again.
+- {t:sas.apiOff} shows. The assignment server's administrator has turned the NukCAD link off. Ask the administrator.
+- It says the server cannot be reached. Check the address (https://) and the network. An assignment server you connect to for the first time must be registered on this PC with a server code. {t:sas.code.help}
+- It says you have not set your first password or OTP. Set it first on the assignment server's website, then log in again.
 - You were logged out suddenly. The login period ended or the server ended it. Log in again; the file you are working on is untouched.
 - With more than 500 files only some are shown. Tidy them up on the web.`,pa=`---
 id: more-screenshot
