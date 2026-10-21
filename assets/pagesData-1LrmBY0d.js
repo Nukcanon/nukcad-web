@@ -1011,7 +1011,7 @@ order: 420
   - {t:dsh.values}: {t:ks.title}, {t:ks.school}, {t:ks.number}, {t:ks.author}, {t:ks.date}, {t:ks.docNo}
   - {t:dp.size}: {t:dsh.rows}(1~12), {t:dsh.cols}(1~8), {t:dsh.width}
   - {t:dp.cells}: 칸마다 {t:dp.cellLabel}을 쓰고 {t:dp.cellValue}으로 넣을 값을 선택합니다.
-  - {t:dp.reset}을 누르면 처음 표제란으로 돌아갑니다.
+  - {t:dp.reset}를 누르면 처음 표제란으로 돌아갑니다.
 - {t:ks.date}을 비우면 오늘 날짜가, {t:ks.title}을 비우면 파일 이름이 들어갑니다. 페이지가 여러 장이면 비워 둔 {t:ks.docNo}에 \`1/3\`처럼 페이지 번호가 들어갑니다.
 
 ### 페이지
@@ -6981,7 +6981,7 @@ order: 20
 ## 자주 하는 실수
 
 - {t:nuke.launch} 단추가 보이지 않습니다. 3D 물체에서는 쓸 수 없습니다. 3D 건설에서 환경 설정 → 옵션의 {t:nuke.setting}을 켭니다.
-- 스위치를 켤 때 관리 암호를 묻습니다. 학교에서 잠근 학생 PC입니다. 멘토에게 부탁합니다.
+- 스위치를 켤 때 관리 암호를 묻습니다. 학교에서 잠근 멘티 PC입니다. 멘토에게 부탁합니다.
 - 클릭해도 시작되지 않습니다. 폭심지는 불러온 땅 안에서 선택해야 합니다.
 - 시뮬레이션 뒤에 건물이 부서진 채로 남을까 걱정됩니다. 문서는 처음부터 바뀌지 않습니다. {t:nuke3.restore}를 누르거나 Esc를 누르면 폭발 전 모습으로 돌아옵니다.
 - 화면이 끊깁니다. 느린 컴퓨터에서는 주변 지형과 효과가 저절로 간단하게 그려집니다. 환경 설정의 {t:set.drawQuality}을 {t:set.drawQuality.fast}로 바꾸면 더 가볍게 그립니다.
@@ -6991,7 +6991,7 @@ title: 멘토 관리
 분류: 그 밖의 기능
 난이도: 중급
 workspace: 공통
-keywords: 교사 관리, 교사용, 교사 PC, 교사 서버, 중계 프로그램, 학생 관리, 학생 목록, 학년 반 번호, 허용, 차단, 승인, 안전 알림, 위험 알림, 자해 알림, 도움 요청, 멘티 도움 주기, 학생 도움 요청, 같이 보기, AI 키, API 키, Claude, 사용량, 비용, 질문 수, 교사 페이지, 관리 창, 선생님 관리, 교사관리, teacher admin, teacher PC, teacher server, relay, students, block, alerts, help requests, API key, usage, cost, 멘토
+keywords: 교사 관리, 교사용, 교사 PC, 교사 서버, 중계 프로그램, 멘티 관리, 멘티 목록, 학생 관리, 학생 목록, 학년 반 번호, 허용, 차단, 승인, 안전 알림, 위험 알림, 자해 알림, 도움 요청, 멘티 도움 주기, 멘티 도움 요청, 학생 도움 요청, 같이 보기, AI 키, API 키, Claude, 사용량, 비용, 질문 수, 교사 페이지, 관리 창, 선생님 관리, 교사관리, teacher admin, teacher PC, teacher server, relay, students, block, alerts, help requests, API key, usage, cost, 멘토
 commands: teacherAdmin, cohelpTeacher, settings
 context: teacherAdmin, cohelpTeacher
 order: 90
@@ -7000,7 +7000,7 @@ desktop: true
 
 ## 무엇
 
-멘토용으로 설치한 PC에서 멘토 서버를 켜고 끄고, 학생 목록, 안전 알림, 멘티 도움 주기, AI 도우미 설정, 사용량을 한 창에서 관리하는 기능입니다. 설치판의 멘토용 PC에서, 멘토 계정으로 과제 서버에 로그인한 뒤에만 열립니다. 창에는 {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai}, {t:tapp.tab.usage} 탭이 있습니다.
+멘토용으로 설치한 PC에서 멘토 서버를 켜고 끄고, 멘티 목록, 안전 알림, 멘티 도움 주기, AI 도우미 설정, 사용량을 한 창에서 관리하는 기능입니다. 설치판의 멘토용 PC에서, 멘토 계정으로 과제 서버에 로그인한 뒤에만 열립니다. 창에는 {t:tapp.tab.status}, {t:tapp.tab.students}, {t:tapp.tab.alerts}, {t:tapp.tab.help}, {t:tapp.tab.ai}, {t:tapp.tab.usage} 탭이 있습니다.
 
 ## 하는 순서
 
@@ -7008,35 +7008,35 @@ desktop: true
 2. 접속 메뉴에서 멘토 계정으로 과제 서버에 로그인합니다. [과제 서버 접속](help:more-school-server)을 봅니다.
 3. 왼쪽 위 NukCAD 단추 → {c:teacherAdmin} 순서로 누릅니다.
 4. {t:tapp.tab.status} 탭에서 {t:tapp.relay}가 켜져 있는지 확인합니다. 꺼져 있으면 {t:tapp.relay.start}를 누릅니다.
-5. 같은 탭의 {t:tapp.addr}를 학생에게 알려 줍니다.
+5. 같은 탭의 {t:tapp.addr}를 멘티에게 알려 줍니다.
 6. {t:tapp.tab.students} 탭에서 학교 이름, {t:tapp.school.grades}, {t:tapp.school.classes}, {t:tapp.school.numbers}을 정하고 {t:tapp.school.save}을 누릅니다.
 7. AI 도우미를 쓰려면 {t:tapp.tab.ai} 탭에 API 키를 붙여 넣고 {t:tapp.key.save}을 누른 뒤 {t:tapp.test}으로 답이 오는지 확인합니다.
-8. {t:tapp.tab.status} 탭의 {t:tapp.ai} 줄에서 {t:tapp.ai.turnOn}를 누르면 학생 질문을 받기 시작합니다.
+8. {t:tapp.tab.status} 탭의 {t:tapp.ai} 줄에서 {t:tapp.ai.turnOn}를 누르면 멘티 질문을 받기 시작합니다.
 
 ## 팁
 
-- 학생은 환경 설정 → 일반 → AI 도우미의 멘토 서버 주소에 이 주소를 적습니다(설치 때 정하지 않습니다). 주소가 여러 개 보이면 보통 이더넷이나 Wi-Fi 줄의 주소를 알려 줍니다.
-- {t:tapp.tab.students} 탭에는 학생이 학년·반별로 보이고, 줄마다 연결 상태와 질문 수가 나옵니다. {t:tapp.st.block}은 그 번호와 그 학생이 쓴 PC를 50분 동안 막고, {t:tapp.st.unblock}로 되돌립니다. 막아도 안전 알림은 계속 옵니다.
-- {t:tapp.school.approval}을 {t:tapp.school.ask}로 두면 처음 보는 번호는 {t:tapp.st.allow}을 누를 때까지 기다립니다. {t:tapp.school.privateOnly}을 켜 두면 학교 네트워크에서만 연결됩니다.
-- 같은 번호가 여러 PC에서 동시에 쓰이면 {t:tapp.st.conflictHead}이 위에 보입니다. 다른 학생의 번호를 쓰고 있지 않은지 확인합니다.
-- {t:tapp.tab.alerts} 탭에는 학생 AI가 알아차린 위험 신호가 학년·반·번호, 종류, 시각으로만 보입니다. 대화 내용은 오지 않습니다. 종류는 {t:tapp.kind.self}, {t:tapp.kind.danger}, {t:tapp.kind.adult}이고, 자해·자살은 빨갛게 맨 위에 보입니다. 이때는 학생과 직접 이야기합니다.
-- 같은 학생의 같은 종류 알림은 10분에 한 번만 옵니다. 알림은 멘토 서버를 끄면 사라지고, {t:tapp.al.clear}로 삭제할 수도 있습니다.
-- {t:tapp.tab.help} 탭은 {c:cohelpTeacher} 창과 같습니다. 요청에서 {t:cohelp.accept}을 누르거나 연결된 학생에게 {t:cohelp.t.invite}을 보내고, 학생이 수락하면 학생 모델이 내 화면에 나옵니다. 한 번에 한 학생만 볼 수 있습니다.
-- 이 창을 열면 내 멘토 방이 열리고 6자리 방 번호가 보입니다. 내 과제를 받는 학생은 번호 없이 들어오고, 그 밖의 학생에게는 번호를 알려 줍니다. 번호는 {t:cohelp.p2p.newCode}로 바꾸고, 이전 번호는 쓸 수 없게 됩니다. 연결은 같은 학교 네트워크에서만 되고, 학생이 수락해야 합니다.
-- 멘티용으로 설치한 PC는 재난 시뮬레이션이 잠겨 있습니다. {c:nukeStudents}에서 학생을 선택해 풀어 주거나 다시 잠급니다.
-- 같이 보는 동안 {t:cohelp.t.follow}를 끄면 내 마음대로 회전해 봅니다. 학생이 {t:cohelp.allowEdit}을 눌러야 고칠 수 있고, {t:cohelp.t.giveBack}로 돌려줍니다. {t:cohelp.stop}를 누르면 학생 모델이 사라지고 내 문서가 그대로 돌아옵니다.
-- {t:tapp.tab.ai} 탭에서 AI 모델, 학생 한 명의 하루 질문 수 같은 한도, {t:tapp.extra}를 정하고 {t:tapp.ai.save}을 누릅니다. 시험 질문은 학생 사용량에 세지 않습니다.
+- 멘티는 환경 설정 → 일반 → AI 도우미의 멘토 서버 주소에 이 주소를 적습니다(설치 때 정하지 않습니다). 주소가 여러 개 보이면 보통 이더넷이나 Wi-Fi 줄의 주소를 알려 줍니다.
+- {t:tapp.tab.students} 탭에는 멘티가 학년·반별로 보이고, 줄마다 연결 상태와 질문 수가 나옵니다. {t:tapp.st.block}은 그 번호와 그 멘티가 쓴 PC를 50분 동안 막고, {t:tapp.st.unblock}로 되돌립니다. 막아도 안전 알림은 계속 옵니다.
+- {t:tapp.school.approval}를 {t:tapp.school.ask}로 두면 처음 보는 번호는 {t:tapp.st.allow}을 누를 때까지 기다립니다. {t:tapp.school.privateOnly}을 켜 두면 학교 네트워크에서만 연결됩니다.
+- 같은 번호가 여러 PC에서 동시에 쓰이면 {t:tapp.st.conflictHead}이 위에 보입니다. 다른 멘티의 번호를 쓰고 있지 않은지 확인합니다.
+- {t:tapp.tab.alerts} 탭에는 멘티 AI가 알아차린 위험 신호가 학년·반·번호, 종류, 시각으로만 보입니다. 대화 내용은 오지 않습니다. 종류는 {t:tapp.kind.self}, {t:tapp.kind.danger}, {t:tapp.kind.adult}이고, 자해·자살은 빨갛게 맨 위에 보입니다. 이때는 멘티와 직접 이야기합니다.
+- 같은 멘티의 같은 종류 알림은 10분에 한 번만 옵니다. 알림은 멘토 서버를 끄면 사라지고, {t:tapp.al.clear}로 삭제할 수도 있습니다.
+- {t:tapp.tab.help} 탭은 {c:cohelpTeacher} 창과 같습니다. 요청에서 {t:cohelp.accept}을 누르거나 연결된 멘티에게 {t:cohelp.t.invite}을 보내고, 멘티가 수락하면 멘티 모델이 내 화면에 나옵니다. 한 번에 한 멘티만 볼 수 있습니다.
+- 이 창을 열면 내 멘토 방이 열리고 6자리 방 번호가 보입니다. 내 과제를 받는 멘티는 번호 없이 들어오고, 그 밖의 멘티에게는 번호를 알려 줍니다. 번호는 {t:cohelp.p2p.newCode}로 바꾸고, 이전 번호는 쓸 수 없게 됩니다. 연결은 같은 학교 네트워크에서만 되고, 멘티가 수락해야 합니다.
+- 멘티용으로 설치한 PC는 재난 시뮬레이션이 잠겨 있습니다. {c:nukeStudents}에서 멘티를 선택해 풀어 주거나 다시 잠급니다.
+- 같이 보는 동안 {t:cohelp.t.follow}를 끄면 내 마음대로 회전해 봅니다. 멘티가 {t:cohelp.allowEdit}을 눌러야 고칠 수 있고, {t:cohelp.t.giveBack}로 돌려줍니다. {t:cohelp.stop}를 누르면 멘티 모델이 사라지고 내 문서가 그대로 돌아옵니다.
+- {t:tapp.tab.ai} 탭에서 AI 모델, 멘티 한 명의 하루 질문 수 같은 한도, {t:tapp.extra}를 정하고 {t:tapp.ai.save}을 누릅니다. 시험 질문은 멘티 사용량에 세지 않습니다.
 - {t:tapp.lim.keepLastQuestions}을 0으로 두면 질문을 남기지 않습니다. 0보다 크게 두어도 Cadoo 대화의 질문은 남기지 않습니다.
 - {t:tapp.tab.usage} 탭에는 오늘의 질문 수와 예상 비용이 학년·반별로 나옵니다. 토큰으로 계산한 추정값입니다.
-- 학생 쪽 사용법은 [멘토 도움 요청](help:more-mentor-help)과 [AI 연결](help:more-ai-setup)에 있습니다.
+- 멘티 쪽 사용법은 [멘토 도움 요청](help:more-mentor-help)과 [AI 연결](help:more-ai-setup)에 있습니다.
 
 ## 자주 하는 실수
 
 - 창에 {t:tapp.web} 또는 {t:sas.needLogin}가 보입니다. 멘토용으로 설치한 PC에서 멘토 계정으로 과제 서버에 로그인해야 열립니다. 일반 설치이면 멘토용으로 다시 설치합니다.
-- {t:tapp.offNote}가 보입니다. {t:tapp.tab.status} 탭에서 멘토 서버를 켭니다. 멘토 서버를 끄면 학생 AI 질문, 도움 요청, 알림이 모두 멈춥니다.
+- {t:tapp.offNote}가 보입니다. {t:tapp.tab.status} 탭에서 멘토 서버를 켭니다. 멘토 서버를 끄면 멘티 AI 질문, 도움 요청, 알림이 모두 멈춥니다.
 - {t:tapp.err.startFailed}이 보입니다. 다른 프로그램이 8765 포트를 쓰고 있는지 확인합니다.
-- 학생이 연결되지 않습니다. 학생 PC의 멘토 서버 주소가 {t:tapp.addr}와 같은지, 같은 학교 네트워크인지, 번호가 차단되지 않았는지 확인합니다.
-- API 키를 학생에게 알려 주지 않습니다. 키는 멘토 서버의 설정 파일에만 저장되고, 창에는 가린 모양만 보입니다.
+- 멘티가 연결되지 않습니다. 멘티 PC의 멘토 서버 주소가 {t:tapp.addr}와 같은지, 같은 학교 네트워크인지, 번호가 차단되지 않았는지 확인합니다.
+- API 키를 멘티에게 알려 주지 않습니다. 키는 멘토 서버의 설정 파일에만 저장되고, 창에는 가린 모양만 보입니다.
 `,$t=`---
 id: more-mentor-help
 title: 멘토 도움 요청
@@ -7076,7 +7076,7 @@ desktop: true
 
 ## 자주 하는 실수
 
-- 과제 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인합니다. 학생 계정이어야 요청할 수 있습니다.
+- 과제 서버에 로그인하지 않았습니다. 접속 메뉴에서 로그인합니다. 멘티 계정이어야 요청할 수 있습니다.
 - 웹판에서는 이 기능이 없습니다. 설치판 NukCAD로만 쓸 수 있습니다.
 - 방 번호가 맞지 않습니다. 멘토가 알려 준 6자리 번호를 다시 확인합니다. 5번 틀리면 10분 동안 들어갈 수 없습니다.
 - {t:cohelp.p2p.teacherAway} 안내가 보입니다. 멘토가 도움 요청 창을 열 때까지 기다립니다.
