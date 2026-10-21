@@ -246,7 +246,7 @@ NukCAD에는 작업 종류가 두 가지 있습니다. {t:mode.print}은 손에 
 
 - 3D 물체에서 만든 물체를 3D 건설로 가져가려면 메뉴 줄의 {c:sendToBuilding} 단추를 씁니다: [건설 물체로 보내기](help:more-send-to-building).
 - 3D 건설에서 문·창·가구를 두 번 클릭하면 묻고 나서 그 물체만 3D 물체에서 고칠 수 있습니다.
-- 처음 화면에는 {t:start.recent} 칸(최근 연 파일 10개, 2열)과 {t:start.saves} 칸(저장하지 않은 작업의 복구본)이 나옵니다. 최근 파일 카드를 누르면 다시 열고, 파일이 이 PC에 있으면 {t:recent.local}로 표시됩니다. 과제 서버의 파일은 그 서버에 그 계정으로 로그인해 있을 때만 열립니다. 자동 저장 카드를 누르면(풍선 도움말 {t:start.recoverOpen}) 작업이 되살아나고, 카드의 × 단추로 버립니다: [저장](help:start-save). 학생용으로 설치한 PC는 처음 화면에 이 두 칸이 없고, NukCAD 메뉴의 {t:cmd.autosaves}에서 복구본을 엽니다.
+- 처음 화면에는 {t:start.recent} 칸(최근 연 파일 10개, 2열)과 {t:start.saves} 칸(저장하지 않은 작업의 복구본)이 나옵니다. 최근 파일 카드를 누르면 다시 열고, 파일이 이 PC에 있으면 {t:recent.local}로 표시됩니다. 과제 서버의 파일은 그 서버에 그 계정으로 로그인해 있을 때만 열립니다. 자동 저장 카드를 누르면(풍선 도움말 {t:start.recoverOpen}) 작업이 되살아나고, 카드의 × 단추로 버립니다: [저장](help:start-save). 멘티용으로 설치한 PC는 처음 화면에 이 두 칸이 없고, NukCAD 메뉴의 {t:cmd.autosaves}에서 복구본을 엽니다.
 - 처음 화면 아래의 {c:open} 단추로 파일을 바로 엽니다. 3D 건설 파일을 열면 3D 건설로 열립니다.
 - 단위와 크기 입력은 [단위와 크기](help:start-units)를 봅니다.
 
@@ -343,7 +343,7 @@ order: 40
 - 파일에는 보던 화면도 함께 저장됩니다: 카메라 위치·방향·투영·확대, 3D 건설의 작업 층과 작업 범위, 조명 시각. 파일을 열면 그대로 돌아옵니다. {c:otrack}(F11), {t:grid.ortho}(F8), 격자 스냅은 저장하지 않습니다. 화면만 회전해서는 저장할 변경이 생기지 않습니다.
 - 저장 위치를 선택하는 창이 없는 브라우저에서는 파일이 다운로드 폴더에 저장됩니다.
 - USB나 클라우드 드라이브 폴더에 저장하면 다른 컴퓨터에서도 열 수 있습니다: [열기·가져오기](help:start-open).
-- {t:set.autosave} 설정은 기본으로 5분마다 저장하지 않은 작업의 복구본을 이 컴퓨터에 남깁니다. 프로그램이 갑자기 꺼지면 처음 화면의 {t:start.saves} 칸에서 그 카드를 눌러(풍선 도움말 {t:start.recoverOpen}) 되살립니다. 학생용으로 설치한 PC는 NukCAD 메뉴의 {t:cmd.autosaves}에서 열고, 복구본은 1시간 동안만 보관됩니다. 간격은 {c:settings} → {t:set.options}에서 바꿉니다. {c:new}, {c:open}, {c:home}에서 작업을 버리기로 하면 그 복구본도 삭제됩니다.
+- {t:set.autosave} 설정은 기본으로 5분마다 저장하지 않은 작업의 복구본을 이 컴퓨터에 남깁니다. 프로그램이 갑자기 꺼지면 처음 화면의 {t:start.saves} 칸에서 그 카드를 눌러(풍선 도움말 {t:start.recoverOpen}) 되살립니다. 멘티용으로 설치한 PC는 NukCAD 메뉴의 {t:cmd.autosaves}에서 열고, 복구본은 1시간 동안만 보관됩니다. 간격은 {c:settings} → {t:set.options}에서 바꿉니다. {c:new}, {c:open}, {c:home}에서 작업을 버리기로 하면 그 복구본도 삭제됩니다.
 - 3D 프린터용 STL은 저장이 아니라 내보내기입니다: [내보내기·3D 프린팅](help:start-export).
 
 ## 자주 하는 실수
@@ -6872,7 +6872,7 @@ Cadoo는 AI 없이도 도움말과 규칙으로 답하고 물체를 만듭니다
 - {t:aip.advanced}의 {t:bigai.engine}에서 {t:bigai.engine.webgpu}은 그래픽 칩으로, {t:bigai.engine.cpu} 쪽은 프로세서로 실행합니다. 프로세서 쪽은 더 큰 모델을 쓰지만 메모리를 많이 쓰고 답이 느립니다.
 - 웹판 AI와 작은 모델은 그래픽 칩(WebGPU)이 있어야 합니다. 그래픽 가속이 꺼져 있으면 [3D 화면이 검거나 느릴 때](help:faq-black-screen)를 봅니다.
 - 멘토 서버는 멘토 PC의 NukCAD가 켠 프로그램입니다. 멘토 서버를 쓸 때 학년·반·번호는 과제 서버에 로그인한 계정의 것을 씁니다([과제 서버 접속](help:more-school-server)). 멘토 도움 요청은 멘토 서버가 아니라 과제 서버로 연결합니다([멘토 도움 요청](help:more-mentor-help)).
-- {t:bigai.removeAll}는 이 PC에 받은 AI 파일을 모두 삭제합니다. 설치할 때 함께 받은 공용 AI 파일도 삭제하며, 필요하면 Windows가 관리자 권한을 묻습니다. 학교 학생용 PC의 공용 AI 파일은 멘토가 관리하므로 그대로 둡니다.
+- {t:bigai.removeAll}는 이 PC에 받은 AI 파일을 모두 삭제합니다. 설치할 때 함께 받은 공용 AI 파일도 삭제하며, 필요하면 Windows가 관리자 권한을 묻습니다. 학교 멘티용 PC의 공용 AI 파일은 멘토가 관리하므로 그대로 둡니다.
 - AI가 무엇을 돕지 않는지는 [AI가 못 하는 것·안전](help:more-ai-limits)에 있습니다.
 
 ## 자주 하는 실수
@@ -7023,7 +7023,7 @@ desktop: true
 - 같은 학생의 같은 종류 알림은 10분에 한 번만 옵니다. 알림은 멘토 서버를 끄면 사라지고, {t:tapp.al.clear}로 삭제할 수도 있습니다.
 - {t:tapp.tab.help} 탭은 {c:cohelpTeacher} 창과 같습니다. 요청에서 {t:cohelp.accept}을 누르거나 연결된 학생에게 {t:cohelp.t.invite}을 보내고, 학생이 수락하면 학생 모델이 내 화면에 나옵니다. 한 번에 한 학생만 볼 수 있습니다.
 - 이 창을 열면 내 멘토 방이 열리고 6자리 방 번호가 보입니다. 내 과제를 받는 학생은 번호 없이 들어오고, 그 밖의 학생에게는 번호를 알려 줍니다. 번호는 {t:cohelp.p2p.newCode}로 바꾸고, 이전 번호는 쓸 수 없게 됩니다. 연결은 같은 학교 네트워크에서만 되고, 학생이 수락해야 합니다.
-- 학생용으로 설치한 PC는 재난 시뮬레이션이 잠겨 있습니다. {c:nukeStudents}에서 학생을 선택해 풀어 주거나 다시 잠급니다.
+- 멘티용으로 설치한 PC는 재난 시뮬레이션이 잠겨 있습니다. {c:nukeStudents}에서 학생을 선택해 풀어 주거나 다시 잠급니다.
 - 같이 보는 동안 {t:cohelp.t.follow}를 끄면 내 마음대로 회전해 봅니다. 학생이 {t:cohelp.allowEdit}을 눌러야 고칠 수 있고, {t:cohelp.t.giveBack}로 돌려줍니다. {t:cohelp.stop}를 누르면 학생 모델이 사라지고 내 문서가 그대로 돌아옵니다.
 - {t:tapp.tab.ai} 탭에서 AI 모델, 학생 한 명의 하루 질문 수 같은 한도, {t:tapp.extra}를 정하고 {t:tapp.ai.save}을 누릅니다. 시험 질문은 학생 사용량에 세지 않습니다.
 - {t:tapp.lim.keepLastQuestions}을 0으로 두면 질문을 남기지 않습니다. 0보다 크게 두어도 Cadoo 대화의 질문은 남기지 않습니다.
@@ -7101,7 +7101,7 @@ desktop: true
 
 ## 하는 순서
 
-1. 접속 메뉴에서 {c:schoolConnect}를 누릅니다. 학생용·멘토용으로 설치한 PC는 로그인하지 않았으면 NukCAD를 켤 때 이 창이 한 번 저절로 열립니다.
+1. 접속 메뉴에서 {c:schoolConnect}를 누릅니다. 멘티용·멘토용으로 설치한 PC는 로그인하지 않았으면 NukCAD를 켤 때 이 창이 한 번 저절로 열립니다.
 2. {t:sas.find}를 눌러 목록에서 과제 서버를 선택합니다. 목록에 없으면 {t:sas.address}에 주소를 직접 적습니다. 한 번 접속한 주소는 {t:sas.recent}에 남습니다.
 3. 학교 계정의 아이디와 비밀번호를 적고 {t:sas.login} 단추를 누릅니다. OTP를 쓰는 계정은 OTP 6자리를 이어서 적습니다.
 4. 처음 로그인하면 {t:sas.consent.title} 화면이 나옵니다. 내용을 읽고 동의해야 쓸 수 있습니다.
@@ -7347,7 +7347,7 @@ order: 60
 
 1. {c:open}({k:open}) 명령으로 파일을 엽니다. STL·OBJ·STEP·DXF·SVG 같은 다른 프로그램의 파일은 새 문서로 열리고 놓을 자리를 선택하는 창이 뜹니다. 지금 문서에 더하려면 {c:importFile} 명령을 씁니다.
 2. {t:msg.openFailed} 안내가 뜨면 그 파일이 NukCAD 파일인지 확장자를 확인합니다.
-3. 앱이 갑자기 닫혔으면 앱을 다시 엽니다. 처음 화면의 {t:start.saves} 칸에 카드가 보이면 눌러(풍선 도움말 {t:start.recoverOpen}) 저장하지 않은 작업을 되살립니다. 학생용으로 설치한 PC는 NukCAD 메뉴의 {t:cmd.autosaves}에서 엽니다(복구본은 1시간 동안만 보관).
+3. 앱이 갑자기 닫혔으면 앱을 다시 엽니다. 처음 화면의 {t:start.saves} 칸에 카드가 보이면 눌러(풍선 도움말 {t:start.recoverOpen}) 저장하지 않은 작업을 되살립니다. 멘티용으로 설치한 PC는 NukCAD 메뉴의 {t:cmd.autosaves}에서 엽니다(복구본은 1시간 동안만 보관).
 4. 되살린 작업은 바로 {c:saveAs}({k:saveAs}) 명령으로 이름을 붙여 저장합니다.
 
 ## 팁
