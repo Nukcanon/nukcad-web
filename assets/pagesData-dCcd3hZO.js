@@ -4488,7 +4488,7 @@ order: 150
 
 - 문·창·천창은 영역을 채우지 않습니다. 책상·차·나무처럼 바닥에 서는 물체를 선택합니다.
 - 영역을 그린 뒤 화면을 클릭해도 아무 일도 일어나지 않습니다. Enter로 놓거나 {t:fa.redraw}를 누릅니다.
-- 영역을 그린 채 Esc를 눌렀더니 아무것도 놓이지 않았습니다. Esc는 취소입니다. 물체는 Enter(또는 오른쪽 클릭)를 눌러야 놓입니다.
+- 영역을 그린 채 Esc를 눌렀더니 물체가 놓였습니다. 다 그린 영역은 Esc·닫기·다른 도구로 끝내도 Enter(또는 오른쪽 클릭)와 같이 놓입니다. 아직 그리는 중인 영역은 놓이지 않습니다. 놓지 않으려면 Ctrl+Z로 되돌립니다.
 - 생각보다 적게 놓입니다. 경계·벽에서 띄우는 거리, 겹치는 자리 건너뛰기, {t:fa.max}을 확인합니다.
 - 너무 작은 영역은 만들어지지 않습니다. 더 크게 그립니다.
 - 물체는 지금 작업 중인 층 바닥에 놓입니다. 다른 층을 채우려면 층을 먼저 바꿉니다.
@@ -5012,7 +5012,7 @@ order: 120
 - 경사 지붕을 선택했는데 평지붕으로 만든다는 안내가 나옵니다. 모양이 너무 복잡한 경우이므로 경사 변을 줄이거나 외곽선을 단순하게 합니다.
 - 다른 건물의 벽이나 바닥판은 선택할 수 없습니다. {c:levelPanel}에서 그 건물을 눌러 작업할 건물을 바꾼 뒤 다시 클릭합니다.
 - 지붕이 벽 위에 떠 있거나 벽에 묻힙니다. {t:flow.roofBase}과 {t:flow.offset}을 확인합니다.
-- 지붕 아래 모양을 선택한 뒤 Esc를 눌렀더니 지붕이 생기지 않았습니다. Esc는 취소입니다. 지붕은 적용 (Enter)을 눌러야 만들어집니다.
+- 지붕 아래 모양을 선택한 뒤 Esc를 눌렀더니 지붕이 생겼습니다. 다 고른 지붕은 Esc·닫기·다른 도구로 끝내도 적용 (Enter)과 같이 만들어집니다. 만들지 않으려면 Ctrl+Z로 되돌립니다.
 `,lt=`---
 id: arch-slab
 title: 바닥판 깔기
@@ -12116,7 +12116,7 @@ Draw an area on the floor and the selected objects fill it in a grid. Use it for
 
 - Doors, windows and skylights do not fill an area. Select objects that stand on the floor, such as desks, cars or trees.
 - Clicking the view after the area is drawn does nothing. Press Enter to place, or click {t:fa.redraw}.
-- Esc with an area drawn placed nothing. Esc cancels: the objects are placed only with Enter (or a right click).
+- Esc with an area drawn placed the objects. An area drawn to the end is placed by Esc, Close or another tool too, as with Enter (or a right click). An area still being drawn is not placed. To take it back, press Ctrl+Z.
 - Fewer objects than expected. Check the room from edges and walls, the skipping of taken spots and {t:fa.max}.
 - A very small area is not made. Draw it larger.
 - Objects go on the floor of the level you are working on. Change the level first to fill another one.
@@ -12641,7 +12641,7 @@ Puts a roof over a slab, a closed ring of walls or a rectangle drawn on the floo
 - A message says the roof is made flat. The shape is too complex for a sloped roof: slope fewer sides or simplify the outline.
 - Walls and slabs of another building cannot be selected. Click that building in the {c:levelPanel} to work in it, then click again.
 - The roof floats above the walls or cuts into them. Check the {t:flow.roofBase} and the {t:flow.offset}.
-- Esc after the outline is selected made no roof. Esc cancels: the roof is made only with Apply (Enter).
+- Esc after the outline was selected made the roof. A roof ready to make is made by Esc, Close or another tool too, as with Apply (Enter). To take it back, press Ctrl+Z.
 `,Ci=`---
 id: arch-slab
 title: Lay a floor slab
